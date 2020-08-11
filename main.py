@@ -5,6 +5,7 @@ import os
 import random
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
+from random import choice
 
 TOKEN = 'NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY'
 PREFIX = (".", ">")
@@ -44,36 +45,81 @@ async def invite(ctx):
     await ctx.send("Check Your Dm's :wink:")
     await message_author.send('https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot')
 
-
-@client.command(pass_context=True)
-async def dankrate(ctx, *, message):
+@client.command()
+@commands.guild_only()
+async def randomroulette(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
     
-    if len(message.content.split(' ')) > 1:
-        print(message)
-        
-        aaaaa = random.randint(1, 101)
-        print("{} issued .dankrate 💸".format(message_author))
-        
-        if aaaaa == 101:
-            embedVar = discord.Embed(
-                title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank", color=15105570)
-        else:
-            embedVar = discord.Embed(
-                title="Dank r8 Machine", description=f"{message} is {aaaaa}% dank", color=3066993)
-        await message_channel.send(embed=embedVar)
-    else:
-        aaaaa = random.randint(1, 101)
-        print("{} issued .dankrate 💸".format(message_author))
-        
-        if aaaaa == 101:
-            embedVar = discord.Embed(
-                title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:", color=15105570)
-        else:
-            embedVar = discord.Embed(
-                title="Dank r8 Machine", description=f"you are {aaaaa}% dank", color=3066993)
-        await message_channel.send(embed=embedVar)
+    try:
+        print(choice(tuple(member.mention for member in ctx.guild.members if not member.bot)))
+    except IndexError:
+        await ctx.send("You are the only human member on it!")
 
+@client.command()
+async def dankrate(ctx, *, message):
+    message_author = ctx.author
+    message_channel = ctx.channel
+
+    aaaaa = random.randint(1, 101)
+    print("{} issued .dankrate 💸".format(message_author))
+
+    if message == "megalovania" or message == "tacoz" or message == "<@***REMOVED***>" or message == "TacoBot":
+        embedVar = discord.Embed(title="Dank r8 Machine", description=f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:", color=3066993)
+    else:
+        if aaaaa == 101:
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank", color=15105570)
+        else:
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"{message} is {aaaaa}% dank", color=3066993)
+    await message_channel.send(embed=embedVar)
+
+@dankrate.error
+async def dankrate_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        message_author = ctx.author
+        aaaaa = random.randint(1, 101)
+        print("{} issued .dankrate 💸".format(message_author))
+
+        if aaaaa == 101:
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank", color=15105570)
+        else:
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you are {aaaaa}% dank", color=3066993)
+        return await ctx.send(embed=embedVar)
+    else:
+        raise(error)
+
+
+@client.command()
+async def bigbrainrate(ctx, *, message):
+    message_author = ctx.author
+    message_channel = ctx.channel
+
+    aaaaa = random.randint(1, 101)
+    print("{} issued .bigbrainrate 🧠".format(message_author))
+
+    if message == "megalovania" or message == "tacoz" or message == "<@***REMOVED***>" or message == "TacoBot":
+        embedVar = discord.Embed(title="big brain r8 Machine", description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:", color=3066993)
+    else:
+        if aaaaa == 101:
+            embedVar = discord.Embed(title="big brain r8 Machine", description=f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain", color=15105570)
+        else:
+            embedVar = discord.Embed(title="big brain r8 Machine", description=f"{message} is {aaaaa}% big brain", color=3066993)
+    await message_channel.send(embed=embedVar)
+
+
+@bigbrainrate.error
+async def dankrate_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        message_author = ctx.author
+        aaaaa = random.randint(1, 101)
+        print("{} issued .bigbrainrate 🧠".format(message_author))
+
+        if aaaaa == 101:
+            embedVar = discord.Embed(title="big brain r8 Machine", description=f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain", color=15105570)
+        else:
+            embedVar = discord.Embed(title="big brain r8 Machine", description=f"you are {aaaaa}% big brain", color=3066993)
+        return await ctx.send(embed=embedVar)
+    else:
+        raise(error)
 
 client.run(TOKEN)
