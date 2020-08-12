@@ -10,6 +10,7 @@ from discord.ext.commands import has_permissions, CheckFailure, Bot
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
 OWNERID = ***REMOVED***
+footer ="Made with ❤️ by Tacoz!"
 
 client = commands.Bot(command_prefix=PREFIX, owner_id = OWNERID, case_insensitive=True)
 
@@ -88,7 +89,8 @@ async def dankrate(self, ctx, *, message):
                 title="Dank r8 Machine",
                 description=f"{message} is {aaaaa}% dank",
                 color=3066993)
-            await message_channel.send(embed=embedVar)
+        embedVar.set_footer(text=footer)
+        await message_channel.send(embed=embedVar)
 
 
 @dankrate.error
@@ -99,15 +101,10 @@ async def dankrate_error(self, ctx, error):
         print("{} issued .dankrate 💸".format(message_author))
 
         if aaaaa == 101:
-            embedVar = discord.Embed(
-            title="Dank r8 Machine",
-            description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
-            color=15105570)
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank", color=15105570)
         else:
-            embedVar = discord.Embed(
-            title="Dank r8 Machine",
-            description=f"you are {aaaaa}% dank",
-            color=3066993)
+            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you are {aaaaa}% dank", color=3066993)
+        embedVar.set_footer(text=footer)
         return await ctx.send(embed=embedVar)
     else:
         raise(error)
@@ -137,6 +134,7 @@ async def bigbrainrate(self, ctx, *, message):
             title="big brain r8 Machine",
             description=f"{message} is {aaaaa}% big brain",
             color=3066993)
+    embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
 
 
@@ -154,6 +152,7 @@ async def dankrate_error(self, ctx, error):
             color=15105570)
         else:
             embedVar = discord.Embed(title="big brain r8 Machine", description=f"you are {aaaaa}% big brain", color=3066993)
+        embedVar.set_footer(text=footer)
         return await ctx.send(embed=embedVar)
     else:
         raise(error)
@@ -170,6 +169,7 @@ async def eightball(self, ctx, *, message):
         title="the magic 8ball",
         description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
         color=3066993)
+    embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
 
 
@@ -186,8 +186,66 @@ async def eightball_error(self, ctx, error):
             title="the magic 8ball",
             description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
             color=3066993)
+        embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
     else:
         raise(error)
+    
+
+@client.command(
+    name='meme',
+    description='Sends a random meme',
+    aliases=['memes', 'randomeme', 'subreddit']
+)
+async def meme(self, ctx, subreddit: str = None, amount: int = None, time: str = None):
+    if not time:
+        time = 'month'
+    possibletime = ['day', 'week', 'month','year']
+    time = time.replace("ly", "")
+    if not time in possibletime:
+        return
+    if not subreddit:
+        if not amount:
+            async with ctx.typing():
+                meme = self.API_Handler.getMeme("dankmemes")
+                e = discord.Embed(colour=0x2ECC71)
+                e.title = f"{meme['title']}"
+                e.set_image(url=meme['url'])
+                e.set_footer(
+                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
+                await ctx.send(embed=e)
+                return
+        elif amount:
+            async with ctx.typing():
+                meme = self.API_Handler.getMeme("dankmemes", amount, time)
+                e = discord.Embed(colour=0x2ECC71)
+                e.title = f"{meme['title']}"
+                e.set_image(url=meme['url'])
+                e.set_footer(
+                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
+                await ctx.send(embed=e)
+                return
+    elif subreddit:
+        if amount:
+            async with ctx.typing():
+                meme = self.API_Handler.getMeme(subreddit, amount, time)
+                e = discord.Embed(colour=0x2ECC71)
+                e.title = f"{meme['title']}"
+                e.set_image(url=meme['url'])
+                e.set_footer(
+                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
+                await ctx.send(embed=e)
+                return
+        else:
+            async with ctx.typing():
+                amount = 50
+                meme = self.API_Handler.getMeme(subreddit, amount, time)
+                e = discord.Embed(colour=0x2ECC71)
+                e.title = f"{meme['title']}"
+                e.set_image(url=meme['url'])
+                e.set_footer(
+                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
+                await ctx.send(embed=e)
+                return
 
 client.run(TOKEN)
