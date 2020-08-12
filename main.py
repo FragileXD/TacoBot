@@ -13,9 +13,10 @@ start_time = time.monotonic()
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
 OWNERID = ***REMOVED***
-footer ="Made with ❤️ by Tacoz!"
+footer = "Made with ❤️ by Tacoz!"
 
-client = commands.Bot(command_prefix=PREFIX, owner_id = OWNERID, case_insensitive=True)
+client = commands.Bot(
+    command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=True)
 
 
 @client.event
@@ -33,7 +34,9 @@ async def hello(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
     print("{} issued .hello 👋".format(message_author))
-    await message_channel.send("<a:party_blob:743099804279898143> Hello, {}! 👋".format(message_author.name))
+    await message_channel.send(
+        "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
+            message_author.name))
 
 
 @client.command(aliases=['pingo'])
@@ -61,11 +64,14 @@ async def invite(ctx):
 async def randomroulette(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
-    
+
     print("{} issued .randomroulette".format(message_author))
 
     try:
-        await ctx.send(choice(tuple(member.mention for member in ctx.guild.members if not member.bot)))
+        await ctx.send(
+            choice(
+                tuple(member.mention for member in ctx.guild.members
+                      if not member.bot)))
     except IndexError:
         await ctx.send("You are the only human member on it!")
 
@@ -80,9 +86,9 @@ async def dankrate(ctx, *, message):
 
     if message == "megalovania" or message == "tacoz" or message == "TacoBot":
         embedVar = discord.Embed(
-        title="Dank r8 Machine",
-        description=f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
-        color=3066993)
+            title="Dank r8 Machine",
+            description=f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
+            color=3066993)
     else:
         if aaaaa == 101:
             embedVar = discord.Embed(
@@ -106,13 +112,19 @@ async def dankrate_error(ctx, error):
         print("{} issued .dankrate 💸".format(message_author))
 
         if aaaaa == 101:
-            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank", color=15105570)
+            embedVar = discord.Embed(
+                title="Dank r8 Machine",
+                description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
+                color=15105570)
         else:
-            embedVar = discord.Embed(title="Dank r8 Machine", description=f"you are {aaaaa}% dank", color=3066993)
+            embedVar = discord.Embed(
+                title="Dank r8 Machine",
+                description=f"you are {aaaaa}% dank",
+                color=3066993)
         embedVar.set_footer(text=footer)
         return await ctx.send(embed=embedVar)
     else:
-        raise(error)
+        raise (error)
 
 
 @client.command(aliases=['epicgamer', 'rateepicgamer'])
@@ -157,11 +169,14 @@ async def epicgamerrate_error(ctx, error):
                 color=15105570)
         else:
             embedVar = discord.Embed(
-                title="epic gamer r8 Machine", description=f"you are {aaaaa}% epic gamer 😎", color=3066993)
+                title="epic gamer r8 Machine",
+                description=f"you are {aaaaa}% epic gamer 😎",
+                color=3066993)
         embedVar.set_footer(text=footer)
         return await ctx.send(embed=embedVar)
     else:
-        raise(error)
+        raise (error)
+
 
 @client.command(aliases=['bigbrain', 'ratebigbrain'])
 async def bigbrainrate(ctx, *, message):
@@ -173,20 +188,20 @@ async def bigbrainrate(ctx, *, message):
 
     if message == "megalovania" or message == "tacoz" or message == "TacoBot":
         embedVar = discord.Embed(
-        title="big brain r8 Machine",
-        description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
-        color=3066993)
+            title="big brain r8 Machine",
+            description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+            color=3066993)
     else:
         if aaaaa == 101:
             embedVar = discord.Embed(
-            title="big brain r8 Machine",
-            description=f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
-            color=15105570)
+                title="big brain r8 Machine",
+                description=f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
+                color=15105570)
         else:
             embedVar = discord.Embed(
-            title="big brain r8 Machine",
-            description=f"{message} is {aaaaa}% big brain",
-            color=3066993)
+                title="big brain r8 Machine",
+                description=f"{message} is {aaaaa}% big brain",
+                color=3066993)
     embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
 
@@ -200,15 +215,19 @@ async def bigbrainrate_error(ctx, error):
 
         if aaaaa == 101:
             embedVar = discord.Embed(
-            title="big brain r8 Machine",
-            description=f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
-            color=15105570)
+                title="big brain r8 Machine",
+                description=f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
+                color=15105570)
         else:
-            embedVar = discord.Embed(title="big brain r8 Machine", description=f"you are {aaaaa}% big brain", color=3066993)
+            embedVar = discord.Embed(
+                title="big brain r8 Machine",
+                description=f"you are {aaaaa}% big brain",
+                color=3066993)
         embedVar.set_footer(text=footer)
         return await ctx.send(embed=embedVar)
     else:
-        raise(error)
+        raise (error)
+
 
 @client.command(aliases=['8ball'])
 async def eightball(ctx, *, message):
@@ -216,8 +235,18 @@ async def eightball(ctx, *, message):
     message_channel = ctx.channel
 
     print("{} issued .8ball 🎱".format(message_author))
-    choices = ["hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Only thing I can predict is you're stupid", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
-               "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it"]
+    choices = [
+        "hell na", "wtf no way",
+        "you are so ugly the ball broke. ask again later", "Ah I see, yes",
+        "better not tell you now >:)",
+        "Only thing I can predict is you're stupid",
+        "Concentrate and ask again.", "Don't count on it", "It is certain!",
+        "It is decidely so.", "Most likely", "My reply is no lol",
+        "My (totally accurate) sources say no", "Outlook not so good",
+        "Outlook good", "Reply hazy, try again", "Signs point to a YES!",
+        "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely",
+        "you may rely on it"
+    ]
     aaaaa = random.choice(choices)
 
     embedVar = discord.Embed(
@@ -233,28 +262,45 @@ async def eightball_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please Input something after the command")
     else:
-        raise(error)
+        raise (error)
 
-@client.command(aliases=['haxer',"hacker","hackertext"])
+
+@client.command(aliases=['partyblob', "partyman", "partyfrog"])
+async def party(ctx, *, message):
+    message_author = ctx.author
+    print("{} issued .party 🥳".format(message_author))
+    a = message.replace(" ", "<a:party_blob:743099804279898143>")
+    await ctx.send(a)
+
+
+@party.error
+async def party_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please Input something after the command")
+    else:
+        raise (error)
+
+
+@client.command(aliases=['haxer', "hacker", "hackertext"])
 async def leetify(ctx, *, message):
     message_author = ctx.author
     print("{} issued .leetify 👩‍💻".format(message_author))
-    a = message.replace("A","4")
-    a = a.replace("a","4")
-    a = a.replace("B","8")
-    a = a.replace("b","8")
-    a = a.replace("E","3")
-    a = a.replace("e","3")
-    a = a.replace("G","6")
-    a = a.replace("g","6")
-    a = a.replace("I","1")
-    a = a.replace("i","1")
-    a = a.replace("O","0")
-    a = a.replace("o","0")
-    a = a.replace("S","5")
-    a = a.replace("s","5")
-    a = a.replace("T","7")
-    a = a.replace("t","7")
+    a = message.replace("A", "4")
+    a = a.replace("a", "4")
+    a = a.replace("B", "8")
+    a = a.replace("b", "8")
+    a = a.replace("E", "3")
+    a = a.replace("e", "3")
+    a = a.replace("G", "6")
+    a = a.replace("g", "6")
+    a = a.replace("I", "1")
+    a = a.replace("i", "1")
+    a = a.replace("O", "0")
+    a = a.replace("o", "0")
+    a = a.replace("S", "5")
+    a = a.replace("s", "5")
+    a = a.replace("T", "7")
+    a = a.replace("t", "7")
     await ctx.send(a)
 
 
@@ -263,7 +309,8 @@ async def leetify_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please Input something after the command")
     else:
-        raise(error)
+        raise (error)
+
 
 @client.command(aliases=['mockery'])
 async def mock(ctx, *, message):
@@ -272,13 +319,15 @@ async def mock(ctx, *, message):
     a = (''.join(choice((str.upper, str.lower))(c) for c in message))
     await ctx.send(a)
 
+
 @mock.error
 async def mock_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Please Input something after the command")
     else:
-        raise(error)
-    
+        raise (error)
+
+
 @client.command(aliases=['up time'])
 async def uptime(ctx):
     message_author = ctx.author
@@ -290,5 +339,6 @@ async def uptime(ctx):
         color=3066993)
     embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
-        
+
+
 client.run(TOKEN)
