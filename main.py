@@ -242,8 +242,5 @@ async def uptime(ctx):
         color=3066993)
     embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
-    
-    
-    await ctx.send()
         
 client.run(TOKEN)
