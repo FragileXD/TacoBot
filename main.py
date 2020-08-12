@@ -3,12 +3,10 @@ import os
 import sys
 import urllib
 import random
+import time
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
-
-
-self.API_Handler = ImageAPI()
 
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
@@ -29,7 +27,7 @@ async def on_ready():
 
 
 @client.command(aliases=['hi'])
-async def hello(self, ctx):
+async def hello(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
     print("{} issued .hello 👋".format(message_author))
@@ -37,14 +35,14 @@ async def hello(self, ctx):
 
 
 @client.command(aliases=['pingo'])
-async def ping(self, ctx):
+async def ping(ctx):
     message_author = ctx.author
     print("{} issued .ping 🏓".format(message_author))
     await ctx.send(f'🏓 Pong! {round(client.latency * 1000)}ms')
 
 
 @client.command(aliases=['botinv'])
-async def invite(self, ctx):
+async def invite(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
 
@@ -58,18 +56,20 @@ async def invite(self, ctx):
 
 @client.command()
 @commands.guild_only()
-async def randomroulette(self, ctx):
+async def randomroulette(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
+    
+    print("{} issued .randomroulette".format(message_author))
 
     try:
-        print(choice(tuple(member.mention for member in ctx.guild.members if not member.bot)))
+        await ctx.send(choice(tuple(member.mention for member in ctx.guild.members if not member.bot)))
     except IndexError:
         await ctx.send("You are the only human member on it!")
 
 
 @client.command(aliases=['ratedank'])
-async def dankrate(self, ctx, *, message):
+async def dankrate(ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
 
@@ -93,11 +93,11 @@ async def dankrate(self, ctx, *, message):
                 description=f"{message} is {aaaaa}% dank",
                 color=3066993)
         embedVar.set_footer(text=footer)
-        await message_channel.send(embed=embedVar)
+    await message_channel.send(embed=embedVar)
 
 
 @dankrate.error
-async def dankrate_error(self, ctx, error):
+async def dankrate_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         message_author = ctx.author
         aaaaa = random.randint(1, 101)
@@ -114,7 +114,7 @@ async def dankrate_error(self, ctx, error):
 
 
 @client.command(aliases=['bigbrain', 'ratebigbrain', 'big brain rate'])
-async def bigbrainrate(self, ctx, *, message):
+async def bigbrainrate(ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
 
@@ -142,7 +142,7 @@ async def bigbrainrate(self, ctx, *, message):
 
 
 @bigbrainrate.error
-async def dankrate_error(self, ctx, error):
+async def bigbrainrate_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         message_author = ctx.author
         aaaaa = random.randint(1, 101)
@@ -161,12 +161,14 @@ async def dankrate_error(self, ctx, error):
         raise(error)
 
 @client.command(aliases=['8ball'])
-async def eightball(self, ctx, *, message):
+async def eightball(ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
 
     print("{} issued .8ball 🎱".format(message_author))
-    aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.", "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it")
+    choices = ["hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
+               "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it"]
+    aaaaa = random.choice(choices)
 
     embedVar = discord.Embed(
         title="the magic 8ball",
@@ -177,104 +179,61 @@ async def eightball(self, ctx, *, message):
 
 
 @eightball.error
-async def eightball_error(self, ctx, error):
+async def eightball_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        message_author = ctx.author
-        aaaaa = random.randint(1, 101)
-        print("{} issued .eightball 🎱".format(message_author))
+        await ctx.send("Please Input something after the command")
+    else:
+        raise(error)
 
-        aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
-                            "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it")
-        embedVar = discord.Embed(
-            title="the magic 8ball",
-            description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
-            color=3066993)
-        embedVar.set_footer(text=footer)
-        await message_channel.send(embed=embedVar)
+@client.command(aliases=['haxer',"hacker","hackertext"])
+async def leetify(ctx, *, message):
+    message_author = ctx.author
+    print("{} issued .leetify 👩‍💻".format(message_author))
+    a = message.replace("A","4")
+    a = a.replace("a","4")
+    a = a.replace("B","8")
+    a = a.replace("b","8")
+    a = a.replace("E","3")
+    a = a.replace("e","3")
+    a = a.replace("G","6")
+    a = a.replace("g","6")
+    a = a.replace("I","1")
+    a = a.replace("i","1")
+    a = a.replace("O","0")
+    a = a.replace("o","0")
+    a = a.replace("S","5")
+    a = a.replace("s","5")
+    a = a.replace("T","7")
+    a = a.replace("t","7")
+    await ctx.send(a)
+
+
+@leetify.error
+async def leetify_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please Input something after the command")
+    else:
+        raise(error)
+
+@client.command(aliases=['mockery'])
+async def mock(ctx, *, message):
+    message_author = ctx.author
+    print("{} issued .mock 🎱".format(message_author))
+    a = (''.join(choice((str.upper, str.lower))(c) for c in message))
+    await ctx.send(a)
+
+@mock.error
+async def mock_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send("Please Input something after the command")
     else:
         raise(error)
     
-
-@client.command(
-    name='meme',
-    description='Sends a random meme',
-    aliases=['memes', 'randomeme', 'subreddit']
-)
-async def meme(self, ctx, subreddit: str = None, amount: int = None, time: str = None):
-    if not time:
-        time = 'month'
-    possibletime = ['day', 'week', 'month','year']
-    time = time.replace("ly", "")
-    if not time in possibletime:
-        return
-    if not subreddit:
-        if not amount:
-            async with ctx.typing():
-                meme = self.API_Handler.getMeme("dankmemes")
-                e = discord.Embed(colour=0x2ECC71)
-                e.title = f"{meme['title']}"
-                e.set_image(url=meme['url'])
-                e.set_footer(
-                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
-                await ctx.send(embed=e)
-                return
-        elif amount:
-            async with ctx.typing():
-                meme = self.API_Handler.getMeme("dankmemes", amount, time)
-                e = discord.Embed(colour=0x2ECC71)
-                e.title = f"{meme['title']}"
-                e.set_image(url=meme['url'])
-                e.set_footer(
-                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
-                await ctx.send(embed=e)
-                return
-    elif subreddit:
-        if amount:
-            async with ctx.typing():
-                meme = self.API_Handler.getMeme(subreddit, amount, time)
-                e = discord.Embed(colour=0x2ECC71)
-                e.title = f"{meme['title']}"
-                e.set_image(url=meme['url'])
-                e.set_footer(
-                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
-                await ctx.send(embed=e)
-                return
-        else:
-            async with ctx.typing():
-                amount = 50
-                meme = self.API_Handler.getMeme(subreddit, amount, time)
-                e = discord.Embed(colour=0x2ECC71)
-                e.title = f"{meme['title']}"
-                e.set_image(url=meme['url'])
-                e.set_footer(
-                    text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
-                await ctx.send(embed=e)
-                return
-            
-
-@client.command(aliases=['haxer',"hacker","hackertext"])
-async def leetify(self, ctx, message: str=None):
-    if not message:
-        ctx.send("Please input something after the command!")
-    elif message:
-        a = message.replace("A","4")
-        a = a.replace("a","4")
-        a = a.replace("B","8")
-        a = a.replace("b","8")
-        a = a.replace("E","3")
-        a = a.replace("e","3")
-        a = a.replace("G","6")
-        a = a.replace("g","6")
-        a = a.replace("I","1")
-        a = a.replace("i","1")
-        a = a.replace("O","0")
-        a = a.replace("o","0")
-        a = a.replace("S","5")
-        a = a.replace("s","5")
-        a = a.replace("T","7")
-        a = a.replace("t","7")
-        ctx.send(a)
-    else:
-        ctx.send("Something Went Wrong, Try Again!")
+@client.command(aliases=['up time'])
+async def uptime(ctx):
+    message_author = ctx.author
+    print("{} issued .uptime ⬆".format(message_author))
+    
+    await ctx.send(time.time())
         
 client.run(TOKEN)
