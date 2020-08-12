@@ -7,6 +7,9 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 
+
+self.API_Handler = ImageAPI()
+
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
 OWNERID = ***REMOVED***
@@ -247,5 +250,31 @@ async def meme(self, ctx, subreddit: str = None, amount: int = None, time: str =
                     text=f"👍 {meme['upvotes']} | Made with ❤️ by Tacoz!")
                 await ctx.send(embed=e)
                 return
+            
 
+@client.command(aliases=['haxer',"hacker","hackertext"])
+async def leetify(self, ctx, message: str=None):
+    if not message:
+        ctx.send("Please input something after the command!")
+    elif message:
+        a = message.replace("A","4")
+        a = a.replace("a","4")
+        a = a.replace("B","8")
+        a = a.replace("b","8")
+        a = a.replace("E","3")
+        a = a.replace("e","3")
+        a = a.replace("G","6")
+        a = a.replace("g","6")
+        a = a.replace("I","1")
+        a = a.replace("i","1")
+        a = a.replace("O","0")
+        a = a.replace("o","0")
+        a = a.replace("S","5")
+        a = a.replace("s","5")
+        a = a.replace("T","7")
+        a = a.replace("t","7")
+        ctx.send(a)
+    else:
+        ctx.send("Something Went Wrong, Try Again!")
+        
 client.run(TOKEN)
