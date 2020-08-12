@@ -24,7 +24,7 @@ async def on_ready():
     print('-------------')
 
 
-@client.command()
+@client.command(aliases=['hi'])
 async def hello(self, ctx):
     message_author = ctx.author
     message_channel = ctx.channel
@@ -32,14 +32,14 @@ async def hello(self, ctx):
     await message_channel.send("Hello, {}! 👋".format(message_author.name))
 
 
-@client.command()
+@client.command(aliases=['pingo'])
 async def ping(self, ctx):
     message_author = ctx.author
     print("{} issued .ping 🏓".format(message_author))
     await ctx.send(f'🏓 Pong! {round(client.latency * 1000)}ms')
 
 
-@client.command()
+@client.command(aliases=['botinv'])
 async def invite(self, ctx):
     message_author = ctx.author
     message_channel = ctx.channel
@@ -64,7 +64,7 @@ async def randomroulette(self, ctx):
         await ctx.send("You are the only human member on it!")
 
 
-@client.command()
+@client.command(aliases=['ratedank'])
 async def dankrate(self, ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
@@ -113,7 +113,7 @@ async def dankrate_error(self, ctx, error):
         raise(error)
 
 
-@client.command()
+@client.command(aliases=['bigbrain', 'ratebigbrain', 'big brain rate'])
 async def bigbrainrate(self, ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
@@ -158,39 +158,35 @@ async def dankrate_error(self, ctx, error):
     else:
         raise(error)
 
-@client.command()
-async def ball(self, ctx, *, message):
+@client.command(aliases=['8ball'])
+async def eightball(self, ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
 
-    aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.", )
     print("{} issued .8ball 🎱".format(message_author))
+    aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.", "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it")
 
     embedVar = discord.Embed(
         title="the magic 8ball",
-        description=f"{message_author}: {message}\n8ball: {aaaaa}",
+        description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
         color=3066993)
     await message_channel.send(embed=embedVar)
 
 
-@dankrate.error
-async def dankrate_error(self, ctx, error):
+@eightball.error
+async def eightball_error(self, ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         message_author = ctx.author
         aaaaa = random.randint(1, 101)
-        print("{} issued .dankrate 💸".format(message_author))
+        print("{} issued .eightball 🎱".format(message_author))
 
-        if aaaaa == 101:
-            embedVar = discord.Embed(
-            title="Dank r8 Machine",
-            description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
-            color=15105570)
-        else:
-            embedVar = discord.Embed(
-            title="Dank r8 Machine",
-            description=f"you are {aaaaa}% dank",
+        aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
+                            "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it")
+        embedVar = discord.Embed(
+            title="the magic 8ball",
+            description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
             color=3066993)
-        return await ctx.send(embed=embedVar)
+        await message_channel.send(embed=embedVar)
     else:
         raise(error)
 
