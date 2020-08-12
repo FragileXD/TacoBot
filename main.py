@@ -158,4 +158,40 @@ async def dankrate_error(self, ctx, error):
     else:
         raise(error)
 
+@client.command()
+async def ball(self, ctx, *, message):
+    message_author = ctx.author
+    message_channel = ctx.channel
+
+    aaaaa = random.choice("hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.", )
+    print("{} issued .8ball 🎱".format(message_author))
+
+    embedVar = discord.Embed(
+        title="the magic 8ball",
+        description=f"{message_author}: {message}\n8ball: {aaaaa}",
+        color=3066993)
+    await message_channel.send(embed=embedVar)
+
+
+@dankrate.error
+async def dankrate_error(self, ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        message_author = ctx.author
+        aaaaa = random.randint(1, 101)
+        print("{} issued .dankrate 💸".format(message_author))
+
+        if aaaaa == 101:
+            embedVar = discord.Embed(
+            title="Dank r8 Machine",
+            description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
+            color=15105570)
+        else:
+            embedVar = discord.Embed(
+            title="Dank r8 Machine",
+            description=f"you are {aaaaa}% dank",
+            color=3066993)
+        return await ctx.send(embed=embedVar)
+    else:
+        raise(error)
+
 client.run(TOKEN)
