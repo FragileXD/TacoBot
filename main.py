@@ -8,6 +8,7 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 
+start_time = datetime.now()
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
 OWNERID = ***REMOVED***
@@ -233,7 +234,14 @@ async def mock_error(ctx, error):
 async def uptime(ctx):
     message_author = ctx.author
     print("{} issued .uptime ⬆".format(message_author))
+    embedVar = discord.Embed(
+        title="TacoBot Uptime",
+        description=f"TacoBot has been up for `{(datetime.now() - start_time)}`",
+        color=3066993)
+    embedVar.set_footer(text=footer)
+    await message_channel.send(embed=embedVar)
     
-    await ctx.send(time.time())
+    
+    await ctx.send()
         
 client.run(TOKEN)
