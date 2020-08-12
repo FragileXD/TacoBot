@@ -33,7 +33,7 @@ async def hello(ctx):
     message_author = ctx.author
     message_channel = ctx.channel
     print("{} issued .hello 👋".format(message_author))
-    await message_channel.send("Hello, {}! 👋".format(message_author.name))
+    await message_channel.send("<a:party_blob:743099804279898143> Hello, {}! 👋".format(message_author.name))
 
 
 @client.command(aliases=['pingo'])
@@ -115,7 +115,55 @@ async def dankrate_error(ctx, error):
         raise(error)
 
 
-@client.command(aliases=['bigbrain', 'ratebigbrain', 'big brain rate'])
+@client.command(aliases=['epicgamer', 'rateepicgamer'])
+async def epicgamerrate(ctx, *, message):
+    message_author = ctx.author
+    message_channel = ctx.channel
+
+    aaaaa = random.randint(1, 101)
+    print("{} issued .epicgamerrate 😎".format(message_author))
+
+    if message == "megalovania" or message == "tacoz" or message == "TacoBot":
+        embedVar = discord.Embed(
+            title="epic gamer r8 Machine",
+            description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+            color=3066993)
+    else:
+        if aaaaa == 101:
+            embedVar = discord.Embed(
+                title="epic gamer r8 Machine",
+                description=f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                color=15105570)
+        else:
+            embedVar = discord.Embed(
+                title="epic gamer r8 Machine",
+                description=f"{message} is {aaaaa}% epic gamer 😎",
+                color=3066993)
+    embedVar.set_footer(text=footer)
+    await message_channel.send(embed=embedVar)
+
+
+@epicgamerrate.error
+async def epicgamerrate_error(ctx, error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        message_author = ctx.author
+        aaaaa = random.randint(1, 101)
+        print("{} issued .epicgamerrate 🧠".format(message_author))
+
+        if aaaaa == 101:
+            embedVar = discord.Embed(
+                title="epic gamer r8 Machine",
+                description=f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                color=15105570)
+        else:
+            embedVar = discord.Embed(
+                title="epic gamer r8 Machine", description=f"you are {aaaaa}% epic gamer 😎", color=3066993)
+        embedVar.set_footer(text=footer)
+        return await ctx.send(embed=embedVar)
+    else:
+        raise(error)
+
+@client.command(aliases=['bigbrain', 'ratebigbrain'])
 async def bigbrainrate(ctx, *, message):
     message_author = ctx.author
     message_channel = ctx.channel
@@ -168,7 +216,7 @@ async def eightball(ctx, *, message):
     message_channel = ctx.channel
 
     print("{} issued .8ball 🎱".format(message_author))
-    choices = ["hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Cannot predict now", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
+    choices = ["hell na", "wtf no way", "you are so ugly the ball broke. ask again later", "Ah I see, yes", "better not tell you now >:)", "Only thing I can predict is you're stupid", "Concentrate and ask again.", "Don't count on it", "It is certain!", "It is decidely so.",
                "Most likely", "My reply is no lol", "My (totally accurate) sources say no", "Outlook not so good", "Outlook good", "Reply hazy, try again", "Signs point to a YES!", "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely", "you may rely on it"]
     aaaaa = random.choice(choices)
 
