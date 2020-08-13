@@ -389,8 +389,8 @@ async def emojify(self, ctx, *, message):
     a = a.replace("0", ":regional_indicator_0:")
     await ctx.send(a)
 
-    @fancytext.error
-    async def fancytext_error(self, ctx, error):
+    @emojify.error
+    async def emojify_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
