@@ -8,7 +8,8 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 
-
+footer = "Made with ❤️ by Tacoz!"
+start_time = time.monotonic()
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

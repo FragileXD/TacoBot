@@ -8,6 +8,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 
+footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
 class General(commands.Cog):
@@ -22,25 +23,6 @@ class General(commands.Cog):
         await message_channel.send(
             "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
                 message_author.name))
-
-    @client.command(aliases=['pingo'])
-    async def ping(self, ctx):
-        message_author = ctx.author
-        print("{} issued .ping 🏓".format(message_author))
-        await ctx.send(f'🏓 Pong! {round(client.latency * 1000)}ms')
-
-    @client.command(aliases=['botinv'])
-    async def invite(self, ctx):
-        message_author = ctx.author
-        message_channel = ctx.channel
-
-        print("{} issued .invite 😉".format(message_author))
-
-        await ctx.send("Check Your Dm's :wink:")
-        await message_author.send(
-            'https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot'
-        )
-
 
     @client.command(aliases=['timeonline', 'timeup'])
     async def uptime(self, ctx):
