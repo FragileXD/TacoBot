@@ -26,19 +26,13 @@ class Info(commands.Cog):
         print("{} issued .help".format(ctx.author))
 
         if cog == 'all':
-            help_embed = discord.Embed(title='RoxBot Commands', color=0x2ECC71)
-            help_embed.add_field(name="Moderation",
-                                 value=f"`{ctx.prefix}help moderator`")
-            help_embed.add_field(name="Images",
-                                 value=f"`{ctx.prefix}help image`")
-            help_embed.add_field(name="Utility",
-                                 value=f"`{ctx.prefix}help utility`")
+            help_embed = discord.Embed(title='TacoBot Commands',
+                                       color=0x2ECC71)
+            help_embed.add_field(name="General",
+                                 value=f"`{ctx.prefix}help general`")
+            help_embed.add_field(name="Fun", value=f"`{ctx.prefix}help fun`")
             help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
-            help_embed.add_field(name="Music",
-                                 value=f"`{ctx.prefix}help music`")
-            help_embed.add_field(name="Other",
-                                 value=f"`{ctx.prefix}help other`")
-        else:
+
             cogA = cog.lower()
             emojiCategory = {
                 "Moderator": ":tools:",
@@ -59,6 +53,8 @@ class Info(commands.Cog):
             for cog in cogs:
                 all_commands[cog] = self.bot.get_cog(cogs[lower_cogs.index(
                     cog.lower())]).get_commands()
+
+
 # print(c)
 
             all_commandsData = [
@@ -137,8 +133,6 @@ class Info(commands.Cog):
             color=3066993)
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
-
-
 """
     @commands.command(
         name='source',
