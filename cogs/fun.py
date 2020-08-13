@@ -16,7 +16,7 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @Bot.command()
+    @commands.command()
     @commands.guild_only()
     async def randomroulette(self, ctx):
         message_author = ctx.author
@@ -31,7 +31,7 @@ class Fun(commands.Cog):
         except IndexError:
             await ctx.send("You are the only human member on it!")
 
-    @Bot.command(aliases=['ratedank'])
+    @commands.command(aliases=['ratedank'])
     async def dankrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -82,7 +82,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['epicgamer', 'rateepicgamer'])
+    @commands.command(aliases=['epicgamer', 'rateepicgamer'])
     async def epicgamerrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -134,7 +134,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['bigbrain', 'ratebigbrain'])
+    @commands.command(aliases=['bigbrain', 'ratebigbrain'])
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -186,7 +186,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['8ball'])
+    @commands.command(aliases=['8ball'])
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -225,7 +225,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['partyblob', "partyman", "partyfrog"])
+    @commands.command(aliases=['partyblob', "partyman", "partyfrog"])
     async def party(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
@@ -239,7 +239,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['fancy'])
+    @commands.command(aliases=['fancy'])
     async def fancytext(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .fancytext 𝔦𝔰𝔰𝔲𝔢𝔡 .𝔣𝔞𝔫𝔠𝔶𝔱𝔢𝔵𝔱".format(message_author))
@@ -305,7 +305,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['haxer', "hacker", "hackertext"])
+    @commands.command(aliases=['haxer', "hacker", "hackertext"])
     async def leetify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .leetify 👩‍💻".format(message_author))
@@ -334,7 +334,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @Bot.command(aliases=['mockery'])
+    @commands.command(aliases=['mockery'])
     async def mock(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .mock 🎱".format(message_author))
@@ -348,90 +348,55 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(aliases=['emoji'])
+    async def emojify(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .emojify".format(message_author))
+        #𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷 𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
+        a = (message.replace("a", ":regional_indicator_a:")).lower()
+        a = a.replace("b", ":regional_indicator_b:")
+        a = a.replace("c", ":regional_indicator_c:")
+        a = a.replace("d", ":regional_indicator_d:")
+        a = a.replace("e", ":regional_indicator_e:")
+        a = a.replace("f", ":regional_indicator_f:")
+        a = a.replace("g", ":regional_indicator_g:")
+        a = a.replace("h", ":regional_indicator_h:")
+        a = a.replace("i", ":regional_indicator_i:")
+        a = a.replace("j", ":regional_indicator_j:")
+        a = a.replace("k", ":regional_indicator_k:")
+        a = a.replace("l", ":regional_indicator_l:")
+        a = a.replace("m", ":regional_indicator_m:")
+        a = a.replace("n", ":regional_indicator_n:")
+        a = a.replace("o", ":regional_indicator_o:")
+        a = a.replace("p", ":regional_indicator_p:")
+        a = a.replace("q", ":regional_indicator_q:")
+        a = a.replace("r", ":regional_indicator_r:")
+        a = a.replace("s", ":regional_indicator_s:")
+        a = a.replace("t", ":regional_indicator_t:")
+        a = a.replace("u", ":regional_indicator_u:")
+        a = a.replace("v", ":regional_indicator_v:")
+        a = a.replace("w", ":regional_indicator_w:")
+        a = a.replace("x", ":regional_indicator_x:")
+        a = a.replace("y", ":regional_indicator_y:")
+        a = a.replace("z", ":regional_indicator_z:")
+        a = a.replace("1", ":regional_indicator_1:")
+        a = a.replace("2", ":regional_indicator_2:")
+        a = a.replace("3", ":regional_indicator_3:")
+        a = a.replace("4", ":regional_indicator_4:")
+        a = a.replace("5", ":regional_indicator_5:")
+        a = a.replace("6", ":regional_indicator_6:")
+        a = a.replace("7", ":regional_indicator_7:")
+        a = a.replace("8", ":regional_indicator_8:")
+        a = a.replace("9", ":regional_indicator_9:")
+        a = a.replace("0", ":regional_indicator_0:")
+        await ctx.send(a)
 
-@Bot.command(aliases=['emoji'])
-async def emojify(self, ctx, *, message):
-    message_author = ctx.author
-    print("{} issued .emojify".format(message_author))
-    #𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷 𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
-    a = lower(message).replace("a", ":regional_indicator_a:")
-    a = a.replace("b", ":regional_indicator_b:")
-    a = a.replace("c", ":regional_indicator_c:")
-    a = a.replace("d", ":regional_indicator_d:")
-    a = a.replace("e", ":regional_indicator_e:")
-    a = a.replace("f", ":regional_indicator_f:")
-    a = a.replace("g", ":regional_indicator_g:")
-    a = a.replace("h", ":regional_indicator_h:")
-    a = a.replace("i", ":regional_indicator_i:")
-    a = a.replace("j", ":regional_indicator_j:")
-    a = a.replace("k", ":regional_indicator_k:")
-    a = a.replace("l", ":regional_indicator_l:")
-    a = a.replace("m", ":regional_indicator_m:")
-    a = a.replace("n", ":regional_indicator_n:")
-    a = a.replace("o", ":regional_indicator_o:")
-    a = a.replace("p", ":regional_indicator_p:")
-    a = a.replace("q", ":regional_indicator_q:")
-    a = a.replace("r", ":regional_indicator_r:")
-    a = a.replace("s", ":regional_indicator_s:")
-    a = a.replace("t", ":regional_indicator_t:")
-    a = a.replace("u", ":regional_indicator_u:")
-    a = a.replace("v", ":regional_indicator_v:")
-    a = a.replace("w", ":regional_indicator_w:")
-    a = a.replace("x", ":regional_indicator_x:")
-    a = a.replace("y", ":regional_indicator_y:")
-    a = a.replace("z", ":regional_indicator_z:")
-    a = a.replace("1", ":regional_indicator_1:")
-    a = a.replace("2", ":regional_indicator_2:")
-    a = a.replace("3", ":regional_indicator_3:")
-    a = a.replace("4", ":regional_indicator_4:")
-    a = a.replace("5", ":regional_indicator_5:")
-    a = a.replace("6", ":regional_indicator_6:")
-    a = a.replace("7", ":regional_indicator_7:")
-    a = a.replace("8", ":regional_indicator_8:")
-    a = a.replace("9", ":regional_indicator_9:")
-    a = a.replace("0", ":regional_indicator_0:")
-    await ctx.send(a)
-
-    @emojify.error
-    async def emojify_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
-    @Bot.command()
-    @Bot.cooldown(rate=1, per=2.0, type=Bot.BucketType.user)
-    async def urban(self, ctx, *, search: commands.clean_content):
-        """ Find the 'best' definition to your words """
-        async with ctx.channel.typing():
-            try:
-                url = await http.get(
-                    f'https://api.urbandictionary.com/v0/define?term={search}',
-                    res_method="json")
-            except Exception:
-                return await ctx.send(
-                    "Urban API returned invalid data... might be down atm.")
-
-            if not url:
-                return await ctx.send("I think the API broke...")
-
-            if not len(url['list']):
-                return await ctx.send(
-                    "Couldn't find your search in the dictionary...")
-
-            result = sorted(url['list'],
-                            reverse=True,
-                            key=lambda g: int(g["thumbs_up"]))[0]
-
-            definition = result['definition']
-            if len(definition) >= 1000:
-                definition = definition[:1000]
-                definition = definition.rsplit(' ', 1)[0]
-                definition += '...'
-
-            await ctx.send(
-                f"📚 Definitions for **{result['word']}**```fix\n{definition}```"
-            )
+        @emojify.error
+        async def emojify_error(self, ctx, error):
+            if isinstance(error, commands.MissingRequiredArgument):
+                await ctx.send("Please Input something after the command")
+            else:
+                raise (error)
 
 
 def setup(bot):

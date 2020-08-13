@@ -16,7 +16,7 @@ class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @Bot.command(aliases=['hi'])
+    @commands.command(aliases=['hi'])
     async def hello(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -25,7 +25,7 @@ class General(commands.Cog):
             "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
                 message_author.name))
 
-    @Bot.command(aliases=['timeonline', 'timeup'])
+    @commands.command(aliases=['timeonline', 'timeup'])
     async def uptime(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
