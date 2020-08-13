@@ -87,13 +87,15 @@ async def dankrate(ctx, *, message):
     if message == "megalovania" or message == "tacoz" or message == "TacoBot":
         embedVar = discord.Embed(
             title="Dank r8 Machine",
-            description=f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
+            description=
+            f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
             color=3066993)
     else:
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="Dank r8 Machine",
-                description=f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank",
+                description=
+                f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -114,7 +116,8 @@ async def dankrate_error(ctx, error):
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="Dank r8 Machine",
-                description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
+                description=
+                f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -138,13 +141,15 @@ async def epicgamerrate(ctx, *, message):
     if message == "megalovania" or message == "tacoz" or message == "TacoBot":
         embedVar = discord.Embed(
             title="epic gamer r8 Machine",
-            description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+            description=
+            f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
             color=3066993)
     else:
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="epic gamer r8 Machine",
-                description=f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                description=
+                f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -165,7 +170,8 @@ async def epicgamerrate_error(ctx, error):
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="epic gamer r8 Machine",
-                description=f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                description=
+                f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -189,13 +195,15 @@ async def bigbrainrate(ctx, *, message):
     if message == "megalovania" or message == "tacoz" or message == "TacoBot":
         embedVar = discord.Embed(
             title="big brain r8 Machine",
-            description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+            description=
+            f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
             color=3066993)
     else:
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
-                description=f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
+                description=
+                f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -216,7 +224,8 @@ async def bigbrainrate_error(ctx, error):
         if aaaaa == 101:
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
-                description=f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
+                description=
+                f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
                 color=15105570)
         else:
             embedVar = discord.Embed(
@@ -235,7 +244,7 @@ async def eightball(ctx, *, message):
     message_channel = ctx.channel
 
     print("{} issued .8ball 🎱".format(message_author))
-    
+
     choices = [
         "hell na", "wtf no way",
         "you are so ugly the ball broke. ask again later", "Ah I see, yes",
@@ -243,12 +252,12 @@ async def eightball(ctx, *, message):
         "Only thing I can predict is you're stupid",
         "Concentrate and ask again.", "Don't count on it", "It is certain!",
         "It is decidely so.", "Most likely", "My reply is no lol",
-        "My (totally accurate) sources say no", "Outlook not so good",``
+        "My (totally accurate) sources say no", "Outlook not so good",
         "Outlook good", "Reply hazy, try again", "Signs point to a YES!",
         "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely",
         "you may rely on it"
     ]
-    
+
     aaaaa = random.choice(choices)
 
     embedVar = discord.Embed(
@@ -337,7 +346,8 @@ async def uptime(ctx):
     print("{} issued .uptime ⬆".format(message_author))
     embedVar = discord.Embed(
         title="TacoBot Uptime",
-        description=f"TacoBot has been up for `{timedelta(seconds=time.monotonic() - start_time)}`",
+        description=
+        f"TacoBot has been up for `{timedelta(seconds=time.monotonic() - start_time)}`",
         color=3066993)
     embedVar.set_footer(text=footer)
     await message_channel.send(embed=embedVar)
