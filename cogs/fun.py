@@ -203,7 +203,10 @@ class Fun(commands.Cog):
             "My reply is no lol", "My (totally accurate) sources say no",
             "Outlook not so good", "Outlook good", "Reply hazy, try again",
             "Signs point to a YES!", "Very doubtful", "without a doubt", "yep",
-            "yes", "yes - definitely", "you may rely on it"
+            "yes", "yes - definitely", "you may rely on it", 'Yes', 'No',
+            'Take a wild guess...', 'Very doubtful', 'Sure', 'Without a doubt',
+            'Most likely', 'Might be possible', "You'll be the judge",
+            'no... (╯°□°）╯︵ ┻━┻', 'no... baka', 'senpai, pls no ;-;'
         ]
 
         aaaaa = random.choice(choices)
