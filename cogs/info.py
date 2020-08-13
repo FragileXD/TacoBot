@@ -116,7 +116,7 @@ class Info(commands.Cog):
         print("{} issued .ping 🏓".format(ctx.author))
         """ Pong! """
         message = await ctx.send("🏓Pong!")
-        await message.edit(content=f"{round(client.latency * 1000)}ms")
+        await message.edit(content=f"{round(Bot.latency * 1000)}ms")
 
     @commands.command(name='invite',
                       description='Gets the an invite link for the bot',
