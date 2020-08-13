@@ -1,8 +1,12 @@
-import os
 import discord
-
+import os
+import sys
+import random
+import time
+from random import choice
 from discord.ext import commands
-from datetime import datetime
+from discord.ext.commands import has_permissions, CheckFailure, Bot
+from datetime import timedelta
 
 
 class Fun(commands.Cog):
@@ -184,12 +188,12 @@ class Fun(commands.Cog):
             "you are so ugly the ball broke. ask again later", "Ah I see, yes",
             "better not tell you now >:)",
             "Only thing I can predict is you're stupid",
-            "Concentrate and ask again.", "Don't count on it", "It is certain!",
-            "It is decidely so.", "Most likely", "My reply is no lol",
-            "My (totally accurate) sources say no", "Outlook not so good",
-            "Outlook good", "Reply hazy, try again", "Signs point to a YES!",
-            "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely",
-            "you may rely on it"
+            "Concentrate and ask again.", "Don't count on it",
+            "It is certain!", "It is decidely so.", "Most likely",
+            "My reply is no lol", "My (totally accurate) sources say no",
+            "Outlook not so good", "Outlook good", "Reply hazy, try again",
+            "Signs point to a YES!", "Very doubtful", "without a doubt", "yep",
+            "yes", "yes - definitely", "you may rely on it"
         ]
 
         aaaaa = random.choice(choices)
@@ -209,7 +213,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @client.command(aliases=['partyblob', "partyman", "partyfrog"])
-    async def party(self,  ctx, *, message):
+    async def party(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
         a = message.replace(" ", "<a:party_blob:743099804279898143>")

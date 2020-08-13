@@ -1,8 +1,13 @@
-import os
 import discord
-
+import os
+import sys
+import random
+import time
+from random import choice
 from discord.ext import commands
-from datetime import datetime
+from discord.ext.commands import has_permissions, CheckFailure, Bot
+from datetime import timedelta
+
 
 class Name(commands.Cog):  
     def __init__(self, bot):

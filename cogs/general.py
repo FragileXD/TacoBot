@@ -1,8 +1,12 @@
-import os
 import discord
-
+import os
+import sys
+import random
+import time
+from random import choice
 from discord.ext import commands
-from datetime import datetime
+from discord.ext.commands import has_permissions, CheckFailure, Bot
+from datetime import timedelta
 
 
 class General(commands.Cog):
@@ -18,13 +22,11 @@ class General(commands.Cog):
             "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
                 message_author.name))
 
-
     @client.command(aliases=['pingo'])
     async def ping(self, ctx):
         message_author = ctx.author
         print("{} issued .ping 🏓".format(message_author))
         await ctx.send(f'🏓 Pong! {round(client.latency * 1000)}ms')
-
 
     @client.command(aliases=['botinv'])
     async def invite(self, ctx):
@@ -37,10 +39,6 @@ class General(commands.Cog):
         await message_author.send(
             'https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot'
         )
-
-
-    
-
 
     @client.command(aliases=['haxer', "hacker", "hackertext"])
     async def leetify(self, ctx, *, message):
@@ -64,14 +62,12 @@ class General(commands.Cog):
         a = a.replace("t", "7")
         await ctx.send(a)
 
-
     @leetify.error
     async def leetify_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
-
 
     @client.command(aliases=['mockery'])
     async def mock(self, ctx, *, message):
@@ -80,14 +76,12 @@ class General(commands.Cog):
         a = (''.join(choice((str.upper, str.lower))(c) for c in message))
         await ctx.send(a)
 
-
     @mock.error
     async def mock_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
-
 
     @client.command(aliases=['up time'])
     async def uptime(self, ctx):

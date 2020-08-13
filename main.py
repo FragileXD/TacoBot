@@ -1,13 +1,6 @@
 import discord
 import os
 import sys
-import urllib
-import random
-import time
-from random import choice
-from discord.ext import commands
-from discord.ext.commands import has_permissions, CheckFailure, Bot
-from datetime import timedelta
 
 start_time = time.monotonic()
 PREFIX = (".", ">")
