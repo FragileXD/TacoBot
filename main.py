@@ -235,6 +235,7 @@ async def eightball(ctx, *, message):
     message_channel = ctx.channel
 
     print("{} issued .8ball 🎱".format(message_author))
+    
     choices = [
         "hell na", "wtf no way",
         "you are so ugly the ball broke. ask again later", "Ah I see, yes",
@@ -242,11 +243,12 @@ async def eightball(ctx, *, message):
         "Only thing I can predict is you're stupid",
         "Concentrate and ask again.", "Don't count on it", "It is certain!",
         "It is decidely so.", "Most likely", "My reply is no lol",
-        "My (totally accurate) sources say no", "Outlook not so good",
+        "My (totally accurate) sources say no", "Outlook not so good",``
         "Outlook good", "Reply hazy, try again", "Signs point to a YES!",
         "Very doubtful", "without a doubt", "yep", "yes", "yes - definitely",
         "you may rely on it"
     ]
+    
     aaaaa = random.choice(choices)
 
     embedVar = discord.Embed(
