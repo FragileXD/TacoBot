@@ -285,8 +285,8 @@ class Fun(commands.Cog):
         a = a.replace("Z", "ℨ")
         await ctx.send(a)
 
-    @leetify.error
-    async def leetify_error(self, ctx, error):
+    @fancytext.error
+    async def fancytext_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
