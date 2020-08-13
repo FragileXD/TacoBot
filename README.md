@@ -19,3 +19,4 @@ join the [Suppport Server](https://discord.io/Tacoz)
 * [Roxiun](https://github.com/Roxiun/) - Loads of help to get the bot up and running.
 * [TheDrone7](https://repl.it/talk/learn/) - discord.py reference
 * [AlexFlipnote](https://github.com/AlexFlipnote/discord_bot.py) - Learnt alot from this repo
+* [Dank Memer](https://dankmemer.lol/commands) - Inspiration for most of the commands
