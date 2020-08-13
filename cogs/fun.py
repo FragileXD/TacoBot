@@ -353,7 +353,8 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .emojify".format(message_author))
         #𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷 𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
-        a = (message.replace("a", ":regional_indicator_a:")).lower()
+        message = message.lower()
+        a = message.replace("a", ":regional_indicator_a:")
         a = a.replace("b", ":regional_indicator_b:")
         a = a.replace("c", ":regional_indicator_c:")
         a = a.replace("d", ":regional_indicator_d:")
