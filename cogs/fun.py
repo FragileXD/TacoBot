@@ -10,15 +10,16 @@ from datetime import timedelta
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
+
+
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @client.command()
+    @Bot.command()
     @commands.guild_only()
     async def randomroulette(self, ctx):
         message_author = ctx.author
-        message_channel = ctx.channel
 
         print("{} issued .randomroulette".format(message_author))
 
@@ -30,7 +31,7 @@ class Fun(commands.Cog):
         except IndexError:
             await ctx.send("You are the only human member on it!")
 
-    @client.command(aliases=['ratedank'])
+    @Bot.command(aliases=['ratedank'])
     async def dankrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -41,13 +42,15 @@ class Fun(commands.Cog):
         if message == "megalovania" or message == "tacoz" or message == "TacoBot":
             embedVar = discord.Embed(
                 title="Dank r8 Machine",
-                description=f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
+                description=
+                f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
                 color=3066993)
         else:
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="Dank r8 Machine",
-                    description=f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank",
+                    description=
+                    f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
@@ -67,19 +70,19 @@ class Fun(commands.Cog):
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="Dank r8 Machine",
-                    description=f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
+                    description=
+                    f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
                     color=15105570)
             else:
-                embedVar = discord.Embed(
-                    title="Dank r8 Machine",
-                    description=f"you are {aaaaa}% dank",
-                    color=3066993)
+                embedVar = discord.Embed(title="Dank r8 Machine",
+                                         description=f"you are {aaaaa}% dank",
+                                         color=3066993)
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
         else:
             raise (error)
 
-    @client.command(aliases=['epicgamer', 'rateepicgamer'])
+    @Bot.command(aliases=['epicgamer', 'rateepicgamer'])
     async def epicgamerrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -90,13 +93,15 @@ class Fun(commands.Cog):
         if message == "megalovania" or message == "tacoz" or message == "TacoBot":
             embedVar = discord.Embed(
                 title="epic gamer r8 Machine",
-                description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+                description=
+                f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
                 color=3066993)
         else:
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="epic gamer r8 Machine",
-                    description=f"{message} broke the epic gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                    description=
+                    f"{message} broke the epic gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
@@ -116,7 +121,8 @@ class Fun(commands.Cog):
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="epic gamer r8 Machine",
-                    description=f"{message} broke the eouc gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
+                    description=
+                    f"you broke the epic gamer machine with your epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
@@ -128,7 +134,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @client.command(aliases=['bigbrain', 'ratebigbrain'])
+    @Bot.command(aliases=['bigbrain', 'ratebigbrain'])
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -139,13 +145,15 @@ class Fun(commands.Cog):
         if message == "megalovania" or message == "tacoz" or message == "TacoBot":
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
-                description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+                description=
+                f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
                 color=3066993)
         else:
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
-                    description=f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
+                    description=
+                    f"{message} broke the big brain machine with {message}'s iq>:( :fire:\nyou are {aaaaa}% big brain",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
@@ -165,7 +173,8 @@ class Fun(commands.Cog):
             if aaaaa == 101:
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
-                    description=f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
+                    description=
+                    f"you broke the big brain machine with your iq>:( :fire:\nyou are {aaaaa}% big brain",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
@@ -177,7 +186,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @client.command(aliases=['8ball'])
+    @Bot.command(aliases=['8ball'])
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -213,7 +222,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @client.command(aliases=['partyblob', "partyman", "partyfrog"])
+    @Bot.command(aliases=['partyblob', "partyman", "partyfrog"])
     async def party(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
@@ -226,8 +235,8 @@ class Fun(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
-        
-    @client.command(aliases=['fancy'])
+
+    @Bot.command(aliases=['fancy'])
     async def fancytext(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .fancytext 𝔦𝔰𝔰𝔲𝔢𝔡 .𝔣𝔞𝔫𝔠𝔶𝔱𝔢𝔵𝔱".format(message_author))
@@ -293,7 +302,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @client.command(aliases=['haxer', "hacker", "hackertext"])
+    @Bot.command(aliases=['haxer', "hacker", "hackertext"])
     async def leetify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .leetify 👩‍💻".format(message_author))
@@ -322,7 +331,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @client.command(aliases=['mockery'])
+    @Bot.command(aliases=['mockery'])
     async def mock(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .mock 🎱".format(message_author))

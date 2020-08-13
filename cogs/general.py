@@ -11,11 +11,12 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
+
 class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @client.command(aliases=['hi'])
+    @Bot.command(aliases=['hi'])
     async def hello(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -24,14 +25,15 @@ class General(commands.Cog):
             "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
                 message_author.name))
 
-    @client.command(aliases=['timeonline', 'timeup'])
+    @Bot.command(aliases=['timeonline', 'timeup'])
     async def uptime(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
         print("{} issued .uptime ⬆".format(message_author))
         embedVar = discord.Embed(
             title="TacoBot Uptime",
-            description=f"TacoBot has been up for `{timedelta(seconds=time.monotonic() - start_time)}`",
+            description=
+            f"TacoBot has been up for `{timedelta(seconds=time.monotonic() - start_time)}`",
             color=3066993)
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
