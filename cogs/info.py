@@ -129,7 +129,7 @@ class Info(commands.Cog):
         invite_embed.add_field(
             name=f"Full Permissions",
             value=
-            f"{https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot}"
+            f"https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot"
         )
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
@@ -144,7 +144,7 @@ class Info(commands.Cog):
         print("{} issued .serverinvite".format(ctx.author))
         invite_embed = discord.Embed(
             title='Official Tacoz & TacoBOT Development server!',
-            description=f"{https://discord.io/Tacoz}",
+            description=f"https://discord.io/Tacoz",
             color=3066993)
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
@@ -159,7 +159,7 @@ class Info(commands.Cog):
     async def sourceCode(self, ctx):
         source_embed = discord.Embed(
             title='Here is my Source Code!',
-            description=f"https://github.com/Roxiun/RoxBot/",
+            description=f"https://github.com/NotTacoz/TacoBot",
             color=3066993
         )
         source_embed.set_footer(text=footer)
