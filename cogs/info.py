@@ -50,14 +50,6 @@ class Info(commands.Cog):
                 "Fun": ":wink:",
                 "Animals": ":dog:"
             }
-            categoryAlias = {
-                "mod": "moderator",
-                "moderation": "moderator",
-                "moderate": "moderator",
-                "util": "utility",
-                "utils": "utility",
-                "utilities": "utility"
-            }
 
             cogs = [c for c in self.bot.cogs.keys()]
 
@@ -67,10 +59,7 @@ class Info(commands.Cog):
             for cog in cogs:
                 all_commands[cog] = self.bot.get_cog(cogs[lower_cogs.index(
                     cog.lower())]).get_commands()
-
-            for cog in all_commands:
-                for c in all_commands[cog]:
-                    pass  # print(c)
+# print(c)
 
             all_commandsData = [
                 c for cog in all_commands for c in all_commands[cog]
