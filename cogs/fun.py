@@ -292,7 +292,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-        @client.command(aliases=['haxer', "hacker", "hackertext"])
+    @client.command(aliases=['haxer', "hacker", "hackertext"])
     async def leetify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .leetify 👩‍💻".format(message_author))
