@@ -225,6 +225,72 @@ class Fun(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
+        
+    @client.command(aliases=['fancy'])
+    async def fancytext(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .fancytext 𝔦𝔰𝔰𝔲𝔢𝔡 .𝔣𝔞𝔫𝔠𝔶𝔱𝔢𝔵𝔱".format(message_author))
+        #𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷 𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
+        a = message.replace("a", "𝔞")
+        a = a.replace("b", "𝔟")
+        a = a.replace("c", "𝔠")
+        a = a.replace("d", "𝔡")
+        a = a.replace("e", "𝔢")
+        a = a.replace("f", "𝔣")
+        a = a.replace("g", "𝔤")
+        a = a.replace("h", "𝔥")
+        a = a.replace("i", "𝔦")
+        a = a.replace("j", "𝔧")
+        a = a.replace("k", "𝔨")
+        a = a.replace("l", "𝔩")
+        a = a.replace("m", "𝔪")
+        a = a.replace("n", "𝔫")
+        a = a.replace("o", "𝔬")
+        a = a.replace("p", "𝔭")
+        a = a.replace("q", "𝔮")
+        a = a.replace("r", "𝔯")
+        a = a.replace("s", "𝔰")
+        a = a.replace("t", "𝔱")
+        a = a.replace("u", "𝔲")
+        a = a.replace("v", "𝔳")
+        a = a.replace("w", "𝔴")
+        a = a.replace("x", "𝔵")
+        a = a.replace("y", "𝔶")
+        a = a.replace("z", "𝔷")
+        a = a.replace("A", "𝔄")
+        a = a.replace("B", "𝔅")
+        a = a.replace("C", "ℭ")
+        a = a.replace("D", "𝔇")
+        a = a.replace("E", "𝔈")
+        a = a.replace("F", "𝔉")
+        a = a.replace("G", "𝔊")
+        a = a.replace("H", "ℌ")
+        a = a.replace("I", "ℑ")
+        a = a.replace("J", "𝔍")
+        a = a.replace("K", "𝔎")
+        a = a.replace("L", "𝔏")
+        a = a.replace("M", "𝔐")
+        a = a.replace("N", "𝔑")
+        a = a.replace("O", "𝔒")
+        a = a.replace("P", "𝔓")
+        a = a.replace("Q", "𝔔")
+        a = a.replace("R", "ℜ")
+        a = a.replace("S", "𝔖")
+        a = a.replace("T", "𝔗")
+        a = a.replace("U", "𝔘")
+        a = a.replace("V", "𝔙")
+        a = a.replace("W", "𝔚")
+        a = a.replace("X", "𝔛")
+        a = a.replace("Y", "𝔜")
+        a = a.replace("Z", "ℨ")
+        await ctx.send(a)
+
+    @leetify.error
+    async def leetify_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
 
 
 def setup(bot):
