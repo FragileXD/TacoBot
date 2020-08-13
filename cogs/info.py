@@ -122,7 +122,6 @@ class Info(commands.Cog):
                       description='Gets the an invite link for the bot',
                       aliases=['botinvite', 'addbot', 'botinv'])
     async def botinvite(self, ctx):
-        description = "Invite Link for TacoBOT"
         invite_embed = discord.Embed(title='Invite me to your Server!',
                                      color=3066993)
         print("{} issued .invite 😉".format(ctx.author))
