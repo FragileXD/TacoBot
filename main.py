@@ -2,7 +2,6 @@ import discord
 import os
 import sys
 
-start_time = time.monotonic()
 PREFIX = (".", ">")
 TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
 OWNERID = ***REMOVED***
