@@ -16,9 +16,7 @@ class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='hello',
-                      description='test message (used for testing)',
-                      aliases=['hi'])
+    @commands.command(name='hello', aliases=['hi'])
     async def hello(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -29,7 +27,7 @@ class General(commands.Cog):
 
     @commands.command(
         name='uptime',
-        description='Gets the amount of time the bot has been up',
+        description='Shows the amount of time the bot has been online',
         aliases=['timeonline', 'timeup'])
     async def uptime(self, ctx):
         message_author = ctx.author
@@ -42,12 +40,6 @@ class General(commands.Cog):
             color=3066993)
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
-
-    @commands.command(name='getpfp',
-                      description='Gets the profile picture of a user',
-                      aliases=['getprofilepic', 'getprofilepicture'])
-    async def getpfp(self, ctx):
-        await ctx.send("Command is not finished.")
 
 
 def setup(bot):

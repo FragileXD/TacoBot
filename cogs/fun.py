@@ -2,6 +2,7 @@ import discord
 import os
 import sys
 import random
+import asyncio
 import time
 from random import choice
 from discord.ext import commands
@@ -11,41 +12,15 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
-vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-
-
-def last_replace(s, old, new):
-    li = s.rsplit(old, 1)
-    return new.join(li)
-
-
-def text_to_owo(text):
-    """ Converts your text to OwO """
-
-    smileys = [';;w;;', '^w^', '>w<', 'UwU', '(・`ω\\´・)', '(´・ω・\\`)']
-
-    text = text.replace('L', 'W').replace('l', 'w')
-    text = text.replace('R', 'W').replace('r', 'w')
-
-    text = last_replace(text, '!', '! {}'.format(random.choice(smileys)))
-    text = last_replace(text, '?', '? owo')
-    text = last_replace(text, '.', '. {}'.format(random.choice(smileys)))
-
-    for v in vowels:
-        if 'n{}'.format(v) in text:
-            text = text.replace('n{}'.format(v), 'ny{}'.format(v))
-        if 'N{}'.format(v) in text:
-            text = text.replace('N{}'.format(v),
-                                'N{}{}'.format('Y' if v.isupper() else 'y', v))
-
-    return text
-
 
 class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='randomroulette', description='Pings a random user')
+    @commands.command(
+        name='randomroulette',
+        description='Pings a random user in the server!',
+    )
     @commands.guild_only()
     async def randomroulette(self, ctx):
         message_author = ctx.author
@@ -60,9 +35,7 @@ class Fun(commands.Cog):
         except IndexError:
             await ctx.send("You are the only human member on it!")
 
-    @commands.command(name='dankrate',
-                      description='Rates the user on dankness',
-                      aliases=['ratedank'])
+    @commands.command(aliases=['ratedank'])
     async def dankrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -113,9 +86,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(name='epicgamerrate',
-                      description='Calculates how epic gamer the user is',
-                      aliases=['epicgamer', 'rateepicgamer'])
+    @commands.command(aliases=['epicgamer', 'rateepicgamer'])
     async def epicgamerrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -167,9 +138,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(name='bigbrainrate',
-                      description='Calculate how big brain the user is',
-                      aliases=['bigbrain', 'ratebigbrain'])
+    @commands.command(aliases=['bigbrain', 'ratebigbrain'])
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -221,10 +190,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(
-        name='8ball',
-        description='Gets a (rude) answer from the bot about any question',
-        aliases=['8ball'])
+    @commands.command(aliases=['8ball'])
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -235,6 +201,7 @@ class Fun(commands.Cog):
             "hell na", "wtf no way",
             "you are so ugly the ball broke. ask again later",
             "Once you grow a braincell, yes", "i don't care lol",
+            "better not tell you now >:)",
             "Only thing I can predict is you're stupid",
             "Concentrate and ask again.", "Don't count on it. Can you count?",
             "It is certain!", "It is decidely so.", "Most likely",
@@ -244,9 +211,8 @@ class Fun(commands.Cog):
             "Very doubtful", "without a doubt", "yep", "yes",
             "yes - definitely", "you may rely on it", 'Yes', 'No',
             'Take a wild guess...', 'Very doubtful', 'Sure', 'Without a doubt',
-            'Most likely',
-            'Might be possible, after you fix your messed up life',
-            "You'll be the judge", 'no... (╯°□°）╯︵ ┻━┻', 'no... baka'
+            'Most likely', 'Might be possible', "You'll be the judge",
+            'no... (╯°□°）╯︵ ┻━┻', 'no... baka'
         ]
 
         aaaaa = random.choice(choices)
@@ -420,16 +386,6 @@ class Fun(commands.Cog):
         a = a.replace("X", ":regional_indicator_x:")
         a = a.replace("Y", ":regional_indicator_y:")
         a = a.replace("Z", ":regional_indicator_z:")
-        a = a.replace("1", ":regional_indicator_1:")
-        a = a.replace("2", ":regional_indicator_2:")
-        a = a.replace("3", ":regional_indicator_3:")
-        a = a.replace("4", ":regional_indicator_4:")
-        a = a.replace("5", ":regional_indicator_5:")
-        a = a.replace("6", ":regional_indicator_6:")
-        a = a.replace("7", ":regional_indicator_7:")
-        a = a.replace("8", ":regional_indicator_8:")
-        a = a.replace("9", ":regional_indicator_9:")
-        a = a.replace("0", ":regional_indicator_0:")
         try:
             if len(a) < 2000:
                 await ctx.send(a)
@@ -463,8 +419,14 @@ class Fun(commands.Cog):
             "haxor1998", "tacobotbestb0t", "password1", "password123",
             "boopbooppoo"
         ]
+
+        email = random.choice(emailchoices)
+        mail = random.choice(mailend)
+        email = email + mail
+        password = random.choice(passwordchoices)
+
         hackmsg = [
-            f"Hacking f{message}", f"[▗] Virus injected, emotes stolen",
+            f"[▗] Hacking {message}", f"[▗] Virus injected, emotes stolen",
             f"[▖] Finding discord login... (2fa bypassed)",
             f"[▖] Finding most common word...",
             f"[▝] Injecting trojan virus into discriminator)",
@@ -477,14 +439,12 @@ class Fun(commands.Cog):
             "[▖] Selling data to the Government..."
         ]
 
-        email = random.choice(emailchoices)
-        mail = random.choice(mailend)
-        email = email + mail
-        password = random.choice(passwordchoices)
+        message = await ctx.send("Initiating Hacking")
 
-        for x in range(0, 10):
-            time.sleep(1000)
-            await message.edit(content=random.choice(hackmsg))
+        for i in range(0, 8):
+            await asyncio.sleep(1)
+            jjj = random.choice(hackmsg)
+            await message.edit(content=jjj)
 
     @leetify.error
     async def leetify_error(self, ctx, error):

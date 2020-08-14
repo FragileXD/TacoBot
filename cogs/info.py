@@ -3,6 +3,7 @@ import os
 import sys
 import random
 import time
+import math
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -23,26 +24,36 @@ class Info(commands.Cog):
     async def help_command(self, ctx, cog='all'):
         ''' Replaces Default Command'''
 
-        print("{} issued .help".format(ctx.author))
-
         if cog == 'all':
-            help_embed = discord.Embed(title='TacoBot Commands',
-                                       color=0x2ECC71)
-            help_embed.add_field(name="General",
-                                 value=f"`{ctx.prefix}help general`")
+            help_embed = discord.Embed(title='TacoBot Commands', color=3066993)
             help_embed.add_field(name="Fun", value=f"`{ctx.prefix}help fun`")
+            help_embed.add_field(name="Images",
+                                 value=f"`{ctx.prefix}help image`")
+            help_embed.add_field(name="Utility",
+                                 value=f"`{ctx.prefix}help utility`")
             help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
-
+            help_embed.add_field(name="Music",
+                                 value=f"`{ctx.prefix}help music`")
+            help_embed.add_field(name="Other",
+                                 value=f"`{ctx.prefix}help other`")
+        else:
             cogA = cog.lower()
             emojiCategory = {
                 "Moderator": ":tools:",
                 "Image": ":camera:",
-                "General": ":tools:",
+                "Utility": ":tools:",
                 "Info": ":question:",
                 "Other": "",
                 "Music": ":musical_note:",
-                "Fun": ":wink:",
-                "Animals": ":dog:"
+                "Fun": ":smile:"
+            }
+            categoryAlias = {
+                "mod": "moderator",
+                "moderation": "moderator",
+                "moderate": "moderator",
+                "util": "utility",
+                "utils": "utility",
+                "utilities": "utility"
             }
 
             cogs = [c for c in self.bot.cogs.keys()]
@@ -54,8 +65,9 @@ class Info(commands.Cog):
                 all_commands[cog] = self.bot.get_cog(cogs[lower_cogs.index(
                     cog.lower())]).get_commands()
 
-
-# print(c)
+            for cog in all_commands:
+                for c in all_commands[cog]:
+                    pass  #print(c)
 
             all_commandsData = [
                 c for cog in all_commands for c in all_commands[cog]
@@ -101,8 +113,12 @@ class Info(commands.Cog):
     async def ping(self, ctx):
         print("{} issued .ping 🏓".format(ctx.author))
         """ Pong! """
-        message = await ctx.send("🏓Pong!")
-        await message.edit(content=f"{round(Bot.latency * 1000)}ms")
+        before = time.monotonic()
+        before_ws = int(round(self.bot.latency * 1000, 1))
+        message = await ctx.send("🏓 Pong")
+        ping = (time.monotonic() - before) * 1000
+        await message.edit(
+            content=f"🏓 WS: {before_ws}ms  |  REST: {int(ping)}ms")
 
     @commands.command(name='invite',
                       description='Gets the an invite link for the bot',
@@ -133,6 +149,8 @@ class Info(commands.Cog):
             color=3066993)
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
+
+
 """
     @commands.command(
         name='source',
