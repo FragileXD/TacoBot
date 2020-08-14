@@ -405,6 +405,11 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command()
+    async def reverse(self, ctx, *, text: str):
+        t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        await ctx.send(f"🔁 {t_rev}")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
