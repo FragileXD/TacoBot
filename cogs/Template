@@ -15,8 +15,8 @@ class Name(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    def command(self, ctx): #commands
-        pass
+    @commands.command(aliases=['alias'])
+    async def commandname(self, ctx):
 
 def setup(bot):
     bot.add_cog(Name(bot))
