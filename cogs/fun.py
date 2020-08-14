@@ -305,7 +305,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(aliases=['haxer', "hacker", "hackertext"])
+    @commands.command(aliases=["hackertext"])
     async def leetify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .leetify 👩‍💻".format(message_author))
@@ -409,6 +409,49 @@ class Fun(commands.Cog):
     async def reverse(self, ctx, *, text: str):
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"🔁 {t_rev}")
+
+    @commands.command(aliases=['haxer', 'hacker'])
+    async def hack(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .hack 👩‍💻".format(message_author))
+
+        emailchoices = [
+            "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate", "pogw12369420"
+        ]
+        mailend = ["@pogmail.com", "@gmail.com", "@coldmail.com"]
+        passwordchoices = [
+            "haxor1998", "tacobotbestb0t", "password1", "password123",
+            "boopbooppoo"
+        ]
+        hackmsg = [
+            f"Hacking f{message}", f"[▗] Virus injected, emotes stolen",
+            f"[▖] Finding discord login... (2fa bypassed)",
+            f"[▖] Finding most common word...",
+            f"[▝] Injecting trojan virus into discriminator)",
+            f"[▝] Finding IP address", f"Email: {email}\nPassword: {password}",
+            "[▖] Setting up Epic Store account..",
+            "[▘] Reporting account to discord for breaking TOS...",
+            "[▗] Last DM: \"i think it's smaller than most\"",
+            "[▖] Finding discord login... (2fa bypassed)",
+            "[▖] Finding most common word...", "[▝] Finding IP address",
+            "[▖] Selling data to the Government..."
+        ]
+
+        email = random.choice(emailchoices)
+        mail = random.choice(mailend)
+        email = email + mail
+        password = random.choice(passwordchoices)
+
+        for x in range(0, 10):
+            time.sleep(1000)
+            await message.edit(content=random.choice(hackmsg))
+
+    @leetify.error
+    async def leetify_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
 
 
 def setup(bot):
