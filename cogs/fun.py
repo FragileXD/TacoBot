@@ -398,12 +398,12 @@ class Fun(commands.Cog):
         except:
             await ctx.send("Something went wrong! Try again.")
 
-        @emojify.error
-        async def emojify_error(self, ctx, error):
-            if isinstance(error, commands.MissingRequiredArgument):
-                await ctx.send("Please Input something after the command")
-            else:
-                raise (error)
+    @emojify.error
+    async def emojify_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
 
 
 def setup(bot):
