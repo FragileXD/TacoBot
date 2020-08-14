@@ -38,6 +38,10 @@ class General(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
+    @commands.command(aliases=['getprofilepic', 'getprofilepicture'])
+    async def getpfp(self, ctx):
+        await ctx.send("Command is not finished.")
+
 
 def setup(bot):
     bot.add_cog(General(bot))
