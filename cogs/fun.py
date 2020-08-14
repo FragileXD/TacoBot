@@ -428,12 +428,12 @@ class Fun(commands.Cog):
             f"[▖] Finding discord login... (2fa bypassed)",
             f"[▖] Finding most common word...",
             f"[▝] Injecting trojan virus into discriminator)",
-            f"[▝] Finding IP address", f"Email: {email}\nPassword: {password}",
+            "[▝] Finding IP address", f"Email: {email}\nPassword: {password}",
+            "[▗] Last DM: \"i think it's smaller than most\"",
+            "[▗] Finding discord login... (2fa bypassed)",
             "[▖] Setting up Epic Store account..",
             "[▘] Reporting account to discord for breaking TOS...",
-            "[▗] Last DM: \"i think it's smaller than most\"",
-            "[▖] Finding discord login... (2fa bypassed)",
-            "[▖] Finding most common word...", "[▝] Finding IP address",
+            "[▖] Finding most common word...",
             "[▖] Selling data to the Government..."
         ]
 
