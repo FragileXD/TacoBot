@@ -16,7 +16,9 @@ class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['hi'])
+    @commands.command(name='hello',
+                      description='test message (used for testing)',
+                      aliases=['hi'])
     async def hello(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -25,7 +27,10 @@ class General(commands.Cog):
             "<a:party_blob:743099804279898143> Hello, {}! 👋".format(
                 message_author.name))
 
-    @commands.command(aliases=['timeonline', 'timeup'])
+    @commands.command(
+        name='uptime',
+        description='Gets the amount of time the bot has been up',
+        aliases=['timeonline', 'timeup'])
     async def uptime(self, ctx):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -38,7 +43,9 @@ class General(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
-    @commands.command(aliases=['getprofilepic', 'getprofilepicture'])
+    @commands.command(name='getpfp',
+                      description='Gets the profile picture of a user',
+                      aliases=['getprofilepic', 'getprofilepicture'])
     async def getpfp(self, ctx):
         await ctx.send("Command is not finished.")
 

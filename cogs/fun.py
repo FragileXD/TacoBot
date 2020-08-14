@@ -16,7 +16,7 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(name='randomroulette', description='Pings a random user')
     @commands.guild_only()
     async def randomroulette(self, ctx):
         message_author = ctx.author
@@ -31,7 +31,9 @@ class Fun(commands.Cog):
         except IndexError:
             await ctx.send("You are the only human member on it!")
 
-    @commands.command(aliases=['ratedank'])
+    @commands.command(name='dankrate',
+                      description='Rates the user on dankness',
+                      aliases=['ratedank'])
     async def dankrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -82,7 +84,9 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(aliases=['epicgamer', 'rateepicgamer'])
+    @commands.command(name='epicgamerrate',
+                      description='Calculates how epic gamer the user is',
+                      aliases=['epicgamer', 'rateepicgamer'])
     async def epicgamerrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -134,7 +138,9 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(aliases=['bigbrain', 'ratebigbrain'])
+    @commands.command(name='bigbrainrate',
+                      description='Calculate how big brain the user is',
+                      aliases=['bigbrain', 'ratebigbrain'])
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -186,7 +192,10 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(aliases=['8ball'])
+    @commands.command(
+        name='8ball',
+        description='Gets a (rude) answer from the bot about any question',
+        aliases=['8ball'])
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -195,18 +204,20 @@ class Fun(commands.Cog):
 
         choices = [
             "hell na", "wtf no way",
-            "you are so ugly the ball broke. ask again later", "Ah I see, yes",
-            "better not tell you now >:)",
+            "you are so ugly the ball broke. ask again later",
+            "Once you grow a braincell, yes", "i don't care lol",
             "Only thing I can predict is you're stupid",
-            "Concentrate and ask again.", "Don't count on it",
+            "Concentrate and ask again.", "Don't count on it. Can you count?",
             "It is certain!", "It is decidely so.", "Most likely",
-            "My reply is no lol", "My (totally accurate) sources say no",
-            "Outlook not so good", "Outlook good", "Reply hazy, try again",
-            "Signs point to a YES!", "Very doubtful", "without a doubt", "yep",
-            "yes", "yes - definitely", "you may rely on it", 'Yes', 'No',
+            "no, just like the amount of brain cells you have",
+            "My (totally accurate) sources say no", "Outlook not so good",
+            "Outlook good", "Reply hazy, try again", "Signs point to a YES!",
+            "Very doubtful", "without a doubt", "yep", "yes",
+            "yes - definitely", "you may rely on it", 'Yes', 'No',
             'Take a wild guess...', 'Very doubtful', 'Sure', 'Without a doubt',
-            'Most likely', 'Might be possible', "You'll be the judge",
-            'no... (╯°□°）╯︵ ┻━┻', 'no... baka', 'senpai, pls no ;-;'
+            'Most likely',
+            'Might be possible, after you fix your messed up life',
+            "You'll be the judge", 'no... (╯°□°）╯︵ ┻━┻', 'no... baka'
         ]
 
         aaaaa = random.choice(choices)
