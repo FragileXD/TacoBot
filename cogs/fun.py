@@ -372,7 +372,7 @@ class Fun(commands.Cog):
         a = a.replace("P", ":regional_indicator_p:")
         a = a.replace("Q", ":regional_indicator_q:")
         a = a.replace("R", ":regional_indicator_r:")
-        a = a.replace("S"), ":regional_indicator_s:")
+        a = a.replace("S", ":regional_indicator_s:")
         a = a.replace("T", ":regional_indicator_t:")
         a = a.replace("U", ":regional_indicator_u:")
         a = a.replace("V", ":regional_indicator_v:")
