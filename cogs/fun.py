@@ -8,6 +8,7 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from owotext import OwO
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
@@ -489,6 +490,21 @@ class Fun(commands.Cog):
                 await asyncio.sleep(1)
                 jjj = random.choice(hackmsg)
                 await message.edit(content=jjj)
+        else:
+            raise (error)
+
+    @commands.command(aliases=['owoify', 'owofy'])
+    async def owo(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .owo UwU".format(message_author))
+        uwu = OwO()
+        a = (uwu.whatsthis(message))
+        await ctx.send(a)
+
+    @owo.error
+    async def owo_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
         else:
             raise (error)
 
