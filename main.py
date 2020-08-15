@@ -21,7 +21,7 @@ client = commands.Bot(command_prefix=PREFIX,
 @client.event
 async def on_ready():
     activity = discord.Game(name=".help | http://youtube.com/tacozlmao",
-                            type=1)
+                            taype=1)
     await client.change_presence(status=discord.Status.idle, activity=activity)
     print(f"{client.user.name} is Launched")
     print(client.user.id)
