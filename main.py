@@ -25,7 +25,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.idle, activity=activity)
     print(f"{client.user.name} is Launched")
     print(client.user.id)
-    print('-------------')
+    print('--------------')
 
 
 client.remove_command('help')
