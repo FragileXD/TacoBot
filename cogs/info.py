@@ -45,7 +45,8 @@ class Info(commands.Cog):
                 "Info": ":question:",
                 "Other": "",
                 "Music": ":musical_note:",
-                "Fun": ":smile:"
+                "Fun": ":smile:",
+                "General": ""
             }
             categoryAlias = {
                 "mod": "moderator",
