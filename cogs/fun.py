@@ -44,8 +44,6 @@ class Fun(commands.Cog):
         aaaaa = random.randint(1, 101)
         print("{} issued .dankrate 💸".format(message_author))
 
-        print(message)
-
         if message == "megalovania" or message == "tacoz" or message == "TacoBot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
                 title="Dank r8 Machine",
