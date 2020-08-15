@@ -420,12 +420,16 @@ class Fun(commands.Cog):
         print("{} issued .hack 👩‍💻".format(message_author))
 
         emailchoices = [
-            "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate", "pogw12369420"
+            "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate", "pogw12369420",
+            "DabeztB0tIzTac0B0t", "69c00lkiddo69", f"da{message}69",
+            f"{message}420", "c00lzman360"
         ]
         mailend = ["@pogmail.com", "@gmail.com", "@coldmail.com"]
         passwordchoices = [
             "haxor1998", "tacobotbestb0t", "password1", "password123",
-            "boopbooppoo"
+            "boopbooppoo", "c0olpaszw0rd320", "123456", "123456789", "qwerty",
+            "password", "qwerty", "111111", "12345678", "abc123", "1234567",
+            "agent007", "super123"
         ]
 
         email = random.choice(emailchoices)
@@ -462,12 +466,15 @@ class Fun(commands.Cog):
 
             emailchoices = [
                 "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate",
-                "pogw12369420"
+                "pogw12369420", "DabeztB0tIzTac0B0t", "69c00lkiddo69",
+                f"da{message}69", f"{message}420", "c00lzman360"
             ]
             mailend = ["@pogmail.com", "@gmail.com", "@coldmail.com"]
             passwordchoices = [
                 "haxor1998", "tacobotbestb0t", "password1", "password123",
-                "boopbooppoo"
+                "boopbooppoo", "c0olpaszw0rd320", "123456", "123456789",
+                "qwerty", "password", "qwerty", "111111", "12345678", "abc123",
+                "1234567", "agent007", "super123"
             ]
 
             email = random.choice(emailchoices)
