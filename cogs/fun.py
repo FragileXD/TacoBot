@@ -407,6 +407,13 @@ class Fun(commands.Cog):
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"🔁 {t_rev}")
 
+    @reverse.error
+    async def reverse_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
     @commands.command(aliases=['haxer', 'hacker'])
     async def hack(self, ctx, *, message):
         message_author = ctx.author
