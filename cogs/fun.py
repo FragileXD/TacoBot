@@ -429,7 +429,7 @@ class Fun(commands.Cog):
             f"[▗] Hacking {message}", f"[▗] Virus injected, emotes stolen",
             f"[▖] Finding discord login... (2fa bypassed)",
             f"[▖] Finding most common word...",
-            f"[▝] Injecting trojan virus into discriminator)",
+            f"[▝] Injecting trojan virus into discriminator",
             "[▝] Finding IP address", f"Email: {email}\nPassword: {password}",
             "[▗] Last DM: \"i think it's smaller than most\"",
             "[▗] Finding discord login... (2fa bypassed)",
@@ -446,10 +446,49 @@ class Fun(commands.Cog):
             jjj = random.choice(hackmsg)
             await message.edit(content=jjj)
 
-    @leetify.error
-    async def leetify_error(self, ctx, error):
+    @hack.error
+    async def hack_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
+            message_author = ctx.author
+            print("{} issued .hack 👩‍💻".format(message_author))
+
+            emailchoices = [
+                "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate",
+                "pogw12369420"
+            ]
+            mailend = ["@pogmail.com", "@gmail.com", "@coldmail.com"]
+            passwordchoices = [
+                "haxor1998", "tacobotbestb0t", "password1", "password123",
+                "boopbooppoo"
+            ]
+
+            email = random.choice(emailchoices)
+            mail = random.choice(mailend)
+            email = email + mail
+            password = random.choice(passwordchoices)
+
+            hackmsg = [
+                f"[▗] Hacking into who knows what",
+                f"[▗] Virus injected, emotes stolen",
+                f"[▖] Finding discord login... (2fa bypassed)",
+                f"[▖] Finding most common word...",
+                f"[▝] Injecting trojan virus into discriminator",
+                "[▝] Finding IP address",
+                f"Email: {email}\nPassword: {password}",
+                "[▗] Last DM: \"i think it's smaller than most\"",
+                "[▗] Finding discord login... (2fa bypassed)",
+                "[▖] Setting up Epic Store account..",
+                "[▘] Reporting account to discord for breaking TOS...",
+                "[▖] Finding most common word...",
+                "[▖] Selling data to the Government..."
+            ]
+
+            message = await ctx.send("Initiating Hacking")
+
+            for i in range(0, 8):
+                await asyncio.sleep(1)
+                jjj = random.choice(hackmsg)
+                await message.edit(content=jjj)
         else:
             raise (error)
 
