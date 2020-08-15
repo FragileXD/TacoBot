@@ -526,7 +526,7 @@ class Fun(commands.Cog):
     async def clap(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .clap 👏".format(message_author))
-        message.replace(" ", "👏")
+        a = message.replace(" ", "👏")
         await ctx.send(a)
 
     @clap.error
