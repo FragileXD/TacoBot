@@ -522,6 +522,20 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(aliases=['clapp'])
+    async def clap(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .clap 👏".format(message_author))
+        message.replace(" ", "👏")
+        await ctx.send(a)
+
+    @clap.error
+    async def clap_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
