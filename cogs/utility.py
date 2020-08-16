@@ -2,6 +2,7 @@ import discord
 import os
 import sys
 import random
+import asyncio
 import time
 from random import choice
 from discord.ext import commands
@@ -12,7 +13,7 @@ footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
 
-class General(commands.Cog):
+class Utility(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -41,6 +42,24 @@ class General(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
+    @commands.command(name='choose',
+                      description='Choose between some choices',
+                      aliases=['chooser'])
+    async def choose(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .choose".format(message_author))
+
+        jjj = message.split(" ")
+        e = random.choice(jjj)
+
+        embedVar = discord.Embed(title="TacoBot Choose",
+                                 description=f"Possible Outcomes: {jjj}",
+                                 color=3066993)
+        embed.add_field(name="Randomly Chosen Outcome:", value=e, inline=False)
+        embedVar.set_footer(text=footer)
+        await message_channel.send(embed=embedVar)
+        await ctx.send(e)
+
 
 def setup(bot):
-    bot.add_cog(General(bot))
+    bot.add_cog(Utility(bot))
