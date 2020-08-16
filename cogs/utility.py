@@ -55,10 +55,11 @@ class Utility(commands.Cog):
         embedVar = discord.Embed(title="TacoBot Choose",
                                  description=f"Possible Outcomes: {jjj}",
                                  color=3066993)
-        embed.add_field(name="Randomly Chosen Outcome:", value=e, inline=False)
+        embedVar.add_field(name="Randomly Chosen Outcome:",
+                           value=e,
+                           inline=False)
         embedVar.set_footer(text=footer)
-        await message_channel.send(embed=embedVar)
-        await ctx.send(e)
+        await ctx.send(embed=embedVar)
 
 
 def setup(bot):
