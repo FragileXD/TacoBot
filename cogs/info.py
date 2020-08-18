@@ -46,8 +46,8 @@ class Info(commands.Cog):
                 "Other": "",
                 "Music": ":musical_note:",
                 "Fun": ":smile:",
-                "Hypixel": "<Hypixel:745240325064228884>",
-                "Reddit": "<Reddit:745241144207867997>",
+                "Hypixel": "<:Hypixel:745240325064228884>",
+                "Reddit": "<:Reddit:745241144207867997>",
             }
             categoryAlias = {
                 "mod": "moderator",
