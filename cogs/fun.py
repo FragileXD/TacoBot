@@ -237,6 +237,7 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
         a = message.replace(" ", "<a:party_blob:743099804279898143>")
+        
         await ctx.send(a)
 
     @party.error
