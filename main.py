@@ -28,6 +28,13 @@ async def on_ready():
     print('--------------')
 
 
+async def on_member_join(self, member):
+    guild = member.guild
+    if guild.system_channel is not None:
+        to_send = 'Welcome {0.mention} to {1.name}!'.format(member, guild)
+        await guild.system_channel.send(to_send)
+
+
 client.remove_command('help')
 for file in os.listdir("cogs"):
     if file.endswith(".py"):
