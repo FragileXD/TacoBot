@@ -587,7 +587,7 @@ class Fun(commands.Cog):
         await ctx.send(random.choice(roasts))
 
     @commands.command()
-    async def spoiler(self, ctx, *, text: str):
+    async def spoiler(self, ctx, *, message):
         print("{} issued .spoiler".format(ctx.author))
         a = message.replace("", "||||")
         a = a[2:-2]
