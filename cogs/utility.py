@@ -79,433 +79,433 @@ class Utility(commands.Cog):
             e.set_footer(text=footer)
             await ctx.send(embed=e)
 
-        @encode.command(name="base64", aliases=["b64"])
-        async def encode_base64(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+    @encode.command(name="base64", aliases=["b64"])
+    async def encode_base64(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            result = base64.b64encode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
+        result = base64.b64encode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="base32", aliases=["b32"])
+    async def encode_base32(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = base64.b32encode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="base16", aliases=["b16"])
+    async def encode_base16(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = base64.b16encode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="base85", aliases=["b85"])
+    async def encode_base85(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = base64.b85encode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="hex", aliases=[])
+    async def encode_hex(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = (input.encode('UTF-8').hex())  #.decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="url", aliases=[])
+    async def encode_url(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = requote_uri(str(input))
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="rot13", aliases=['r13'])
+    async def encode_rot13(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = codecs.encode(str(input), "rot-13")
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    #https://github.com/VoxelPixel
+    @encode.command(name="rot47", aliases=['r47'])
+    async def encode_rot47(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        message = str(input)
+        key = 47
+        encryp_text = ""
+
+        for i in range(len(message)):
+            temp = ord(message[i]) + key
+            if ord(message[i]) == 32:
+                encryp_text += " "
+            elif temp > 126:
+                temp -= 94
+                encryp_text += chr(temp)
+            else:
+                encryp_text += chr(temp)
+
+        result = encryp_text
+
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @encode.command(name="binary", aliases=['bin'])
+    async def encode_binary(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
+            await ctx.send(embed=e)
+            return
+
+        e = discord.Embed(title="Result", colour=0x2ECC71)
+
+        result = ''.join(format(ord(c), '08b') for c in str(input))
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @commands.group(name='decode',
+                    description='Decode the input',
+                    aliases=['decrypt'])
+    async def decode(self, ctx):
+        if ctx.invoked_subcommand is None:
+            e = discord.Embed(title='Decode Command',
+                                description=f"Decodes the given input",
+                                color=0x2ECC71)
+            e.add_field(name="Usage",
+                        value=f"`?decode <decoding_type> <input>`")
+            e.add_field(
+                name="Avaliable decoding types",
+                value=
+                f"`base16 base32 base64 base85 hex binary url rot13 rot47 `"
+            )
             e.set_footer(text=footer)
-
             await ctx.send(embed=e)
 
-        @encode.command(name="base32", aliases=["b32"])
-        async def encode_base32(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = base64.b32encode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
+    @decode.command(name="base64", aliases=["b64"])
+    async def decode_base64(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="base16", aliases=["b16"])
-        async def encode_base16(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = base64.b64decode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = base64.b16encode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="base16", aliases=["b16"])
+    async def decode_base16(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="base85", aliases=["b85"])
-        async def encode_base85(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = base64.b16decode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = base64.b85encode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="base32", aliases=["b32"])
+    async def decode_base32(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="hex", aliases=[])
-        async def encode_hex(self,
-                             ctx,
-                             *,
-                             input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = base64.b32decode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = (input.encode('UTF-8').hex())  #.decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="base85", aliases=["b85"])
+    async def decode_base85(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="url", aliases=[])
-        async def encode_url(self,
-                             ctx,
-                             *,
-                             input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = base64.b85decode(input.encode('UTF-8')).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = requote_uri(str(input))
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="rot13", aliases=['r13'])
+    async def decode_rot13(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="rot13", aliases=['r13'])
-        async def encode_rot13(self,
-                               ctx,
-                               *,
-                               input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = codecs.encode(str(input), "rot-13")
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = codecs.encode(str(input), "rot-13")
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="hex", aliases=[])
+    async def decode_hex(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        #https://github.com/VoxelPixel
-        @encode.command(name="rot47", aliases=['r47'])
-        async def encode_rot47(self,
-                               ctx,
-                               *,
-                               input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = (binascii.unhexlify(
+            input.encode('UTF-8'))).decode('utf-8')
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            message = str(input)
-            key = 47
-            encryp_text = ""
+        await ctx.send(embed=e)
 
-            for i in range(len(message)):
-                temp = ord(message[i]) + key
-                if ord(message[i]) == 32:
-                    encryp_text += " "
-                elif temp > 126:
-                    temp -= 94
-                    encryp_text += chr(temp)
-                else:
-                    encryp_text += chr(temp)
-
-            result = encryp_text
-
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
+    @decode.command(name="url", aliases=[])
+    async def decode_url(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @encode.command(name="binary", aliases=['bin'])
-        async def encode_binary(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = unquote(str(input))
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = ''.join(format(ord(c), '08b') for c in str(input))
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        await ctx.send(embed=e)
 
+    @decode.command(name="rot47", aliases=['r47'])
+    async def decode_rot47(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @commands.group(name='decode',
-                        description='Decode the input',
-                        aliases=['decrypt'])
-        async def decode(self, ctx):
-            if ctx.invoked_subcommand is None:
-                e = discord.Embed(title='Decode Command',
-                                  description=f"Decodes the given input",
-                                  color=0x2ECC71)
-                e.add_field(name="Usage",
-                            value=f"`?decode <decoding_type> <input>`")
-                e.add_field(
-                    name="Avaliable decoding types",
-                    value=
-                    f"`base16 base32 base64 base85 hex binary url rot13 rot47 `"
-                )
-                e.set_footer(text=footer)
-                await ctx.send(embed=e)
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-        @decode.command(name="base64", aliases=["b64"])
-        async def decode_base64(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        message = str(input)
+        key = 47
+        decryp_text = ""
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        for i in range(len(message)):
+            temp = ord(message[i]) - key
+            if ord(message[i]) == 32:
+                decryp_text += " "
+            elif temp < 32:
+                temp += 94
+                decryp_text += chr(temp)
+            else:
+                decryp_text += chr(temp)
 
-            result = base64.b64decode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
+        result = decryp_text
 
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
+
+        await ctx.send(embed=e)
+
+    @decode.command(name="binary", aliases=['bin'])
+    async def decode_binary(self,
+                            ctx,
+                            *,
+                            input: commands.clean_content = None):
+        if not input:
+            e = discord.Embed(
+                description=":no_entry_sign: You must give an input string",
+                colour=0xE74C3C)
             await ctx.send(embed=e)
+            return
 
-        @decode.command(name="base16", aliases=["b16"])
-        async def decode_base16(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
+        e = discord.Embed(title="Result", colour=0x2ECC71)
 
-            e = discord.Embed(title="Result", colour=0x2ECC71)
+        result = self.decode_binary_string(str(input).replace(" ", ""))
+        e.add_field(name="Input", value=f"`{input}`")
+        e.add_field(name="Output", value=f"`{result}`")
+        e.set_footer(text=footer)
 
-            result = base64.b16decode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="base32", aliases=["b32"])
-        async def decode_base32(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = base64.b32decode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="base85", aliases=["b85"])
-        async def decode_base85(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = base64.b85decode(input.encode('UTF-8')).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="rot13", aliases=['r13'])
-        async def decode_rot13(self,
-                               ctx,
-                               *,
-                               input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = codecs.encode(str(input), "rot-13")
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="hex", aliases=[])
-        async def decode_hex(self,
-                             ctx,
-                             *,
-                             input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = (binascii.unhexlify(
-                input.encode('UTF-8'))).decode('utf-8')
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="url", aliases=[])
-        async def decode_url(self,
-                             ctx,
-                             *,
-                             input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = unquote(str(input))
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="rot47", aliases=['r47'])
-        async def decode_rot47(self,
-                               ctx,
-                               *,
-                               input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            message = str(input)
-            key = 47
-            decryp_text = ""
-
-            for i in range(len(message)):
-                temp = ord(message[i]) - key
-                if ord(message[i]) == 32:
-                    decryp_text += " "
-                elif temp < 32:
-                    temp += 94
-                    decryp_text += chr(temp)
-                else:
-                    decryp_text += chr(temp)
-
-            result = decryp_text
-
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
-
-        @decode.command(name="binary", aliases=['bin'])
-        async def decode_binary(self,
-                                ctx,
-                                *,
-                                input: commands.clean_content = None):
-            if not input:
-                e = discord.Embed(
-                    description=":no_entry_sign: You must give an input string",
-                    colour=0xE74C3C)
-                await ctx.send(embed=e)
-                return
-
-            e = discord.Embed(title="Result", colour=0x2ECC71)
-
-            result = self.decode_binary_string(str(input).replace(" ", ""))
-            e.add_field(name="Input", value=f"`{input}`")
-            e.add_field(name="Output", value=f"`{result}`")
-            e.set_footer(text=footer)
-
-            await ctx.send(embed=e)
+        await ctx.send(embed=e)
 
 
 def setup(bot):
