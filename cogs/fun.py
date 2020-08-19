@@ -681,7 +681,7 @@ class Fun(commands.Cog):
 
         for lyric in lyrics:
             await asyncio.sleep(1)
-            await message.edit(content=message + lyric)
+            await message.edit(content=(message + lyric))
 
     @commands.command()
     async def doot(self, ctx, *, message):
