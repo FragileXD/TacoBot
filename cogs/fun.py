@@ -183,7 +183,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
                     description=
-                    f"you broke the big brain machine with {message}'s iq>:( :fire:\nyou have {aaaaa}iq. big brainnnn!",
+                    f"you broke the big brain machine with your iq>:( :fire:\nyou have {aaaaa}iq. big brainnnn!",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
