@@ -13,7 +13,7 @@ footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
 
-class Name(commands.Cog):
+class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -57,4 +57,4 @@ class Name(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Name(bot))
+    bot.add_cog(Moderation(bot))
