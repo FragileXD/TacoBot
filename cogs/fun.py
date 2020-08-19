@@ -600,7 +600,10 @@ class Fun(commands.Cog):
         await client.delete_message(message)
         a = message.replace("", "||||")
         a = a[2:-2]
-        await ctx.send(a)
+        if len(a) > 2000:
+            await ctx.send("Break the bot again and I will break your knees")
+        else:
+            await ctx.send(a)
 
     @spoiler.error
     async def spoiler_error(self, ctx, error):
