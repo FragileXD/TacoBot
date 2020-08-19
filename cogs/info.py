@@ -27,24 +27,16 @@ class Info(commands.Cog):
         if cog == 'all':
             help_embed = discord.Embed(title='TacoBot Commands', color=3066993)
             help_embed.add_field(name="Fun", value=f"`{ctx.prefix}help fun`")
-            help_embed.add_field(name="Images",
-                                 value=f"`{ctx.prefix}help image`")
+            help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
             help_embed.add_field(name="Utility",
                                  value=f"`{ctx.prefix}help utility`")
-            help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
-            help_embed.add_field(name="Music",
-                                 value=f"`{ctx.prefix}help music`")
-            help_embed.add_field(name="Other",
-                                 value=f"`{ctx.prefix}help other`")
+            help_embed.add_field(name="Reddit",
+                                 value=f"`{ctx.prefix}help reddit`")
         else:
             cogA = cog.lower()
             emojiCategory = {
-                "Moderator": ":tools:",
-                "Image": ":camera:",
                 "Utility": ":tools:",
                 "Info": ":question:",
-                "Other": "",
-                "Music": ":musical_note:",
                 "Fun": ":smile:",
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Reddit": "<:Reddit:745241144207867997>",
