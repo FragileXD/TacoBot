@@ -599,7 +599,7 @@ class Fun(commands.Cog):
         print("{} issued .spoiler".format(message_author))
         a = message.replace("", "||||")
         a = a[2:-2]
-        ctx.send(a)
+        await ctx.send(a)
 
     @spoiler.error
     async def spoiler_error(self, ctx, error):
