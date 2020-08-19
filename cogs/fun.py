@@ -47,11 +47,11 @@ class Fun(commands.Cog):
         message2 = message
         message = message.lower()
 
-        if message == "epic gamer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
+        if message == "dank memer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
-                title="Dank r8 Machine",
+                title="<:monkaS:664097071950856206> Dank r8 Machine",
                 description=
-                f"{message} is so insane and is {aaaaa*1000}% dank (epic) :sunglasses:",
+                f"{message} is so insane and is {aaaaa*1000}% dank (epic) <:monkaS:664097071950856206>",
                 color=3066993)
         else:
             if aaaaa == 101:
@@ -102,7 +102,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="epic gamer r8 Machine",
                 description=
-                f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+                f"{message} is so insane and is {aaaaa*1000}% epic gamer <:monkaS:664097071950856206>",
                 color=3066993)
         else:
             if aaaaa == 101:
@@ -154,7 +154,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
                 description=
-                f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :sunglasses:",
+                f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :brain:",
                 color=3066993)
         else:
             if aaaaa == 101:
