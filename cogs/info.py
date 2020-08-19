@@ -26,6 +26,8 @@ class Info(commands.Cog):
 
         if cog == 'all':
             help_embed = discord.Embed(title='TacoBot Commands', color=3066993)
+            help_embed.add_field(name="Mod",
+                                 value=f"`{ctx.prefix}help moderation`")
             help_embed.add_field(name="Fun", value=f"`{ctx.prefix}help fun`")
             help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
             help_embed.add_field(name="Utility",
