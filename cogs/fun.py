@@ -601,7 +601,6 @@ class Fun(commands.Cog):
     async def spoiler(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .spoiler".format(message_author))
-        await client.delete_message(message)
         a = message.replace("", "||||")
         a = a[2:-2]
         if len(a) > 2000:
