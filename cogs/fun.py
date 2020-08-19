@@ -585,6 +585,19 @@ class Fun(commands.Cog):
         ]
         await ctx.send(random.choice(roasts))
 
+    @commands.command()
+    async def spoiler(self, ctx, *, text: str):
+        a = message.replace("", "||||")
+        a = a[2:-2]
+        print(a)
+
+    @reverse.error
+    async def reverse_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
