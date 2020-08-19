@@ -584,7 +584,8 @@ class Fun(commands.Cog):
             'Don’t make me have to smack the extra chromosome out of you.',
             'If you were any dumber, someone would have to water you twice a week.'
         ]
-        await ctx.send(random.choice(roasts))
+        randomroast = random.choice(roasts)
+        await ctx.send(randomroast)
 
     @commands.command()
     async def spoiler(self, ctx, *, message):
