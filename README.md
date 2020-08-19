@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://discord.gg/rUwx8gk">
-    <img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield" alt="Discord Server">
+    <img src="https://discordapp.com/api/guilds/663002132793917480/widget.png?style=shield" alt="Discord Server">
   <a href="https://www.python.org/downloads/">
     <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
   </a>
