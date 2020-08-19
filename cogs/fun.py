@@ -608,6 +608,8 @@ class Fun(commands.Cog):
             'If you’re going to be two-faced, at least make one of them pretty.',
             'OH MY GOD! IT SPEAKS!',
             '“You are so full of shit, the toilet’s jealous.” –Jinkx Monsoon, RuPaul’s Drag Race',
+            'The last time I saw a face like yours I fed it a banana.',
+            'I refuse to have a battle of wits with an unarmed person.'
         ]
         randomroast = random.choice(roasts)
         await ctx.send(randomroast)
