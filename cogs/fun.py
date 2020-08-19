@@ -405,6 +405,7 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def reverse(self, ctx, *, text: str):
+        print("{} issued .reverse 🔁".format(ctx.author))
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"🔁 {t_rev}")
 
@@ -587,12 +588,13 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def spoiler(self, ctx, *, text: str):
+        print("{} issued .spoiler".format(ctx.author))
         a = message.replace("", "||||")
         a = a[2:-2]
-        print(a)
+        ctx.send(a)
 
-    @reverse.error
-    async def reverse_error(self, ctx, error):
+    @spoiler.error
+    async def spoiler_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
