@@ -539,7 +539,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=['roasty', 'roastytoasty'])
-    async def roast(self, ctx, *, message):
+    async def roast(self, ctx):
         message_author = ctx.author
         print("{} issued .roast 🔥".format(message_author))
         roasts = [
@@ -589,7 +589,8 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def spoiler(self, ctx, *, message):
-        print("{} issued .spoiler".format(ctx.author))
+        message_author = ctx.author
+        print("{} issued .spoiler".format(message_author))
         a = message.replace("", "||||")
         a = a[2:-2]
         ctx.send(a)
