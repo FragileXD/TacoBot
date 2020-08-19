@@ -42,6 +42,14 @@ class Utility(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
+    @commands.command(name='stats',
+                      description='Shows the general stats for this bot!',
+                      aliases=['generalstats', 'gstats'])
+    async def stats(self, ctx):
+        message_author = ctx.author
+        message_channel = ctx.channel
+        print("{} issued .stats ⬆".format(message_author))
+
     @commands.command(
         name='choose',
         description='For when you wanna settle the score some other way',
