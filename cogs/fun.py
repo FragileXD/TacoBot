@@ -609,7 +609,9 @@ class Fun(commands.Cog):
             'OH MY GOD! IT SPEAKS!',
             '“You are so full of shit, the toilet’s jealous.” –Jinkx Monsoon, RuPaul’s Drag Race',
             'The last time I saw a face like yours I fed it a banana.',
-            'I refuse to have a battle of wits with an unarmed person.'
+            'I refuse to have a battle of wits with an unarmed person.',
+            "I get so emotional when you're not around. That emotion is happiness.",
+            'You must be the arithmetic man -- you add trouble, subtract pleasure, divide attention, and multiply ignorance.'
         ]
         randomroast = random.choice(roasts)
         await ctx.send(randomroast)
