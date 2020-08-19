@@ -26,6 +26,7 @@ class Moderation(commands.Cog):
             e = discord.Embed(
                 description=":no_entry_sign: You must specify a user",
                 colour=0xE74C3C)
+            e.set_footer(text=footer)
             await ctx.send(embed=e)
             return
 
@@ -68,17 +69,9 @@ class Moderation(commands.Cog):
             await ctx.send(embed=e)
             return
 
-        show_roles = ', '.join([
-            f"<@&{x.id}>"
-            for x in sorted(user.roles, key=lambda x: x.position, reverse=True)
-            if x.id != ctx.guild.default_role.id
-        ]) if len(user.roles) > 1 else 'None'
-
-        userObject = self.bot.get_user(user.id)
-
         e = discord.Embed(title=f"{user}'s Profile Picture", colour=0x2ECC71)
 
-        e.add_field(url=user.avatar_url)
+        e.set_thumbnail(url=user.avatar_url)
         e.set_footer(text=footer)
         await ctx.send(embed=e)
 
