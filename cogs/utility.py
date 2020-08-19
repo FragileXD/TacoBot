@@ -42,9 +42,10 @@ class Utility(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
-    @commands.command(name='choose',
-                      description='Choose between some choices',
-                      aliases=['chooser'])
+    @commands.command(
+        name='choose',
+        description='For when you wanna settle the score some other way',
+        aliases=['chooser'])
     async def choose(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .choose".format(message_author))
