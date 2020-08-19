@@ -56,13 +56,13 @@ class Fun(commands.Cog):
         else:
             if aaaaa == 101:
                 embedVar = discord.Embed(
-                    title="Dank r8 Machine",
+                    title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=
                     f"you broke the dank machine >:( :fire:\n{message} is {aaaaa}% dank",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
-                    title="Dank r8 Machine",
+                    title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"{message} is {aaaaa}% dank",
                     color=3066993)
             embedVar.set_footer(text=footer)
@@ -77,12 +77,12 @@ class Fun(commands.Cog):
 
             if aaaaa == 101:
                 embedVar = discord.Embed(
-                    title="Dank r8 Machine",
+                    title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=
                     f"you broke the dank machine >:( :fire:\nyou are {aaaaa}% dank",
                     color=15105570)
             else:
-                embedVar = discord.Embed(title="Dank r8 Machine",
+                embedVar = discord.Embed(title="<:monkaS:664097071950856206> Dank r8 Machine",
                                          description=f"you are {aaaaa}% dank",
                                          color=3066993)
             embedVar.set_footer(text=footer)
