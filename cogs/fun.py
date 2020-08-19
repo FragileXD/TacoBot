@@ -237,7 +237,7 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
         a = message.replace(" ", "<a:party_blob:743099804279898143>")
-        
+
         await ctx.send(a)
 
     @party.error
@@ -528,7 +528,7 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .clap 👏".format(message_author))
         a = message.replace(" ", "👏")
-        await ctx.send("👏"+a+"👏")
+        await ctx.send("👏" + a + "👏")
 
     @clap.error
     async def clap_error(self, ctx, error):
@@ -536,46 +536,54 @@ class Fun(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
-            
-    @commands.command(aliases=['roasty','roastytoasty'])
+
+    @commands.command(aliases=['roasty', 'roastytoasty'])
     async def roast(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .roast 🔥".format(message_author))
-        roasts = ["You’re my favorite person besides every other person I’ve ever met.", 
-        'Did your parents have any children that lived?', 'I envy people who have never met you.', 
-        'Maybe if you eat all that makeup you will be beautiful on the inside.', 
-        'You’re kinda like Rapunzel except instead of letting down your hair, you let down everyone in your life.', 
-        'You’re impossible to underestimate.', 
-        'You’re not the dumbest person on the planet, but you sure better hope he doesn’t die.',
-        'If you were an inanimate object, you’d be a participation trophy.', 
-        'I’m sorry your dad beat you instead of cancer.', 'Take my lowest priority and put yourself beneath it.', 
-        'You are a pizza burn on the roof of the world’s mouth.', 
-        'Does your ass ever get jealous of the shit that comes out of your mouth?', 
-        'People like you are the reason God doesn’t talk to us anymore.', 'You’re so dense, light bends around you.', 
-        'Your mother may have told you that you could be anything you wanted, but a douchebag wasn’t what she meant.', 
-        'You are so ugly that when you were born, the doctor slapped your mother.', 
-        'I’d love to stay and chat but I’d rather have type-2 diabetes.', 'I bet you swim with a T-shirt on.', 
-        'I hope your wife brings a date to your funeral.', 'If you were a potato you’d be a stupid potato.', 
-        'Your face looks like it was set on fire and put out with chains.', 
-        'Your mother may have told you that you could be anything you wanted, but a douchebag wasn’t what she meant.', 
-        'You are so ugly that when you were born, the doctor slapped your mother.', 
-        'You look like two pounds of shit in a one-pound bag.', 
-        'If I wanted to commit suicide I’d climb to your ego and jump to your IQ.', 
-        'You make me wish I had more middle fingers.', 
-        'If genius skips a generation, your children will be brilliant.', 
-        'Everyone that has ever said they love you was wrong.', 
-        'You have the charm and charisma of a burning orphanage.', 
-        'If there was a single intelligent thought in your head it would have died from loneliness.', 
-        'I don’t have the time or the crayons to explain this to you.', 
-        'The only difference between you and Hitler is Hitler knew when to kill himself.', 
-        'You’re dumber than I tell people.', 'Your face is so oily that I’m surprised America hasn’t invaded yet.', 
-        'I can explain it to you, but I can’t understand it for you.', 'You’re not as dumb as you look.', 
-        'This is why everyone talks about you as soon as you leave the room.', 
-        'You’ve got a great body. Too bad there’s no workout routine for a face.', 
-        'Don’t make me have to smack the extra chromosome out of you.', 
-        'If you were any dumber, someone would have to water you twice a week.']
+        roasts = [
+            "You’re my favorite person besides every other person I’ve ever met.",
+            'Did your parents have any children that lived?',
+            'I envy people who have never met you.',
+            'Maybe if you eat all that makeup you will be beautiful on the inside.',
+            'You’re kinda like Rapunzel except instead of letting down your hair, you let down everyone in your life.',
+            'You’re impossible to underestimate.',
+            'You’re not the dumbest person on the planet, but you sure better hope he doesn’t die.',
+            'If you were an inanimate object, you’d be a participation trophy.',
+            'I’m sorry your dad beat you instead of cancer.',
+            'Take my lowest priority and put yourself beneath it.',
+            'You are a pizza burn on the roof of the world’s mouth.',
+            'Does your ass ever get jealous of the shit that comes out of your mouth?',
+            'People like you are the reason God doesn’t talk to us anymore.',
+            'You’re so dense, light bends around you.',
+            'Your mother may have told you that you could be anything you wanted, but a douchebag wasn’t what she meant.',
+            'You are so ugly that when you were born, the doctor slapped your mother.',
+            'I’d love to stay and chat but I’d rather have type-2 diabetes.',
+            'I bet you swim with a T-shirt on.',
+            'I hope your wife brings a date to your funeral.',
+            'If you were a potato you’d be a stupid potato.',
+            'Your face looks like it was set on fire and put out with chains.',
+            'Your mother may have told you that you could be anything you wanted, but a douchebag wasn’t what she meant.',
+            'You are so ugly that when you were born, the doctor slapped your mother.',
+            'You look like two pounds of shit in a one-pound bag.',
+            'If I wanted to commit suicide I’d climb to your ego and jump to your IQ.',
+            'You make me wish I had more middle fingers.',
+            'If genius skips a generation, your children will be brilliant.',
+            'Everyone that has ever said they love you was wrong.',
+            'You have the charm and charisma of a burning orphanage.',
+            'If there was a single intelligent thought in your head it would have died from loneliness.',
+            'I don’t have the time or the crayons to explain this to you.',
+            'The only difference between you and Hitler is Hitler knew when to kill himself.',
+            'You’re dumber than I tell people.',
+            'Your face is so oily that I’m surprised America hasn’t invaded yet.',
+            'I can explain it to you, but I can’t understand it for you.',
+            'You’re not as dumb as you look.',
+            'This is why everyone talks about you as soon as you leave the room.',
+            'You’ve got a great body. Too bad there’s no workout routine for a face.',
+            'Don’t make me have to smack the extra chromosome out of you.',
+            'If you were any dumber, someone would have to water you twice a week.'
+        ]
         await ctx.send(random.choice(roasts))
-
 
 
 def setup(bot):
