@@ -59,7 +59,7 @@ class Moderation(commands.Cog):
                       description='Gets the profile picture of the user',
                       aliases=['getprofilepic'])
     @commands.guild_only()
-    async def whois(self, ctx, user: discord.Member = None):
+    async def getpfp(self, ctx, user: discord.Member = None):
         if not user:
             e = discord.Embed(
                 description=":no_entry_sign: You must specify a user",
