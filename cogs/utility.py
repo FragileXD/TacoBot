@@ -47,7 +47,6 @@ class Utility(commands.Cog):
                       aliases=['generalstats', 'gstats'])
     async def stats(self, ctx):
         message_author = ctx.author
-        message_channel = ctx.channel
         print("{} issued .stats ⬆".format(message_author))
 
     @commands.command(
