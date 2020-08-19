@@ -538,7 +538,9 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(aliases=['roasty', 'roastytoasty'])
+    @commands.command(aliases=[
+        'roasty', 'roastytoasty', 'destroy', 'destruction100', 'kill'
+    ])
     async def roast(self, ctx):
         message_author = ctx.author
         print("{} issued .roast 🔥".format(message_author))
