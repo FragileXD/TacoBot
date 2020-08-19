@@ -152,6 +152,10 @@ class Info(commands.Cog):
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
 
+    @commands.command
+    async def joined(self, ctx, member: discord.Member):
+        await ctx.send('{0.name} joined in {0.joined_at}'.format(member))
+
 
 """
     @commands.command(
