@@ -242,7 +242,10 @@ class Fun(commands.Cog):
         print("{} issued .party 🥳".format(message_author))
         a = message.replace(" ", "<a:party_blob:743099804279898143>")
 
-        await ctx.send(a)
+        if len(a) < 2000:
+            await ctx.send(a)
+        else:
+            await ctx.send("Break the bot again and I will break your knees")
 
     @party.error
     async def party_error(self, ctx, error):
@@ -396,7 +399,8 @@ class Fun(commands.Cog):
             if len(a) < 2000:
                 await ctx.send(a)
             else:
-                await ctx.send("The message went above 2000 characters")
+                await ctx.send(
+                    "Break the bot again and I will break your knees")
         except:
             await ctx.send("Something went wrong! Try again.")
 
