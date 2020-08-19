@@ -592,7 +592,22 @@ class Fun(commands.Cog):
             'This is why everyone talks about you as soon as you leave the room.',
             'You’ve got a great body. Too bad there’s no workout routine for a face.',
             'Don’t make me have to smack the extra chromosome out of you.',
-            'If you were any dumber, someone would have to water you twice a week.'
+            'If you were any dumber, someone would have to water you twice a week.',
+            'You’re the reason God created the middle finger.',
+            'You’re a grey sprinkle on a rainbow cupcake.',
+            'If your brain was dynamite, there wouldn’t be enough to blow your hat off.',
+            'You are more disappointing than an unsalted pretzel.',
+            'Light travels faster than sound which is why you seemed bright until you spoke.',
+            "You're so annoying, you make your Happy Meal cry.",
+            'Your secrets are always safe with me. I never even listen when you tell me them.',
+            'I’ll never forget the first time we met. But I’ll keep trying.',
+            'I forgot the world revolves around you. My apologies, how silly of me.',
+            'Hold still. I’m trying to imagine you with personality.',
+            'Your face makes onions cry.',
+            'I’m not insulting you, I’m describing you.',
+            'If you’re going to be two-faced, at least make one of them pretty.',
+            'OH MY GOD! IT SPEAKS!',
+            '“You are so full of shit, the toilet’s jealous.” –Jinkx Monsoon, RuPaul’s Drag Race',
         ]
         randomroast = random.choice(roasts)
         await ctx.send(randomroast)
