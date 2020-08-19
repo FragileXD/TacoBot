@@ -1,5 +1,16 @@
 # TacoBot
 
+<p align="center">
+  <a href="https://discord.gg/rUwx8gk">
+    <img src="https://discordapp.com/api/guilds/133049272517001216/widget.png?style=shield" alt="Discord Server">
+  <a href="https://www.python.org/downloads/">
+    <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
+  </a>
+  <a href="https://github.com/Rapptz/discord.py/">
+      <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py">
+  </a>
+</p>
+
 ## What is TacoBOT
 
 **TacoBot** is a test bot made by Tacoz as a stepping stone into extra knowledge about python. This bot is mainly a test and isn't supposed to be a fully fledged bot. Expect consistent updates to the bot!
