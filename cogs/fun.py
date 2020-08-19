@@ -44,7 +44,10 @@ class Fun(commands.Cog):
         aaaaa = random.randint(1, 101)
         print("{} issued .dankrate 💸".format(message_author))
 
-        if message == "megalovania" or message == "tacoz" or message == "TacoBot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
+        message2 = message
+        message = message.lower()
+
+        if message == "epic gamer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
                 title="Dank r8 Machine",
                 description=
@@ -95,7 +98,7 @@ class Fun(commands.Cog):
         aaaaa = random.randint(1, 101)
         print("{} issued .epicgamerrate 😎".format(message_author))
 
-        if message == "megalovania" or message == "tacoz" or message == "TacoBot":
+        if message == "epic gamer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
                 title="epic gamer r8 Machine",
                 description=
@@ -147,7 +150,7 @@ class Fun(commands.Cog):
         aaaaa = random.randint(1, 101)
         print("{} issued .bigbrainrate 🧠".format(message_author))
 
-        if message == "megalovania" or message == "tacoz" or message == "TacoBot":
+        if message == "epic gamer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
                 description=
