@@ -38,13 +38,14 @@ class Info(commands.Cog):
                 "Utility": ":tools:",
                 "Info": ":question:",
                 "Fun": ":smile:",
+                "Moderation": ":shield:",
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Reddit": "<:Reddit:745241144207867997>",
             }
             categoryAlias = {
                 "mod": "moderator",
                 "moderation": "moderator",
-                "moderate": "moderator",
+                "moderator": "mod",
                 "util": "utility",
                 "utils": "utility",
                 "utilities": "utility"
