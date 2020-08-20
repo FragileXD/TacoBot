@@ -900,7 +900,6 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .doot".format(message_author))
         a = message.replace(" ", "💀🎺")
-        a = a[2:-2]
         if len(a) > 2000:
             await ctx.send("Break the bot again and I will break your knees")
         else:
