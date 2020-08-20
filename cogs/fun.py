@@ -710,8 +710,8 @@ class Fun(commands.Cog):
         await ctx.send(
             f"<:Google:745916595351846962>https://lmgtfy.com/?q={message}")
 
-    @clap.error
-    async def clap_error(self, ctx, error):
+    @google.error
+    async def google_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
