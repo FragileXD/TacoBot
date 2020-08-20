@@ -844,7 +844,7 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/minecraftstal/",
             "https://theuselessweb.site/breakglasstosoundalarm/"
         ]
-        await ctx.send(random.choice(webs))
+        await ctx.send("<a:loading:745929307108540446> " + random.choice(webs))
 
     @commands.command()
     async def doot(self, ctx, *, message):
