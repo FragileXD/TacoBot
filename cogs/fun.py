@@ -703,7 +703,25 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/secretsfornicotine/",
             "https://theuselessweb.site/crapola/",
             "https://theuselessweb.site/salmonofcapistrano/",
-            "https://theuselessweb.site/More-cowbell/"
+            "https://theuselessweb.site/More-cowbell/",
+            "https://theuselessweb.site/buzzybuzz/",
+            "https://theuselessweb.site/buildshruggie/",
+            "https://theuselessweb.site/plspetdoge/",
+            "https://theuselessweb.site/oppositeofpoop/",
+            "https://theuselessweb.site/boohbah-zone/",
+            "https://theuselessweb.site/instantostrich/",
+            "https://theuselessweb.site/geodude/",
+            "https://theuselessweb.site/cuteroulette/",
+            "https://theuselessweb.site/infinitefrogs/",
+            "https://theuselessweb.site/agitatedchicken/",
+            "https://theuselessweb.site/wwwdotcom/",
+            "https://theuselessweb.site/ducksarethebest.com/"
+            "https://theuselessweb.site/grandpanoclothes.com/",
+            "https://theuselessweb.site/poop.bike/",
+            "https://theuselessweb.site/whatdoineed/",
+            "https://theuselessweb.site/thanksobama/",
+            "https://theuselessweb.site/retrolamp/",
+            "https://theuselessweb.site/dumbcalculator/"
         ]
         await ctx.send(random.choice(webs))
 
