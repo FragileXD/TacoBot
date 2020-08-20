@@ -740,7 +740,18 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/whitenoisemachine.com/",
             "https://theuselessweb.site/tacospin/",
             "https://theuselessweb.site/omglasergunspewpewpew/",
-            "https://theuselessweb.site/toastybutton/"
+            "https://theuselessweb.site/toastybutton/",
+            "https://theuselessweb.site/pleasewait/",
+            "https://theuselessweb.site/wafflecat/",
+            "https://theuselessweb.site/minionstranslator/",
+            "https://theuselessweb.site/fallingguy/",
+            "https://theuselessweb.site/flyguy/",
+            "https://theuselessweb.site/patience-is-a-virtue/",
+            "https://theuselessweb.site/whitetrash/",
+            "https://theuselessweb.site/pixelsfighting/",
+            "https://theuselessweb.site/isitwhite/",
+            "https://theuselessweb.site/onemillionlols/",
+            "https://theuselessweb.site/chihuahuaspin/"
         ]
         await ctx.send(random.choice(webs))
 
