@@ -681,7 +681,7 @@ class Fun(commands.Cog):
         await ctx.send("**Renai Circulation**")
 
         for lyric in lyrics:
-            await asyncio.sleep(1)
+            await asyncio.sleep(2)
             await ctx.send(lyric)
 
     @commands.command()
