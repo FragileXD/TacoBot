@@ -702,6 +702,21 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(aliases=['search'])
+    async def google(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .google".format(message_author))
+        a = message.replace(" ", "+")
+        await ctx.send(
+            f"<:Google:745916595351846962>https://lmgtfy.com/?q={message}")
+
+    @clap.error
+    async def clap_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
