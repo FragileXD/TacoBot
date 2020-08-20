@@ -84,6 +84,28 @@ class Utility(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(aliases=['media', 'socialmedia'])
+    async def socials(self, ctx):
+        message_author = ctx.author
+        print("{} issued .socials 🐦".format(message_author))
+
+        embedVar = discord.Embed(
+            title=
+            "<a:party_blob:743099804279898143> Social Media <a:party_blob:743099804279898143>",
+            color=3066993)
+        embedVar.add_field(name="<:twitter:745938625316913234> Twitter:",
+                           value="https://twitter.com/NotTacoz",
+                           inline=False)
+        embedVar.add_field(name="<:youtube:745938625157398548> Youtube:",
+                           value="https:/youtube.com/TacozLmao",
+                           inline=False)
+        embedVar.add_field(
+            name="<:discord:745938625522434108> Discord Server:",
+            value="https://discord.io/Tacoz",
+            inline=False)
+        embedVar.set_footer(text=footer)
+        await ctx.send(embed=embedVar)
+
 
 def setup(bot):
     bot.add_cog(Utility(bot))
