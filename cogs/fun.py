@@ -836,7 +836,13 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/feedderpy/",
             "https://theuselessweb.site/exotic-butters/",
             "https://theuselessweb.site/marvelous-breadfish/",
-            
+            "https://theuselessweb.site/thebigdog.club/",
+            "https://theuselessweb.site/sealspin/",
+            "https://theuselessweb.site/thispeanutlookslikeaduck/",
+            "https://theuselessweb.site/hardcoreprawnlawn/",
+            "https://theuselessweb.site/uppertolowercase/",
+            "https://theuselessweb.site/minecraftstal/",
+            "https://theuselessweb.site/breakglasstosoundalarm/"
         ]
         await ctx.send(random.choice(webs))
 
