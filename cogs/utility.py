@@ -95,14 +95,14 @@ class Utility(commands.Cog):
             color=3066993)
         embedVar.add_field(name="<:twitter:745938625316913234> Twitter:",
                            value="https://twitter.com/NotTacoz",
-                           inline=False)
+                           inline=True)
         embedVar.add_field(name="<:youtube:745938625157398548> Youtube:",
-                           value="https:/youtube.com/TacozLmao",
-                           inline=False)
+                           value="https://youtube.com/TacozLmao",
+                           inline=True)
         embedVar.add_field(
             name="<:discord:745938625522434108> Discord Server:",
             value="https://discord.io/Tacoz",
-            inline=False)
+            inline=True)
         embedVar.set_footer(text=footer)
         await ctx.send(embed=embedVar)
 
