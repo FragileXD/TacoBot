@@ -101,20 +101,22 @@ class Fun(commands.Cog):
 
         if message == "epic gamer" or message == "tacoz" or message == "tacobot" or message == "<@!566193825874182164>" or message == "<@!***REMOVED***>":
             embedVar = discord.Embed(
-                title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                 description=
                 f"{message} is so insane and is {aaaaa*1000}% epic gamer <:stevedab:745555779666444319>",
                 color=3066993)
         else:
             if aaaaa == 101:
                 embedVar = discord.Embed(
-                    title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                    title=
+                    "<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=
                     f"{message} broke the epic gamer machine with {message}'s epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
-                    title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                    title=
+                    "<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"{message} is {aaaaa}% epic gamer 😎",
                     color=3066993)
         embedVar.set_footer(text=footer)
@@ -125,18 +127,65 @@ class Fun(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
-            print("{} issued .epicgamerrate 🧠".format(message_author))
+            print("{} issued .epicgamerrate 😎".format(message_author))
 
             if aaaaa == 101:
                 embedVar = discord.Embed(
-                    title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                    title=
+                    "<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=
                     f"you broke the epic gamer machine with your epic gamerness >:( :fire:\nyou are {aaaaa}% epic gamer",
                     color=15105570)
             else:
                 embedVar = discord.Embed(
-                    title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                    title=
+                    "<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"you are {aaaaa}% epic gamer 😎",
+                    color=3066993)
+            embedVar.set_footer(text=footer)
+            return await ctx.send(embed=embedVar)
+        else:
+            raise (error)
+
+    @commands.command(aliases=['thot'])
+    async def thotrate(self, ctx, *, message):
+        message_author = ctx.author
+        message_channel = ctx.channel
+
+        aaaaa = random.randint(1, 101)
+        print("{} issued .thotrate".format(message_author))
+
+        if aaaaa == 101:
+            embedVar = discord.Embed(
+                title="<:stevedab:745555779666444319>epic gamer r8 Machine",
+                description=
+                f"{message} broke the thot machine with {message}'s thotness\nyou are {aaaaa}% thot",
+                color=15105570)
+        else:
+            embedVar = discord.Embed(
+                title="<:stevedab:745555779666444319> thot r8 Machine",
+                description=f"{message} is {aaaaa}% thot",
+                color=3066993)
+        embedVar.set_footer(text=footer)
+        await message_channel.send(embed=embedVar)
+
+    @thotrate.error
+    async def thotrate_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            message_author = ctx.author
+            aaaaa = random.randint(1, 101)
+            print("{} issued .thot".format(message_author))
+
+            if aaaaa == 101:
+                embedVar = discord.Embed(
+                    title="<:stevedab:745555779666444319> thot r8 Machine",
+                    description=
+                    f"you broke the thot machine with your thotness\nyou are {aaaaa}% thot",
+                    color=15105570)
+            else:
+                embedVar = discord.Embed(
+                    title="<:stevedab:745555779666444319>thot r8 Machine",
+                    description=f"you are {aaaaa}% thot",
                     color=3066993)
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
