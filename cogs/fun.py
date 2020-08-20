@@ -685,7 +685,7 @@ class Fun(commands.Cog):
             await ctx.send(lyric)
 
     @commands.command(aliases=['useless_web'])
-    async def uselessweb(self, ctx, *, message):
+    async def uselessweb(self, ctx):
         message_author = ctx.author
         print("{} issued .uselessweb ❓".format(message_author))
         webs = [
@@ -816,7 +816,27 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/coldvoid/",
             "https://theuselessweb.site/invisiblecursor/",
             "https://theuselessweb.site/tinycursor/",
-            "https://theuselessweb.site/aestheticecho/"
+            "https://theuselessweb.site/aestheticecho/",
+            "https://theuselessweb.site/beefchickenpork/",
+            "https://theuselessweb.site/annoyingcursor/",
+            "https://theuselessweb.site/hotdoom/",
+            "https://theuselessweb.site/fromthedarkpast/",
+            "https://theuselessweb.site/closedshut/",
+            "https://theuselessweb.site/nekromisantrop/",
+            "https://theuselessweb.site/thepersistenceofsadness/",
+            "https://theuselessweb.site/tothewater/",
+            "https://theuselessweb.site/flaminglog/",
+            "https://theuselessweb.site/yesforsure.com/",
+            "https://theuselessweb.site/inceptionbutton/",
+            "https://theuselessweb.site/niceonedad/",
+            "https://theuselessweb.site/nootnoot/",
+            "https://theuselessweb.site/youhaveautism/",
+            "https://theuselessweb.site/ffffidget/",
+            "https://theuselessweb.site/howbigismypotato/",
+            "https://theuselessweb.site/feedderpy/",
+            "https://theuselessweb.site/exotic-butters/",
+            "https://theuselessweb.site/marvelous-breadfish/",
+            
         ]
         await ctx.send(random.choice(webs))
 
