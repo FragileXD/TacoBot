@@ -34,6 +34,8 @@ class Info(commands.Cog):
                                  value=f"`{ctx.prefix}help utility`")
             help_embed.add_field(name="Reddit",
                                  value=f"`{ctx.prefix}help reddit`")
+            help_embed.set_footer(text="use '.' before each command |" +
+                                  footer)
         else:
             cogA = cog.lower()
             emojiCategory = {
