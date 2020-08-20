@@ -477,7 +477,7 @@ class Fun(commands.Cog):
             emailchoices = [
                 "Tacob0tBeztB0t", "dankNeszz", "dankratedankrate",
                 "pogw12369420", "DabeztB0tIzTac0B0t", "69c00lkiddo69",
-                f"da{message}69", f"{message}420", "c00lzman360"
+                f"da{message_author}69", f"{message_author}420", "c00lzman360"
             ]
             mailend = ["@pogmail.com", "@gmail.com", "@coldmail.com"]
             passwordchoices = [
