@@ -708,7 +708,7 @@ class Fun(commands.Cog):
         print("{} issued .google".format(message_author))
         a = message.replace(" ", "+")
         await ctx.send(
-            f"<:Google:745916595351846962>https://lmgtfy.com/?q={message}")
+            f"<:Google:745916595351846962> https://lmgtfy.com/?q={message}")
 
     @google.error
     async def google_error(self, ctx, error):
