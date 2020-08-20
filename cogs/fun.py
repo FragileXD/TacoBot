@@ -684,6 +684,29 @@ class Fun(commands.Cog):
             await asyncio.sleep(2)
             await ctx.send(lyric)
 
+    @commands.command(aliases=['useless_web'])
+    async def uselessweb(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .uselessweb ❓".format(message_author))
+        webs = [
+            "https://coronavirus-ninja.com/",
+            "https://theuselessweb.site/lookadeadfly/",
+            "https://theuselessweb.site/drunkronswanson/",
+            "https://theuselessweb.site/talktomyass/",
+            "https://theuselessweb.site/icantsleep/",
+            "https://theuselessweb.site/hmpg/",
+            "https://theuselessweb.site/broof/",
+            "https://theuselessweb.site/screaminggoatpiano/",
+            "https://theuselessweb.site/shamebell/",
+            "https://theuselessweb.site/8bitdance/",
+            "https://theuselessweb.site/coloursquares/",
+            "https://theuselessweb.site/secretsfornicotine/",
+            "https://theuselessweb.site/crapola/",
+            "https://theuselessweb.site/salmonofcapistrano/",
+            "https://theuselessweb.site/More-cowbell/"
+        ]
+        await ctx.send(random.choice(webs))
+
     @commands.command()
     async def doot(self, ctx, *, message):
         message_author = ctx.author
@@ -701,8 +724,6 @@ class Fun(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
-
-
 
 
 def setup(bot):
