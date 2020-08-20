@@ -792,7 +792,31 @@ class Fun(commands.Cog):
             "https://theuselessweb.site/walama/",
             "https://theuselessweb.site/dramabutton/",
             "https://theuselessweb.site/hereistoday/",
-            "https://theuselessweb.site/spaceis.cool/"
+            "https://theuselessweb.site/spaceis.cool/",
+            "https://theuselessweb.site/khaaan/",
+            "https://theuselessweb.site/nooooooooooooooo/",
+            "https://theuselessweb.site/hiyoooo/",
+            "https://theuselessweb.site/shtuff/",
+            "https://theuselessweb.site/tomsdog/",
+            "https://theuselessweb.site/leglesslegolegolas/",
+            "https://theuselessweb.site/lifeisnotfair/",
+            "https://theuselessweb.site/something/",
+            "https://theuselessweb.site/randomdoh/",
+            "https://theuselessweb.site/comingupmilhouse/",
+            "https://theuselessweb.site/purple/",
+            "https://theuselessweb.site/stagnationmeansdecline/",
+            "https://theuselessweb.site/wewillattack/",
+            "https://theuselessweb.site/pleasetouchme/",
+            "https://theuselessweb.site/iamveryverysorry/",
+            "https://theuselessweb.site/everythingyouseeisinthepast/",
+            "https://theuselessweb.site/nosquito/",
+            "https://theuselessweb.site/vaiavanti/",
+            "https://theuselessweb.site/futurephysics/",
+            "https://theuselessweb.site/popcornpainting/",
+            "https://theuselessweb.site/coldvoid/",
+            "https://theuselessweb.site/invisiblecursor/",
+            "https://theuselessweb.site/tinycursor/",
+            "https://theuselessweb.site/aestheticecho/"
         ]
         await ctx.send(random.choice(webs))
 
