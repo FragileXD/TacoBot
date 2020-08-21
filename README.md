@@ -13,7 +13,7 @@
 
 ## What is TacoBOT
 
-**TacoBot** is a test bot made by Tacoz as a stepping stone into extra knowledge about python. This bot is mainly a test and isn't supposed to be a fully fledged bot. Expect consistent updates to the bot!
+**TacoBot** is a multi-purpose discord bot created by Tacoz. This bot is mainly a test and isn't supposed to be a fully fledged bot. Expect consistent updates to the bot!
 
 ## Features
 
