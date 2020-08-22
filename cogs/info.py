@@ -45,6 +45,7 @@ class Info(commands.Cog):
                 "Moderation": ":shield:",
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Image": "<:Reddit:745241144207867997>",
+                "Animals": ":dog:",
             }
             categoryAlias = {
                 "mod": "moderator",
