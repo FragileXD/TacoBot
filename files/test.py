@@ -3,7 +3,7 @@ if "https://i.imgur.com/WFJSU4l.gifv"[-4:-1] + "v" == "gifv":
 else:
     print(False)
 
-print("https://i.imgur.com/WFJSU4l.gifv"[-4:-1])
+print("https://i.imgur.com/WFJSU4l.gifv"[:-5])
 """
 
 
