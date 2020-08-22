@@ -49,15 +49,13 @@ class Utility(commands.Cog):
         message_author = ctx.author
         print("{} issued .stats ⬆".format(message_author))
 
+        a = f"Uptime: {timedelta(seconds=time.monotonic() - start_time)}} |{footer}"
         embedVar = discord.Embed(title="General Stats", color=3066993)
         embedVar.add_field(name=":1234: Server Count",
                            value=(len(self.bot.guilds)),
                            inline=False)
         embedVar.add_field(name="Stat #2", value="stat", inline=False)
-        embedVar.set_footer(
-            text=
-            (f"Uptime: {timedelta(seconds=time.monotonic() - start_time)}} |{footer}")
-        )
+        embedVar.set_footer(text=a)
         await ctx.send(embed=embedVar)
 
     @commands.command(
