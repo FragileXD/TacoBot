@@ -37,11 +37,11 @@ class Image(commands.Cog):
         upvotes = []
         over18 = []
         descr = []
-        for submission in reddit.subreddit(subreddit).hot(limit=30):
+        for submission in reddit.subreddit(subreddit).top(time="month",
+                                                          limit=30):
             title.append(submission.title)
             urlvar.append(submission.url)
             upvotes.append(submission.score)
-            over18.append(submission.over_18)
             descr.append(submission.selftext)
 
         abc = random.choice(title)
