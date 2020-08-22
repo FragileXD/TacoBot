@@ -36,24 +36,24 @@ class Image(commands.Cog):
         urlvar = []
         upvotes = []
         over18 = []
-        desc = []
+        descr = []
         for submission in reddit.subreddit(subreddit).hot(limit=30):
             title.append(submission.title)
             urlvar.append(submission.url)
             upvotes.append(submission.score)
             over18.append(submission.over_18)
-            desc.append(submission.selftext)
+            descr.append(submission.selftext)
 
         abc = random.choice(title)
         indexed = title.index(abc)
         title = abc
         urlvar = urlvar[indexed]
         upvotes = upvotes[indexed]
-        desc = desc[indexed]
+        descr = desc[indexed]
         over18 = over18[indexed]
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
-        embedVar.add_field(value=desc, inline=True)
+        embedVar.add_field(value=descr)
         embedVar.set_image(url=urlvar)
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
