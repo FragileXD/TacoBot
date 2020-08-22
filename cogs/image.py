@@ -55,7 +55,7 @@ class Image(commands.Cog):
     @commands.command(name='meme',
                       description='Sends a random meme',
                       aliases=['subreddit', 'reddit', 'memes', 'dankmemes'])
-    async def meme(self, ctx, *, message:
+    async def meme(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .meme 😎".format(message_author))
 
@@ -63,20 +63,18 @@ class Image(commands.Cog):
         title = []
         url = []
         upvotes = []
-        
+
         for submission in reddit.subreddit(subreddit).hot(limit=69):
             print(submission.title)
             title.append(submission.title)
             url.append(submission.url)
             upvotes.append(post.score)
-            
+
         abc = random.choice(title)
         indexed = title.index(abc)
         title = abc
         url = url[indexed]
         upvotes = url[indexed]
-        
-        
 
     @meme.error
     async def meme_error(self, ctx, error):
