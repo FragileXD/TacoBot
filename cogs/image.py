@@ -43,13 +43,16 @@ class Image(commands.Cog):
 
             submission = submissions[random.randint(1, 50) - 1]
 
-            while submission.url[0:10] == "https://v.r":
-                submission = submissions[random.randint(1, len(submissions)) -
-                                         1]
-            if submission.url[-4:-1] + "v" == "gifv":
-                urlvar = submission.url[:-5]
-            else:
-                urlvar = (submission.url)
+            try:
+                while submission.url[0:10] == "https://v.r":
+                    submission = submissions[
+                        random.randint(1, len(submissions)) - 1]
+                if submission.url[-4:-1] + "v" == "gifv":
+                    urlvar = submission.url[:-5]
+                else:
+                    urlvar = (submission.url)
+            except:
+                urlvar = submission.body
 
             title = (submission.title)
             upvotes = (submission.score)
