@@ -727,8 +727,8 @@ class Fun(commands.Cog):
             "Nee sonnan ja mada", "Watashi no koto mitete ne", "Zutto zutto"
         ]
 
-        msg = await ctx.send("**Renai Circulation**")
-        msg2 = msg
+        msg2 = "**Renai Circulation**"
+        msg = await ctx.send(msg2)
 
         for lyric in lyrics:
             await asyncio.sleep(2)
