@@ -49,6 +49,8 @@ class Utility(commands.Cog):
         message_author = ctx.author
         print("{} issued .stats ⬆".format(message_author))
 
+        await ctx.send(len(bot.guilds))
+
     @commands.command(
         name='choose',
         description='For when you wanna settle the score some other way',
