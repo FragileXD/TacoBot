@@ -29,9 +29,8 @@ class Reddit(commands.Cog):
         message_author = ctx.author
         print("{} issued .meme 😎".format(message_author))
 
-        submissions = list(reddit.subreddit(message).hot(Limit=None))
-        submission = random.choice(submissions)
-        print(submission)
+        for submission in reddit.subreddit('all').hot(limit=25):
+            print(submission.title)
 
     @meme.error
     async def meme_error(self, ctx, error):
