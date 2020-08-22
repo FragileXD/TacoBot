@@ -49,17 +49,24 @@ class Image(commands.Cog):
                         random.randint(1, len(submissions)) - 1]
                 if submission.url[-4:-1] + "v" == "gifv":
                     urlvar = submission.url[:-5]
+                    print(urlvar)
                 else:
                     urlvar = (submission.url)
+                    print(urlvar)
             except:
-                urlvar = submission.body
+                body = submission.body
+                urlvar = ""
+                print(urlvar)
 
             title = (submission.title)
             upvotes = (submission.score)
             permalink = f"https://reddit.com{submission.permalink}"
 
             embedVar = discord.Embed(title=title, url=permalink, color=3066993)
-            embedVar.set_image(url=urlvar)
+            if urlvar != "":
+                embedVar.set_image(url=urlvar)
+            else:
+                embedVar.add_field(name="", value=f"{body}", inline=False)
             embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
             await ctx.send(embed=embedVar)
