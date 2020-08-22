@@ -33,22 +33,19 @@ class Image(commands.Cog):
 
         subreddit = message.replace("r/", "")
 
+        submissions = []
         title = []
         urlvar = []
         upvotes = []
-        for submission in reddit.subreddit(subreddit).top("month", limit=30):
-            while submission.over_18:
-                pass
-            else:
-                title.append(submission.title)
-                urlvar.append(submission.url)
-                upvotes.append(submission.score)
+        for submission in reddit.subreddit(subreddit).top("month", limit=50):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
 
-        abc = random.choice(title)
-        indexed = title.index(abc)
-        title = abc
-        urlvar = urlvar[indexed]
-        upvotes = upvotes[indexed]
+        submission = submissions[random.randint(1, amount) - 1]
+
+        title = (submission.title)
+        urlvar = (submission.url)
+        upvotes = (submission.score)
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.set_image(url=urlvar)
