@@ -56,7 +56,7 @@ class Utility(commands.Cog):
         embedVar.add_field(name="Stat #2", value="stat", inline=False)
         embedVar.set_footer(
             text=
-            f"Uptime: {timedelta(seconds=time.monotonic() - start_time)}} |{footer}"
+            (f"Uptime: {timedelta(seconds=time.monotonic() - start_time)}} |{footer}")
         )
         await ctx.send(embed=embedVar)
 
