@@ -55,10 +55,11 @@ class Animals(commands.Cog):
             while submission.url[0:10] == "https://v.r":
                 submission = submissions[random.randint(1, len(submissions)) - 1]
             if submission.url[-4:-1] + "v" == "gifv":
-                pass
+                urlvar = submission.url[:-5]
+            else:
+                urlvar = (submission.url)
 
             title = (submission.title)
-            urlvar = (submission.url)
             upvotes = (submission.score)
             aww = [
                 "awwwwwwwwwwww", "I love animals <3", "Absolute Cutie", "🥺🙏",
