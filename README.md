@@ -27,6 +27,12 @@
   - partyblob
   - and **much more!**
 
+- Moderation Commands!
+
+  - Get somebody's discord stats
+
+- Utility!
+- Kawaii Animals!
 - Image Commands!
 
   - Subreddit Image Grabber
@@ -40,7 +46,7 @@
 - [Full Permissions](https://discord.com/oauth2/authorize?client_id=652111582662361100&scope=bot&permissions=8)
 - To use Code: `cd Desktop` `python -m pip install -r requirements.txt`
 
-- Alternative Solution (Windows) open ``main.py`` with a text file editor and just edit the token and/or the other variables. Close text editor and run ``run.bat``
+- Alternative Solution (Windows) open `main.py` with a text file editor and just edit the token and/or the other variables. Close text editor and run `run.bat`
 
 ## I found a bug/error
 
