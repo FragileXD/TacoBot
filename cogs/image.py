@@ -51,7 +51,7 @@ class Image(commands.Cog):
         embedVar.set_image(url=urlvar)
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
-        await message_channel.send(embed=embedVar)
+        await ctx.send(embed=embedVar)
 
     @meme.error
     async def meme_error(self, ctx, error):
