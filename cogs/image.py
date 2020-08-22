@@ -32,6 +32,7 @@ class Image(commands.Cog):
         print("{} issued .meme 😎".format(message_author))
 
         subreddit = message.replace("r/", "")
+
         title = []
         urlvar = []
         upvotes = []
@@ -53,14 +54,10 @@ class Image(commands.Cog):
         urlvar = urlvar[indexed]
         upvotes = upvotes[indexed]
         descr = descr[indexed]
-        over18 = over18[indexed]
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.add_field(name="Description", value=descr)
-        try:
-            embedVar.set_image(url=urlvar)
-        except:
-            pass
+        embedVar.set_image(url=urlvar)
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
         await ctx.send(embed=embedVar)
