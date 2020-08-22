@@ -33,50 +33,52 @@ class Animals(commands.Cog):
         print("{} issued .animals 🐶".format(message_author))
 
         submissions = []
+        
+        try:
 
-        for submission in reddit.subreddit("aww").top("week", limit=50):
-            if submission and not submission.stickied and not submission.over_18:
-                submissions.append(submission)
-        for submission in reddit.subreddit("Awwducational").top("week",
-                                                                limit=25):
-            if submission and not submission.stickied and not submission.over_18:
-                submissions.append(submission)
-        for submission in reddit.subreddit("Eyebleach").top("week", limit=25):
-            if submission and not submission.stickied and not submission.over_18:
-                submissions.append(submission)
-        for submission in reddit.subreddit("AnimalsBeingBros").top("week",
-                                                                   limit=25):
-            if submission and not submission.stickied and not submission.over_18:
-                submissions.append(submission)
+            for submission in reddit.subreddit("aww").top("week", limit=50):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+            for submission in reddit.subreddit("Awwducational").top("week",
+                                                                    limit=25):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+            for submission in reddit.subreddit("Eyebleach").top("week", limit=25):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+            for submission in reddit.subreddit("AnimalsBeingBros").top("week",
+                                                                    limit=25):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
 
-        submission = submissions[random.randint(1, len(submissions)) - 1]
-        while submission.url[0:10] == "https://v.r":
             submission = submissions[random.randint(1, len(submissions)) - 1]
+            while submission.url[0:10] == "https://v.r":
+                submission = submissions[random.randint(1, len(submissions)) - 1]
 
-        title = (submission.title)
-        urlvar = (submission.url)
-        upvotes = (submission.score)
-        aww = [
-            "awwwwwwwwwwww", "I love animals <3", "Absolute Cutie", "🥺🙏",
-            "*pet pet*", "owo!"
-        ]
-        permalink = f"https://reddit.com{submission.permalink}"
+            title = (submission.title)
+            urlvar = (submission.url)
+            upvotes = (submission.score)
+            aww = [
+                "awwwwwwwwwwww", "I love animals <3", "Absolute Cutie", "🥺🙏",
+                "*pet pet*", "owo!"
+            ]
+            permalink = f"https://reddit.com{submission.permalink}"
 
-        embedVar = discord.Embed(title=title, url=permalink, color=3066993)
-        embedVar.set_image(url=urlvar)
-        embedVar.set_footer(
-            text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+            embedVar.set_image(url=urlvar)
+            embedVar.set_footer(
+                text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
 
-        await ctx.send(embed=embedVar)
+            await ctx.send(embed=embedVar)
 
-        #except:
-        #   embedVar = discord.Embed(
-        #      title=":no_entry_sign: Something went wrong", color=13381166)
-        #  embedVar.set_footer(text=(f"{footer}"))
+        except:
+           embedVar = discord.Embed(
+              title=":no_entry_sign: Something went wrong", color=13381166)
+          embedVar.set_footer(text=(f"{footer}"))
 
 
-#
-#   await ctx.send(embed=embedVar)
+
+   await ctx.send(embed=embedVar)
 """
 CODE
 message_author = ctx.author
