@@ -50,18 +50,20 @@ class Animals(commands.Cog):
                 submissions.append(submission)
 
         submission = submissions[random.randint(1, len(submissions)) - 1]
+        if urlvar[0:10] = "https://v.r"
 
         title = (submission.title)
         urlvar = (submission.url)
         upvotes = (submission.score)
         aww = [
-            "awwwwwwwwwwww", "I love animals <3", "Cutie", "🥺🙏", "*pet pet*",
-            "owo!"
+            "awwwwwwwwwwww", "I love animals <3", "Absolute Cutie", "🥺🙏",
+            "*pet pet*", "owo!"
         ]
         permalink = f"https://reddit.com{submission.permalink}"
 
         embedVar = discord.Embed(title=title, url=permalink, color=3066993)
         embedVar.set_image(url=urlvar)
+        print(urlvar)
         embedVar.set_footer(
             text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
 
