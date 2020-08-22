@@ -51,7 +51,7 @@ class Image(commands.Cog):
 
         embedVar = discord.Embed(title=title, url=url, color=3066993)
         embedVar.add_field(url=url)
-        embedVar.set_footer(text=f(👍{upvotes}⬆ | {footer}))
+        embedVar.set_footer(text=f("👍{upvotes}⬆ | {footer}"))
 
     @meme.error
     async def meme_error(self, ctx, error):
