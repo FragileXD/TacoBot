@@ -35,8 +35,7 @@ class Image(commands.Cog):
         title = []
         urlvar = []
         upvotes = []
-
-        for submission in reddit.subreddit(subreddit).top("all")(limit=69):
+        for submission in reddit.subreddit(subreddit).hot(limit=30):
             title.append(submission.title)
             urlvar.append(submission.url)
             upvotes.append(submission.score)
