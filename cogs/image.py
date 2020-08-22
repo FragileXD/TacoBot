@@ -43,36 +43,45 @@ class Image(commands.Cog):
 
             submission = submissions[random.randint(1, 50) - 1]
 
-            #try:
-            while submission.url[0:10] == "https://v.r":
-                submission = submissions[random.randint(1, len(submissions)) -
-                                         1]
-            if submission.url[-4:-1] + "v" == "gifv":
-                urlvar = submission.url[:-5]
-                print(urlvar)
-            else:
-                print(submission.body)
-                urlvar = (submission.url)
-                print(urlvar)
-                """
+            try:
+                while submission.url[0:10] == "https://v.r":
+                    submission = submissions[
+                        random.randint(1, len(submissions)) - 1]
+                if submission.url[-4:-1] + "v" == "gifv":
+                    urlvar = submission.url[:-5]
+                    print(urlvar)
+                else:
+                    urlvar = (submission.url)
+                    print(urlvar)
+
             except:
-                body = submission.body
-                urlvar = ""
-                print(urlvar)
-                """
+                try:
+                    body = submission.body
+                    urlvar = ""
+                    print(urlvar)
+                except:
+                    urlvar = ""
+                    body = ""
 
-            title = (submission.title)
-            upvotes = (submission.score)
-            permalink = f"https://reddit.com{submission.permalink}"
+                title = (submission.title)
+                upvotes = (submission.score)
+                permalink = f"https://reddit.com{submission.permalink}"
 
-            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
-            if urlvar != "":
-                embedVar.set_image(url=urlvar)
-            elif urlvar == "":
-                embedVar.add_field(name="", value=f"{body}", inline=False)
-            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+                embedVar = discord.Embed(title=title,
+                                         url=permalink,
+                                         color=3066993)
+                if urlvar != "":
+                    embedVar.set_image(url=urlvar)
+                elif urlvar == "":
+                    if body == "":
+                        pass
+                    else:
+                        embedVar.add_field(name="",
+                                           value=f"{body}",
+                                           inline=False)
+                embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
-            await ctx.send(embed=embedVar)
+                await ctx.send(embed=embedVar)
 
         except:
             embedVar = discord.Embed(
