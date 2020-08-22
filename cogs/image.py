@@ -53,7 +53,7 @@ class Image(commands.Cog):
         over18 = over18[indexed]
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
-        embedVar.add_field(value=descr)
+        embedVar.add_field(name="Description", value=descr)
         embedVar.set_image(url=urlvar)
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
