@@ -1,10 +1,18 @@
+if "https://i.imgur.com/WFJSU4l.gifv"[-4:-1] + "v" == "gifv":
+    print(True)
+else:
+    print(False)
+
+print("https://i.imgur.com/WFJSU4l.gifv"[-4:-1])
+"""
+
+
 import csv
 
 message = input("> ")
 a = message.replace("", "||||")
 a = a[2:-2]
 print(a)
-"""
 lyrics = ["Se no!",
 "Demo sonnan ja dame",
 "Mou sonnan ja hora",
