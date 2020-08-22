@@ -34,9 +34,7 @@ class Image(commands.Cog):
         subreddit = message.replace("r/", "")
 
         submissions = []
-        title = []
-        urlvar = []
-        upvotes = []
+
         try:
             for submission in reddit.subreddit(subreddit).top("month",
                                                               limit=50):
@@ -48,8 +46,9 @@ class Image(commands.Cog):
             title = (submission.title)
             urlvar = (submission.url)
             upvotes = (submission.score)
+            permalink = (submission.permalink)
 
-            embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
             embedVar.set_image(url=urlvar)
             embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
@@ -69,9 +68,7 @@ class Image(commands.Cog):
             print("{} issued .meme 😎".format(message_author))
 
             submissions = []
-            title = []
-            urlvar = []
-            upvotes = []
+
             try:
                 for submission in reddit.subreddit("dankmemes").top("month",
                                                                     limit=50):
@@ -83,9 +80,10 @@ class Image(commands.Cog):
                 title = (submission.title)
                 urlvar = (submission.url)
                 upvotes = (submission.score)
+                permalink = (submission.permalink)
 
                 embedVar = discord.Embed(title=title,
-                                         url=urlvar,
+                                         url=permalink,
                                          color=3066993)
                 embedVar.set_image(url=urlvar)
                 embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
