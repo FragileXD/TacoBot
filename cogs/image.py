@@ -40,7 +40,7 @@ class Image(commands.Cog):
             print(submission.title)
             title.append(submission.title)
             url.append(submission.url)
-            upvotes.append(post.score)
+            upvotes.append(submission.score)
 
         abc = random.choice(title)
         indexed = title.index(abc)
