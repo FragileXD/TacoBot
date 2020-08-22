@@ -33,7 +33,7 @@ class Image(commands.Cog):
 
         subreddit = message.replace("r/", "")
         title = []
-        url = []
+        urlvar = []
         upvotes = []
 
         for submission in reddit.subreddit(subreddit).hot(limit=69):
@@ -48,7 +48,7 @@ class Image(commands.Cog):
         abc = random.choice(title)
         indexed = title.index(abc)
         title = abc
-        urlvar = url[indexed]
+        urlvar = urlvar[indexed]
         upvotes = upvotes[indexed]
 
         print(urlvar)
@@ -58,6 +58,8 @@ class Image(commands.Cog):
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.set_image(url=urlvar)
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+
+        await message_channel.send(embed=embedVar)
 
     @meme.error
     async def meme_error(self, ctx, error):
