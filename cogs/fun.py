@@ -728,10 +728,13 @@ class Fun(commands.Cog):
         ]
 
         msg = await ctx.send("**Renai Circulation**")
+        msg2 = f"{e}\n{lyric}"
 
         for lyric in lyrics:
             await asyncio.sleep(2)
-            msg = await msg.edit(str(msg) + str(lyric))
+            e = msg2
+            msg2 = f"{e}\n{lyric}"
+            await msg.edit(content=msg2)
 
     @commands.command(aliases=['useless_web'])
     async def uselessweb(self, ctx):
