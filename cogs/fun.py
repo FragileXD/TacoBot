@@ -912,6 +912,22 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command()
+    async def say(self, ctx, *, message):
+        message_author = ctx.author
+        print("{} issued .say".format(message_author))
+        if len(a) > 2000:
+            await ctx.send("Break the bot again and I will break your knees")
+        else:
+            await ctx.send(message)
+
+    @doot.error
+    async def doot_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
