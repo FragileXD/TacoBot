@@ -49,7 +49,7 @@ class Image(commands.Cog):
         title = abc
         urlvar = urlvar[indexed]
         upvotes = upvotes[indexed]
-        descr = desc[indexed]
+        descr = descr[indexed]
         over18 = over18[indexed]
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
