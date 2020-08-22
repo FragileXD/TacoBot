@@ -41,11 +41,19 @@ class Image(commands.Cog):
             url.append(submission.url)
             upvotes.append(submission.score)
 
+        print(urlvar)
+        print(title)
+        print(upvotes)
+
         abc = random.choice(title)
         indexed = title.index(abc)
         title = abc
         urlvar = url[indexed]
         upvotes = upvotes[indexed]
+
+        print(urlvar)
+        print(title)
+        print(upvotes)
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.set_image(url=urlvar)
