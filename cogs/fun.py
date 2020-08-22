@@ -728,7 +728,7 @@ class Fun(commands.Cog):
         ]
 
         msg = await ctx.send("**Renai Circulation**")
-        msg2 = f"{e}\n{lyric}"
+        msg2 = f"{msg}\n{lyric}"
 
         for lyric in lyrics:
             await asyncio.sleep(2)
