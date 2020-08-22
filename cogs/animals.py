@@ -50,7 +50,8 @@ class Animals(commands.Cog):
                 submissions.append(submission)
 
         submission = submissions[random.randint(1, len(submissions)) - 1]
-        if urlvar[0:10] = "https://v.r"
+        while submission.url[0:10] == "https://v.r":
+            submission = submissions[random.randint(1, len(submissions)) - 1]
 
         title = (submission.title)
         urlvar = (submission.url)
@@ -63,7 +64,6 @@ class Animals(commands.Cog):
 
         embedVar = discord.Embed(title=title, url=permalink, color=3066993)
         embedVar.set_image(url=urlvar)
-        print(urlvar)
         embedVar.set_footer(
             text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
 
