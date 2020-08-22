@@ -36,33 +36,33 @@ class Image(commands.Cog):
         title = []
         urlvar = []
         upvotes = []
-        try:
-            for submission in reddit.subreddit(subreddit).top(time="month",
-                                                              limit=30):
-                while submission.over_18:
-                    pass
-                else:
-                    title.append(submission.title)
-                    urlvar.append(submission.url)
-                    upvotes.append(submission.score)
+        for submission in reddit.subreddit(subreddit).top("month", limit=30):
+            while submission.over_18:
+                pass
+            else:
+                title.append(submission.title)
+                urlvar.append(submission.url)
+                upvotes.append(submission.score)
 
-            abc = random.choice(title)
-            indexed = title.index(abc)
-            title = abc
-            urlvar = urlvar[indexed]
-            upvotes = upvotes[indexed]
+        abc = random.choice(title)
+        indexed = title.index(abc)
+        title = abc
+        urlvar = urlvar[indexed]
+        upvotes = upvotes[indexed]
 
-            embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
-            embedVar.set_image(url=urlvar)
-            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+        embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
+        embedVar.set_image(url=urlvar)
+        embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
-            await ctx.send(embed=embedVar)
+        await ctx.send(embed=embedVar)
+        """
         except:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
             embedVar.set_footer(text=(f"{footer}"))
 
             await ctx.send(embed=embedVar)
+        """
 
     @meme.error
     async def meme_error(self, ctx, error):
