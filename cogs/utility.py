@@ -44,12 +44,21 @@ class Utility(commands.Cog):
 
     @commands.command(name='stats',
                       description='Shows the general stats for this bot!',
-                      aliases=['generalstats', 'gstats'])
+                      aliases=['generalstats', 'gstats', 'stat'])
     async def stats(self, ctx):
         message_author = ctx.author
         print("{} issued .stats ⬆".format(message_author))
 
-        await ctx.send(len(bot.guilds))
+        embedVar = discord.Embed(title="General Stats", color=3066993)
+        embedVar.add_field(name=":1234: Server Count",
+                           value=(len(self.bot.guilds)),
+                           inline=False)
+        embedVar.add_field(name="Stat #2", value="stat", inline=False)
+        embedVar.set_footer(
+            text=
+            f"Uptime: {timedelta(seconds=time.monotonic() - start_time)}} |{footer}"
+        )
+        await ctx.send(embed=embedVar)
 
     @commands.command(
         name='choose',
