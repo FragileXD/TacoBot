@@ -71,7 +71,7 @@ class Moderation(commands.Cog):
 
         e = discord.Embed(title=f"{user}'s Profile Picture", colour=0x2ECC71)
 
-        e.set_thumbnail(url=user.avatar_url)
+        e.set_image(url=user.avatar_url)
         e.set_footer(text=footer)
         await ctx.send(embed=e)
 
