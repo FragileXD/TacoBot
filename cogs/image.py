@@ -41,7 +41,7 @@ class Image(commands.Cog):
             if submission and not submission.stickied and not submission.over_18:
                 submissions.append(submission)
 
-        submission = submissions[random.randint(1, amount) - 1]
+        submission = submissions[random.randint(1, 50) - 1]
 
         title = (submission.title)
         urlvar = (submission.url)
