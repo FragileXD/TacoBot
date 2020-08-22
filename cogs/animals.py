@@ -75,9 +75,9 @@ class Animals(commands.Cog):
             await ctx.send(embed=embedVar)
 
         except:
-           embedVar = discord.Embed(
+            embedVar = discord.Embed(
               title=":no_entry_sign: Something went wrong", color=13381166)
-          embedVar.set_footer(text=(f"{footer}"))
+            embedVar.set_footer(text=(f"{footer}"))
 
 
 
