@@ -54,7 +54,10 @@ class Image(commands.Cog):
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.add_field(name="Description", value=descr)
-        embedVar.set_image(url=urlvar)
+        try:
+            embedVar.set_image(url=urlvar)
+        except:
+            pass
         embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
         await ctx.send(embed=embedVar)
