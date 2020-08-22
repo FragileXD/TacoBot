@@ -34,7 +34,7 @@ class Animals(commands.Cog):
 
         submissions = []
 
-        for submission in reddit.multireddit("aww").top("week", limit=69):
+        for submission in reddit.subreddit("aww").top("week", limit=69):
             if submission and not submission.stickied and not submission.over_18:
                 submissions.append(submission)
 
@@ -44,8 +44,8 @@ class Animals(commands.Cog):
         urlvar = (submission.url)
         upvotes = (submission.score)
         aww = [
-            "awwwwwwwwwwww", "I love animals <3", "Cutie", ":pleading_face:",
-            "*pet pet*", "owo!"
+            "awwwwwwwwwwww", "I love animals <3", "Cutie", "🥺🙏", "*pet pet*",
+            "owo!"
         ]
         permalink = f"https://reddit.com{submission.permalink}"
 
