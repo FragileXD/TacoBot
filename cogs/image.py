@@ -39,10 +39,13 @@ class Image(commands.Cog):
         descr = []
         for submission in reddit.subreddit(subreddit).top(time="month",
                                                           limit=30):
-            title.append(submission.title)
-            urlvar.append(submission.url)
-            upvotes.append(submission.score)
-            descr.append(submission.selftext)
+            while submission.over_18:
+                pass
+            else:
+                title.append(submission.title)
+                urlvar.append(submission.url)
+                upvotes.append(submission.score)
+                descr.append(submission.selftext)
 
         abc = random.choice(title)
         indexed = title.index(abc)
