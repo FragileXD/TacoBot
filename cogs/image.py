@@ -52,13 +52,31 @@ class Image(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['subreddit', 'reddit', 'memes', 'dankmemes'])
-    async def meme(self, ctx, *, message):
+    @commands.command(name='meme',
+                      description='Sends a random meme',
+                      aliases=['subreddit', 'reddit', 'memes', 'dankmemes'])
+    async def meme(self, ctx, *, message:
         message_author = ctx.author
         print("{} issued .meme 😎".format(message_author))
 
-        for submission in reddit.subreddit('all').hot(limit=25):
+        subreddit = message.replace("r/", "")
+        title = []
+        url = []
+        upvotes = []
+        
+        for submission in reddit.subreddit(subreddit).hot(limit=69):
             print(submission.title)
+            title.append(submission.title)
+            url.append(submission.url)
+            upvotes.append(post.score)
+            
+        abc = random.choice(title)
+        indexed = title.index(abc)
+        title = abc
+        url = url[indexed]
+        upvotes = url[indexed]
+        
+        
 
     @meme.error
     async def meme_error(self, ctx, error):
