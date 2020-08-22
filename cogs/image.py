@@ -38,7 +38,7 @@ class Image(commands.Cog):
 
         for submission in reddit.subreddit(subreddit).hot(limit=69):
             title.append(submission.title)
-            url.append(submission.url)
+            urlvar.append(submission.url)
             upvotes.append(submission.score)
 
         print(urlvar)
