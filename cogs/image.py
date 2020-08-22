@@ -12,40 +12,13 @@ from datetime import timedelta
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
-
+"""
 reddit = praw.Reddit(client_id="CFOX66IL6PXgRQ",
                      client_secret="sBlyjAFOUcrHKe1KyflDhg0CnsU",
                      user_agent="User Agent",
                      username="TacozRedditBot",
                      password="6x*JdQ@5h3t9")
-
-
-def getMeme(self, subreddit, amount: int = None, time: str = None):
-    r = praw.Reddit(client_id=self.client_id,
-                    client_secret=self.client_secret,
-                    user_agent=self.user_agent)
-
-    subreddit = subreddit.replace("r/", "")
-
-    all_submissions = r.subreddit(subreddit)
-    posts = []
-
-    if not amount:
-        amount = 50
-    if not time:
-        time = 'month'
-
-    info = (f"Searching {subreddit} (Amount:{str(amount)})")
-
-    for submission in r.subreddit(subreddit).top(time, limit=amount):
-        if submission and not submission.stickied:
-            posts.append(submission)
-
-    post = posts[random.randint(1, amount) - 1]
-    while post.over_18:
-        warning = ("Post rated nsfw")
-        post = posts[random.randint(1, amount) - 1]
-    return {"title": post.title, "url": post.url, "upvotes": post.score}
+"""
 
 
 class Image(commands.Cog):
@@ -75,6 +48,10 @@ class Image(commands.Cog):
         title = abc
         url = url[indexed]
         upvotes = url[indexed]
+
+        embedVar = discord.Embed(title=title, url=url, color=3066993)
+        embedVar.add_field(url=url)
+        embedVar.set_footer(text=f(👍{upvotes}⬆ | {footer}))
 
     @meme.error
     async def meme_error(self, ctx, error):
