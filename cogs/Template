@@ -16,7 +16,9 @@ class Name(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(aliases=['alias'])
+    @commands.command(name='command',
+                      description='Command Description',
+                      aliases=['alias'])
     async def commandname(self, ctx):
 
 def setup(bot):
