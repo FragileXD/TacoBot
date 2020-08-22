@@ -39,7 +39,7 @@ class Image(commands.Cog):
         descr = []
         try:
             for submission in reddit.subreddit(subreddit).top(time="month",
-                                                            limit=30):
+                                                              limit=30):
                 while submission.over_18:
                     pass
                 else:
@@ -59,6 +59,12 @@ class Image(commands.Cog):
             embedVar.add_field(name="Description", value=descr)
             embedVar.set_image(url=urlvar)
             embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+
+            await ctx.send(embed=embedVar)
+        except:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=(f"{footer}"))
 
             await ctx.send(embed=embedVar)
 
