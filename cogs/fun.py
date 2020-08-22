@@ -916,7 +916,7 @@ class Fun(commands.Cog):
     async def say(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .say".format(message_author))
-        if len(a) > 2000:
+        if len(message) > 2000:
             await ctx.send("Break the bot again and I will break your knees")
         else:
             await ctx.send(message)
