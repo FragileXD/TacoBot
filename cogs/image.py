@@ -36,24 +36,16 @@ class Image(commands.Cog):
         urlvar = []
         upvotes = []
 
-        for submission in reddit.subreddit(subreddit).hot(limit=69):
+        for submission in reddit.subreddit(subreddit).top("all")(limit=69):
             title.append(submission.title)
             urlvar.append(submission.url)
             upvotes.append(submission.score)
-
-        print(urlvar)
-        print(title)
-        print(upvotes)
 
         abc = random.choice(title)
         indexed = title.index(abc)
         title = abc
         urlvar = urlvar[indexed]
         upvotes = upvotes[indexed]
-
-        print(urlvar)
-        print(title)
-        print(upvotes)
 
         embedVar = discord.Embed(title=title, url=urlvar, color=3066993)
         embedVar.set_image(url=urlvar)
