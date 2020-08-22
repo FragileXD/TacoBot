@@ -46,7 +46,7 @@ class Image(commands.Cog):
         indexed = title.index(abc)
         title = abc
         url = url[indexed]
-        upvotes = url[indexed]
+        upvotes = upvotes[indexed]
 
         embedVar = discord.Embed(title=title, url=url, color=3066993)
         embedVar.add_field(url=url)
