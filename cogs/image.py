@@ -65,7 +65,40 @@ class Image(commands.Cog):
     @meme.error
     async def meme_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
+            message_author = ctx.author
+            print("{} issued .meme 😎".format(message_author))
+
+            submissions = []
+            title = []
+            urlvar = []
+            upvotes = []
+            try:
+                for submission in reddit.subreddit("dankmemes").top("month",
+                                                                    limit=50):
+                    if submission and not submission.stickied and not submission.over_18:
+                        submissions.append(submission)
+
+                submission = submissions[random.randint(1, 50) - 1]
+
+                title = (submission.title)
+                urlvar = (submission.url)
+                upvotes = (submission.score)
+
+                embedVar = discord.Embed(title=title,
+                                         url=urlvar,
+                                         color=3066993)
+                embedVar.set_image(url=urlvar)
+                embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+
+                await ctx.send(embed=embedVar)
+
+            except:
+                embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong",
+                    color=13381166)
+                embedVar.set_footer(text=(f"{footer}"))
+
+                await ctx.send(embed=embedVar)
         else:
             raise (error)
 
