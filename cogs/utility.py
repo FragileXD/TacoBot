@@ -52,10 +52,10 @@ class Utility(commands.Cog):
         embedVar = discord.Embed(title="General Stats", color=3066993)
         embedVar.add_field(name=":1234: Server Count",
                            value=(len(self.bot.guilds)),
-                           inline=False)
-        embedVar.add_field(name="Stat #2", value="stat", inline=False)
+                           inline=True)
+        embedVar.add_field(name="Stat #2", value="stat", inline=True)
         embedVar.set_footer(text=(
-            f"Uptime: {timedelta(seconds=time.monotonic() - start_time)} |{footer}"
+            f"Uptime: {timedelta(seconds=time.monotonic() - start_time)} | {footer}"
         ))
         await ctx.send(embed=embedVar)
 
