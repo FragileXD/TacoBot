@@ -12,13 +12,12 @@ from datetime import timedelta
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
-"""
+
 reddit = praw.Reddit(client_id="CFOX66IL6PXgRQ",
                      client_secret="sBlyjAFOUcrHKe1KyflDhg0CnsU",
                      user_agent="User Agent",
                      username="TacozRedditBot",
                      password="6x*JdQ@5h3t9")
-"""
 
 
 class Image(commands.Cog):
@@ -51,7 +50,7 @@ class Image(commands.Cog):
 
         embedVar = discord.Embed(title=title, url=url, color=3066993)
         embedVar.add_field(url=url)
-        embedVar.set_footer(text=f("👍{upvotes}⬆ | {footer}"))
+        embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
     @meme.error
     async def meme_error(self, ctx, error):
