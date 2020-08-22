@@ -54,6 +54,8 @@ class Animals(commands.Cog):
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r":
                 submission = submissions[random.randint(1, len(submissions)) - 1]
+            if submission.url[-4:-1] + "v" == "gifv":
+                pass
 
             title = (submission.title)
             urlvar = (submission.url)
