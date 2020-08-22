@@ -46,7 +46,7 @@ class Image(commands.Cog):
             title = (submission.title)
             urlvar = (submission.url)
             upvotes = (submission.score)
-            permalink = (submission.permalink)
+            permalink = f"https://reddit.com{submission.permalink}"
 
             embedVar = discord.Embed(title=title, url=permalink, color=3066993)
             embedVar.set_image(url=urlvar)
@@ -80,7 +80,7 @@ class Image(commands.Cog):
                 title = (submission.title)
                 urlvar = (submission.url)
                 upvotes = (submission.score)
-                permalink = (submission.permalink)
+                permalink = f"https://reddit.com{submission.permalink}"
 
                 embedVar = discord.Embed(title=title,
                                          url=permalink,
