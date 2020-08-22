@@ -34,7 +34,18 @@ class Animals(commands.Cog):
 
         submissions = []
 
-        for submission in reddit.subreddit("aww").top("week", limit=69):
+        for submission in reddit.subreddit("aww").top("week", limit=50):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
+        for submission in reddit.subreddit("Awwducational").top("week",
+                                                                limit=25):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
+        for submission in reddit.subreddit("Eyebleach").top("week", limit=25):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
+        for submission in reddit.subreddit("AnimalsBeingBros").top("week",
+                                                                   limit=25):
             if submission and not submission.stickied and not submission.over_18:
                 submissions.append(submission)
 
