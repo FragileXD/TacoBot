@@ -33,7 +33,7 @@ class Animals(commands.Cog):
         print("{} issued .animals 🐶".format(message_author))
 
         submissions = []
-        
+
         try:
 
             for submission in reddit.subreddit("aww").top("week", limit=50):
@@ -43,17 +43,19 @@ class Animals(commands.Cog):
                                                                     limit=25):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
-            for submission in reddit.subreddit("Eyebleach").top("week", limit=25):
+            for submission in reddit.subreddit("Eyebleach").top("week",
+                                                                limit=25):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
-            for submission in reddit.subreddit("AnimalsBeingBros").top("week",
-                                                                    limit=25):
+            for submission in reddit.subreddit("AnimalsBeingBros").top(
+                    "week", limit=25):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r":
-                submission = submissions[random.randint(1, len(submissions)) - 1]
+                submission = submissions[random.randint(1, len(submissions)) -
+                                         1]
             if submission.url[-4:-1] + "v" == "gifv":
                 urlvar = submission.url[:-5]
             else:
@@ -75,12 +77,13 @@ class Animals(commands.Cog):
             await ctx.send(embed=embedVar)
 
         except:
-            embedVar = discord.Embed(title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
             embedVar.set_footer(text=(f"{footer}"))
 
+            await ctx.send(embed=embedVar)
 
 
-   await ctx.send(embed=embedVar)
 """
 CODE
 message_author = ctx.author
