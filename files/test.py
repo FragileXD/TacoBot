@@ -1,10 +1,17 @@
+import urllib.request
+
+a = (urllib.request.urlopen("https://random-d.uk/api/random").read())
+b = a[43:-3]
+b = b.decode('utf-8')
+
+"""
+
 if "https://i.imgur.com/WFJSU4l.gifv"[-4:-1] + "v" == "gifv":
     print(True)
 else:
     print(False)
 
 print("https://i.imgur.com/WFJSU4l.gifv"[:-5])
-"""
 
 
 import csv

@@ -5,6 +5,7 @@ import random
 import asyncio
 import time
 import praw
+import urllib.request
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -84,42 +85,120 @@ class Animals(commands.Cog):
 
             await ctx.send(embed=embedVar)
 
+    @commands.command(name='aww',
+                      description='See some cute random things.',
+                      aliases=['cute', 'adorable'])
+    async def aww(self, ctx):
+        message_author = ctx.author
+        print("{} issued .aww 🥺".format(message_author))
+
+        submissions = []
+
+        try:
+
+            for submission in reddit.subreddit("aww").top("week", limit=50):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+
+            submission = submissions[random.randint(1, len(submissions)) - 1]
+            while submission.url[0:10] == "https://v.r" or submission.url[
+                    0:18] == "https://gfycat.com/":
+                submission = submissions[random.randint(1, len(submissions)) -
+                                         1]
+            if submission.url[-4:-1] + "v" == "gifv":
+                urlvar = submission.url[:-5]
+            else:
+                urlvar = (submission.url)
+
+            title = (submission.title)
+            upvotes = (submission.score)
+            aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
+            permalink = f"https://reddit.com{submission.permalink}"
+
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+            embedVar.set_image(url=urlvar)
+            embedVar.set_footer(
+                text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
+
+            await ctx.send(embed=embedVar)
+        except:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=(f"{footer}"))
+
+    @commands.command(name='ducc',
+                      description='Gets some duccs 🦆',
+                      aliases=['quack', 'quacker', "kwek", 'duck'])
+    async def ducc(self, ctx):
+        message_author = ctx.author
+        print("{} issued .ducc 🦆".format(message_author))
+
+        try:
+            aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
+            permalink = f"random-d.uk"
+            a = (urllib.request.urlopen(
+                "https://random-d.uk/api/random").read())
+            b = a[43:-3]
+            b = b.decode('utf-8')
+
+            embedVar = discord.Embed(title="Ducc",
+                                     url=permalink,
+                                     color=3066993)
+            embedVar.set_image(url=b)
+            embedVar.set_footer(text=(
+                f"Duck from random-d.uk | {random.choice(aww)} |{footer}"))
+
+            await ctx.send(embed=embedVar)
+        except:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=(f"{footer}"))
+
 
 """
-CODE
-message_author = ctx.author
-print("{} issued .commandname".format(message_author))
+@commands.command(
+        name='Command',
+        description='Command Description',
+        aliases=['alias'])
+async def commandname(self, ctx):
+    message_author = ctx.author
+    print("{} issued .commandname".format(message_author))
 
-submissions = []
+    submissions = []
 
-try:
-    for submission in reddit.subreddit("subname").top("week",
-                                                        limit=50):
-        if submission and not submission.stickied and not submission.over_18:
-            submissions.append(submission)
+    try:
 
-    submission = submissions[random.randint(1, 50) - 1]
+        for submission in reddit.subreddit("aww").top("week", limit=50):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
 
-    title = (submission.title)
-    urlvar = (submission.url)
-    upvotes = (submission.score)
-    permalink = f"https://reddit.com{submission.permalink}"
+        submission = submissions[random.randint(1, len(submissions)) - 1]
+        while submission.url[0:10] == "https://v.r" or submission.url[
+                0:18] == "https://gfycat.com/":
+            submission = submissions[random.randint(1, len(submissions)) -
+                                        1]
+        if submission.url[-4:-1] + "v" == "gifv":
+            urlvar = submission.url[:-5]
+        else:
+            urlvar = (submission.url)
 
-    embedVar = discord.Embed(title=title,
-                                url=permalink,
-                                color=3066993)
-    embedVar.set_image(url=urlvar)
-    embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+        title = (submission.title)
+        upvotes = (submission.score)
+        aww = [
+            "quote 1", "quote 2"
+        ]
+        permalink = f"https://reddit.com{submission.permalink}"
 
-    await ctx.send(embed=embedVar)
+        embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+        embedVar.set_image(url=urlvar)
+        embedVar.set_footer(
+            text=(f"👍{upvotes}⬆ | {random.choice(aww)} |{footer}"))
 
-except:
-    embedVar = discord.Embed(
-        title=":no_entry_sign: Something went wrong",
-        color=13381166)
-    embedVar.set_footer(text=(f"{footer}"))
-
-    await ctx.send(embed=embedVar)
+        await ctx.send(embed=embedVar)
+    except:
+        embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong", color=13381166)
+                embedVar.set_footer(text=(f"{footer}"))
 """
 
 
