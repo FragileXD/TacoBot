@@ -36,6 +36,8 @@ class Info(commands.Cog):
                                  value=f"`{ctx.prefix}help image`")
             help_embed.add_field(name="Animals",
                                  value=f"`{ctx.prefix}help animals`")
+            help_embed.add_field(name="Currency",
+                                 value=f"`{ctx.prefix}help currency`")
             help_embed.set_footer(text="use '.' before each command |" +
                                   footer)
         else:
