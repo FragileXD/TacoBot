@@ -133,26 +133,18 @@ class Animals(commands.Cog):
         message_author = ctx.author
         print("{} issued .ducc 🦆".format(message_author))
 
-        try:
-            aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
-            permalink = f"random-d.uk"
-            a = (urllib.request.urlopen(
-                "https://random-d.uk/api/random").read())
-            b = a[43:-3]
-            b = b.decode('utf-8')
+        aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
+        permalink = f"random-d.uk"
+        a = (urllib.request.urlopen("https://random-d.uk/api/random").read())
+        b = a[43:-3]
+        b = b.decode('utf-8')
 
-            embedVar = discord.Embed(title="Ducc",
-                                     url=permalink,
-                                     color=3066993)
-            embedVar.set_image(url=b)
-            embedVar.set_footer(text=(
-                f"Duck from random-d.uk | {random.choice(aww)} |{footer}"))
+        embedVar = discord.Embed(title="Ducc", url=permalink, color=3066993)
+        embedVar.set_image(url=b)
+        embedVar.set_footer(
+            text=(f"Duck from random-d.uk | {random.choice(aww)} |{footer}"))
 
-            await ctx.send(embed=embedVar)
-        except:
-            embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=13381166)
-            embedVar.set_footer(text=(f"{footer}"))
+        await ctx.send(embed=embedVar)
 
 
 """
