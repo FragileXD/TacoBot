@@ -8,7 +8,7 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
-
+from utils import permissions, default
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
@@ -84,13 +84,16 @@ class Moderation(commands.Cog):
             return
 
         try:
-            await member.edit(nick=name, reason=default.responsible(ctx.author, "Changed by command"))
+            await member.edit(nick=name,
+                              reason=default.responsible(
+                                  ctx.author, "Changed by command"))
             message = f"Changed **{member.name}'s** nickname to **{name}**"
             if name is None:
                 message = f"Reset **{member.name}'s** nickname"
             await ctx.send(message)
         except Exception as e:
             await ctx.send(e)
-        
+
+
 def setup(bot):
     bot.add_cog(Moderation(bot))
