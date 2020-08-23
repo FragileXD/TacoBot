@@ -75,6 +75,22 @@ class Moderation(commands.Cog):
         e.set_footer(text=footer)
         await ctx.send(embed=e)
 
+    @commands.command(aliases=["nick"])
+    @commands.guild_only()
+    @permissions.has_permissions(manage_nicknames=True)
+    async def nickname(self, ctx, member: discord.Member, *, name: str = None):
+        """ Nicknames a user from the current server. """
+        if await permissions.check_priv(ctx, member):
+            return
 
+        try:
+            await member.edit(nick=name, reason=default.responsible(ctx.author, "Changed by command"))
+            message = f"Changed **{member.name}'s** nickname to **{name}**"
+            if name is None:
+                message = f"Reset **{member.name}'s** nickname"
+            await ctx.send(message)
+        except Exception as e:
+            await ctx.send(e)
+        
 def setup(bot):
     bot.add_cog(Moderation(bot))
