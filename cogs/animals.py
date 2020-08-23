@@ -26,7 +26,7 @@ class Animals(commands.Cog):
         self.bot = bot
 
     @commands.command(
-        name='Animals',
+        name='animals',
         description='see a multitude of animals from a range of subreddits',
         aliases=['animal'])
     async def animals(self, ctx):
