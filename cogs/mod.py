@@ -177,7 +177,7 @@ class Moderation(commands.Cog):
 
         if not muted_role:
             return await ctx.send(
-                "Are you sure you've made a role called **Muted**? Remember that it's case sensetive too..."
+                "Are you sure you've made a role called **Muted**? Remember that it's case sensitive too..."
             )
 
         try:
