@@ -164,6 +164,54 @@ class Moderation(commands.Cog):
         except Exception as e:
             await ctx.send(e)
 
+    @commands.command()
+    @commands.guild_only()
+    @permissions.has_permissions(manage_roles=True)
+    async def mute(self, ctx, member: discord.Member, *, reason: str = None):
+        """ Mutes a user from the current server. """
+        if await permissions.check_priv(ctx, member):
+            return
+
+        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"),
+                          None)
+
+        if not muted_role:
+            return await ctx.send(
+                "Are you sure you've made a role called **Muted**? Remember that it's case sensetive too..."
+            )
+
+        try:
+            await member.add_roles(muted_role,
+                                   reason=default.responsible(
+                                       ctx.author, reason))
+            await ctx.send(default.actionmessage("muted"))
+        except Exception as e:
+            await ctx.send(e)
+
+    @commands.command()
+    @commands.guild_only()
+    @permissions.has_permissions(manage_roles=True)
+    async def unmute(self, ctx, member: discord.Member, *, reason: str = None):
+        """ Unmutes a user from the current server. """
+        if await permissions.check_priv(ctx, member):
+            return
+
+        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"),
+                          None)
+
+        if not muted_role:
+            return await ctx.send(
+                "Are you sure you've made a role called **Muted**? Remember that it's case sensetive too..."
+            )
+
+        try:
+            await member.remove_roles(muted_role,
+                                      reason=default.responsible(
+                                          ctx.author, reason))
+            await ctx.send(default.actionmessage("unmuted"))
+        except Exception as e:
+            await ctx.send(e)
+
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
