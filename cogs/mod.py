@@ -94,6 +94,63 @@ class Moderation(commands.Cog):
         except Exception as e:
             await ctx.send(e)
 
+    @commands.command()
+    @commands.guild_only()
+    @permissions.has_permissions(ban_members=True)
+    async def ban(self, ctx, member: MemberID, *, reason: str = None):
+        """ Bans a user from the current server. """
+        m = ctx.guild.get_member(member)
+        if m is not None and await permissions.check_priv(ctx, m):
+            return
+
+        try:
+            await ctx.guild.ban(discord.Object(id=member),
+                                reason=default.responsible(ctx.author, reason))
+            await ctx.send(default.actionmessage("banned"))
+        except Exception as e:
+            await ctx.send(e)
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.max_concurrency(1, per=commands.BucketType.user)
+    @permissions.has_permissions(ban_members=True)
+    async def massban(self, ctx, reason: ActionReason, *members: MemberID):
+        """ Mass bans multiple members from the server. """
+        try:
+            for member_id in members:
+                await ctx.guild.ban(discord.Object(id=member_id),
+                                    reason=default.responsible(
+                                        ctx.author, reason))
+            await ctx.send(default.actionmessage("massbanned", mass=True))
+        except Exception as e:
+            await ctx.send(e)
+
+    @commands.command()
+    @commands.guild_only()
+    @permissions.has_permissions(ban_members=True)
+    async def unban(self, ctx, member: MemberID, *, reason: str = None):
+        """ Unbans a user from the current server. """
+        try:
+            await ctx.guild.unban(discord.Object(id=member),
+                                  reason=default.responsible(
+                                      ctx.author, reason))
+            await ctx.send(default.actionmessage("unbanned"))
+        except Exception as e:
+            await ctx.send(e)
+
+    @commands.command()
+    @commands.guild_only()
+    @commands.max_concurrency(1, per=commands.BucketType.user)
+    @permissions.has_permissions(ban_members=True)
+    async def massban(self, ctx, reason: ActionReason, *members: MemberID):
+        """ Mass bans multiple members from the server. """
+        try:
+            for member_id in members:
+                await ctx.guild.ban(discord.Object(id=member_id), reason=default.responsible(ctx.author, reason))
+            await ctx.send(default.actionmessage("massbanned", mass=True))
+        except Exception as e:
+            await ctx.send(e)
+
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
