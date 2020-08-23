@@ -134,7 +134,7 @@ class Animals(commands.Cog):
         print("{} issued .ducc 🦆".format(message_author))
 
         aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
-        permalink = f"random-d.uk"
+        permalink = "https://random-d.uk"
         a = (urllib.request.urlopen("https://random-d.uk/api/random").read())
         b = a[43:-3]
         b = b.decode('utf-8')
