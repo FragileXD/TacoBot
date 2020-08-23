@@ -53,7 +53,8 @@ class Animals(commands.Cog):
                     submissions.append(submission)
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
-            while submission.url[0:10] == "https://v.r":
+            while submission.url[0:10] == "https://v.r" or submission.url[
+                    0:18] == "https://gfycat.com/":
                 submission = submissions[random.randint(1, len(submissions)) -
                                          1]
             if submission.url[-4:-1] + "v" == "gifv":
