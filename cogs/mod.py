@@ -12,6 +12,7 @@ from utils import permissions, default
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
+
 class MemberID(commands.Converter):
     async def convert(self, ctx, argument):
         try:
@@ -20,7 +21,9 @@ class MemberID(commands.Converter):
             try:
                 return int(argument, base=10)
             except ValueError:
-                raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
+                raise commands.BadArgument(
+                    f"{argument} is not a valid member or member ID."
+                ) from None
         else:
             return m.id
 
@@ -31,8 +34,11 @@ class ActionReason(commands.Converter):
 
         if len(ret) > 512:
             reason_max = 512 - len(ret) - len(argument)
-            raise commands.BadArgument(f'reason is too long ({len(argument)}/{reason_max})')
+            raise commands.BadArgument(
+                f'reason is too long ({len(argument)}/{reason_max})')
         return ret
+
+
 class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -155,19 +161,6 @@ class Moderation(commands.Cog):
                                   reason=default.responsible(
                                       ctx.author, reason))
             await ctx.send(default.actionmessage("unbanned"))
-        except Exception as e:
-            await ctx.send(e)
-
-    @commands.command()
-    @commands.guild_only()
-    @commands.max_concurrency(1, per=commands.BucketType.user)
-    @permissions.has_permissions(ban_members=True)
-    async def massban(self, ctx, reason: ActionReason, *members: MemberID):
-        """ Mass bans multiple members from the server. """
-        try:
-            for member_id in members:
-                await ctx.guild.ban(discord.Object(id=member_id), reason=default.responsible(ctx.author, reason))
-            await ctx.send(default.actionmessage("massbanned", mass=True))
         except Exception as e:
             await ctx.send(e)
 
