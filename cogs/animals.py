@@ -27,7 +27,7 @@ class Animals(commands.Cog):
     @commands.command(
         name='Animals',
         description='see a multitude of animals from a range of subreddits',
-        aliases=['alias'])
+        aliases=['animals'])
     async def animals(self, ctx):
         message_author = ctx.author
         print("{} issued .animals 🐶".format(message_author))
