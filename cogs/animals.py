@@ -133,7 +133,7 @@ class Animals(commands.Cog):
         message_author = ctx.author
         print("{} issued .ducc 🦆".format(message_author))
 
-        aww = ["AWWWWWWWWWWWWWWWW", "pwease can i kweep itw?", "🥺"]
+        aww = ["AWWWWWWW", "pwease can i kweep itw?", "🥺"]
         permalink = "https://random-d.uk"
         a = (urllib.request.urlopen("https://random-d.uk/api/random").read())
         b = a[43:-3]
