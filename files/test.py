@@ -1,12 +1,16 @@
 import urllib.request
 
+a = input("link: ")
+urlvar = a[:-5]
+print(urlvar, a)
+"""
 a = input("gfycat link: ")
 
 if a[0:19] == "https://gfycat.com/":
     print(True)
 else:
     print(a, a[0:19https://gfycat.com/acrobaticathleticbumblebee])
-"""
+
 a = (urllib.request.urlopen("https://random-d.uk/api/random").read())
 b = a[43:-3]
 b = b.decode('utf-8')
