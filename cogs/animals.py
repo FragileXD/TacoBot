@@ -55,7 +55,7 @@ class Animals(commands.Cog):
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r" or submission.url[
-                    0:18] == "https://gfycat.com/":
+                    0:19] == "https://gfycat.com/":
                 submission = submissions[random.randint(1, len(submissions)) -
                                          1]
             if submission.url[-4:-1] + "v" == "gifv":
@@ -102,7 +102,7 @@ class Animals(commands.Cog):
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r" or submission.url[
-                    0:18] == "https://gfycat.com/":
+                    0:19] == "https://gfycat.com/":
                 submission = submissions[random.randint(1, len(submissions)) -
                                          1]
             if submission.url[-4:-1] + "v" == "gifv":
@@ -166,7 +166,7 @@ async def commandname(self, ctx):
 
         submission = submissions[random.randint(1, len(submissions)) - 1]
         while submission.url[0:10] == "https://v.r" or submission.url[
-                0:18] == "https://gfycat.com/":
+                0:19] == "https://gfycat.com/":
             submission = submissions[random.randint(1, len(submissions)) -
                                         1]
         if submission.url[-4:-1] + "v" == "gifv":
