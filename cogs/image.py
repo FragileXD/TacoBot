@@ -35,61 +35,56 @@ class Image(commands.Cog):
 
         submissions = []
 
+        for submission in reddit.subreddit(subreddit).top("week", limit=50):
+            if submission and not submission.stickied and not submission.over_18:
+                submissions.append(submission)
+
+        submission = submissions[random.randint(1, 50) - 1]
+
         try:
-            for submission in reddit.subreddit(subreddit).top("week",
-                                                              limit=50):
-                if submission and not submission.stickied and not submission.over_18:
-                    submissions.append(submission)
-
-            submission = submissions[random.randint(1, 50) - 1]
-
-            try:
-                while submission.url[0:10] == "https://v.r" or submission.url[
+            while submission.url[0:10] == "https://v.r" or submission.url[
                     0:18] == "https://gfycat.com/":
-                    submission = submissions[
-                        random.randint(1, len(submissions)) - 1]
-                if submission.url[-4:-1] + "v" == "gifv":
-                    urlvar = submission.url[:-5]
-                    print(urlvar)
-                else:
-                    urlvar = (submission.url)
-                    print(urlvar)
+                submission = submissions[random.randint(1, len(submissions)) -
+                                         1]
+            if submission.url[-4:-1] + "v" == "gifv":
+                urlvar = submission.url[:-5]
+                print(urlvar)
+            else:
+                urlvar = (submission.url)
+                print(urlvar)
 
+        except:
+            try:
+                body = submission.body
+                urlvar = ""
+                print(urlvar)
             except:
-                try:
-                    body = submission.body
-                    urlvar = ""
-                    print(urlvar)
-                except:
-                    urlvar = ""
-                    body = ""
+                urlvar = ""
+                body = ""
 
-                title = (submission.title)
-                upvotes = (submission.score)
-                permalink = f"https://reddit.com{submission.permalink}"
+            title = (submission.title)
+            upvotes = (submission.score)
+            permalink = f"https://reddit.com{submission.permalink}"
 
-                embedVar = discord.Embed(title=title,
-                                         url=permalink,
-                                         color=3066993)
-                if urlvar != "":
-                    embedVar.set_image(url=urlvar)
-                elif urlvar == "":
-                    if body == "":
-                        pass
-                    else:
-                        embedVar.add_field(name="",
-                                           value=f"{body}",
-                                           inline=False)
-                embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+            if urlvar != "":
+                embedVar.set_image(url=urlvar)
+            elif urlvar == "":
+                if body == "":
+                    pass
+                else:
+                    embedVar.add_field(name="", value=f"{body}", inline=False)
+            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
-                await ctx.send(embed=embedVar)
-
+            await ctx.send(embed=embedVar)
+        """
         except:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
             embedVar.set_footer(text=(f"{footer}"))
 
             await ctx.send(embed=embedVar)
+        """
 
     @meme.error
     async def meme_error(self, ctx, error):
@@ -108,7 +103,7 @@ class Image(commands.Cog):
                 submission = submissions[random.randint(1, 50) - 1]
 
                 while submission.url[0:10] == "https://v.r" or submission.url[
-                    0:18] == "https://gfycat.com/":
+                        0:18] == "https://gfycat.com/":
                     submission = submissions[
                         random.randint(1, len(submissions)) - 1]
                 if submission.url[-4:-1] + "v" == "gifv":
