@@ -55,11 +55,10 @@ class Animals(commands.Cog):
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r" or submission.url[
-                    0:19] == "https://gfycat.com/":
+                    0:19] == "https://gfycat.com/" or submission.url[
+                        -4:-1] + "v" == "gifv":
                 submission = submissions[random.randint(1, len(submissions)) -
                                          1]
-            if submission.url[-4:-1] + "v" == "gifv":
-                urlvar = submission.url[:-5]
             else:
                 urlvar = (submission.url)
 
@@ -102,11 +101,10 @@ class Animals(commands.Cog):
 
             submission = submissions[random.randint(1, len(submissions)) - 1]
             while submission.url[0:10] == "https://v.r" or submission.url[
-                    0:19] == "https://gfycat.com/":
+                    0:19] == "https://gfycat.com/" or submission.url[
+                        -4:-1] + "v" == "gifv":
                 submission = submissions[random.randint(1, len(submissions)) -
                                          1]
-            if submission.url[-4:-1] + "v" == "gifv":
-                urlvar = submission.url[:-5]
             else:
                 urlvar = (submission.url)
 
@@ -166,11 +164,10 @@ async def commandname(self, ctx):
 
         submission = submissions[random.randint(1, len(submissions)) - 1]
         while submission.url[0:10] == "https://v.r" or submission.url[
-                0:19] == "https://gfycat.com/":
+                0:19] == "https://gfycat.com/" or or submission.url[
+                        -4:-1] + "v" == "gifv":
             submission = submissions[random.randint(1, len(submissions)) -
                                         1]
-        if submission.url[-4:-1] + "v" == "gifv":
-            urlvar = submission.url[:-5]
         else:
             urlvar = (submission.url)
 
