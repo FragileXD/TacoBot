@@ -62,21 +62,21 @@ class Image(commands.Cog):
                 urlvar = ""
                 body = ""
 
-            title = (submission.title)
-            upvotes = (submission.score)
-            permalink = f"https://reddit.com{submission.permalink}"
+        title = (submission.title)
+        upvotes = (submission.score)
+        permalink = f"https://reddit.com{submission.permalink}"
 
-            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
-            if urlvar != "":
-                embedVar.set_image(url=urlvar)
-            elif urlvar == "":
-                if body == "":
-                    pass
-                else:
-                    embedVar.add_field(name="", value=f"{body}", inline=False)
-            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+        embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+        if urlvar != "":
+            embedVar.set_image(url=urlvar)
+        elif urlvar == "":
+            if body == "":
+                pass
+            else:
+                embedVar.add_field(name="", value=f"{body}", inline=False)
+        embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
 
-            await ctx.send(embed=embedVar)
+        await ctx.send(embed=embedVar)
         """
         except:
             embedVar = discord.Embed(
