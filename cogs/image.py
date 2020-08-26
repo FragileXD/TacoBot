@@ -35,7 +35,7 @@ class Image(commands.Cog):
 
         submissions = []
 
-        for submission in reddit.subreddit(subreddit).top("week", limit=200):
+        for submission in reddit.subreddit(subreddit).top("week", limit=50):
             if submission and not submission.stickied and not submission.over_18:
                 submissions.append(submission)
 
@@ -94,7 +94,11 @@ class Image(commands.Cog):
 
             try:
                 for submission in reddit.subreddit("dankmemes").top("week",
-                                                                    limit=50):
+                                                                    limit=200):
+                    if submission and not submission.stickied and not submission.over_18:
+                        submissions.append(submission)
+                for submission in reddit.subreddit("memes").top("week",
+                                                                limit=100):
                     if submission and not submission.stickied and not submission.over_18:
                         submissions.append(submission)
 
