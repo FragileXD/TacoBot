@@ -35,7 +35,7 @@ class Image(commands.Cog):
 
         submissions = []
 
-        for submission in reddit.subreddit(subreddit).top("week", limit=50):
+        for submission in reddit.subreddit(subreddit).top("week", limit=200):
             if submission and not submission.stickied and not submission.over_18:
                 submissions.append(submission)
 
