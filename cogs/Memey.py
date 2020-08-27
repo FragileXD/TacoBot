@@ -228,7 +228,49 @@ class Memey(commands.Cog):
 
         try:
             for submission in reddit.subreddit("AntiAntiJokes").top("week",
-                                                                    limit=100):
+                                                                    limit=75):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+
+            submission = submissions[random.randint(1, 50) - 1]
+
+            while submission.url[0:10] == "https://v.r" or submission.url[
+                    0:19] == "https://gfycat.com/" or submission.url[
+                        -4:-1] + "v" == "gifv":
+                submission = submissions[random.randint(1, len(submissions)) -
+                                         1]
+            else:
+                urlvar = (submission.url)
+
+            title = (submission.title)
+            upvotes = (submission.score)
+            permalink = f"https://reddit.com{submission.permalink}"
+
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+            embedVar.set_image(url=urlvar)
+            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+
+            await ctx.send(embed=embedVar)
+
+        except:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=(f"{footer}"))
+
+            await ctx.send(embed=embedVar)
+
+    @commands.command(name='🔄 antijoke',
+                      description='not even funny',
+                      aliases=['antijokes'])
+    async def antiantijoke(self, ctx, error):
+        message_author = ctx.author
+        print("{} issued .antijoke 🐔".format(message_author))
+
+        submissions = []
+
+        try:
+            for submission in reddit.subreddit("AntiJokes").top("week",
+                                                                limit=125):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
 
