@@ -40,7 +40,7 @@ websockets==8.1
 youtube-dl==2020.7.28
 asyncio
 pytz
-timeago==1.0.13
+timeago==1.0.14
 yarl==1.5.1
 owotext==1.0.3
 pydantic==1.6.1
