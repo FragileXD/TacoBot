@@ -178,7 +178,7 @@ class Image(commands.Cog):
     @commands.command(name='animeme',
                       description='Sends an Animeme',
                       aliases=['animemes'])
-    async def fourchan(self, ctx, error):
+    async def animeme(self, ctx, error):
         message_author = ctx.author
         print("{} issued .Animeme owo".format(message_author))
 
