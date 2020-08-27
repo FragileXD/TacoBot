@@ -44,7 +44,7 @@ timeago==1.0.14
 yarl==1.5.1
 owotext==1.0.3
 pydantic==1.6.1
-beautifulsoup4==4.5.3
+beautifulsoup4==4.9.1
 strawpy==1.1
 GitPython==3.1.7
 pyfiglet==0.7.5
