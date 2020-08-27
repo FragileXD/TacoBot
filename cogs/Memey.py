@@ -20,7 +20,7 @@ reddit = praw.Reddit(client_id="CFOX66IL6PXgRQ",
                      password="6x*JdQ@5h3t9")
 
 
-class Image(commands.Cog):
+class Memey(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -219,4 +219,4 @@ class Image(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Image(bot))
+    bot.add_cog(Memey(bot))

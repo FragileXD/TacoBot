@@ -32,8 +32,8 @@ class Info(commands.Cog):
             help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
             help_embed.add_field(name="Utility",
                                  value=f"`{ctx.prefix}help utility`")
-            help_embed.add_field(name="Images",
-                                 value=f"`{ctx.prefix}help image`")
+            help_embed.add_field(name="Memey",
+                                 value=f"`{ctx.prefix}help memey`")
             help_embed.add_field(name="Animals",
                                  value=f"`{ctx.prefix}help animals`")
             help_embed.set_footer(text="use '.' before each command |" +
