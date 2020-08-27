@@ -301,7 +301,7 @@ class Memey(commands.Cog):
 
             await ctx.send(embed=embedVar)
 
-    @commands.command(name='Prequel',
+    @commands.command(name='⭐🔫 Prequel',
                       description='The force is with the prequel memes',
                       aliases=['prequelmemes'])
     async def prequel(self, ctx, error):
