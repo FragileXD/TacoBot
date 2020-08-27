@@ -25,7 +25,8 @@ class Info(commands.Cog):
         ''' Replaces Default Command'''
 
         if cog == 'all':
-            help_embed = discord.Embed(title='TacoBot Commands', color=3066993)
+            help_embed = discord.Embed(title='TacoBot Command Categories',
+                                       color=3066993)
             help_embed.add_field(name=":shield: Mod",
                                  value=f"`{ctx.prefix}help moderation`")
             help_embed.add_field(name=":smile: Fun",
