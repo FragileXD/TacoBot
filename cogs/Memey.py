@@ -136,7 +136,7 @@ class Memey(commands.Cog):
 
     @commands.command(name='4chan',
                       description='Sends a 4chan image (from reddit)',
-                      aliases=['4chan'])
+                      aliases=['pog'])
     async def fourchan(self, ctx, error):
         message_author = ctx.author
         print("{} issued .4chan 🍀".format(message_author))
