@@ -136,7 +136,7 @@ class Memey(commands.Cog):
 
     @commands.command(name='4chan',
                       description='Sends a 4chan image (from reddit)',
-                      aliases=['pog'])
+                      aliases=['chan'])
     async def fourchan(self, ctx, error):
         message_author = ctx.author
         print("{} issued .4chan 🍀".format(message_author))
@@ -217,7 +217,7 @@ class Memey(commands.Cog):
 
             await ctx.send(embed=embedVar)
 
-    @commands.command(name='🔄 antiantijoke',
+    @commands.command(name='antiantijoke',
                       description='not not even funny',
                       aliases=['antiantijokes'])
     async def antiantijoke(self, ctx, error):
@@ -259,7 +259,7 @@ class Memey(commands.Cog):
 
             await ctx.send(embed=embedVar)
 
-    @commands.command(name='🔄 antijoke',
+    @commands.command(name='antijoke',
                       description='not even funny',
                       aliases=['antijokes'])
     async def antijoke(self, ctx, error):
@@ -301,7 +301,7 @@ class Memey(commands.Cog):
 
             await ctx.send(embed=embedVar)
 
-    @commands.command(name='⭐🔫 Prequel',
+    @commands.command(name='Prequel',
                       description='The force is with the prequel memes',
                       aliases=['prequelmemes'])
     async def prequel(self, ctx, error):

@@ -48,7 +48,7 @@ class Info(commands.Cog):
                 "Fun": ":smile:",
                 "Moderation": ":shield:",
                 "Hypixel": "<:Hypixel:745240325064228884>",
-                "Images": "<:Reddit:745241144207867997>",
+                "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
             }
             categoryAlias = {
