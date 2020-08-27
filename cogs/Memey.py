@@ -262,7 +262,7 @@ class Memey(commands.Cog):
     @commands.command(name='🔄 antijoke',
                       description='not even funny',
                       aliases=['antijokes'])
-    async def antiantijoke(self, ctx, error):
+    async def antijoke(self, ctx, error):
         message_author = ctx.author
         print("{} issued .antijoke 🐔".format(message_author))
 
