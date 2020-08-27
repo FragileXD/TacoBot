@@ -228,7 +228,7 @@ class Memey(commands.Cog):
 
         try:
             for submission in reddit.subreddit("AntiAntiJokes").top("week",
-                                                                    limit=75):
+                                                                    limit=50):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
 
@@ -270,7 +270,7 @@ class Memey(commands.Cog):
 
         try:
             for submission in reddit.subreddit("AntiJokes").top("week",
-                                                                limit=125):
+                                                                limit=100):
                 if submission and not submission.stickied and not submission.over_18:
                     submissions.append(submission)
 
