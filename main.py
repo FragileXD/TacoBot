@@ -3,15 +3,19 @@ import os
 import sys
 import random
 import time
+import json
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
+
+config = getJSON("config.json")
 
 #CONFIG!
 PREFIX = (".", ">")
-TOKEN = "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"
-OWNERID = 389388825274613771
+TOKEN = config.token
+OWNERID = config.ownerid
 footer = "Made with ❤️ by Tacoz!"
 
 client = commands.Bot(command_prefix=PREFIX,
