@@ -294,7 +294,10 @@ class Fun(commands.Cog):
         if len(a) < 2000:
             await ctx.send(a)
         else:
-            await ctx.send(f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 ")
+            await ctx.send(
+                f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
+            )
+
     @party.error
     async def party_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -672,7 +675,9 @@ class Fun(commands.Cog):
         a = message.replace("", "||||")
         a = a[2:-2]
         if len(a) > 2000:
-            await ctx.send(f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 ")
+            await ctx.send(
+                f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
+            )
         else:
             await ctx.send(a)
 
@@ -904,7 +909,9 @@ class Fun(commands.Cog):
         print("{} issued .doot".format(message_author))
         a = message.replace(" ", "💀🎺")
         if len(a) > 2000:
-            await ctx.send(f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 ")
+            await ctx.send(
+                f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
+            )
         else:
             await ctx.send(a)
 
