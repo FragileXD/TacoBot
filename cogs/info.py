@@ -26,15 +26,17 @@ class Info(commands.Cog):
 
         if cog == 'all':
             help_embed = discord.Embed(title='TacoBot Commands', color=3066993)
-            help_embed.add_field(name="Mod",
+            help_embed.add_field(name=":shield: Mod",
                                  value=f"`{ctx.prefix}help moderation`")
-            help_embed.add_field(name="Fun", value=f"`{ctx.prefix}help fun`")
-            help_embed.add_field(name="Info", value=f"`{ctx.prefix}help info`")
-            help_embed.add_field(name="Utility",
+            help_embed.add_field(name=":smile: Fun",
+                                 value=f"`{ctx.prefix}help fun`")
+            help_embed.add_field(name=":question: Info",
+                                 value=f"`{ctx.prefix}help info`")
+            help_embed.add_field(name=":tools: Utility",
                                  value=f"`{ctx.prefix}help utility`")
-            help_embed.add_field(name="Memey",
+            help_embed.add_field(name="<:Reddit:745241144207867997> Memey",
                                  value=f"`{ctx.prefix}help memey`")
-            help_embed.add_field(name="Animals",
+            help_embed.add_field(name=":dog: Animals",
                                  value=f"`{ctx.prefix}help animals`")
             help_embed.set_footer(text="use '.' before each command |" +
                                   footer)
@@ -46,7 +48,7 @@ class Info(commands.Cog):
                 "Fun": ":smile:",
                 "Moderation": ":shield:",
                 "Hypixel": "<:Hypixel:745240325064228884>",
-                "Image": "<:Reddit:745241144207867997>",
+                "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
             }
             categoryAlias = {
