@@ -921,7 +921,7 @@ class Fun(commands.Cog):
         print("{} issued .say".format(message_author))
         if len(message) > 2000:
             await ctx.send(
-                f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
+                f"Break the bot again and I will break your knees. Characters over Limit, {len(message)}/2000 "
             )
         else:
             await ctx.send(message)
