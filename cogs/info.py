@@ -38,7 +38,7 @@ class Info(commands.Cog):
                                  value=f"`{ctx.prefix}help memey`")
             help_embed.add_field(name=":dog: Animals",
                                  value=f"`{ctx.prefix}help animals`")
-            help_embed.set_footer(text="use '.' before each command |" +
+            help_embed.set_footer(text="use '.' or '>' before each command |" +
                                   footer)
         else:
             cogA = cog.lower()
