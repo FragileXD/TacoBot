@@ -134,6 +134,49 @@ class Image(commands.Cog):
         else:
             raise (error)
 
+    @commands.command()
+    async def fourchan(self, ctx, error):
+        message_author = ctx.author
+        print("{} issued .meme 😎".format(message_author))
+
+        submissions = []
+
+        try:
+            for submission in reddit.subreddit("dankmemes").top("week",
+                                                                limit=200):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+            for submission in reddit.subreddit("memes").top("week", limit=100):
+                if submission and not submission.stickied and not submission.over_18:
+                    submissions.append(submission)
+
+            submission = submissions[random.randint(1, 50) - 1]
+
+            while submission.url[0:10] == "https://v.r" or submission.url[
+                    0:19] == "https://gfycat.com/" or submission.url[
+                        -4:-1] + "v" == "gifv":
+                submission = submissions[random.randint(1, len(submissions)) -
+                                         1]
+            else:
+                urlvar = (submission.url)
+
+            title = (submission.title)
+            upvotes = (submission.score)
+            permalink = f"https://reddit.com{submission.permalink}"
+
+            embedVar = discord.Embed(title=title, url=permalink, color=3066993)
+            embedVar.set_image(url=urlvar)
+            embedVar.set_footer(text=(f"👍{upvotes}⬆ | {footer}"))
+
+            await ctx.send(embed=embedVar)
+
+        except:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=(f"{footer}"))
+
+            await ctx.send(embed=embedVar)
+
 
 def setup(bot):
     bot.add_cog(Image(bot))
