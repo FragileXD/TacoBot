@@ -1,9 +1,18 @@
 import urllib.request
+import requests
+import json
+import pyperclip
 
+apikey = "***REMOVED***"
+data = requests.get(
+    f"https://api.hypixel.net/player?key={apikey}&name=NotTacoz").json()
+
+pyperclip.copy(data)
+"""
 a = input("link: ")
 urlvar = a[:-5]
 print(urlvar, a)
-"""
+
 a = input("gfycat link: ")
 
 if a[0:19] == "https://gfycat.com/":
