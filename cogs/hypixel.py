@@ -28,6 +28,14 @@ def General(username):
     else:
         rank = "Non"
     name = data["player"]["displayname"]
+    full = f"[{rank},{name}]"
+    firstlogin = time.strftime(
+        "%D %H:%M",
+        time.localtime(int(data["player"]["firstLogin"].strip()[0:9])))
+    lastlogin = time.strftime(
+        "%D %H:%M",
+        time.localtime(int(data["player"]["lastLogin"].strip()[0:9])))
+    pastusernames = ','.join(data["player"]["knownAliases"])
 
 
 class Hypixel(commands.Cog):
@@ -35,8 +43,17 @@ class Hypixel(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=['alias'])
-    async def commandname(self, ctx, *, message):
+    async def general(self, ctx, *, message):
         pass
+        @meme.error
+    async def meme_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            message_author = ctx.author
+            print("{} issued .meme 😎".format(message_author))
+
+           
+        else:
+            raise (error)
 
 
 def setup(bot):
