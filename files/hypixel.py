@@ -14,11 +14,9 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "INSERT API KEY"
-hypixel.setKeys([apikey])
 
 
 def HyAPI(username):
-    username = hypixel.Player(username)
     username.getGuildID()
 
 
