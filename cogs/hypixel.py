@@ -18,27 +18,31 @@ invalid = False
 
 def General(username):
     global invalid
-    invalid = False
-    data = requests.get(
-        f"https://api.hypixel.net/player?key={apikey}&name={username.lower()}"
-    ).json()
-    if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
-        General.rank = data["player"]["rank"]
-    elif "newPackageRank" in data["player"]:
-        General.rank = data["player"]["newPackageRank"]
-    elif "packageRank" in data["player"]:
-        General.rank = data["player"]["packageRank"]
-    else:
-        General.rank = "Non"
-    General.name = data["player"]["displayname"]
-    General.full = f"[{General.rank}] {General.name}"
-    General.firstlogin = time.strftime(
-        "%D %H:%M",
-        time.localtime(int(str(data["player"]["firstLogin"]).strip()[0:9])))
-    General.lastlogin = time.strftime(
-        "%D %H:%M",
-        time.localtime(int(str(data["player"]["lastLogin"]).strip()[0:9])))
-    General.pastusernames = ','.join(data["player"]["knownAliases"])
+    try:
+        invalid = False
+        data = requests.get(
+            f"https://api.hypixel.net/player?key={apikey}&name={username.lower()}"
+        ).json()
+        if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
+            General.rank = data["player"]["rank"]
+        elif "newPackageRank" in data["player"]:
+            General.rank = data["player"]["newPackageRank"]
+        elif "packageRank" in data["player"]:
+            General.rank = data["player"]["packageRank"]
+        else:
+            General.rank = "Non"
+        General.name = data["player"]["displayname"]
+        General.full = f"[{General.rank}] {General.name}"
+        General.firstlogin = time.strftime(
+            "%D %H:%M",
+            time.localtime(int(str(
+                data["player"]["firstLogin"]).strip()[0:9])))
+        General.lastlogin = time.strftime(
+            "%D %H:%M",
+            time.localtime(int(str(data["player"]["lastLogin"]).strip()[0:9])))
+        General.pastusernames = ','.join(data["player"]["knownAliases"])
+    except:
+        invalid = True
 
 
 class Hypixel(commands.Cog):
@@ -59,7 +63,8 @@ class Hypixel(commands.Cog):
                                      description=f"{General.full}",
                                      color=15105570)
             embedVar.add_field(name=":shield: Mod",
-                               value=f"`{ctx.prefix}help moderation`")
+                               value=f"`{ctx.prefix}help moderation`",
+                               inline=False)
 
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
