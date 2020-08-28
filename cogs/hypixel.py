@@ -14,28 +14,34 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
+invalid = False
 
 
 def General(username):
-    data = requests.get(
-        f"https://api.hypixel.net/player?key={apikey}&name={username}").json()
-    if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
-        rank = data["player"]["rank"]
-    elif "newPackageRank" in data["player"]:
-        rank = data["player"]["newPackageRank"]
-    elif "packageRank" in data["player"]:
-        rank = data["player"]["packageRank"]
-    else:
-        rank = "Non"
-    name = data["player"]["displayname"]
-    full = f"[{rank},{name}]"
-    firstlogin = time.strftime(
-        "%D %H:%M",
-        time.localtime(int(data["player"]["firstLogin"].strip()[0:9])))
-    lastlogin = time.strftime(
-        "%D %H:%M",
-        time.localtime(int(data["player"]["lastLogin"].strip()[0:9])))
-    pastusernames = ','.join(data["player"]["knownAliases"])
+    invalid = False
+    try:
+        data = requests.get(
+            f"https://api.hypixel.net/player?key={apikey}&name={username}"
+        ).json()
+        if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
+            rank = data["player"]["rank"]
+        elif "newPackageRank" in data["player"]:
+            rank = data["player"]["newPackageRank"]
+        elif "packageRank" in data["player"]:
+            rank = data["player"]["packageRank"]
+        else:
+            rank = "Non"
+        name = data["player"]["displayname"]
+        full = f"[{rank},{name}]"
+        firstlogin = time.strftime(
+            "%D %H:%M",
+            time.localtime(int(data["player"]["firstLogin"].strip()[0:9])))
+        lastlogin = time.strftime(
+            "%D %H:%M",
+            time.localtime(int(data["player"]["lastLogin"].strip()[0:9])))
+        pastusernames = ','.join(data["player"]["knownAliases"])
+    except:
+        invalid = True
 
 
 class Hypixel(commands.Cog):
@@ -44,14 +50,27 @@ class Hypixel(commands.Cog):
 
     @commands.command(aliases=['alias'])
     async def general(self, ctx, *, message):
-        pass
-        @meme.error
-    async def meme_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            message_author = ctx.author
-            print("{} issued .meme 😎".format(message_author))
+        General(message)
 
-           
+        if invalid == True:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+        elif invalid == False:
+            embedVar = discord.Embed(title="Hypixel General Stats [BETA]",
+                                     description=f"desc",
+                                     color=15105570)
+            embedVar.add_field(name=":shield: Mod",
+                               value=f"`{ctx.prefix}help moderation`")
+
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+
+    @general.error
+    async def general_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
         else:
             raise (error)
 
