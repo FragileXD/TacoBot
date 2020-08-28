@@ -5,7 +5,7 @@ import random
 import asyncio
 import time
 import hypixel
-import pypixel
+import requests
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -13,11 +13,12 @@ from datetime import timedelta
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
-apikey = "INSERT API KEY"
+apikey = "***REMOVED***"
 
 
-def HyAPI(username):
-    username.getGuildID()
+def Arcade(username):
+    data = requests.get(
+        f"https://api.hypixel.net/player?key={apikey}&name={username}").json()
 
 
 class Hypixel(commands.Cog):
