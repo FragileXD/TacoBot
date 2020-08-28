@@ -31,7 +31,7 @@ def General(username):
     else:
         General.rank = "Non"
     General.name = data["player"]["displayname"]
-    General.full = f"[{General.rank},{General.name}]"
+    General.full = f"[{General.rank}] {General.name}"
     General.firstlogin = time.strftime(
         "%D %H:%M",
         time.localtime(int(str(data["player"]["firstLogin"]).strip()[0:9])))
