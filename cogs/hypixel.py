@@ -16,9 +16,18 @@ start_time = time.monotonic()
 apikey = "***REMOVED***"
 
 
-def Arcade(username):
+def General(username):
     data = requests.get(
         f"https://api.hypixel.net/player?key={apikey}&name={username}").json()
+    if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
+        rank = data["player"]["rank"]
+    elif "newPackageRank" in data["player"]:
+        rank = data["player"]["newPackageRank"]
+    elif "packageRank" in data["player"]:
+        rank = data["player"]["packageRank"]
+    else:
+        rank = "Non"
+    name = data["player"]["displayname"]
 
 
 class Hypixel(commands.Cog):
@@ -26,7 +35,7 @@ class Hypixel(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=['alias'])
-    async def commandname(self, ctx):
+    async def commandname(self, ctx, *, message):
         pass
 
 
