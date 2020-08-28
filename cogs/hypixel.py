@@ -4,7 +4,6 @@ import sys
 import random
 import asyncio
 import time
-import hypixel
 import requests
 from random import choice
 from discord.ext import commands
@@ -18,37 +17,35 @@ invalid = False
 
 
 def General(username):
+    global invalid
     invalid = False
-    try:
-        data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={username}"
-        ).json()
-        if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
-            rank = data["player"]["rank"]
-        elif "newPackageRank" in data["player"]:
-            rank = data["player"]["newPackageRank"]
-        elif "packageRank" in data["player"]:
-            rank = data["player"]["packageRank"]
-        else:
-            rank = "Non"
-        name = data["player"]["displayname"]
-        full = f"[{rank},{name}]"
-        firstlogin = time.strftime(
-            "%D %H:%M",
-            time.localtime(int(data["player"]["firstLogin"].strip()[0:9])))
-        lastlogin = time.strftime(
-            "%D %H:%M",
-            time.localtime(int(data["player"]["lastLogin"].strip()[0:9])))
-        pastusernames = ','.join(data["player"]["knownAliases"])
-    except:
-        invalid = True
+    data = requests.get(
+        f"https://api.hypixel.net/player?key={apikey}&name={username.lower()}"
+    ).json()
+    if "rank" in data["player"] and data["player"]["rank"] != "NORMAL":
+        General.rank = data["player"]["rank"]
+    elif "newPackageRank" in data["player"]:
+        General.rank = data["player"]["newPackageRank"]
+    elif "packageRank" in data["player"]:
+        General.rank = data["player"]["packageRank"]
+    else:
+        General.rank = "Non"
+    General.name = data["player"]["displayname"]
+    General.full = f"[{General.rank},{General.name}]"
+    General.firstlogin = time.strftime(
+        "%D %H:%M",
+        time.localtime(int(str(data["player"]["firstLogin"]).strip()[0:9])))
+    General.lastlogin = time.strftime(
+        "%D %H:%M",
+        time.localtime(int(str(data["player"]["lastLogin"]).strip()[0:9])))
+    General.pastusernames = ','.join(data["player"]["knownAliases"])
 
 
 class Hypixel(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['alias'])
+    @commands.command(aliases=['generalhelp'])
     async def general(self, ctx, *, message):
         General(message)
 
@@ -59,7 +56,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif invalid == False:
             embedVar = discord.Embed(title="Hypixel General Stats [BETA]",
-                                     description=f"desc",
+                                     description=f"{General.full}",
                                      color=15105570)
             embedVar.add_field(name=":shield: Mod",
                                value=f"`{ctx.prefix}help moderation`")
