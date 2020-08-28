@@ -33,6 +33,7 @@ def General(username):
             General.rank = "Non"
         General.name = data["player"]["displayname"]
         General.full = f"[{General.rank}] {General.name}"
+        General.full = General.full.replace("_PLUS", "+")
         General.firstlogin = time.strftime(
             "%D %H:%M",
             time.localtime(int(str(
