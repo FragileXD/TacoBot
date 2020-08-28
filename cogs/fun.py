@@ -65,7 +65,7 @@ class Fun(commands.Cog):
                     title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"{message2} is {aaaaa}% dank",
                     color=3066993)
-            embedVar.set_footer(text=footer)
+        embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
     @dankrate.error
