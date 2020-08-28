@@ -13,11 +13,11 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
-invalid = False
 
 
 def General(username):
     global invalid
+    invalid = False
     try:
         invalid = False
         data = requests.get(
