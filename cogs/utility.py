@@ -86,6 +86,11 @@ class Utility(commands.Cog):
         info_msg.add_field(name="Support",
                            value="[Click Here](https://discord.io/Tacoz)",
                            inline=True)
+        info_msg.add_field(
+            name="Invite",
+            value=
+            "[Click Here](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)",
+            inline=True)
 
         info_msg.set_author(name="TacoBot",
                             icon_url=str(
