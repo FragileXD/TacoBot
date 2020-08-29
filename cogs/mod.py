@@ -13,6 +13,19 @@ footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 
 
+def get_config():
+    with open("config.json", "r") as fp:
+        return json.load(fp)
+
+
+def is_staff(ctx):
+    if isinstance(ctx.author, discord.Member):
+        return get_config()["staff_role"] in [
+            role.id for role in ctx.author.roles
+        ]
+    return ctx.author.id == ***REMOVED***
+
+
 class MemberID(commands.Converter):
     async def convert(self, ctx, argument):
         try:
