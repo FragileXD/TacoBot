@@ -69,6 +69,19 @@ class Utility(commands.Cog):
                            value=str(len(self.bot.users)),
                            inline=True)
 
+        info_msg.add_field(
+            name="Top.gg Page",
+            value="[Click Here](https://top.gg/bot/718523903147900998)",
+            inline=True)
+        info_msg.add_field(name="Support",
+                           value="[Click Here](https://discord.io/Tacoz)",
+                           inline=True)
+
+        info_msg.set_author(name="TacoBot",
+                            icon_url=str(
+                                self.bot.user.avatar_url_as(format="png",
+                                                            size=256)))
+
         info_msg.set_footer(text=(
             f"Uptime: {timedelta(seconds=time.monotonic() - start_time)} | {footer}"
         ))
