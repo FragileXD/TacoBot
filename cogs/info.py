@@ -39,8 +39,9 @@ class Info(commands.Cog):
                                  value=f"`{ctx.prefix}help memey`")
             help_embed.add_field(name=":dog: Animals",
                                  value=f"`{ctx.prefix}help animals`")
-            help_embed.add_field(name="<:Hypixel:745240325064228884> Minecraft / Hypixel",
-                                 value=f"`{ctx.prefix}help minecraft`")
+            help_embed.add_field(
+                name="<:Hypixel:745240325064228884> Minecraft / Hypixel",
+                value=f"`{ctx.prefix}help minecraft`")
             help_embed.set_footer(text="use '.' or '>' before each command |" +
                                   footer)
         else:
@@ -135,9 +136,9 @@ class Info(commands.Cog):
                                      color=3066993)
         print("{} issued .invite 😉".format(ctx.author))
         invite_embed.add_field(
-            name=f"Full Permissions",
+            name=f"Invite!",
             value=
-            f"https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot"
+            f"[Click to Invite Me!])https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)"
         )
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
