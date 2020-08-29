@@ -49,15 +49,22 @@ class Utility(commands.Cog):
         message_author = ctx.author
         print("{} issued .stats ⬆".format(message_author))
 
-        embedVar = discord.Embed(title="General Stats", color=3066993)
-        embedVar.add_field(name=":1234: Server Count",
-                           value=(len(self.bot.guilds)),
+        info_msg = discord.Embed(title="General Stats", color=3066993)
+
+        info_msg.add_field(name=":1234: Server Count",
+                           value=str((len(self.bot.guilds))),
                            inline=True)
-        embedVar.add_field(name="Stat #2", value="stat", inline=True)
-        embedVar.set_footer(text=(
+        info_msg.add_field(name="Shards",
+                           value=str(self.bot.shard_count),
+                           inline=True)
+        info_msg.add_field(name="Total Users",
+                           value=str(len(self.bot.users)),
+                           inline=True)
+
+        info_msg.set_footer(text=(
             f"Uptime: {timedelta(seconds=time.monotonic() - start_time)} | {footer}"
         ))
-        await ctx.send(embed=embedVar)
+        await ctx.send(embed=info_msg)
 
     @commands.command(
         name='choose',
