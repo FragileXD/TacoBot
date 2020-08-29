@@ -39,6 +39,8 @@ class Info(commands.Cog):
                                  value=f"`{ctx.prefix}help memey`")
             help_embed.add_field(name=":dog: Animals",
                                  value=f"`{ctx.prefix}help animals`")
+            help_embed.add_field(name="<:Hypixel:745240325064228884> Hypixel",
+                                 value=f"`{ctx.prefix}help hypixel`")
             help_embed.set_footer(text="use '.' or '>' before each command |" +
                                   footer)
         else:
