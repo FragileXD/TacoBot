@@ -60,7 +60,7 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         elif invalid == False:
-            embedVar = discord.Embed(title="Hypixel General Stats [BETA]",
+            embedVar = discord.Embed(title="Hypixel Stats - General [BETA]",
                                      description=f"{General.full}",
                                      color=15105570)
             embedVar.add_field(name=":shield: Mod",
