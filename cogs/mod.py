@@ -4,6 +4,7 @@ import sys
 import random
 import asyncio
 import time
+import json
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
