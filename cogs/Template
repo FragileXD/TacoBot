@@ -20,6 +20,7 @@ class Name(commands.Cog):
                       description='Command Description',
                       aliases=['alias'])
     async def commandname(self, ctx):
+        pass
 
 def setup(bot):
     bot.add_cog(Name(bot))
