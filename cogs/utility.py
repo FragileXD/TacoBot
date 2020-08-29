@@ -59,7 +59,7 @@ class Utility(commands.Cog):
                            value="Tacoz#1916 - MC IGN: ||NotTacoz||",
                            inline=True)
 
-        info_msg.add_field(name=":1234: Server Count",
+        info_msg.add_field(name="Server Count",
                            value=str((len(self.bot.guilds))),
                            inline=True)
         info_msg.add_field(name="Shards",
@@ -67,6 +67,16 @@ class Utility(commands.Cog):
                            inline=True)
         info_msg.add_field(name="Total Users",
                            value=str(len(self.bot.users)),
+                           inline=True)
+
+        info_msg.add_field(name="DMs Opened",
+                           value=str((len(self.bot.private_channels))),
+                           inline=True)
+        info_msg.add_field(name="Latency",
+                           value=str(round(self.bot.latency * 1000, 2)),
+                           inline=True)
+        info_msg.add_field(name="Command Count",
+                           value=str((len(self.bot.cmd_count))),
                            inline=True)
 
         info_msg.add_field(
