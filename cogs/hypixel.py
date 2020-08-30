@@ -5,7 +5,6 @@ import random
 import asyncio
 import time
 import requests
-import hypixel
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -14,7 +13,6 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
-hypixel.setKeys(apikey)  # This sets the API keys that are going to be used.
 
 
 class Hypixel(commands.Cog):
@@ -25,13 +23,48 @@ class Hypixel(commands.Cog):
     async def general(self, ctx, *, message):
         invalid = False
         try:
-            player = hypixel.Player(
-                message)  # Creates a hypixel.Player object using the input.
             invalid = False
             data = requests.get(
                 f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
             ).json()
-            rank = player.getRank()
+            try:
+                rank = data["player"]["prefix"]
+                rank.replace("§c", "")
+                rank.replace("§e", "")
+                rank.replace("§a", "")
+                rank.replace("§b", "")
+                rank.replace("§9", "")
+                rank.replace("§d", "")
+                rank.replace("§4", "")
+                rank.replace("§7", "")
+                rank.replace("§4", "")
+                rank.replace("§6", "")
+                rank.replace("§2", "")
+                rank.replace("§3", "")
+                rank.replace("§1", "")
+                rank.replace("§5", "")
+                rank.replace("§8", "")
+                rank.replace("§0", "")
+                rank.replace("§1", "")
+                rank.replace("§m", "")
+                rank.replace("§n", "")
+                rank.replace("§o", "")
+                rank.replace("§k", "")
+                rank.replace("§r", "")
+                rank.replace("[", "")
+                rank.replace("]", "")
+            except:
+                try:
+                    rank = data["player"]["rank"]
+                except:
+                    try:
+                        rank = data["monthlyPackageRank"]["SUPERSTAR"]
+                        rank.replace("SUPERSTAR", "MVP++")
+                    except:
+                        try:
+                            rank = data["player"]["packageRank"]
+                        except:
+                            rank = data["player"]["newPackageRank"]
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
