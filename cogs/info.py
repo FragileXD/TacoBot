@@ -40,7 +40,7 @@ class Info(commands.Cog):
             help_embed.add_field(name=":dog: Animals",
                                  value=f"`{ctx.prefix}help animals`")
             help_embed.add_field(
-                name="<:Hypixel:745240325064228884> Minecraft",
+                name="<:minecrafticon0:749613029473255494> Minecraft",
                 value=f"`{ctx.prefix}help minecraft`")
             help_embed.add_field(name="<:Hypixel:745240325064228884> Hypixel",
                                  value=f"`{ctx.prefix}help hypixel`")
