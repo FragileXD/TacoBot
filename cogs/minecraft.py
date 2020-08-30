@@ -14,7 +14,7 @@ from datetime import timedelta
 
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
-apikey = "INSERT API KEY"
+apikey = "***REMOVED***"
 
 
 class Minecraft(commands.Cog):
