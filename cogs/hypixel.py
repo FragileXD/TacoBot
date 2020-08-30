@@ -29,37 +29,37 @@ class Hypixel(commands.Cog):
             ).json()
             try:
                 rank = data["player"]["prefix"]
-                rank.replace("§c", "")
-                rank.replace("§e", "")
-                rank.replace("§a", "")
-                rank.replace("§b", "")
-                rank.replace("§9", "")
-                rank.replace("§d", "")
-                rank.replace("§4", "")
-                rank.replace("§7", "")
-                rank.replace("§4", "")
-                rank.replace("§6", "")
-                rank.replace("§2", "")
-                rank.replace("§3", "")
-                rank.replace("§1", "")
-                rank.replace("§5", "")
-                rank.replace("§8", "")
-                rank.replace("§0", "")
-                rank.replace("§1", "")
-                rank.replace("§m", "")
-                rank.replace("§n", "")
-                rank.replace("§o", "")
-                rank.replace("§k", "")
-                rank.replace("§r", "")
-                rank.replace("[", "")
-                rank.replace("]", "")
+                rank = rank.replace("§c", "")
+                rank = rank.replace("§e", "")
+                rank = rank.replace("§a", "")
+                rank = rank.replace("§b", "")
+                rank = rank.replace("§9", "")
+                rank = rank.replace("§d", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§7", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§6", "")
+                rank = rank.replace("§2", "")
+                rank = rank.replace("§3", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§5", "")
+                rank = rank.replace("§8", "")
+                rank = rank.replace("§0", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§m", "")
+                rank = rank.replace("§n", "")
+                rank = rank.replace("§o", "")
+                rank = rank.replace("§k", "")
+                rank = rank.replace("§r", "")
+                rank = rank.replace("[", "")
+                rank = rank.replace("]", "")
             except:
                 try:
                     rank = data["player"]["rank"]
                 except:
                     try:
-                        rank = data["monthlyPackageRank"]["SUPERSTAR"]
-                        rank.replace("SUPERSTAR", "MVP++")
+                        rank = data["player"]["monthlyPackageRank"]
+                        rank = rank.replace("SUPERSTAR", "MVP++")
                     except:
                         try:
                             rank = data["player"]["packageRank"]
