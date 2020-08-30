@@ -14,6 +14,7 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "a54ce218-4fd5-4798-9b4b-6c74efac3456"
+hypixel.setKeys(apikey)  # This sets the API keys that are going to be used.
 
 
 class Hypixel(commands.Cog):
@@ -24,12 +25,13 @@ class Hypixel(commands.Cog):
     async def general(self, ctx, *, message):
         invalid = False
         try:
-
+            player = hypixel.Player(
+                message)  # Creates a hypixel.Player object using the input.
             invalid = False
             data = requests.get(
                 f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
             ).json()
-            rank = "NA"
+            rank = player.getRank()
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
