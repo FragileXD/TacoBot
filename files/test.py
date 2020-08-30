@@ -1,9 +1,18 @@
 import urllib.request
+import requests
+import json
 
+apikey = "a54ce218-4fd5-4798-9b4b-6c74efac3456"
+data = requests.get(
+    f"https://api.hypixel.net/player?key={apikey}&name=NotTacoz").json()
+
+with open('test.json', 'w') as f:
+    json.dump(data, f)
+"""
 a = input("link: ")
 urlvar = a[:-5]
 print(urlvar, a)
-"""
+
 a = input("gfycat link: ")
 
 if a[0:19] == "https://gfycat.com/":
