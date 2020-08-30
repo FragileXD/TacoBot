@@ -50,3 +50,4 @@ GitPython==3.1.7
 pyfiglet==0.8.post1
 tokage==1.4
 PyGithub==1.53
+aiopypixel==1.8.2
