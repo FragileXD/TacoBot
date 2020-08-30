@@ -27,7 +27,7 @@ class Hypixel(commands.Cog):
         try:
             invalid = False
             data = requests.get(
-                f"https://api.hypixel.net/player?key={apikey}&name={username.lower()}"
+                f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
             ).json()
             rank = client.getRank(message)
             name = data["player"]["displayname"]
