@@ -5,6 +5,7 @@ import random
 import asyncio
 import time
 import requests
+import aiopypixel
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -13,6 +14,7 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
+client = aiopypixel.Client(apikey)
 
 
 def General(username):
