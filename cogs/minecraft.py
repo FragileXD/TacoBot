@@ -24,7 +24,6 @@ class Minecraft(commands.Cog):
         self.session = aiohttp.ClientSession()
 
     @commands.command(name="stealskin", aliases=["skinsteal", "skin"])
-    @commands.cooldown(1, 4, commands.BucketType.user)
     async def skinner(self, ctx, gamertag: str):
         response = await self.session.get(
             f"https://api.mojang.com/users/profiles/minecraft/{gamertag}")
@@ -71,7 +70,6 @@ class Minecraft(commands.Cog):
         await ctx.send(embed=skin_embed)
 
     @commands.command(name="nametouuid", aliases=["uuid", "getuuid"])
-    @commands.cooldown(1, 2, commands.BucketType.user)
     async def get_uuid(self, ctx, gamertag: str):
         r = await self.session.post(
             "https://api.mojang.com/profiles/minecraft", json=[gamertag])
@@ -85,7 +83,6 @@ class Minecraft(commands.Cog):
             color=3066993, description=f"{gamertag}: ``{j[0]['id']}``"))
 
     @commands.command(name="uuidtoname", aliases=["getgamertag"])
-    @commands.cooldown(1, 2, commands.BucketType.user)
     async def get_gamertag(self, ctx, uuid: str):
         response = await self.session.get(
             f"https://api.mojang.com/user/profiles/{uuid}/names")
