@@ -5,7 +5,7 @@ import random
 import asyncio
 import time
 import requests
-import aiopypixel
+import hypixel
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -14,7 +14,6 @@ from datetime import timedelta
 footer = "Made with ❤️ by Tacoz!"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
-client = aiopypixel.Client(apikey)
 
 
 class Hypixel(commands.Cog):
@@ -25,11 +24,12 @@ class Hypixel(commands.Cog):
     async def general(self, ctx, *, message):
         invalid = False
         try:
+
             invalid = False
             data = requests.get(
                 f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
             ).json()
-            rank = client.getRank(message)
+            rank = "NA"
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
