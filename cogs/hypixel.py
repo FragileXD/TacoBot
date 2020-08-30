@@ -63,9 +63,11 @@ class Hypixel(commands.Cog):
                     except:
                         try:
                             rank = data["player"]["packageRank"]
+                            rank = rank.replace("_PLUS", "+")
                         except:
                             try:
                                 rank = data["player"]["newPackageRank"]
+                                rank = rank.replace("_PLUS", "+")
                             except:
                                 rank = "NON"
             name = data["player"]["displayname"]
