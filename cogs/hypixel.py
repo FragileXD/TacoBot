@@ -64,7 +64,10 @@ class Hypixel(commands.Cog):
                         try:
                             rank = data["player"]["packageRank"]
                         except:
-                            rank = data["player"]["newPackageRank"]
+                            try:
+                                rank = data["player"]["newPackageRank"]
+                            except:
+                                rank = "NON"
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
