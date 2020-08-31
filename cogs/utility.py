@@ -76,10 +76,10 @@ class Utility(commands.Cog):
                            value=str(round(self.bot.latency * 1000, 2)),
                            inline=True)
 
-        info_msg.add_field(
-            name="Top.gg Page",
-            value="[Click Here](https://top.gg/bot/718523903147900998)",
-            inline=True)
+        #info_msg.add_field(
+        #name="Top.gg Page",
+        #value="[Click Here](https://top.gg/bot/718523903147900998)",
+        #inline=True)
         info_msg.add_field(name="Support",
                            value="[Click Here](https://discord.io/Tacoz)",
                            inline=True)
