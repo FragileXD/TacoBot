@@ -22,9 +22,7 @@ class Hypixel(commands.Cog):
 
     @commands.command(aliases=['generalhelp'])
     async def general(self, ctx, *, message):
-        invalid = False
-        try:
-            invalid = False
+        if data["success"] == True:
             data = requests.get(
                 f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
             ).json()
@@ -92,15 +90,13 @@ class Hypixel(commands.Cog):
             pastusernames = ','.join(data["player"]["knownAliases"])
             karma = data["player"]["karma"]
             achievementPoints = data["player"]["achievementPoints"]
-        except:
-            invalid = True
 
-        if invalid == True:
+        if data["success"] == "false" or data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
-        elif invalid == False:
+        else:
             embedVar = discord.Embed(
                 title=f"{full}",
                 url=f"http://hypixel.net/player/{message}",
