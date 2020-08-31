@@ -5,6 +5,7 @@ import random
 import asyncio
 import time
 import requests
+import math
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -70,6 +71,9 @@ class Hypixel(commands.Cog):
                                 rank = rank.replace("_PLUS", "+")
                             except:
                                 rank = "NON"
+            networkExp = data["player"]["networkExp"]
+            networkLevel = (math.sqrt(networkExp + 15312.5) -
+                            125 / math.sqrt(2)) / (25 * math.sqrt(2))
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
