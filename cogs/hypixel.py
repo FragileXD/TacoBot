@@ -81,12 +81,12 @@ class Hypixel(commands.Cog):
             firstloginunix = data["player"]["firstLogin"]
             firstlogin = time.strftime(
                 '%Y-%m-%d %H:%M:%S.%f',
-                time.localtime(int(firstloginunix) / 1000))
+                time.localtime(int(firstloginunix) / 1000.0))
             try:
                 lastloginunix = data["player"]["lastLogin"]
                 lastlogin = time.strftime(
                     '%Y-%m-%d %H:%M:%S.%f',
-                    time.localtime(int(lastloginunix) / 1000))
+                    time.localtime(int(lastloginunix) / 1000.0))
             except:
                 pass
             pastusernames = ','.join(data["player"]["knownAliases"])
