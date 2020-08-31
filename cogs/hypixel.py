@@ -169,6 +169,33 @@ class Hypixel(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(aliases=['watchdog', 'banstats', 'hypixelban'])
+    async def watchdogstats(self, ctx, *, message):
+        watchdog = requests.get(
+            f"https://api.hypixel.net/watchdogstats?key={apikey}").json()
+        lastminute = watchdog["watchdog_lastMinute"]
+        watchdogtotal = watchdog["watchdog_total"]
+        watchdogdaily = watchdog["watchdog_rollingDaily"]
+        staffdaily = watchdog["staff_rollingDaily"]
+        stafftotal = watchdog["staff_total"]
+        embedVar = discord.Embed(title=f"Hypixel Ban Stats", color=15105570)
+        embedVar.add_field(
+            name="Watchdog",
+            value=
+            f"Last Minute - `{lastminute}`\nToday - `{watchdogtotal}`\nTotal - `{watchdogtotal}`",
+            inline=True)
+        embedVar.add_field(
+            name="Watchdog",
+            value=f"Today - `{staffdaily}`\Total - `{stafftotal}`",
+            inline=True)
+
+        embedVar.set_thumbnail(
+            url=
+            f"https://render.namemc.com/skin/3d/body.png?skin=2d1f536e7e659774&model=classic&width=175&height=350"
+        )
+        embedVar.set_footer(text=footer)
+        await ctx.send(embed=embedVar)
+
 
 def setup(bot):
     bot.add_cog(Hypixel(bot))
