@@ -95,7 +95,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif invalid == False:
             embedVar = discord.Embed(
-                title="{full}",
+                title=f"{full}",
                 url=f"http://hypixel.net/player/{message}",
                 color=15105570)
             embedVar.set_author(name="Hypixel Stats - General [BETA]")
