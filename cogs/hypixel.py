@@ -22,10 +22,10 @@ class Hypixel(commands.Cog):
 
     @commands.command(aliases=['generalhelp'])
     async def general(self, ctx, *, message):
+        data = requests.get(
+            f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
+        ).json()
         if data["success"] == True:
-            data = requests.get(
-                f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
-            ).json()
             try:
                 rank = data["player"]["prefix"]
                 rank = rank.replace("§c", "")
@@ -90,6 +90,12 @@ class Hypixel(commands.Cog):
             pastusernames = ','.join(data["player"]["knownAliases"])
             karma = data["player"]["karma"]
             achievementPoints = data["player"]["achievementPoints"]
+            guild = requests.get(
+                f"https://api.hypixel.net/guild?key={apikey}&player={uuid}"
+            ).json()
+            if guild["success"] == True:
+                guildtag = guild["guild"]["tag"]
+                full = f"[{rank}] {name} [{guildtag}]"
 
         if data["success"] == "false" or data["success"] == False:
             embedVar = discord.Embed(
