@@ -170,7 +170,7 @@ class Hypixel(commands.Cog):
             raise (error)
 
     @commands.command(aliases=['watchdog', 'banstats', 'hypixelban'])
-    async def watchdogstats(self, ctx, *, message):
+    async def watchdogstats(self, ctx):
         watchdog = requests.get(
             f"https://api.hypixel.net/watchdogstats?key={apikey}").json()
         lastminute = watchdog["watchdog_lastMinute"]
