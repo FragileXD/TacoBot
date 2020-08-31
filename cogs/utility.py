@@ -75,9 +75,6 @@ class Utility(commands.Cog):
         info_msg.add_field(name="Latency",
                            value=str(round(self.bot.latency * 1000, 2)),
                            inline=True)
-        info_msg.add_field(name="Command Count",
-                           value=str((len(self.bot.cmd_count))),
-                           inline=True)
 
         info_msg.add_field(
             name="Top.gg Page",
