@@ -94,12 +94,17 @@ class Hypixel(commands.Cog):
                 f"https://api.hypixel.net/guild?key={apikey}&player={uuid}"
             ).json()
             if guild["success"] == True:
-                guildtag = guild["guild"]["tag"]
-                full = f"[{rank}] {name} [{guildtag}]"
+                try:
+                    guildtag = guild["guild"]["tag"]
+                    full = f"[{rank}] {name} [{guildtag}]"
+                except:
+                    full = f"[{rank}] {name} [No Guild Tag Available]"
 
         if data["success"] == "false" or data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
+            error = data["cause"]
+            embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         else:
