@@ -100,6 +100,14 @@ class Hypixel(commands.Cog):
                 except:
                     full = f"[{rank}] {name} [No Guild Tag]"
 
+            try:
+                friends = requests.get(
+                    f"https://api.hypixel.net/friends?key={apikey}&uuid={uuid}"
+                ).json()
+                friendlen = len(list(friends["records"]))
+            except:
+                friends = 0
+
         if data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
@@ -130,6 +138,9 @@ class Hypixel(commands.Cog):
                                value=f"``{networkExp}``",
                                inline=True)
             embedVar.add_field(name="Karma", value=f"``{karma}``", inline=True)
+            embedVar.add_field(name="Friends",
+                               value=f"``{friendlen}``",
+                               inline=True)
             embedVar.add_field(name="Achivement Points",
                                value=f"``{achievementPoints}``",
                                inline=True)
