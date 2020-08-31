@@ -180,12 +180,12 @@ class Hypixel(commands.Cog):
         stafftotal = watchdog["staff_total"]
         embedVar = discord.Embed(title=f"Hypixel Ban Stats", color=15105570)
         embedVar.add_field(
-            name="Watchdog",
+            name="Watchdog Bans",
             value=
-            f"Last Minute - `{lastminute}`\nToday - `{watchdogtotal}`\nTotal - `{watchdogtotal}`",
+            f"Last Minute - `{lastminute}`\nToday - `{watchdogdaily}`\nTotal - `{watchdogtotal}`",
             inline=True)
         embedVar.add_field(
-            name="Watchdog",
+            name="Staff Bans",
             value=f"Today - `{staffdaily}`\Total - `{stafftotal}`",
             inline=True)
 
