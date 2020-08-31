@@ -75,6 +75,7 @@ class Hypixel(commands.Cog):
             uuid = data["player"]["uuid"]
             networkLevel = (math.sqrt(networkExp + 15312.5) -
                             125 / math.sqrt(2)) / (25 * math.sqrt(2))
+            networkLevel = round(networkLevel, 2)
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstlogin = time.strftime(
