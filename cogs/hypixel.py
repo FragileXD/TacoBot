@@ -116,7 +116,7 @@ class Hypixel(commands.Cog):
                                inline=True)
 
             embedVar.set_thumbnail(
-                url=f"https://crafatar.com/renders/head/{uuid}"
+                url=f"https://crafatar.com/avatars/{uuid}"
             )  #alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
