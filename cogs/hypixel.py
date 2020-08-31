@@ -80,12 +80,12 @@ class Hypixel(commands.Cog):
             full = f"[{rank}] {name}"
             firstloginunix = data["player"]["firstLogin"]
             firstlogin = time.strftime(
-                '%Y-%m-%d %H:%M:%S.%f',
+                '%Y-%m-%d %H:%M:%S',
                 time.localtime(int(firstloginunix) / 1000.0))
             try:
                 lastloginunix = data["player"]["lastLogin"]
                 lastlogin = time.strftime(
-                    '%Y-%m-%d %H:%M:%S.%f',
+                    '%Y-%m-%d %H:%M:%S',
                     time.localtime(int(lastloginunix) / 1000.0))
             except:
                 pass
