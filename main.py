@@ -16,7 +16,7 @@ config = getJSON("config.json")
 PREFIX = (".", ">")
 TOKEN = config.token
 OWNERID = config.ownerid
-footer = "Made with ❤️ by Tacoz!"
+footer = "Made with ❤️ by Tacoz and api.hypixel.net!"
 
 client = commands.Bot(command_prefix=PREFIX,
                       owner_id=OWNERID,
