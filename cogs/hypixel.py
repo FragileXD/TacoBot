@@ -78,14 +78,15 @@ class Hypixel(commands.Cog):
             networkLevel = round(networkLevel, 2)
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
-            firstlogin = time.strftime(
-                "%D %H:%M",
-                time.localtime(
-                    int(str(data["player"]["firstLogin"]).strip()[0:9])))
-            lastlogin = time.strftime(
-                "%D %H:%M",
-                time.localtime(
-                    int(str(data["player"]["lastLogin"]).strip()[0:9])))
+            firstloginunix = data["player"]["firstLogin"]
+            firstlogin = time.strftime('%Y-%m-%d %H:%M:%S',
+                                       time.localtime(firstloginunix))
+            try:
+                lastloginunix = data["player"]["lastLogin"]
+                lastlogin = time.strftime('%Y-%m-%d %H:%M:%S',
+                                          time.localtime(lastloginunix))
+            except:
+                pass
             pastusernames = ','.join(data["player"]["knownAliases"])
             karma = data["player"]["karma"]
             achievementPoints = data["player"]["achievementPoints"]
@@ -114,9 +115,14 @@ class Hypixel(commands.Cog):
             embedVar.add_field(name="Achivement Points",
                                value=f"``{achievementPoints}``",
                                inline=True)
-            embedVar.add_field(name="First • Last Login",
-                               value=f"``{firstlogin} • {lastlogin}``",
-                               inline=True)
+            try:
+                embedVar.add_field(name="First • Last Login",
+                                   value=f"``{firstlogin} • {lastlogin}``",
+                                   inline=True)
+            except:
+                embedVar.add_field(name="First Login",
+                                   value=f"``{firstlogin}``",
+                                   inline=True)
             embedVar.add_field(name="Past usernames",
                                value=f"``{pastusernames}``",
                                inline=True)
