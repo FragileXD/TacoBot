@@ -72,6 +72,7 @@ class Hypixel(commands.Cog):
                             except:
                                 rank = "NON"
             networkExp = data["player"]["networkExp"]
+            uuid = data["player"]["uuid"]
             networkLevel = (math.sqrt(networkExp + 15312.5) -
                             125 / math.sqrt(2)) / (25 * math.sqrt(2))
             name = data["player"]["displayname"]
@@ -99,6 +100,7 @@ class Hypixel(commands.Cog):
                 url=f"http://hypixel.net/player/{message}",
                 color=15105570)
             embedVar.set_author(name="Hypixel Stats - General [BETA]")
+            embedVar.add_field(name="UUID", value=f"``{uuid}``", inline=True)
             embedVar.add_field(name="Network Level",
                                value=f"``{networkLevel}``",
                                inline=True)
@@ -112,6 +114,9 @@ class Hypixel(commands.Cog):
                                value=f"``{pastusernames}``",
                                inline=True)
 
+            embedVar.set_thumbnail(
+                url=f"https://crafatar.com/renders/head/{uuid}"
+            )  #alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
 
