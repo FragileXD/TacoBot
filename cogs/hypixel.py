@@ -25,7 +25,7 @@ class Hypixel(commands.Cog):
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
         ).json()
-        if data["success"] == True:
+        if data["success"] == True and player != None:
             try:
                 rank = data["player"]["prefix"]
                 rank = rank.replace("§c", "")
