@@ -79,11 +79,11 @@ class Hypixel(commands.Cog):
             name = data["player"]["displayname"]
             full = f"[{rank}] {name}"
             firstloginunix = data["player"]["firstLogin"]
-            firstlogin = time.strftime('%Y-%m-%d %H:%M:%S',
+            firstlogin = time.strftime("%a, %d %b %Y %H:%M:%S %Z",
                                        time.localtime(firstloginunix))
             try:
                 lastloginunix = data["player"]["lastLogin"]
-                lastlogin = time.strftime('%Y-%m-%d %H:%M:%S',
+                lastlogin = time.strftime("%a, %d %b %Y %H:%M:%S %Z",
                                           time.localtime(lastloginunix))
             except:
                 pass
