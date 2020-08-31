@@ -95,10 +95,16 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif invalid == False:
             embedVar = discord.Embed(
-                title="Hypixel Stats - General [BETA]",
-                description=f"{full}",
+                title="{full}",
                 url=f"http://hypixel.net/player/{message}",
                 color=15105570)
+            embedVar.set_author(name="Hypixel Stats - General [BETA]")
+            embedVar.add_field(name="Network Level",
+                               value=f"``{networkLevel}``",
+                               inline=True)
+            embedVar.add_field(name="Network Exp",
+                               value=f"``{networkExp}``",
+                               inline=True)
             embedVar.add_field(name="First • Last Login",
                                value=f"``{firstlogin} • {lastlogin}``",
                                inline=True)
