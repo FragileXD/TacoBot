@@ -87,6 +87,8 @@ class Hypixel(commands.Cog):
                 time.localtime(
                     int(str(data["player"]["lastLogin"]).strip()[0:9])))
             pastusernames = ','.join(data["player"]["knownAliases"])
+            karma = data["player"]["karma"]
+            achievementPoints = data["player"]["achievementPoints"]
         except:
             invalid = True
 
@@ -107,6 +109,10 @@ class Hypixel(commands.Cog):
                                inline=True)
             embedVar.add_field(name="Network Exp",
                                value=f"``{networkExp}``",
+                               inline=True)
+            embedVar.add_field(name="Karma", value=f"``{karma}``", inline=True)
+            embedVar.add_field(name="Achivement Points",
+                               value=f"``{achievementPoints}``",
                                inline=True)
             embedVar.add_field(name="First • Last Login",
                                value=f"``{firstlogin} • {lastlogin}``",
