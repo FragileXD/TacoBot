@@ -186,7 +186,7 @@ class Hypixel(commands.Cog):
             inline=True)
         embedVar.add_field(
             name="Staff Bans",
-            value=f"Today - `{staffdaily}`\Total - `{stafftotal}`",
+            value=f"Today - `{staffdaily}`\nTotal - `{stafftotal}`",
             inline=True)
 
         embedVar.set_thumbnail(
