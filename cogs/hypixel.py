@@ -90,11 +90,13 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         elif invalid == False:
-            embedVar = discord.Embed(title="Hypixel Stats - General [BETA]",
-                                     description=f"{full}",
-                                     color=15105570)
-            embedVar.add_field(name="First ⚬ Last Login",
-                               value=f"``{firstlogin} ⚬ {lastlogin}``",
+            embedVar = discord.Embed(
+                title="Hypixel Stats - General [BETA]",
+                description=f"{full}",
+                url=f"http://hypixel.net/player/{message}",
+                color=15105570)
+            embedVar.add_field(name="First • Last Login",
+                               value=f"``{firstlogin} • {lastlogin}``",
                                inline=True)
             embedVar.add_field(name="Past usernames",
                                value=f"``{pastusernames}``",
