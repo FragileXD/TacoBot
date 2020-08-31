@@ -98,7 +98,7 @@ class Hypixel(commands.Cog):
                     guildtag = guild["guild"]["tag"]
                     full = f"[{rank}] {name} [{guildtag}]"
                 except:
-                    full = f"[{rank}] {name} [No Guild Tag Available]"
+                    full = f"[{rank}] {name} [No Guild Tag]"
 
         if data["success"] == "false" or data["success"] == False:
             embedVar = discord.Embed(
