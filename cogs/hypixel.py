@@ -25,7 +25,7 @@ class Hypixel(commands.Cog):
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
         ).json()
-        if data["success"] == True and player != None:
+        if data["success"] == True and data["player"] != None:
             try:
                 rank = data["player"]["prefix"]
                 rank = rank.replace("§c", "")
@@ -100,11 +100,20 @@ class Hypixel(commands.Cog):
                 except:
                     full = f"[{rank}] {name} [No Guild Tag]"
 
-        if data["success"] == "false" or data["success"] == False:
+        if data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166)
             error = data["cause"]
             embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+        elif data["player"] == None:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            error = data["cause"]
+            embedVar.add_field(name="Error",
+                               value=f"``❌ The player is probably banned``",
+                               inline=True)
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         else:
