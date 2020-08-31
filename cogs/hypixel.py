@@ -93,9 +93,12 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(title="Hypixel Stats - General [BETA]",
                                      description=f"{full}",
                                      color=15105570)
-            embedVar.add_field(name=":shield: Mod",
-                               value=f"`{ctx.prefix}help moderation`",
-                               inline=False)
+            embedVar.add_field(name="First ⚬ Last Login",
+                               value=f"``{firstlogin} ⚬ {lastlogin}``",
+                               inline=True)
+            embedVar.add_field(name="Past usernames",
+                               value=f"``{pastusernames}``",
+                               inline=True)
 
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
