@@ -45,8 +45,8 @@ class Info(commands.Cog):
             help_embed.add_field(name="<:Hypixel:745240325064228884> Hypixel",
                                  value=f"`{ctx.prefix}help hypixel`")
 
-            help_embed.set_footer(text="use '.' or '>' before each command |" +
-                                  footer)
+            help_embed.set_footer(
+                text="use '.' or '>' before each command | " + footer)
         else:
             cogA = cog.lower()
             emojiCategory = {
