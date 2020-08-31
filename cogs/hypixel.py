@@ -87,7 +87,7 @@ class Hypixel(commands.Cog):
                     time.localtime(int(lastloginunix) / 1000.0))
             except:
                 pass
-            pastusernames = ','.join(data["player"]["knownAliases"])
+            pastusernames = ', '.join(data["player"]["knownAliases"])
             karma = data["player"]["karma"]
             achievementPoints = data["player"]["achievementPoints"]
             guild = requests.get(
