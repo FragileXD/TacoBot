@@ -211,13 +211,13 @@ class Hypixel(commands.Cog):
             bwwinstreak = bwdata["winstreak"]
             bwwins = bwdata["wins_bedwars"]
             bwlosses = bwdata["losses_bedwars"]
-            bwwinlossratio = bwwins / bwlosses
+            bwwinlossratio = round(bwwins / bwlosses, 2)
             bwkills = bwdata["kills_bedwars"]
             bwdeaths = bwdata["deaths_bedwars"]
-            bwkdr = bwkills / bwdeaths
+            bwkdr = round(bwkills / bwdeaths, 2)
             bwfinalkills = bwdata["final_kills_bedwars"]
             bwfinaldeaths = bwdata["final_deaths_bedwars"]
-            bwfkdr = bwfinalkills / bwfinaldeaths
+            bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
 
         if data["success"] == False:
             embedVar = discord.Embed(
@@ -236,8 +236,9 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         else:
+            displayname = data["player"]["displayname"]
             embedVar = discord.Embed(
-                title=f"{message}",
+                title=f"{displayname}",
                 color=13381166,
                 url=f"https://hypixel.net/player/{message}")
             embedVar.set_author(
