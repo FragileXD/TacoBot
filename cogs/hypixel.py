@@ -284,7 +284,7 @@ class Hypixel(commands.Cog):
             uuid = data["player"]["uuid"]
             embedVar = discord.Embed(
                 title=f"{full}",
-                color=13381166,
+                color=15105570,
                 url=f"https://hypixel.net/player/{message}")
             embedVar.set_author(
                 name="Overall Bedwars Stats",
