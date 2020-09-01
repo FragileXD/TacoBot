@@ -196,6 +196,32 @@ class Hypixel(commands.Cog):
         embedVar.set_footer(text=footer)
         await ctx.send(embed=embedVar)
 
+    @commands.command(
+        aliases=['bedwarshelp', 'bedwarsstats', 'bedwarstats', 'bedwarstat'])
+    async def bedwars(self, ctx, *, message):
+        data = requests.get(
+            f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
+        ).json()
+        if data["success"] == True and data["player"] != None:
+            pass
+
+        if data["success"] == False:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            error = data["cause"]
+            embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+        elif data["player"] == None:
+            embedVar = discord.Embed(
+                title=":no_entry_sign: Something went wrong", color=13381166)
+            error = data["cause"]
+            embedVar.add_field(name="Error",
+                               value=f"``❌ The player is probably banned``",
+                               inline=True)
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+
 
 def setup(bot):
     bot.add_cog(Hypixel(bot))
