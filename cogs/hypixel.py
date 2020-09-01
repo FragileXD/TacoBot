@@ -252,6 +252,13 @@ class Hypixel(commands.Cog):
             embedVar.add_field(name="Winstreak",
                                value=f"``{bwwinstreak:,}``",
                                inline=True)
+            embedVar.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+            embedVar.add_field(name="Losses",
+                               value=f"``{bwlosses:,}``",
+                               inline=True)
+            embedVar.add_field(name="Win Loss Ratio",
+                               value=f"``{bwwinlossratio:,}``",
+                               inline=True)
             embedVar.add_field(name="Kills",
                                value=f"``{bwkills:,}``",
                                inline=True)
