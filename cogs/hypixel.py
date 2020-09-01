@@ -78,12 +78,11 @@ class Hypixel(commands.Cog):
             full = f"[{rank}] {name}"
             firstloginunix = data["player"]["firstLogin"]
             firstlogin = time.strftime(
-                '%Y-%m-%d %H:%M:%S',
-                time.localtime(int(firstloginunix) / 1000.0))
+                '%Y-%m-%d %H:%M', time.localtime(int(firstloginunix) / 1000.0))
             try:
                 lastloginunix = data["player"]["lastLogin"]
                 lastlogin = time.strftime(
-                    '%Y-%m-%d %H:%M:%S',
+                    '%Y-%m-%d %H:%M',
                     time.localtime(int(lastloginunix) / 1000.0))
             except:
                 pass
@@ -145,12 +144,13 @@ class Hypixel(commands.Cog):
                                value=f"``{achievementPoints}``",
                                inline=True)
             try:
-                embedVar.add_field(name="First • Last Login",
-                                   value=f"``{firstlogin} • {lastlogin}``",
-                                   inline=True)
+                embedVar.add_field(
+                    name="First • Last Login",
+                    value=f"``{firstlogin} • {lastlogin} (EDT)``",
+                    inline=True)
             except:
                 embedVar.add_field(name="First Login",
-                                   value=f"``{firstlogin}``",
+                                   value=f"``{firstlogin} (EDT)``",
                                    inline=True)
             embedVar.add_field(name="Past usernames",
                                value=f"``{pastusernames}``",
