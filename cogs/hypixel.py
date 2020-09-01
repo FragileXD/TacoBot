@@ -237,6 +237,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         else:
             displayname = data["player"]["displayname"]
+            uuid = data["player"]["uuid"]
             embedVar = discord.Embed(
                 title=f"{displayname}",
                 color=13381166,
@@ -277,6 +278,9 @@ class Hypixel(commands.Cog):
                                value=f"``{bwfkdr:,}``",
                                inline=True)
 
+            embedVar.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}"
+            )  #alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
 
