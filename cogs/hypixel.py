@@ -98,7 +98,7 @@ class Hypixel(commands.Cog):
                     guildtag = guild["guild"]["tag"]
                     full = f"[{rank}] {name} [{guildtag}]"
                 except:
-                    full = f"[{rank}] {name} [No Guild Tag]"
+                    full = f"[{rank}] {name}"
 
             try:
                 friends = requests.get(
