@@ -279,7 +279,7 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         else:
-            displayname = data["player"]["displayname"] + data["player"][""]
+            displayname = data["player"]["displayname"]
             full = f"[{rank}] {displayname}"
             uuid = data["player"]["uuid"]
             embedVar = discord.Embed(
