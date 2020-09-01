@@ -199,11 +199,25 @@ class Hypixel(commands.Cog):
     @commands.command(
         aliases=['bedwarshelp', 'bedwarsstats', 'bedwarstats', 'bedwarstat'])
     async def bedwars(self, ctx, *, message):
+        message = message.lower()
         data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
+            f"https://api.hypixel.net/player?key={apikey}&name={message}"
         ).json()
+
         if data["success"] == True and data["player"] != None:
-            pass
+            bwdata = data["player"]["stats"]["Bedwars"]
+            bwlevel = data["player"]["achievements"]["bedwars_level"]
+            bwcoins = bwdata["coins"]
+            bwwinstreak = bwdata["winstreak"]
+            bwwins = bwdata["wins_bedwars"]
+            bwlosses = bwdata["losses_bedwars"]
+            bwwinlossratio = bwwins / bwlosses
+            bwkills = bwdata["kills_bedwars"]
+            bwdeaths = bwdata["deaths_bedwars"]
+            bwkdr = bwkills / bwdeaths
+            bwfinalkills = bwdata["final_kills_bedwars"]
+            bwfinaldeaths = bwdata["final_deaths_bedwars"]
+            bwfkdr = bwfinalkills / bwfinaldeaths
 
         if data["success"] == False:
             embedVar = discord.Embed(
@@ -219,6 +233,42 @@ class Hypixel(commands.Cog):
             embedVar.add_field(name="Error",
                                value=f"``❌ The player is probably banned``",
                                inline=True)
+            embedVar.set_footer(text=footer)
+            await ctx.send(embed=embedVar)
+        else:
+            embedVar = discord.Embed(
+                title=f"{message}",
+                color=13381166,
+                url=f"https://hypixel.net/player/{message{")
+            embedVar.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png")
+            embedVar.add_field(name="Stars",
+                               value=f"``{bwlevel}☆``",
+                               inline=True)
+            embedVar.add_field(name="Coins",
+                               value=f"``{bwcoins:,}``",
+                               inline=True)
+            embedVar.add_field(name="Winstreak",
+                               value=f"``{bwwinstreak:,}``",
+                               inline=True)
+            embedVar.add_field(name="Kills",
+                               value=f"``{bwkills:,}``",
+                               inline=True)
+            embedVar.add_field(name="Deaths",
+                               value=f"``{bwdeaths:,}``",
+                               inline=True)
+            embedVar.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+            embedVar.add_field(name="Final Kills",
+                               value=f"``{bwfinalkills:,}``",
+                               inline=True)
+            embedVar.add_field(name="Final Deaths",
+                               value=f"``{bwfinaldeaths:,}``",
+                               inline=True)
+            embedVar.add_field(name="Final KDR",
+                               value=f"``{bwfkdr:,}``",
+                               inline=True)
+
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
 
