@@ -205,6 +205,49 @@ class Hypixel(commands.Cog):
         ).json()
 
         if data["success"] == True and data["player"] != None:
+            try:
+                rank = data["player"]["prefix"]
+                rank = rank.replace("§c", "")
+                rank = rank.replace("§e", "")
+                rank = rank.replace("§a", "")
+                rank = rank.replace("§b", "")
+                rank = rank.replace("§9", "")
+                rank = rank.replace("§d", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§7", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§6", "")
+                rank = rank.replace("§2", "")
+                rank = rank.replace("§3", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§5", "")
+                rank = rank.replace("§8", "")
+                rank = rank.replace("§0", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§m", "")
+                rank = rank.replace("§n", "")
+                rank = rank.replace("§o", "")
+                rank = rank.replace("§k", "")
+                rank = rank.replace("§r", "")
+                rank = rank.replace("[", "")
+                rank = rank.replace("]", "")
+            except:
+                try:
+                    rank = data["player"]["rank"]
+                except:
+                    try:
+                        rank = data["player"]["monthlyPackageRank"]
+                        rank = rank.replace("SUPERSTAR", "MVP++")
+                    except:
+                        try:
+                            rank = data["player"]["newPackageRank"]
+                            rank = rank.replace("_PLUS", "+")
+                        except:
+                            try:
+                                rank = data["player"]["packageRank"]
+                                rank = rank.replace("_PLUS", "+")
+                            except:
+                                rank = "NON"
             bwdata = data["player"]["stats"]["Bedwars"]
             bwlevel = data["player"]["achievements"]["bedwars_level"]
             bwcoins = bwdata["coins"]
@@ -236,10 +279,11 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         else:
-            displayname = data["player"]["displayname"]
+            displayname = data["player"]["displayname"] + data["player"][""]
+            full = f"[{rank}] {displayname}"
             uuid = data["player"]["uuid"]
             embedVar = discord.Embed(
-                title=f"{displayname}",
+                title=f"{full}",
                 color=13381166,
                 url=f"https://hypixel.net/player/{message}")
             embedVar.set_author(
