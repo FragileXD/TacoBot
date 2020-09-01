@@ -239,7 +239,7 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(
                 title=f"{message}",
                 color=13381166,
-                url=f"https://hypixel.net/player/{message{")
+                url=f"https://hypixel.net/player/{message}")
             embedVar.set_author(
                 name="Overall Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png")
