@@ -489,12 +489,6 @@ class Hypixel(commands.Cog):
                                value=f"``{gamesplayed1:,}``",
                                inline=True)
 
-            try:
-            reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
-            except asyncio.TimeoutError:
-                await channel.send('👎')
-            else:
-                await channel.send('👍')
                 
             embedVar.set_thumbnail(
                 url=
