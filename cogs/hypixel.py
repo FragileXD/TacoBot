@@ -261,6 +261,13 @@ class Hypixel(commands.Cog):
             bwfinalkills = bwdata["final_kills_bedwars"]
             bwfinaldeaths = bwdata["final_deaths_bedwars"]
             bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
+            bwbedlost = bwdata["beds_lost_bedwars"]
+            bwbedbreak = bwdata["beds_broken_bedwars"]
+            bblr = bwbedbreak / bwbedlost
+            gamesplayed = bwdata["games_played_bedwars"]
+            finalspergame = bwfinalkills / gamesplayed
+            bedspergame = bwbedbreak / gamesplayed
+            
 
         if data["success"] == False:
             embedVar = discord.Embed(
@@ -321,6 +328,24 @@ class Hypixel(commands.Cog):
             embedVar.add_field(name="Final KDR",
                                value=f"``{bwfkdr:,}``",
                                inline=True)
+            embedVar.add_field(name="Beds Lost",
+                               value=f"``{bwbedlost:,}``",
+                               inline=True)
+            embedVar.add_field(name="Beds Broken",
+                               value=f"``{bwbedbreak:,}``",
+                               inline=True)
+            embedVar.add_field(name="BBLR",
+                               value=f"``{bwlr:,}``",
+                               inline=True)
+            embedVar.add_field(name="Finals/Game",
+                               value=f"``{finalspergame:,}``",
+                               inline=True)
+            embedVar.add_field(name="Beds/Game",
+                               value=f"``{bedspergame:,}``",
+                               inline=True)
+            embedVar.add_field(name="Games Played",
+                               value=f"``{gamesplayed:,}``",
+                               inline=True)
 
             embedVar.set_thumbnail(
                 url=
@@ -328,7 +353,15 @@ class Hypixel(commands.Cog):
             )  #alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
-
+    
+    @bedwars.error
+    async def bedwars_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+        
+    
 
 def setup(bot):
     bot.add_cog(Hypixel(bot))
