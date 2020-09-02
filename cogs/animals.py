@@ -11,7 +11,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 
-footer = "『 TacoBot ✦ Tacoz』"
+footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 
 reddit = praw.Reddit(client_id="CFOX66IL6PXgRQ",
