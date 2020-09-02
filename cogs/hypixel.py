@@ -267,6 +267,23 @@ class Hypixel(commands.Cog):
             gamesplayed = bwdata["games_played_bedwars"]
             finalspergame = bwfinalkills / gamesplayed
             bedspergame = bwbedbreak / gamesplayed
+            bwwinstreak1 = bwdata["eight_one_winstreak"]
+            bwwins1 = bwdata["eight_one_wins_bedwars"]
+            bwlosses1 = bwdata["eight_one_losses_bedwars"]
+            bwwinlossratio1 = round(bwwins / bwlosses, 2)
+            bwkills1 = bwdata["eight_one_kills_bedwars"]
+            bwdeaths1 = bwdata["eight_one_deaths_bedwars"]
+            bwkdr1 = round(bwkills / bwdeaths, 2)
+            bwfinalkills1 = bwdata["eight_one_final_kills_bedwars"]
+            bwfinaldeaths1 = bwdata["eight_one_final_deaths_bedwars"]
+            bwfkdr1 = round(bwfinalkills / bwfinaldeaths, 2)
+            bwbedlost1 = bwdata["eight_one_beds_lost_bedwars"]
+            bwbedbreak1 = bwdata["eight_one_beds_broken_bedwars"]
+            bblr1 = bwbedbreak / bwbedlost
+            gamesplayed1 = bwdata["eight_one_games_played_bedwars"]
+            finalspergame1 = bwfinalkills / gamesplayed
+            bedspergame1 = bwbedbreak / gamesplayed
+            
             
 
         if data["success"] == False:
@@ -347,6 +364,13 @@ class Hypixel(commands.Cog):
                                value=f"``{gamesplayed:,}``",
                                inline=True)
 
+            try:
+            reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
+            except asyncio.TimeoutError:
+                await channel.send('👎')
+            else:
+                await channel.send('👍')
+                
             embedVar.set_thumbnail(
                 url=
                 f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
