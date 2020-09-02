@@ -10,7 +10,8 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from utils import permissions, default
-footer = "Made with ❤️ by Tacoz!"
+
+footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 
 
