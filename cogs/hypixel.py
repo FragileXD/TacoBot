@@ -431,6 +431,63 @@ class Hypixel(commands.Cog):
             embedVar.add_field(name="Games Played",
                                value=f"``{gamesplayed:,}``",
                                inline=True)
+            solo = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{message}")
+            solo.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png")
+            solo.add_field(name="Stars",
+                               value=f"``{bwlevel}☆``",
+                               inline=True)
+            solo.add_field(name="Coins",
+                               value=f"``{bwcoins:,}``",
+                               inline=True)
+            solo.add_field(name="Winstreak",
+                               value=f"``{bwwinstreak1:,}``",
+                               inline=True)
+            solo.add_field(name="Wins", value=f"``{bwwins1}``", inline=True)
+            solo.add_field(name="Losses",
+                               value=f"``{bwlosses1:,}``",
+                               inline=True)
+            solo.add_field(name="Win Loss Ratio",
+                               value=f"``{bwwinlossratio1:,}``",
+                               inline=True)
+            solo.add_field(name="Kills",
+                               value=f"``{bwkills1:,}``",
+                               inline=True)
+            solo.add_field(name="Deaths",
+                               value=f"``{bwdeaths1:,}``",
+                               inline=True)
+            solo.add_field(name="KDR", value=f"``{bwkdr1}``", inline=True)
+            solo.add_field(name="Final Kills",
+                               value=f"``{bwfinalkills1:,}``",
+                               inline=True)
+            solo.add_field(name="Final Deaths",
+                               value=f"``{bwfinaldeaths1:,}``",
+                               inline=True)
+            solo.add_field(name="Final KDR",
+                               value=f"``{bwfkdr1:,}``",
+                               inline=True)
+            solo.add_field(name="Beds Lost",
+                               value=f"``{bwbedlost1:,}``",
+                               inline=True)
+            solo.add_field(name="Beds Broken",
+                               value=f"``{bwbedbreak1:,}``",
+                               inline=True)
+            solo.add_field(name="BBLR",
+                               value=f"``{bwlr1:,}``",
+                               inline=True)
+            solo.add_field(name="Finals/Game",
+                               value=f"``{finalspergame1:,}``",
+                               inline=True)
+            solo.add_field(name="Beds/Game",
+                               value=f"``{bedspergame1:,}``",
+                               inline=True)
+            solo.add_field(name="Games Played",
+                               value=f"``{gamesplayed1:,}``",
+                               inline=True)
 
             try:
             reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
