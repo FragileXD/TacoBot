@@ -10,7 +10,7 @@ from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from owotext import OwO
 
-footer = "Made with ❤️ by Tacoz!"
+footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 
 
