@@ -12,7 +12,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 
-footer = "Made with ❤️ by Tacoz!"
+footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 apikey = "a54ce218-4fd5-4798-9b4b-6c74efac3456"
 
