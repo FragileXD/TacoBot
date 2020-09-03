@@ -22,9 +22,7 @@ def get_config():
 
 def is_staff(ctx):
     if isinstance(ctx.author, discord.Member):
-        return get_config()["staff_role"] in [
-            role.id for role in ctx.author.roles
-        ]
+        return get_config()["staff_role"] in [role.id for role in ctx.author.roles]
     return ctx.author.id == 389388825274613771
 
 
@@ -50,7 +48,8 @@ class ActionReason(commands.Converter):
         if len(ret) > 512:
             reason_max = 512 - len(ret) - len(argument)
             raise commands.BadArgument(
-                f'reason is too long ({len(argument)}/{reason_max})')
+                f"reason is too long ({len(argument)}/{reason_max})"
+            )
         return ret
 
 
@@ -58,37 +57,48 @@ class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='whois',
-                      description='Gets info about a user',
-                      aliases=['userinfo', 'user', 'user_info'])
+    @commands.command(
+        name="whois",
+        description="Gets info about a user",
+        aliases=["userinfo", "user", "user_info"],
+    )
     @commands.guild_only()
     async def whois(self, ctx, user: discord.Member = None):
         if not user:
             e = discord.Embed(
-                description=":no_entry_sign: You must specify a user",
-                colour=0xE74C3C)
+                description=":no_entry_sign: You must specify a user", colour=0xE74C3C
+            )
             e.set_footer(text=footer)
             await ctx.send(embed=e)
             return
 
-        show_roles = ', '.join([
-            f"<@&{x.id}>"
-            for x in sorted(user.roles, key=lambda x: x.position, reverse=True)
-            if x.id != ctx.guild.default_role.id
-        ]) if len(user.roles) > 1 else 'None'
+        show_roles = (
+            ", ".join(
+                [
+                    f"<@&{x.id}>"
+                    for x in sorted(user.roles, key=lambda x: x.position, reverse=True)
+                    if x.id != ctx.guild.default_role.id
+                ]
+            )
+            if len(user.roles) > 1
+            else "None"
+        )
 
         userObject = self.bot.get_user(user.id)
 
         e = discord.Embed(title=f"{user}", colour=0x2ECC71)
 
         e.add_field(name="Discord Tag", value=f"{str(user)}")
-        e.add_field(name="Nickname",
-                    value=user.nick if hasattr(user, "nick") else "None")
+        e.add_field(
+            name="Nickname", value=user.nick if hasattr(user, "nick") else "None"
+        )
         e.add_field(name="User ID", value=user.id)
-        e.add_field(name="Account Created",
-                    value=user.created_at.strftime("%d %B %Y, %H:%M"))
-        e.add_field(name="Server Join Data",
-                    value=user.joined_at.strftime("%d %B %Y, %H:%M"))
+        e.add_field(
+            name="Account Created", value=user.created_at.strftime("%d %B %Y, %H:%M")
+        )
+        e.add_field(
+            name="Server Join Data", value=user.joined_at.strftime("%d %B %Y, %H:%M")
+        )
         e.add_field(name="Is Bot?", value=str(userObject.bot))
         e.set_thumbnail(url=user.avatar_url)
         e.set_footer(text=footer)
@@ -97,15 +107,17 @@ class Moderation(commands.Cog):
 
         await ctx.send(embed=e)
 
-    @commands.command(name='getpfp',
-                      description='Gets the profile picture of the user',
-                      aliases=['getprofilepic'])
+    @commands.command(
+        name="getpfp",
+        description="Gets the profile picture of the user",
+        aliases=["getprofilepic"],
+    )
     @commands.guild_only()
     async def getpfp(self, ctx, user: discord.Member = None):
         if not user:
             e = discord.Embed(
-                description=":no_entry_sign: You must specify a user",
-                colour=0xE74C3C)
+                description=":no_entry_sign: You must specify a user", colour=0xE74C3C
+            )
             e.set_footer(text=footer)
             await ctx.send(embed=e)
             return
@@ -125,9 +137,9 @@ class Moderation(commands.Cog):
             return
 
         try:
-            await member.edit(nick=name,
-                              reason=default.responsible(
-                                  ctx.author, "Changed by command"))
+            await member.edit(
+                nick=name, reason=default.responsible(ctx.author, "Changed by command")
+            )
             message = f"Changed **{member.name}'s** nickname to **{name}**"
             if name is None:
                 message = f"Reset **{member.name}'s** nickname"
@@ -145,8 +157,10 @@ class Moderation(commands.Cog):
             return
 
         try:
-            await ctx.guild.ban(discord.Object(id=member),
-                                reason=default.responsible(ctx.author, reason))
+            await ctx.guild.ban(
+                discord.Object(id=member),
+                reason=default.responsible(ctx.author, reason),
+            )
             await ctx.send(default.actionmessage("banned"))
         except Exception as e:
             await ctx.send(e)
@@ -159,9 +173,10 @@ class Moderation(commands.Cog):
         """ Mass bans multiple members from the server. """
         try:
             for member_id in members:
-                await ctx.guild.ban(discord.Object(id=member_id),
-                                    reason=default.responsible(
-                                        ctx.author, reason))
+                await ctx.guild.ban(
+                    discord.Object(id=member_id),
+                    reason=default.responsible(ctx.author, reason),
+                )
             await ctx.send(default.actionmessage("massbanned", mass=True))
         except Exception as e:
             await ctx.send(e)
@@ -172,9 +187,10 @@ class Moderation(commands.Cog):
     async def unban(self, ctx, member: MemberID, *, reason: str = None):
         """ Unbans a user from the current server. """
         try:
-            await ctx.guild.unban(discord.Object(id=member),
-                                  reason=default.responsible(
-                                      ctx.author, reason))
+            await ctx.guild.unban(
+                discord.Object(id=member),
+                reason=default.responsible(ctx.author, reason),
+            )
             await ctx.send(default.actionmessage("unbanned"))
         except Exception as e:
             await ctx.send(e)
@@ -187,8 +203,7 @@ class Moderation(commands.Cog):
         if await permissions.check_priv(ctx, member):
             return
 
-        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"),
-                          None)
+        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"), None)
 
         if not muted_role:
             return await ctx.send(
@@ -196,9 +211,9 @@ class Moderation(commands.Cog):
             )
 
         try:
-            await member.add_roles(muted_role,
-                                   reason=default.responsible(
-                                       ctx.author, reason))
+            await member.add_roles(
+                muted_role, reason=default.responsible(ctx.author, reason)
+            )
             await ctx.send(default.actionmessage("muted"))
         except Exception as e:
             await ctx.send(e)
@@ -211,8 +226,7 @@ class Moderation(commands.Cog):
         if await permissions.check_priv(ctx, member):
             return
 
-        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"),
-                          None)
+        muted_role = next((g for g in ctx.guild.roles if g.name == "Muted"), None)
 
         if not muted_role:
             return await ctx.send(
@@ -220,9 +234,9 @@ class Moderation(commands.Cog):
             )
 
         try:
-            await member.remove_roles(muted_role,
-                                      reason=default.responsible(
-                                          ctx.author, reason))
+            await member.remove_roles(
+                muted_role, reason=default.responsible(ctx.author, reason)
+            )
             await ctx.send(default.actionmessage("unmuted"))
         except Exception as e:
             await ctx.send(e)

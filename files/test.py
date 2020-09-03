@@ -3,8 +3,7 @@ import requests
 import json
 
 apikey = "***REMOVED***"
-data = requests.get(
-    f"https://api.hypixel.net/player?key={apikey}&name=NotTacoz").json()
+data = requests.get(f"https://api.hypixel.net/player?key={apikey}&name=NotTacoz").json()
 """
 a = input("link: ")
 urlvar = a[:-5]
