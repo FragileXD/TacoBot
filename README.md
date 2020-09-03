@@ -3,11 +3,14 @@
 <p align="center">
   <a href="https://discord.gg/rUwx8gk">
     <img src="https://discordapp.com/api/guilds/663002132793917480/widget.png?style=shield" alt="Discord Server">
+  </a>
   <a href="https://www.python.org/downloads/">
     <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
   </a>
   <a href="https://github.com/Rapptz/discord.py/">
       <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py">
+  </a>
+  <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
   </a>
 </p>
 
@@ -37,7 +40,6 @@
 
   - Subreddit Image Grabber
 
-
 ## How do I add it to my server
 
 - [Full Permissions](https://discord.com/oauth2/authorize?client_id=652111582662361100&scope=bot&permissions=8)
@@ -55,7 +57,6 @@
 - [TheDrone7](https://repl.it/talk/learn/) - discord.py reference
 - [AlexFlipnote](https://github.com/AlexFlipnote/discord_bot.py) - Learnt alot from this repo
 - [Dank Memer](https://dankmemer.lol/commands) - Inspiration for some of the commands
-
 
 ## Changelogs
 
