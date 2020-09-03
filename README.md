@@ -37,9 +37,6 @@
 
   - Subreddit Image Grabber
 
-## Versions (Major Updates Only)
-
-- v0.1 - First Log - 97 Commits.
 
 ## How do I add it to my server
 
@@ -50,15 +47,17 @@
 
 ## I found a bug/error
 
-join the [Suppport Server](https://discord.io/Tacoz)
-
-## TODO List
-
-- Add More Commands!
+- Join the [Support Server](https://discord.io/Tacoz)
 
 ## Credits
 
-- [Roxiun](https://github.com/Roxiun/) - Loads of help to get the bot up and running. ~~stole some code too~~
+- [Roxiun](https://github.com/Roxiun/) - Helped with bug fixes
 - [TheDrone7](https://repl.it/talk/learn/) - discord.py reference
 - [AlexFlipnote](https://github.com/AlexFlipnote/discord_bot.py) - Learnt alot from this repo
-- [Dank Memer](https://dankmemer.lol/commands) - Inspiration for most of the commands
+- [Dank Memer](https://dankmemer.lol/commands) - Inspiration for some of the commands
+
+
+## Changelogs
+
+- v0.1 - First Log - 97 Commits.
+- v0.2 - Started Hypixel Cog ; Added more commands - 404 Commits
