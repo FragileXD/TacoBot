@@ -204,10 +204,10 @@ class Hypixel(commands.Cog):
     @commands.command(
         aliases=["bedwarshelp", "bedwarsstats", "bedwarstats", "bedwarstat"]
     )
-    async def bedwars(self, ctx, *, message):
-        message = message.lower()
+    async def bedwars(self, message, ctx, *, message1):
+        message = message1.lower()
         data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={message}"
+            f"https://api.hypixel.net/player?key={apikey}&name={message1}"
         ).json()
 
         if data["success"] == True and data["player"] != None:
@@ -384,7 +384,7 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{message1}",
             )
             embedVar.set_author(
                 name="Overall Bedwars Stats",
@@ -429,7 +429,7 @@ class Hypixel(commands.Cog):
             solo = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{message1}",
             )
             solo.set_author(
                 name="Overall Bedwars Stats",
@@ -478,7 +478,7 @@ class Hypixel(commands.Cog):
             start_time = time.time()  # remember when we started
             while (time.time() - start_time) < 60:  # 60 stands for 60 seconds
                 pass
-            
+
             await message.clear_reaction(":arrow_left:")
             await message.clear_reaction(":arrow_right:")
             await message.clear_reaction(":stop_button:")
