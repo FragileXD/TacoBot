@@ -338,7 +338,7 @@ class Hypixel(commands.Cog):
             bwbedlost4 = bwdata["four_four_beds_lost_bedwars"]
             bwbedbreak4 = bwdata["four_four_beds_broken_bedwars"]
             bblr4 = bwbedbreak4 / bwbedlost4
-            gamesplayed = bwdata["four_four_games_played_bedwars"]
+            gamesplayed4 = bwdata["four_four_games_played_bedwars"]
             finalspergame4 = bwfinalkills4 / gamesplayed4
             bedspergame4 = bwbedbreak4 / gamesplayed4
 
@@ -416,7 +416,7 @@ class Hypixel(commands.Cog):
             embedVar.add_field(
                 name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
             )
-            embedVar.add_field(name="BBLR", value=f"``{bwlr:,}``", inline=True)
+            embedVar.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
             embedVar.add_field(
                 name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
             )
@@ -457,7 +457,7 @@ class Hypixel(commands.Cog):
             solo.add_field(
                 name="Beds Broken", value=f"``{bwbedbreak1:,}``", inline=True
             )
-            solo.add_field(name="BBLR", value=f"``{bwlr1:,}``", inline=True)
+            solo.add_field(name="BBLR", value=f"``{bblr1:,}``", inline=True)
             solo.add_field(
                 name="Finals/Game", value=f"``{finalspergame1:,}``", inline=True
             )
@@ -471,6 +471,17 @@ class Hypixel(commands.Cog):
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
+            await message.add_reaction(":arrow_left:")
+            await message.add_reaction(":arrow_right:")
+            await message.add_reaction(":stop_button:")
+
+            start_time = time.time()  # remember when we started
+            while (time.time() - start_time) < 60:  # 60 stands for 60 seconds
+                pass
+            
+            await message.clear_reaction(":arrow_left:")
+            await message.clear_reaction(":arrow_right:")
+            await message.clear_reaction(":stop_button:")
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
