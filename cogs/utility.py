@@ -84,8 +84,7 @@ class Utility(commands.Cog):
         )
         info_msg.add_field(
             name="Invite",
-            value="Click Here",
-            url="https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot",
+            value="(Click Here)[https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot]",
             inline=True,
         )
 
