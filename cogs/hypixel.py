@@ -637,10 +637,10 @@ class Hypixel(commands.Cog):
                 name="Finals/Game", value=f"``{finalspergame4v4:,}``", inline=True
             )
             fours2.add_field(
-                name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                name="Beds/Game", value=f"``{bedspergame4v4:,}``", inline=True
             )
             fours2.add_field(
-                name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                name="Games Played", value=f"``{gamesplayed4v4:,}``", inline=True
             )
 
             solo.set_thumbnail(
