@@ -204,10 +204,10 @@ class Hypixel(commands.Cog):
     @commands.command(
         aliases=["bedwarshelp", "bedwarsstats", "bedwarstats", "bedwarstat"]
     )
-    async def bedwars(self, ctx, *, message):
-        message = message.lower()
+    async def bedwars(self, ctx, msg: str):
+        msg = msg.lower()
         data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={message}"
+            f"https://api.hypixel.net/player?key={apikey}&name={msg}"
         ).json()
 
         if data["success"] == True and data["player"] != None:
@@ -359,6 +359,27 @@ class Hypixel(commands.Cog):
             finalspergame4v4 = bwfinalkills4v4 / gamesplayed4v4
             bedspergame4v4 = bwbedbreak4v4 / gamesplayed4v4
 
+            bblr = round(bblr, 2)
+            bblr1 = round(bblr1, 2)
+            bblr2 = round(bblr2, 2)
+            bblr3 = round(bblr3, 2)
+            bblr4 = round(bblr4, 2)
+            bblr4v4 = round(bblr4v4, 2)
+
+            finalspergame = round(finalspergame, 2)
+            finalspergame1 = round(finalspergame1, 2)
+            finalspergame2 = round(finalspergame2, 2)
+            finalspergame3 = round(finalspergame3, 2)
+            finalspergame4 = round(finalspergame4, 2)
+            finalspergame4v4 = round(finalspergame4v4, 2)
+
+            bedspergame = round(bedspergame, 2)
+            bedspergame1 = round(bedspergame1, 2)
+            bedspergame2 = round(bedspergame2, 2)
+            bedspergame3 = round(bedspergame3, 2)
+            bedspergame4 = round(bedspergame4, 2)
+            bedspergame4v4 = round(bedspergame4v4, 2)
+
         if data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166
@@ -384,7 +405,7 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             embedVar.set_author(
                 name="Overall Bedwars Stats",
@@ -430,7 +451,7 @@ class Hypixel(commands.Cog):
             solo = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             solo.set_author(
                 name="Overall Bedwars Stats",
@@ -470,7 +491,7 @@ class Hypixel(commands.Cog):
             doubles = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             doubles.set_author(
                 name="Overall Bedwars Stats",
@@ -516,7 +537,7 @@ class Hypixel(commands.Cog):
             threes = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             threes.set_author(
                 name="Overall Bedwars Stats",
@@ -560,7 +581,7 @@ class Hypixel(commands.Cog):
             fours = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             fours.set_author(
                 name="Overall Bedwars Stats",
@@ -568,7 +589,9 @@ class Hypixel(commands.Cog):
             )
             fours.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
             fours.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            fours.add_field(name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True)
+            fours.add_field(
+                name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True
+            )
             fours.add_field(name="Wins", value=f"``{bwwins4}``", inline=True)
             fours.add_field(name="Losses", value=f"``{bwlosses4:,}``", inline=True)
             fours.add_field(
@@ -602,7 +625,7 @@ class Hypixel(commands.Cog):
             fours2 = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             fours2.set_author(
                 name="Overall Bedwars Stats",
@@ -628,7 +651,9 @@ class Hypixel(commands.Cog):
                 name="Final Deaths", value=f"``{bwfinaldeaths4v4:,}``", inline=True
             )
             fours2.add_field(name="Final KDR", value=f"``{bwfkdr4v4:,}``", inline=True)
-            fours2.add_field(name="Beds Lost", value=f"``{bwbedlost4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Beds Lost", value=f"``{bwbedlost4v4:,}``", inline=True
+            )
             fours2.add_field(
                 name="Beds Broken", value=f"``{bwbedbreak4v4:,}``", inline=True
             )
@@ -667,7 +692,10 @@ class Hypixel(commands.Cog):
                 url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
+
             await ctx.send(embed=embedVar)
+
+            await self.bot.add_reaction("😳")
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
