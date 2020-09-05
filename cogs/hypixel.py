@@ -21,6 +21,7 @@ class Hypixel(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["generalhelp"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def general(self, ctx, *, message):
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
@@ -174,6 +175,7 @@ class Hypixel(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["watchdog", "banstats", "hypixelban"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def watchdogstats(self, ctx):
         watchdog = requests.get(
             f"https://api.hypixel.net/watchdogstats?key={apikey}"
@@ -204,6 +206,7 @@ class Hypixel(commands.Cog):
     @commands.command(
         aliases=["bedwarshelp", "bedwarsstats", "bedwarstats", "bedwarstat"]
     )
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def bedwars(self, ctx, msg: str):
         msg = msg.lower()
         data = requests.get(
@@ -695,9 +698,13 @@ class Hypixel(commands.Cog):
 
             message = await ctx.send(embed=embedVar)
 
-            await message.add_reaction("◀")
-            await message.add_reaction("▶")
-            await message.add_reaction("⏹")
+            Left = await message.add_reaction("◀")
+            Right = await message.add_reaction("▶")
+            Stop = await message.add_reaction("⏹")
+
+            start_time = time.time()  # remember when we started
+            while (time.time() - start_time) < 6.0:
+                pass
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
