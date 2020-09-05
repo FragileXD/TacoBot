@@ -426,6 +426,7 @@ class Hypixel(commands.Cog):
             embedVar.add_field(
                 name="Games Played", value=f"``{gamesplayed:,}``", inline=True
             )
+
             solo = discord.Embed(
                 title=f"{full}",
                 color=15105570,
@@ -466,6 +467,202 @@ class Hypixel(commands.Cog):
                 name="Games Played", value=f"``{gamesplayed1:,}``", inline=True
             )
 
+            doubles = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{message}",
+            )
+            doubles.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            doubles.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            doubles.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            doubles.add_field(
+                name="Winstreak", value=f"``{bwwinstreak2:,}``", inline=True
+            )
+            doubles.add_field(name="Wins", value=f"``{bwwins2}``", inline=True)
+            doubles.add_field(name="Losses", value=f"``{bwlosses2:,}``", inline=True)
+            doubles.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio2:,}``", inline=True
+            )
+            doubles.add_field(name="Kills", value=f"``{bwkills2:,}``", inline=True)
+            doubles.add_field(name="Deaths", value=f"``{bwdeaths2:,}``", inline=True)
+            doubles.add_field(name="KDR", value=f"``{bwkdr2}``", inline=True)
+            doubles.add_field(
+                name="Final Kills", value=f"``{bwfinalkills2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths2:,}``", inline=True
+            )
+            doubles.add_field(name="Final KDR", value=f"``{bwfkdr2:,}``", inline=True)
+            doubles.add_field(
+                name="Beds Lost", value=f"``{bwbedlost2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak2:,}``", inline=True
+            )
+            doubles.add_field(name="BBLR", value=f"``{bblr2:,}``", inline=True)
+            doubles.add_field(
+                name="Finals/Game", value=f"``{finalspergame2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Beds/Game", value=f"``{bedspergame2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Games Played", value=f"``{gamesplayed2:,}``", inline=True
+            )
+
+            threes = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{message}",
+            )
+            threes.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            threes.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            threes.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            threes.add_field(
+                name="Winstreak", value=f"``{bwwinstreak3:,}``", inline=True
+            )
+            threes.add_field(name="Wins", value=f"``{bwwins3}``", inline=True)
+            threes.add_field(name="Losses", value=f"``{bwlosses3:,}``", inline=True)
+            threes.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio3:,}``", inline=True
+            )
+            threes.add_field(name="Kills", value=f"``{bwkills3:,}``", inline=True)
+            threes.add_field(name="Deaths", value=f"``{bwdeaths3:,}``", inline=True)
+            threes.add_field(name="KDR", value=f"``{bwkdr3}``", inline=True)
+            threes.add_field(
+                name="Final Kills", value=f"``{bwfinalkills3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths3:,}``", inline=True
+            )
+            threes.add_field(name="Final KDR", value=f"``{bwfkdr3:,}``", inline=True)
+            threes.add_field(name="Beds Lost", value=f"``{bwbedlost3:,}``", inline=True)
+            threes.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak3:,}``", inline=True
+            )
+            threes.add_field(name="BBLR", value=f"``{bblr3:,}``", inline=True)
+            threes.add_field(
+                name="Finals/Game", value=f"``{finalspergame3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Beds/Game", value=f"``{bedspergame3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Games Played", value=f"``{gamesplayed3:,}``", inline=True
+            )
+
+            fours = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{message}",
+            )
+            fours.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            fours.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            fours.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            fours.add_field(name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True)
+            fours.add_field(name="Wins", value=f"``{bwwins4}``", inline=True)
+            fours.add_field(name="Losses", value=f"``{bwlosses4:,}``", inline=True)
+            fours.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio4:,}``", inline=True
+            )
+            fours.add_field(name="Kills", value=f"``{bwkills4:,}``", inline=True)
+            fours.add_field(name="Deaths", value=f"``{bwdeaths4:,}``", inline=True)
+            fours.add_field(name="KDR", value=f"``{bwkdr4}``", inline=True)
+            fours.add_field(
+                name="Final Kills", value=f"``{bwfinalkills4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths4:,}``", inline=True
+            )
+            fours.add_field(name="Final KDR", value=f"``{bwfkdr4:,}``", inline=True)
+            fours.add_field(name="Beds Lost", value=f"``{bwbedlost4:,}``", inline=True)
+            fours.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak4:,}``", inline=True
+            )
+            fours.add_field(name="BBLR", value=f"``{bblr4:,}``", inline=True)
+            fours.add_field(
+                name="Finals/Game", value=f"``{finalspergame4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Beds/Game", value=f"``{bedspergame4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Games Played", value=f"``{gamesplayed4:,}``", inline=True
+            )
+
+            fours2 = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{message}",
+            )
+            fours2.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            fours2.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            fours2.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            fours2.add_field(
+                name="Winstreak", value=f"``{bwwinstreak4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Wins", value=f"``{bwwins4v4}``", inline=True)
+            fours2.add_field(name="Losses", value=f"``{bwlosses4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Kills", value=f"``{bwkills4v4:,}``", inline=True)
+            fours2.add_field(name="Deaths", value=f"``{bwdeaths4v4:,}``", inline=True)
+            fours2.add_field(name="KDR", value=f"``{bwkdr4v4}``", inline=True)
+            fours2.add_field(
+                name="Final Kills", value=f"``{bwfinalkills4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Final KDR", value=f"``{bwfkdr4v4:,}``", inline=True)
+            fours2.add_field(name="Beds Lost", value=f"``{bwbedlost4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak4v4:,}``", inline=True
+            )
+            fours2.add_field(name="BBLR", value=f"``{bblr4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Finals/Game", value=f"``{finalspergame4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+            )
+
+            solo.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            solo.set_footer(text=footer)
+            doubles.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            doubles.set_footer(text=footer)
+            threes.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            threes.set_footer(text=footer)
+            fours.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            fours.set_footer(text=footer)
+            fours2.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            fours2.set_footer(text=footer)
             embedVar.set_thumbnail(
                 url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
