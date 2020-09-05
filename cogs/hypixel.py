@@ -706,6 +706,10 @@ class Hypixel(commands.Cog):
             while (time.time() - start_time) < 6.0:
                 pass
 
+            await message.clear_reaction("◀")
+            await message.clear_reaction("▶")
+            await message.clear_reaction("⏹")
+
     @bedwars.error
     async def bedwars_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
