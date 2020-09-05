@@ -693,9 +693,11 @@ class Hypixel(commands.Cog):
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
 
-            await ctx.send(embed=embedVar)
+            message = await ctx.send(embed=embedVar)
 
-            await self.bot.add_reaction("😳")
+            await message.add_reaction("◀")
+            await message.add_reaction("▶")
+            await message.add_reaction("⏹")
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
