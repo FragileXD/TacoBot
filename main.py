@@ -12,6 +12,13 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
+statuses = [
+    ".help / >help | http://youtube.com/tacozlmao",
+    "with the ban hammer | .help",
+    "owo! twype .hewwlp for hwelp maaswter! :3",
+]
+status = random.choice(statuses)
+
 # CONFIG!
 PREFIX = (".", ">")
 TOKEN = config.token
@@ -24,8 +31,8 @@ client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=
 @client.event
 async def on_ready():
     activity = discord.Activity(
-        type=discord.ActivityType.watching,
-        name=".help / >help | http://youtube.com/tacozlmao",
+        type=discord.ActivityType.playing,
+        name=status,
     )
     await client.change_presence(status=discord.Status.idle, activity=activity)
     print(f"{client.user.name} is Launched")
