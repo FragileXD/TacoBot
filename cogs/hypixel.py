@@ -21,6 +21,7 @@ class Hypixel(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases=["generalhelp"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def general(self, ctx, *, message):
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
@@ -174,6 +175,7 @@ class Hypixel(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["watchdog", "banstats", "hypixelban"])
+    @commands.cooldown(1, 5, commands.BucketType.user)
     async def watchdogstats(self, ctx):
         watchdog = requests.get(
             f"https://api.hypixel.net/watchdogstats?key={apikey}"
@@ -204,10 +206,11 @@ class Hypixel(commands.Cog):
     @commands.command(
         aliases=["bedwarshelp", "bedwarsstats", "bedwarstats", "bedwarstat"]
     )
-    async def bedwars(self, message, ctx, *, message1):
-        message = message1.lower()
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def bedwars(self, ctx, msg: str):
+        msg = msg.lower()
         data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={message1}"
+            f"https://api.hypixel.net/player?key={apikey}&name={msg}"
         ).json()
 
         if data["success"] == True and data["player"] != None:
@@ -359,6 +362,27 @@ class Hypixel(commands.Cog):
             finalspergame4v4 = bwfinalkills4v4 / gamesplayed4v4
             bedspergame4v4 = bwbedbreak4v4 / gamesplayed4v4
 
+            bblr = round(bblr, 2)
+            bblr1 = round(bblr1, 2)
+            bblr2 = round(bblr2, 2)
+            bblr3 = round(bblr3, 2)
+            bblr4 = round(bblr4, 2)
+            bblr4v4 = round(bblr4v4, 2)
+
+            finalspergame = round(finalspergame, 2)
+            finalspergame1 = round(finalspergame1, 2)
+            finalspergame2 = round(finalspergame2, 2)
+            finalspergame3 = round(finalspergame3, 2)
+            finalspergame4 = round(finalspergame4, 2)
+            finalspergame4v4 = round(finalspergame4v4, 2)
+
+            bedspergame = round(bedspergame, 2)
+            bedspergame1 = round(bedspergame1, 2)
+            bedspergame2 = round(bedspergame2, 2)
+            bedspergame3 = round(bedspergame3, 2)
+            bedspergame4 = round(bedspergame4, 2)
+            bedspergame4v4 = round(bedspergame4v4, 2)
+
         if data["success"] == False:
             embedVar = discord.Embed(
                 title=":no_entry_sign: Something went wrong", color=13381166
@@ -384,7 +408,7 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message1}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             embedVar.set_author(
                 name="Overall Bedwars Stats",
@@ -426,10 +450,11 @@ class Hypixel(commands.Cog):
             embedVar.add_field(
                 name="Games Played", value=f"``{gamesplayed:,}``", inline=True
             )
+
             solo = discord.Embed(
                 title=f"{full}",
                 color=15105570,
-                url=f"https://hypixel.net/player/{message1}",
+                url=f"https://hypixel.net/player/{msg}",
             )
             solo.set_author(
                 name="Overall Bedwars Stats",
@@ -466,22 +491,224 @@ class Hypixel(commands.Cog):
                 name="Games Played", value=f"``{gamesplayed1:,}``", inline=True
             )
 
+            doubles = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{msg}",
+            )
+            doubles.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            doubles.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            doubles.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            doubles.add_field(
+                name="Winstreak", value=f"``{bwwinstreak2:,}``", inline=True
+            )
+            doubles.add_field(name="Wins", value=f"``{bwwins2}``", inline=True)
+            doubles.add_field(name="Losses", value=f"``{bwlosses2:,}``", inline=True)
+            doubles.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio2:,}``", inline=True
+            )
+            doubles.add_field(name="Kills", value=f"``{bwkills2:,}``", inline=True)
+            doubles.add_field(name="Deaths", value=f"``{bwdeaths2:,}``", inline=True)
+            doubles.add_field(name="KDR", value=f"``{bwkdr2}``", inline=True)
+            doubles.add_field(
+                name="Final Kills", value=f"``{bwfinalkills2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths2:,}``", inline=True
+            )
+            doubles.add_field(name="Final KDR", value=f"``{bwfkdr2:,}``", inline=True)
+            doubles.add_field(
+                name="Beds Lost", value=f"``{bwbedlost2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak2:,}``", inline=True
+            )
+            doubles.add_field(name="BBLR", value=f"``{bblr2:,}``", inline=True)
+            doubles.add_field(
+                name="Finals/Game", value=f"``{finalspergame2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Beds/Game", value=f"``{bedspergame2:,}``", inline=True
+            )
+            doubles.add_field(
+                name="Games Played", value=f"``{gamesplayed2:,}``", inline=True
+            )
+
+            threes = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{msg}",
+            )
+            threes.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            threes.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            threes.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            threes.add_field(
+                name="Winstreak", value=f"``{bwwinstreak3:,}``", inline=True
+            )
+            threes.add_field(name="Wins", value=f"``{bwwins3}``", inline=True)
+            threes.add_field(name="Losses", value=f"``{bwlosses3:,}``", inline=True)
+            threes.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio3:,}``", inline=True
+            )
+            threes.add_field(name="Kills", value=f"``{bwkills3:,}``", inline=True)
+            threes.add_field(name="Deaths", value=f"``{bwdeaths3:,}``", inline=True)
+            threes.add_field(name="KDR", value=f"``{bwkdr3}``", inline=True)
+            threes.add_field(
+                name="Final Kills", value=f"``{bwfinalkills3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths3:,}``", inline=True
+            )
+            threes.add_field(name="Final KDR", value=f"``{bwfkdr3:,}``", inline=True)
+            threes.add_field(name="Beds Lost", value=f"``{bwbedlost3:,}``", inline=True)
+            threes.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak3:,}``", inline=True
+            )
+            threes.add_field(name="BBLR", value=f"``{bblr3:,}``", inline=True)
+            threes.add_field(
+                name="Finals/Game", value=f"``{finalspergame3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Beds/Game", value=f"``{bedspergame3:,}``", inline=True
+            )
+            threes.add_field(
+                name="Games Played", value=f"``{gamesplayed3:,}``", inline=True
+            )
+
+            fours = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{msg}",
+            )
+            fours.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            fours.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            fours.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            fours.add_field(
+                name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True
+            )
+            fours.add_field(name="Wins", value=f"``{bwwins4}``", inline=True)
+            fours.add_field(name="Losses", value=f"``{bwlosses4:,}``", inline=True)
+            fours.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio4:,}``", inline=True
+            )
+            fours.add_field(name="Kills", value=f"``{bwkills4:,}``", inline=True)
+            fours.add_field(name="Deaths", value=f"``{bwdeaths4:,}``", inline=True)
+            fours.add_field(name="KDR", value=f"``{bwkdr4}``", inline=True)
+            fours.add_field(
+                name="Final Kills", value=f"``{bwfinalkills4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths4:,}``", inline=True
+            )
+            fours.add_field(name="Final KDR", value=f"``{bwfkdr4:,}``", inline=True)
+            fours.add_field(name="Beds Lost", value=f"``{bwbedlost4:,}``", inline=True)
+            fours.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak4:,}``", inline=True
+            )
+            fours.add_field(name="BBLR", value=f"``{bblr4:,}``", inline=True)
+            fours.add_field(
+                name="Finals/Game", value=f"``{finalspergame4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Beds/Game", value=f"``{bedspergame4:,}``", inline=True
+            )
+            fours.add_field(
+                name="Games Played", value=f"``{gamesplayed4:,}``", inline=True
+            )
+
+            fours2 = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{msg}",
+            )
+            fours2.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            fours2.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            fours2.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            fours2.add_field(
+                name="Winstreak", value=f"``{bwwinstreak4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Wins", value=f"``{bwwins4v4}``", inline=True)
+            fours2.add_field(name="Losses", value=f"``{bwlosses4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Win Loss Ratio", value=f"``{bwwinlossratio4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Kills", value=f"``{bwkills4v4:,}``", inline=True)
+            fours2.add_field(name="Deaths", value=f"``{bwdeaths4v4:,}``", inline=True)
+            fours2.add_field(name="KDR", value=f"``{bwkdr4v4}``", inline=True)
+            fours2.add_field(
+                name="Final Kills", value=f"``{bwfinalkills4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Final Deaths", value=f"``{bwfinaldeaths4v4:,}``", inline=True
+            )
+            fours2.add_field(name="Final KDR", value=f"``{bwfkdr4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Beds Lost", value=f"``{bwbedlost4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Beds Broken", value=f"``{bwbedbreak4v4:,}``", inline=True
+            )
+            fours2.add_field(name="BBLR", value=f"``{bblr4v4:,}``", inline=True)
+            fours2.add_field(
+                name="Finals/Game", value=f"``{finalspergame4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Beds/Game", value=f"``{bedspergame4v4:,}``", inline=True
+            )
+            fours2.add_field(
+                name="Games Played", value=f"``{gamesplayed4v4:,}``", inline=True
+            )
+
+            solo.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            solo.set_footer(text=footer)
+            doubles.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            doubles.set_footer(text=footer)
+            threes.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            threes.set_footer(text=footer)
+            fours.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            fours.set_footer(text=footer)
+            fours2.set_thumbnail(
+                url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
+            )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
+            fours2.set_footer(text=footer)
             embedVar.set_thumbnail(
                 url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
             embedVar.set_footer(text=footer)
-            await ctx.send(embed=embedVar)
-            await message.add_reaction(":arrow_left:")
-            await message.add_reaction(":arrow_right:")
-            await message.add_reaction(":stop_button:")
+
+            message = await ctx.send(embed=embedVar)
+
+            Left = await message.add_reaction("◀")
+            Right = await message.add_reaction("▶")
+            Stop = await message.add_reaction("⏹")
 
             start_time = time.time()  # remember when we started
-            while (time.time() - start_time) < 60:  # 60 stands for 60 seconds
+            while (time.time() - start_time) < 6.0:
                 pass
 
-            await message.clear_reaction(":arrow_left:")
-            await message.clear_reaction(":arrow_right:")
-            await message.clear_reaction(":stop_button:")
+            await message.clear_reaction("◀")
+            await message.clear_reaction("▶")
+            await message.clear_reaction("⏹")
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
