@@ -22,6 +22,7 @@ class Fun(commands.Cog):
         name="randomroulette",
         description="Pings a random user in the server!",
     )
+    @commands.cooldown(1, 20, commands.BucketType.user)
     @commands.guild_only()
     async def randomroulette(self, ctx):
         message_author = ctx.author
@@ -40,6 +41,7 @@ class Fun(commands.Cog):
             await ctx.send("You are the only human member on it!")
 
     @commands.command(aliases=["ratedank"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def dankrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -103,6 +105,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["epicgamer", "rateepicgamer"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def epicgamerrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -163,6 +166,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["thot"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def thotrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -210,6 +214,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["bigbrain", "ratebigbrain"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -270,6 +275,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["8ball"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
@@ -332,6 +338,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["partyblob", "partyman", "partyfrog"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def party(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
@@ -352,6 +359,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["fancy"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def fancytext(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .fancytext 𝔦𝔰𝔰𝔲𝔢𝔡 .𝔣𝔞𝔫𝔠𝔶𝔱𝔢𝔵𝔱".format(message_author))
@@ -418,6 +426,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["hackertext"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def leetify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .leetify 👩‍💻".format(message_author))
@@ -447,6 +456,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["mockery"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def mock(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .mock 🎱".format(message_author))
@@ -461,6 +471,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["emoji"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def emojify(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .emojify".format(message_author))
@@ -510,6 +521,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def reverse(self, ctx, *, text: str):
         print("{} issued .reverse 🔁".format(ctx.author))
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
@@ -523,6 +535,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["haxer", "hacker"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def hack(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .hack 👩‍💻".format(message_author))
@@ -656,6 +669,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["owoify", "owofy"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def owo(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .owo UwU".format(message_author))
@@ -671,6 +685,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["clapp"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def clap(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .clap 👏".format(message_author))
@@ -687,6 +702,7 @@ class Fun(commands.Cog):
     @commands.command(
         aliases=["roasty", "roastytoasty", "destroy", "destruction100", "kill"]
     )
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def roast(self, ctx):
         message_author = ctx.author
         print("{} issued .roast 🔥".format(message_author))
@@ -755,6 +771,7 @@ class Fun(commands.Cog):
         await ctx.send(randomroast)
 
     @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def spoiler(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .spoiler".format(message_author))
@@ -775,6 +792,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["renaicirculation"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def renai(self, ctx):
         message_author = ctx.author
         print("{} issued .renai".format(message_author))
@@ -880,6 +898,7 @@ class Fun(commands.Cog):
             await msg.edit(content=msg2)
 
     @commands.command(aliases=["useless_web"])
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def uselessweb(self, ctx):
         message_author = ctx.author
         print("{} issued .uselessweb ❓".format(message_author))
@@ -1042,6 +1061,7 @@ class Fun(commands.Cog):
         await ctx.send("<a:loading:745929307108540446> " + random.choice(webs))
 
     @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def doot(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .doot".format(message_author))
@@ -1061,6 +1081,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def say(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .say".format(message_author))
