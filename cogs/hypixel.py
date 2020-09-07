@@ -697,14 +697,14 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
 
             message = await ctx.send(embed=embedVar)
-            selected = 0
+            selected2 = 0
 
             def checkselection(selected, parameter):
                 selected = selected + parameter
                 if selected > 5:
-                    selected = 0
+                    selected2 = 0
                 elif selected < 0:
-                    selected = 5
+                    selected2 = 5
 
             await message.add_reaction("◀")
             await message.add_reaction("▶")
@@ -728,23 +728,35 @@ class Hypixel(commands.Cog):
                     e = False  # no reaction recieved, e is set to false
                 else:
                     if reaction1 == "◀":
-                        checkselection(selected, -1)
+                        checkselection(selected2, -1)
+                        if selected2 == 0:
+                            await message.edit(content=embedVar)
+                        elif selected2 == 2:
+                            await message.edit(content=solo)
+                        elif selected2 == 3:
+                            await message.edit(content=doubles)
+                        elif selected2 == 4:
+                            await message.edit(content=threes)
+                        elif selected2 == 5:
+                            await message.edit(content=fours)
+                        elif selected2 == 6:
+                            await message.edit(content=fours2)
                     elif reaction1 == "▶":
-                        checkselection(selected, +1)
+                        checkselection(selected2, +1)
+                        if selected2 == 0:
+                            await message.edit(content=embedVar)
+                        elif selected2 == 2:
+                            await message.edit(content=solo)
+                        elif selected2 == 3:
+                            await message.edit(content=doubles)
+                        elif selected2 == 4:
+                            await message.edit(content=threes)
+                        elif selected2 == 5:
+                            await message.edit(content=fours)
+                        elif selected2 == 6:
+                            await message.edit(content=fours2)
                     elif reaction1 == "⏹":
                         e = False
-                if e == 0:
-                    await message.edit(content=embedVar)
-                elif e == 2:
-                    await message.edit(content=solo)
-                elif e == 3:
-                    await message.edit(content=doubles)
-                elif e == 4:
-                    await message.edit(content=threes)
-                elif e == 5:
-                    await message.edit(content=fours)
-                elif e == 6:
-                    await message.edit(content=fours2)
 
             await message.clear_reactions()
 
