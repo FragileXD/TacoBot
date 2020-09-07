@@ -717,21 +717,19 @@ class Hypixel(commands.Cog):
                     or str(reaction.emoji) == "⏹"
                 )
 
-            start_time = time.time()  # remember when we started
-            while (time.time() - start_time) < 60.0:
-                try:
-                    reaction1, user = await self.bot.wait_for(
-                        "reaction_add", timeout=15.0, check=check
-                    )
-                except asyncio.TimeoutError:
-                    pass  # no reaction recieved, nothing happens
-                else:
-                    if reaction1 == "◀":
-                        pass
-                    elif reaction1 == "▶":
-                        pass
-                    elif reaction1 == "⏹":
-                        break
+            try:
+                reaction1, user = await self.bot.wait_for(
+                    "reaction_add", timeout=60.0, check=check
+                )
+            except asyncio.TimeoutError:
+                pass  # no reaction recieved, nothing happens
+            else:
+                if reaction1 == "◀":
+                    checkselection(selected, -1)
+                elif reaction1 == "▶":
+                    checkselection(selected, +1)
+                elif reaction1 == "⏹":
+                    pass
 
             await message.clear_reactions()
 
