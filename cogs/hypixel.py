@@ -457,7 +457,7 @@ class Hypixel(commands.Cog):
                 url=f"https://hypixel.net/player/{msg}",
             )
             solo.set_author(
-                name="Overall Bedwars Stats",
+                name="Solo Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             solo.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
@@ -497,7 +497,7 @@ class Hypixel(commands.Cog):
                 url=f"https://hypixel.net/player/{msg}",
             )
             doubles.set_author(
-                name="Overall Bedwars Stats",
+                name="Doubles Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             doubles.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
@@ -543,7 +543,7 @@ class Hypixel(commands.Cog):
                 url=f"https://hypixel.net/player/{msg}",
             )
             threes.set_author(
-                name="Overall Bedwars Stats",
+                name="Threes Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             threes.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
@@ -587,7 +587,7 @@ class Hypixel(commands.Cog):
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours.set_author(
-                name="Overall Bedwars Stats",
+                name="Fours Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             fours.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
@@ -631,7 +631,7 @@ class Hypixel(commands.Cog):
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours2.set_author(
-                name="Overall Bedwars Stats",
+                name="4v4 Bedwars Stats",
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             fours2.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
