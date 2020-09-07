@@ -716,9 +716,9 @@ class Hypixel(commands.Cog):
                     or str(reaction.emoji) == "▶"
                     or str(reaction.emoji) == "⏹"
                 )
-            
+
             e = True
-            
+
             while e == True:
                 try:
                     reaction1, user = await self.bot.wait_for(
@@ -733,6 +733,18 @@ class Hypixel(commands.Cog):
                         checkselection(selected, +1)
                     elif reaction1 == "⏹":
                         e = False
+                if e == 0:
+                    await message.edit(content=embedVar)
+                elif e == 2:
+                    await message.edit(content=solo)
+                elif e == 3:
+                    await message.edit(content=doubles)
+                elif e == 4:
+                    await message.edit(content=threes)
+                elif e == 5:
+                    await message.edit(content=fours)
+                elif e == 6:
+                    await message.edit(content=fours2)
 
             await message.clear_reactions()
 
