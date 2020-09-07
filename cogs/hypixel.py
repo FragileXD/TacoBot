@@ -703,12 +703,30 @@ class Hypixel(commands.Cog):
             Stop = await message.add_reaction("⏹")
 
             start_time = time.time()  # remember when we started
-            while (time.time() - start_time) < 6.0:
-                pass
 
-            await message.clear_reaction("◀")
-            await message.clear_reaction("▶")
-            await message.clear_reaction("⏹")
+            def check(reaction, user):
+                return (
+                    user == message.author
+                    and str(reaction.emoji) == "◀"
+                    or user == message.author
+                    and str(reaction.emoji) == "▶"
+                    or user == message.author
+                    and str(reaction.emoji) == "⏹"
+                )
+
+            try:
+                reaction, user = await self.bot.wait_for(
+                    "reaction_add", timeout=60.0, check=check
+                )
+            except asyncio.TimeoutError:
+                await ctx.send("👎")
+            else:
+                await ctx.send("")
+
+            await message.edit(content=solo)
+            print(reaction)
+
+            await message.clear_reactions()
 
     @bedwars.error
     async def bedwars_error(self, ctx, error):
