@@ -731,32 +731,33 @@ class Hypixel(commands.Cog):
                         checkselection(selected2, -1)
                         if selected2 == 0:
                             await message.edit(content=embedVar)
-                        elif selected2 == 2:
+                        elif selected2 == 1:
                             await message.edit(content=solo)
-                        elif selected2 == 3:
+                        elif selected2 == 2:
                             await message.edit(content=doubles)
-                        elif selected2 == 4:
+                        elif selected2 == 3:
                             await message.edit(content=threes)
-                        elif selected2 == 5:
+                        elif selected2 == 4:
                             await message.edit(content=fours)
-                        elif selected2 == 6:
+                        elif selected2 == 5:
                             await message.edit(content=fours2)
                     elif reaction1 == "▶":
                         checkselection(selected2, +1)
                         if selected2 == 0:
                             await message.edit(content=embedVar)
-                        elif selected2 == 2:
+                        elif selected2 == 1:
                             await message.edit(content=solo)
-                        elif selected2 == 3:
+                        elif selected2 == 2:
                             await message.edit(content=doubles)
-                        elif selected2 == 4:
+                        elif selected2 == 3:
                             await message.edit(content=threes)
-                        elif selected2 == 5:
+                        elif selected2 == 4:
                             await message.edit(content=fours)
-                        elif selected2 == 6:
+                        elif selected2 == 5:
                             await message.edit(content=fours2)
                     elif reaction1 == "⏹":
                         e = False
+                        break
 
             await message.clear_reactions()
 
