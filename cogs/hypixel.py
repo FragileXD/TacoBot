@@ -704,7 +704,7 @@ class Hypixel(commands.Cog):
                 if selected > 5:
                     selected = 0
                 elif selected < 0:
-                    selected = 5:
+                    selected = 5
 
             await message.add_reaction("◀")
             await message.add_reaction("▶")
