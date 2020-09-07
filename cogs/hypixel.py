@@ -697,34 +697,41 @@ class Hypixel(commands.Cog):
             embedVar.set_footer(text=footer)
 
             message = await ctx.send(embed=embedVar)
+            selected = 0
 
-            Left = await message.add_reaction("◀")
-            Right = await message.add_reaction("▶")
-            Stop = await message.add_reaction("⏹")
+            def checkselection(selected, parameter):
+                selected = selected + parameter
+                if selected > 5:
+                    selected = 0
+                elif selected < 0:
+                    selected = 5:
 
-            start_time = time.time()  # remember when we started
+            await message.add_reaction("◀")
+            await message.add_reaction("▶")
+            await message.add_reaction("⏹")
 
             def check(reaction, user):
-                return (
-                    user == message.author
-                    and str(reaction.emoji) == "◀"
-                    or user == message.author
-                    and str(reaction.emoji) == "▶"
-                    or user == message.author
-                    and str(reaction.emoji) == "⏹"
+                return user == message.author and (
+                    str(reaction.emoji) == "◀"
+                    or str(reaction.emoji) == "▶"
+                    or str(reaction.emoji) == "⏹"
                 )
 
-            try:
-                reaction, user = await self.bot.wait_for(
-                    "reaction_add", timeout=60.0, check=check
-                )
-            except asyncio.TimeoutError:
-                await ctx.send("👎")
-            else:
-                await ctx.send("")
-
-            await message.edit(content=solo)
-            print(reaction)
+            start_time = time.time()  # remember when we started
+            while (time.time() - start_time) < 60.0:
+                try:
+                    reaction1, user = await self.bot.wait_for(
+                        "reaction_add", timeout=15.0, check=check
+                    )
+                except asyncio.TimeoutError:
+                    pass  # no reaction recieved, nothing happens
+                else:
+                    if reaction1 == "◀":
+                        pass
+                    elif reaction1 == "▶":
+                        pass
+                    elif reaction1 == "⏹":
+                        break
 
             await message.clear_reactions()
 
