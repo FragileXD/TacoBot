@@ -741,6 +741,8 @@ class Hypixel(commands.Cog):
                             await message.edit(content=fours)
                         elif selected2 == 5:
                             await message.edit(content=fours2)
+                        else:
+                            pass
                         await message.remove_reaction("◀", user)
                     elif reaction1 == "▶":
                         checkselection(selected2, +1)
@@ -756,6 +758,8 @@ class Hypixel(commands.Cog):
                             await message.edit(content=fours)
                         elif selected2 == 5:
                             await message.edit(content=fours2)
+                        else:
+                            pass
                         await message.remove_reaction("▶", user)
                     elif reaction1 == "⏹":
                         e = False
