@@ -477,6 +477,8 @@ class Fun(commands.Cog):
         print("{} issued .emojify".format(message_author))
         # 𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷 𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ
         a = message.upper()
+        a = a.replace(" ", "  ")
+        a = a.replace("", " ")
         a = a.replace("A", ":regional_indicator_a:")
         a = a.replace("B", ":regional_indicator_b:")
         a = a.replace("C", ":regional_indicator_c:")
