@@ -1104,8 +1104,8 @@ class Fun(commands.Cog):
     async def monch(self, ctx):
         message_author = ctx.author
         print("{} issued .monch".format(message_author))
-
-        await ctx.send(file=discord.File("images\monch.gif"))
+        
+        await ctx.send(file=discord.File("images\\monch.gif"))
 
 
 def setup(bot):
