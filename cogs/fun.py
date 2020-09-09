@@ -1105,7 +1105,12 @@ class Fun(commands.Cog):
         message_author = ctx.author
         print("{} issued .monch".format(message_author))
 
-        await ctx.send(file=discord.File("images\\Monch.gif"))
+        try:
+            await ctx.send(file=discord.File("images\\Monch.gif"))
+        except:
+            await ctx.send(
+                "https://media.discordapp.net/attachments/729675616420495381/753171581194469465/Monch.gif"
+            )
 
 
 def setup(bot):
