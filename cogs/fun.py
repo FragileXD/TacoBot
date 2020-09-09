@@ -1099,6 +1099,14 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def monch(self, ctx):
+        message_author = ctx.author
+        print("{} issued .monch".format(message_author))
+
+        await ctx.send(file=discord.File("images\monch.gif"))
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
