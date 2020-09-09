@@ -51,6 +51,7 @@
 ## I found a bug/error
 
 - Join the [Support Server](https://discord.io/Tacoz)
+
   [![Discord server](https://discordapp.com/api/guilds/663002132793917480/embed.png?style=banner3)](https://discord.io/Tacoz)
 
 ## Credits
@@ -62,6 +63,6 @@
 
 ## Licence
 
-This repository is under the [General Public Licence 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). For a quick review of what's allowed or not, check [this](https://github.com/retke/Laggrons-Dumb-Cogs/blob/master/LICENSE), full licence can be found below.
+This repository is under the [General Public Licence 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). For a quick review of what's allowed or not, check [this](https://github.com/NotTacoz/TacoBotPrivate/blob/master/LICENSE), full licence can be found below.
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot?ref=badge_large)
