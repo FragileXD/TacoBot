@@ -52,3 +52,4 @@ tokage==1.4
 PyGithub==1.53
 aiopypixel==1.8.2
 hypixel==0.7.9
+owoify==0.3.1
