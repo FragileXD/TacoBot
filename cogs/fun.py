@@ -505,6 +505,15 @@ class Fun(commands.Cog):
         a = a.replace("X", ":regional_indicator_x:")
         a = a.replace("Y", ":regional_indicator_y:")
         a = a.replace("Z", ":regional_indicator_z:")
+        a = a.replace("1", ":one:")
+        a = a.replace("2", ":two:")
+        a = a.replace("3", ":three:")
+        a = a.replace("4", ":four:")
+        a = a.replace("5", ":five:")
+        a = a.replace("6", ":six:")
+        a = a.replace("7", ":seven:")
+        a = a.replace("8", ":eight:")
+        a = a.replace("9", ":nine:")
         try:
             if len(a) < 2000:
                 await ctx.send(a)
@@ -638,6 +647,8 @@ class Fun(commands.Cog):
                 "1234567",
                 "agent007",
                 "super123",
+                "tacozbestdevchangemymind69",
+                "360nosc0opePr0"
             ]
 
             email = random.choice(emailchoices)
@@ -675,7 +686,7 @@ class Fun(commands.Cog):
     async def owo(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .owo UwU".format(message_author))
-        uwu = OwO()
+        uwu = OwO() (alternative solution)
         a = uwu.whatsthis(message)
         await ctx.send(a)
 
