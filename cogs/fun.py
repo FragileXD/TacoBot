@@ -648,7 +648,7 @@ class Fun(commands.Cog):
                 "agent007",
                 "super123",
                 "tacozbestdevchangemymind69",
-                "360nosc0opePr0"
+                "360nosc0opePr0",
             ]
 
             email = random.choice(emailchoices)
@@ -686,7 +686,7 @@ class Fun(commands.Cog):
     async def owo(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .owo UwU".format(message_author))
-        uwu = OwO() (alternative solution)
+        uwu = OwO()
         a = uwu.whatsthis(message)
         await ctx.send(a)
 
