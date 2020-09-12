@@ -271,7 +271,10 @@ class Hypixel(commands.Cog):
             bwfinaldeaths = bwdata["final_deaths_bedwars"]
             bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
             bwbedlost = bwdata["beds_lost_bedwars"]
-            bwbedbreak = bwdata["beds_broken_bedwars"]
+            try:
+                bwbedbreak = bwdata["beds_broken_bedwars"]
+            except:
+                bwbedbreak = 0
             bblr = bwbedbreak / bwbedlost
             gamesplayed = bwdata["games_played_bedwars"]
             finalspergame = bwfinalkills / gamesplayed
@@ -773,6 +776,140 @@ class Hypixel(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
+
+        """
+    @commands.command(
+        aliases=["skywarshelp", "skywarsstats", "skywarstats", "skywar", "skywarstat"]
+    )
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def skywars(self, ctx, msg: str):
+        msg = msg.lower()
+        data = requests.get(
+            f"https://api.hypixel.net/player?key={apikey}&name={msg}"
+        ).json()
+
+        if data["success"] == True and data["player"] != None:
+            try:
+                rank = data["player"]["prefix"]
+                rank = rank.replace("§c", "")
+                rank = rank.replace("§e", "")
+                rank = rank.replace("§a", "")
+                rank = rank.replace("§b", "")
+                rank = rank.replace("§9", "")
+                rank = rank.replace("§d", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§7", "")
+                rank = rank.replace("§4", "")
+                rank = rank.replace("§6", "")
+                rank = rank.replace("§2", "")
+                rank = rank.replace("§3", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§5", "")
+                rank = rank.replace("§8", "")
+                rank = rank.replace("§0", "")
+                rank = rank.replace("§1", "")
+                rank = rank.replace("§m", "")
+                rank = rank.replace("§n", "")
+                rank = rank.replace("§o", "")
+                rank = rank.replace("§k", "")
+                rank = rank.replace("§r", "")
+                rank = rank.replace("[", "")
+                rank = rank.replace("]", "")
+            except:
+                try:
+                    rank = data["player"]["rank"]
+                except:
+                    try:
+                        rank = data["player"]["monthlyPackageRank"]
+                        rank = rank.replace("SUPERSTAR", "MVP++")
+                    except:
+                        try:
+                            rank = data["player"]["newPackageRank"]
+                            rank = rank.replace("_PLUS", "+")
+                        except:
+                            try:
+                                rank = data["player"]["packageRank"]
+                                rank = rank.replace("_PLUS", "+")
+                            except:
+                                rank = "NON"
+            bwdata = data["player"]["stats"]["Bedwars"]
+            souls = bwdata["souls"]
+            bwlevel = data["player"]["achievements"]["bedwars_level"]
+            bwcoins = bwdata["coins"]
+            bwwinstreak = bwdata["winstreak"]
+            bwwins = bwdata["wins_bedwars"]
+            bwlosses = bwdata["losses"]
+            bwwinlossratio = round(bwwins / bwlosses, 2)
+            bwkills = bwdata["kills_bedwars"]
+            bwdeaths = bwdata["deaths_bedwars"]
+            bwkdr = round(bwkills / bwdeaths, 2)
+            gamesplayed = bwdata["games_played_bedwars"]
+
+            if data["success"] == False:
+                embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong", color=13381166
+                )
+                error = data["cause"]
+                embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
+                embedVar.set_footer(text=footer)
+                await ctx.send(embed=embedVar)
+            elif data["player"] == None:
+                embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong", color=13381166
+                )
+                error = data["cause"]
+                embedVar.add_field(
+                    name="Error",
+                    value=f"``❌ The player is probably banned``",
+                    inline=True,
+                )
+                embedVar.set_footer(text=footer)
+                await ctx.send(embed=embedVar)
+            else:
+                displayname = data["player"]["displayname"]
+                full = f"[{rank}] {displayname}"
+                uuid = data["player"]["uuid"]
+                embedVar = discord.Embed(
+                    title=f"{full}",
+                    color=15105570,
+                    url=f"https://hypixel.net/player/{msg}",
+                )
+                embedVar.set_author(
+                    name="Overall Skywars Stats",
+                    icon_url="https://statsify.net/img/assets/hypixel/skywars.png",
+                )
+                embedVar.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+                embedVar.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+                embedVar.add_field(
+                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                )
+                embedVar.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+                embedVar.add_field(
+                    name="Losses", value=f"``{bwlosses:,}``", inline=True
+                )
+                embedVar.add_field(
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
+                )
+                embedVar.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
+                embedVar.add_field(
+                    name="Deaths", value=f"``{bwdeaths:,}``", inline=True
+                )
+                embedVar.add_field(name="KD", value=f"``{bwkdr:,}``", inline=True)
+                embedVar.add_field(
+                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                )
+
+                embedVar.set_footer(text=footer)
+
+                message = await ctx.send(embed=embedVar)
+
+    @skywars.error
+    async def skywars_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+            """
 
 
 def setup(bot):
