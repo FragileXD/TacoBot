@@ -267,55 +267,137 @@ class Hypixel(commands.Cog):
             bwkills = bwdata["kills_bedwars"]
             bwdeaths = bwdata["deaths_bedwars"]
             bwkdr = round(bwkills / bwdeaths, 2)
-            bwfinalkills = bwdata["final_kills_bedwars"]
-            bwfinaldeaths = bwdata["final_deaths_bedwars"]
-            bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
-            bwbedlost = bwdata["beds_lost_bedwars"]
+            try:
+                bwfinalkills = bwdata["final_kills_bedwars"]
+            except:
+                bwfinalkills = 0
+            try:
+                bwfinaldeaths = bwdata["final_deaths_bedwars"]
+            except:
+                bwfinaldeaths = 0
+            try:
+                bwbedlost = bwdata["beds_lost_bedwars"]
+            except:
+                bwbedlost = 0
             try:
                 bwbedbreak = bwdata["beds_broken_bedwars"]
             except:
                 bwbedbreak = 0
             bblr = bwbedbreak / bwbedlost
-            gamesplayed = bwdata["games_played_bedwars"]
-            finalspergame = bwfinalkills / gamesplayed
-            bedspergame = bwbedbreak / gamesplayed
+            try:
+                gamesplayed = bwdata["games_played_bedwars"]
+            except:
+                gamesplayed = 0
+            try:
+                finalspergame = bwfinalkills / gamesplayed
+            except:
+                finalspergame = 0
+            try:
+                bedspergame = bwbedbreak / gamesplayed
+            except:
+                bedspergame = 0
+            bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
 
-            bwwinstreak1 = bwdata["eight_one_winstreak"]
-            bwwins1 = bwdata["eight_one_wins_bedwars"]
-            bwlosses1 = bwdata["eight_one_losses_bedwars"]
-            bwwinlossratio1 = round(bwwins1 / bwlosses1, 2)
-            bwkills1 = bwdata["eight_one_kills_bedwars"]
-            bwdeaths1 = bwdata["eight_one_deaths_bedwars"]
+            try:
+                bwwinstreak1 = bwdata["eight_one_winstreak"]
+            except:
+                bwwinstreak1 = "N/A"
+            try:
+                bwwins1 = bwdata["eight_one_wins_bedwars"]
+            except:
+                bwwins1 = 0
+            try:
+                bwlosses1 = bwdata["eight_one_losses_bedwars"]
+            except:
+                bwlosses1 = 0
+            try:
+                bwkills1 = bwdata["eight_one_kills_bedwars"]
+            except:
+                bwkills1 = 0
+            try:
+                bwdeaths1 = bwdata["eight_one_deaths_bedwars"]
+            except:
+                bwdeaths1 = 0
             bwkdr1 = round(bwkills1 / bwdeaths1, 2)
-            bwfinalkills1 = bwdata["eight_one_final_kills_bedwars"]
-            bwfinaldeaths1 = bwdata["eight_one_final_deaths_bedwars"]
+            try:
+                bwfinalkills1 = bwdata["eight_one_final_kills_bedwars"]
+            except:
+                bwfinalkills1 = 0
+            try:
+                bwfinaldeaths1 = bwdata["eight_one_final_deaths_bedwars"]
+            except:
+                bwfinaldeaths1 = 0
             bwfkdr1 = round(bwfinalkills1 / bwfinaldeaths1, 2)
-            bwbedlost1 = bwdata["eight_one_beds_lost_bedwars"]
-            bwbedbreak1 = bwdata["eight_one_beds_broken_bedwars"]
+            try:
+                bwbedlost1 = bwdata["eight_one_beds_lost_bedwars"]
+            except:
+                bwbedlost1 = 0
+            try:
+                bwbedbreak1 = bwdata["eight_one_beds_broken_bedwars"]
+            except:
+                bwbedbreak1 = 0
+            try:
+                gamesplayed1 = bwdata["eight_one_games_played_bedwars"]
+            except:
+                gamesplayed1 = 0
             bblr1 = bwbedbreak1 / bwbedlost1
-            gamesplayed1 = bwdata["eight_one_games_played_bedwars"]
             finalspergame1 = bwfinalkills1 / gamesplayed1
             bedspergame1 = bwbedbreak1 / gamesplayed1
+            bwwinlossratio1 = round(bwwins1 / bwlosses1, 2)
 
-            bwwinstreak2 = bwdata["eight_two_winstreak"]
-            bwwins2 = bwdata["eight_two_wins_bedwars"]
-            bwlosses2 = bwdata["eight_two_losses_bedwars"]
+            try:
+                bwwinstreak2 = bwdata["eight_two_winstreak"]
+            except:
+                bwwinstreak2 = 0
+            try:
+                bwwins2 = bwdata["eight_two_wins_bedwars"]
+            except:
+                bwwins2 = 0
+            try:
+                bwlosses2 = bwdata["eight_two_losses_bedwars"]
+            except:
+                bwlosses2 = 0
             bwwinlossratio2 = round(bwwins2 / bwlosses2, 2)
-            bwkills2 = bwdata["eight_two_kills_bedwars"]
-            bwdeaths2 = bwdata["eight_two_deaths_bedwars"]
+            try:
+                bwkills2 = bwdata["eight_two_kills_bedwars"]
+            except:
+                bwkills2 = 0
+            try:
+                bwdeaths2 = bwdata["eight_two_deaths_bedwars"]
+            except:
+                bwdeaths2 = 0
             bwkdr2 = round(bwkills2 / bwdeaths2, 2)
-            bwfinalkills2 = bwdata["eight_two_final_kills_bedwars"]
-            bwfinaldeaths2 = bwdata["eight_two_final_deaths_bedwars"]
+            try:
+                bwfinalkills2 = bwdata["eight_two_final_kills_bedwars"]
+            except:
+                bwdeaths2 = 0
+            try:
+                bwfinaldeaths2 = bwdata["eight_two_final_deaths_bedwars"]
+            except:
+                bwfinaldeaths2 = 0
             bwfkdr2 = round(bwfinalkills2 / bwfinaldeaths2, 2)
-            bwbedlost2 = bwdata["eight_two_beds_lost_bedwars"]
-            bwbedbreak2 = bwdata["eight_two_beds_broken_bedwars"]
+            try:
+                bwbedlost2 = bwdata["eight_two_beds_lost_bedwars"]
+            except:
+                bwbedlost2 = 0
+            try:
+                bwbedbreak2 = bwdata["eight_two_beds_broken_bedwars"]
+            except:
+                bwbedbreak2 = 0
             bblr2 = bwbedbreak2 / bwbedlost2
-            gamesplayed2 = bwdata["eight_two_games_played_bedwars"]
+            try:
+                gamesplayed2 = bwdata["eight_two_games_played_bedwars"]
+            except:
+                gamesplayed2 = 0
             finalspergame2 = bwfinalkills2 / gamesplayed2
             bedspergame2 = bwbedbreak2 / gamesplayed2
 
-            bwwinstreak3 = bwdata["four_three_winstreak"]
-            bwwins3 = bwdata["four_three_wins_bedwars"]
+            try:
+                bwwinstreak3 = bwdata["four_three_winstreak"]
+                bwwins3 = bwdata["four_three_wins_bedwars"]
+            except:
+                bwwinstreak3 = 0
+                bwwins3 = 0
             bwlosses3 = bwdata["four_three_losses_bedwars"]
             bwwinlossratio3 = round(bwwins3 / bwlosses3, 2)
             bwkills3 = bwdata["four_three_kills_bedwars"]
@@ -331,8 +413,12 @@ class Hypixel(commands.Cog):
             finalspergame3 = bwfinalkills3 / gamesplayed3
             bedspergame3 = bwbedbreak3 / gamesplayed3
 
-            bwwinstreak4 = bwdata["four_four_winstreak"]
-            bwwins4 = bwdata["four_four_wins_bedwars"]
+            try:
+                bwwinstreak4 = bwdata["four_four_winstreak"]
+                bwwins4 = bwdata["four_four_wins_bedwars"]
+            except:
+                bwwinstreak4 = 0
+                bwwins4 = 0
             bwlosses4 = bwdata["four_four_losses_bedwars"]
             bwwinlossratio4 = round(bwwins4 / bwlosses4, 2)
             bwkills4 = bwdata["four_four_kills_bedwars"]
@@ -348,8 +434,12 @@ class Hypixel(commands.Cog):
             finalspergame4 = bwfinalkills4 / gamesplayed4
             bedspergame4 = bwbedbreak4 / gamesplayed4
 
-            bwwinstreak4v4 = bwdata["two_four_winstreak"]
-            bwwins4v4 = bwdata["two_four_wins_bedwars"]
+            try:
+                bwwinstreak4v4 = bwdata["two_four_winstreak"]
+                bwwins4v4 = bwdata["two_four_wins_bedwars"]
+            except:
+                bwwinstreak4v4 = 0
+                bwwins4v4 = 0
             bwlosses4v4 = bwdata["two_four_losses_bedwars"]
             bwwinlossratio4v4 = round(bwwins4v4 / bwlosses4v4, 2)
             bwkills4v4 = bwdata["two_four_kills_bedwars"]
