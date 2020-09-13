@@ -1454,7 +1454,8 @@ class Hypixel(commands.Cog):
         else:
             raise (error)
 
-        """
+
+"""
     @commands.command(
         aliases=["skywarshelp", "skywarsstats", "skywarstats", "skywar", "skywarstat"]
     )
