@@ -674,6 +674,7 @@ class Hypixel(commands.Cog):
             displayname = data["player"]["displayname"]
             full = f"[{rank}] {displayname}"
             uuid = data["player"]["uuid"]
+
             embedVar = discord.Embed(
                 title=f"{full}",
                 color=15105570,
@@ -786,7 +787,7 @@ class Hypixel(commands.Cog):
                 )
             except:
                 embedVar.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Games Played", value=f"``{gamesplayed}``", inline=True
                 )
 
             solo.set_thumbnail(
