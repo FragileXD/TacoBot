@@ -402,7 +402,7 @@ class Hypixel(commands.Cog):
             try:
                 bwfinalkills2 = bwdata["eight_two_final_kills_bedwars"]
             except:
-                bwdeaths2 = 0
+                bwfinalkills2 = 0
             try:
                 bwfinaldeaths2 = bwdata["eight_two_final_deaths_bedwars"]
             except:
@@ -806,95 +806,95 @@ class Hypixel(commands.Cog):
                 solo.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
             try:
                 solo.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak1:,}``", inline=True
                 )
             except:
                 solo.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak1}``", inline=True
                 )
-            solo.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+            solo.add_field(name="Wins", value=f"``{bwwins1}``", inline=True)
             try:
-                solo.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
+                solo.add_field(name="Losses", value=f"``{bwlosses1:,}``", inline=True)
             except:
-                solo.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
-            try:
-                solo.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
-                )
-            except:
-                solo.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
-                )
-            try:
-                solo.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            except:
-                solo.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
-            try:
-                solo.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
-            except:
-                solo.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
-            solo.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+                solo.add_field(name="Losses", value=f"``{bwlosses1}``", inline=True)
             try:
                 solo.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio1:,}``", inline=True
                 )
             except:
                 solo.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio1}``", inline=True
                 )
             try:
-                solo.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
-                )
+                solo.add_field(name="Kills", value=f"``{bwkills1:,}``", inline=True)
             except:
-                solo.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
-                )
+                solo.add_field(name="Kills", value=f"``{bwkills1}``", inline=True)
             try:
-                solo.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
+                solo.add_field(name="Deaths", value=f"``{bwdeaths1:,}``", inline=True)
             except:
-                solo.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+                solo.add_field(name="Deaths", value=f"``{bwdeaths1}``", inline=True)
+            solo.add_field(name="KDR", value=f"``{bwkdr1}``", inline=True)
             try:
                 solo.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
-                )
-            except:
-                solo.add_field(name="Beds Lost", value=f"``{bwbedlost}``", inline=True)
-            try:
-                solo.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills1:,}``", inline=True
                 )
             except:
                 solo.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
-                )
-            try:
-                solo.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
-            except:
-                solo.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
-            try:
-                solo.add_field(
-                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
-                )
-            except:
-                solo.add_field(
-                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills1}``", inline=True
                 )
             try:
                 solo.add_field(
-                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths1:,}``", inline=True
                 )
             except:
                 solo.add_field(
-                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths1}``", inline=True
+                )
+            try:
+                solo.add_field(name="Final KDR", value=f"``{bwfkdr1:,}``", inline=True)
+            except:
+                solo.add_field(name="Final KDR", value=f"``{bwfkdr1}``", inline=True)
+            try:
+                solo.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost1:,}``", inline=True
+                )
+            except:
+                solo.add_field(name="Beds Lost", value=f"``{bwbedlost1}``", inline=True)
+            try:
+                solo.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak1:,}``", inline=True
+                )
+            except:
+                solo.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak1}``", inline=True
+                )
+            try:
+                solo.add_field(name="BBLR", value=f"``{bblr1:,}``", inline=True)
+            except:
+                solo.add_field(name="BBLR", value=f"``{bblr1}``", inline=True)
+            try:
+                solo.add_field(
+                    name="Finals/Game", value=f"``{finalspergame1:,}``", inline=True
+                )
+            except:
+                solo.add_field(
+                    name="Finals/Game", value=f"``{finalspergame1}``", inline=True
                 )
             try:
                 solo.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame1:,}``", inline=True
                 )
             except:
                 solo.add_field(
-                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame1}``", inline=True
+                )
+            try:
+                solo.add_field(
+                    name="Games Played", value=f"``{gamesplayed1:,}``", inline=True
+                )
+            except:
+                solo.add_field(
+                    name="Games Played", value=f"``{gamesplayed1}``", inline=True
                 )
 
             doubles = discord.Embed(
@@ -913,99 +913,103 @@ class Hypixel(commands.Cog):
                 doubles.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
             try:
                 doubles.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak2}``", inline=True
                 )
-            doubles.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
-            try:
-                doubles.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
-            except:
-                doubles.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
+            doubles.add_field(name="Wins", value=f"``{bwwins2}``", inline=True)
             try:
                 doubles.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
+                    name="Losses", value=f"``{bwlosses2:,}``", inline=True
                 )
             except:
-                doubles.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
-                )
-            try:
-                doubles.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            except:
-                doubles.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
-            try:
-                doubles.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
-            except:
-                doubles.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
-            doubles.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+                doubles.add_field(name="Losses", value=f"``{bwlosses2}``", inline=True)
             try:
                 doubles.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio2}``", inline=True
                 )
             try:
+                doubles.add_field(name="Kills", value=f"``{bwkills2:,}``", inline=True)
+            except:
+                doubles.add_field(name="Kills", value=f"``{bwkills2}``", inline=True)
+            try:
                 doubles.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
+                    name="Deaths", value=f"``{bwdeaths2:,}``", inline=True
+                )
+            except:
+                doubles.add_field(name="Deaths", value=f"``{bwdeaths2}``", inline=True)
+            doubles.add_field(name="KDR", value=f"``{bwkdr2}``", inline=True)
+            try:
+                doubles.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills2}``", inline=True
                 )
             try:
                 doubles.add_field(
-                    name="Final KDR", value=f"``{bwfkdr:,}``", inline=True
-                )
-            except:
-                doubles.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
-            try:
-                doubles.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths2}``", inline=True
                 )
             try:
                 doubles.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                    name="Final KDR", value=f"``{bwfkdr2:,}``", inline=True
                 )
             except:
-                doubles.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
-                )
-            try:
-                doubles.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
-            except:
-                doubles.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
+                doubles.add_field(name="Final KDR", value=f"``{bwfkdr2}``", inline=True)
             try:
                 doubles.add_field(
-                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
+                    name="Beds Lost", value=f"``{bwbedlost2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                    name="Beds Lost", value=f"``{bwbedlost2}``", inline=True
                 )
             try:
                 doubles.add_field(
-                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak2}``", inline=True
+                )
+            try:
+                doubles.add_field(name="BBLR", value=f"``{bblr2:,}``", inline=True)
+            except:
+                doubles.add_field(name="BBLR", value=f"``{bblr2}``", inline=True)
+            try:
+                doubles.add_field(
+                    name="Finals/Game", value=f"``{finalspergame2:,}``", inline=True
+                )
+            except:
+                doubles.add_field(
+                    name="Finals/Game", value=f"``{finalspergame2}``", inline=True
                 )
             try:
                 doubles.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame2:,}``", inline=True
                 )
             except:
                 doubles.add_field(
-                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame2}``", inline=True
+                )
+            try:
+                doubles.add_field(
+                    name="Games Played", value=f"``{gamesplayed2:,}``", inline=True
+                )
+            except:
+                doubles.add_field(
+                    name="Games Played", value=f"``{gamesplayed2}``", inline=True
                 )
 
             threes = discord.Embed(
@@ -1024,97 +1028,99 @@ class Hypixel(commands.Cog):
                 threes.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
             try:
                 threes.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak3}``", inline=True
                 )
-            threes.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+            threes.add_field(name="Wins", value=f"``{bwwins3}``", inline=True)
             try:
-                threes.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
+                threes.add_field(name="Losses", value=f"``{bwlosses3:,}``", inline=True)
             except:
-                threes.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
-            try:
-                threes.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
-                )
-            except:
-                threes.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
-                )
-            try:
-                threes.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            except:
-                threes.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
-            try:
-                threes.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
-            except:
-                threes.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
-            threes.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+                threes.add_field(name="Losses", value=f"``{bwlosses3}``", inline=True)
             try:
                 threes.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio3}``", inline=True
                 )
             try:
-                threes.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
-                )
+                threes.add_field(name="Kills", value=f"``{bwkills3:,}``", inline=True)
             except:
-                threes.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
-                )
+                threes.add_field(name="Kills", value=f"``{bwkills3}``", inline=True)
             try:
-                threes.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
+                threes.add_field(name="Deaths", value=f"``{bwdeaths3:,}``", inline=True)
             except:
-                threes.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+                threes.add_field(name="Deaths", value=f"``{bwdeaths3}``", inline=True)
+            threes.add_field(name="KDR", value=f"``{bwkdr3}``", inline=True)
             try:
                 threes.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills3}``", inline=True
                 )
             try:
                 threes.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
-                )
-            try:
-                threes.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
-            except:
-                threes.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
-            try:
-                threes.add_field(
-                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
-                )
-            except:
-                threes.add_field(
-                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths3}``", inline=True
                 )
             try:
                 threes.add_field(
-                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                    name="Final KDR", value=f"``{bwfkdr3:,}``", inline=True
+                )
+            except:
+                threes.add_field(name="Final KDR", value=f"``{bwfkdr3}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                    name="Beds Lost", value=f"``{bwbedlost3}``", inline=True
                 )
             try:
                 threes.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak3:,}``", inline=True
                 )
             except:
                 threes.add_field(
-                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak3}``", inline=True
+                )
+            try:
+                threes.add_field(name="BBLR", value=f"``{bblr3:,}``", inline=True)
+            except:
+                threes.add_field(name="BBLR", value=f"``{bblr3}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Finals/Game", value=f"``{finalspergame3:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Finals/Game", value=f"``{finalspergame3}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Beds/Game", value=f"``{bedspergame3:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Beds/Game", value=f"``{bedspergame3}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Games Played", value=f"``{gamesplayed3:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Games Played", value=f"``{gamesplayed3}``", inline=True
                 )
 
             fours = discord.Embed(
@@ -1133,95 +1139,97 @@ class Hypixel(commands.Cog):
                 fours.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
             try:
                 fours.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True
                 )
             except:
                 fours.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak4}``", inline=True
                 )
-            fours.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+            fours.add_field(name="Wins", value=f"``{bwwins4}``", inline=True)
             try:
-                fours.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
+                fours.add_field(name="Losses", value=f"``{bwlosses4:,}``", inline=True)
             except:
-                fours.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
-            try:
-                fours.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
-                )
-            except:
-                fours.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
-                )
-            try:
-                fours.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            except:
-                fours.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
-            try:
-                fours.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
-            except:
-                fours.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
-            fours.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+                fours.add_field(name="Losses", value=f"``{bwlosses4}``", inline=True)
             try:
                 fours.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio4:,}``", inline=True
                 )
             except:
                 fours.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio4}``", inline=True
                 )
             try:
-                fours.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
-                )
+                fours.add_field(name="Kills", value=f"``{bwkills4:,}``", inline=True)
             except:
-                fours.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
-                )
+                fours.add_field(name="Kills", value=f"``{bwkills4}``", inline=True)
             try:
-                fours.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
+                fours.add_field(name="Deaths", value=f"``{bwdeaths4:,}``", inline=True)
             except:
-                fours.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+                fours.add_field(name="Deaths", value=f"``{bwdeaths4}``", inline=True)
+            fours.add_field(name="KDR", value=f"``{bwkdr4}``", inline=True)
             try:
                 fours.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
-                )
-            except:
-                fours.add_field(name="Beds Lost", value=f"``{bwbedlost}``", inline=True)
-            try:
-                fours.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills4:,}``", inline=True
                 )
             except:
                 fours.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
-                )
-            try:
-                fours.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
-            except:
-                fours.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
-            try:
-                fours.add_field(
-                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
-                )
-            except:
-                fours.add_field(
-                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills4}``", inline=True
                 )
             try:
                 fours.add_field(
-                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths4:,}``", inline=True
                 )
             except:
                 fours.add_field(
-                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                    name="Final Deaths", value=f"``{bwfinaldeaths4}``", inline=True
+                )
+            try:
+                fours.add_field(name="Final KDR", value=f"``{bwfkdr4:,}``", inline=True)
+            except:
+                fours.add_field(name="Final KDR", value=f"``{bwfkdr4}``", inline=True)
+            try:
+                fours.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost4:,}``", inline=True
+                )
+            except:
+                fours.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost4}``", inline=True
                 )
             try:
                 fours.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak4:,}``", inline=True
                 )
             except:
                 fours.add_field(
-                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak4}``", inline=True
+                )
+            try:
+                fours.add_field(name="BBLR", value=f"``{bblr4:,}``", inline=True)
+            except:
+                fours.add_field(name="BBLR", value=f"``{bblr4}``", inline=True)
+            try:
+                fours.add_field(
+                    name="Finals/Game", value=f"``{finalspergame4:,}``", inline=True
+                )
+            except:
+                fours.add_field(
+                    name="Finals/Game", value=f"``{finalspergame4}``", inline=True
+                )
+            try:
+                fours.add_field(
+                    name="Beds/Game", value=f"``{bedspergame4:,}``", inline=True
+                )
+            except:
+                fours.add_field(
+                    name="Beds/Game", value=f"``{bedspergame4}``", inline=True
+                )
+            try:
+                fours.add_field(
+                    name="Games Played", value=f"``{gamesplayed4:,}``", inline=True
+                )
+            except:
+                fours.add_field(
+                    name="Games Played", value=f"``{gamesplayed4}``", inline=True
                 )
 
             fours2 = discord.Embed(
@@ -1240,97 +1248,107 @@ class Hypixel(commands.Cog):
                 fours2.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
             try:
                 fours2.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak4v4:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                    name="Winstreak", value=f"``{bwwinstreak4v4}``", inline=True
                 )
-            fours2.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
-            try:
-                fours2.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
-            except:
-                fours2.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
+            fours2.add_field(name="Wins", value=f"``{bwwins4v4}``", inline=True)
             try:
                 fours2.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
+                    name="Losses", value=f"``{bwlosses4v4:,}``", inline=True
                 )
             except:
-                fours2.add_field(
-                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
-                )
-            try:
-                fours2.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            except:
-                fours2.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
-            try:
-                fours2.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
-            except:
-                fours2.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
-            fours2.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+                fours2.add_field(name="Losses", value=f"``{bwlosses4v4}``", inline=True)
             try:
                 fours2.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                    name="Win Loss Ratio",
+                    value=f"``{bwwinlossratio4v4:,}``",
+                    inline=True,
                 )
             except:
                 fours2.add_field(
-                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio4v4}``", inline=True
                 )
             try:
+                fours2.add_field(name="Kills", value=f"``{bwkills4v4:,}``", inline=True)
+            except:
+                fours2.add_field(name="Kills", value=f"``{bwkills4v4}``", inline=True)
+            try:
                 fours2.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
+                    name="Deaths", value=f"``{bwdeaths4v4:,}``", inline=True
+                )
+            except:
+                fours2.add_field(name="Deaths", value=f"``{bwdeaths4v4}``", inline=True)
+            fours2.add_field(name="KDR", value=f"``{bwkdr4v4}``", inline=True)
+            try:
+                fours2.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills4v4:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
+                    name="Final Kills", value=f"``{bwfinalkills4v4}``", inline=True
                 )
             try:
-                fours2.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
+                fours2.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths4v4:,}``", inline=True
+                )
             except:
-                fours2.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+                fours2.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths4v4}``", inline=True
+                )
+            try:
+                fours2.add_field(
+                    name="Final KDR", value=f"``{bwfkdr4v4:,}``", inline=True
+                )
+            except:
+                fours2.add_field(
+                    name="Final KDR", value=f"``{bwfkdr4v4}``", inline=True
+                )
             try:
                 fours2.add_field(
                     name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Beds Lost", value=f"``{bwbedlost}``", inline=True
+                    name="Beds Lost", value=f"``{bwbedlost4v4}``", inline=True
                 )
             try:
                 fours2.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak4v4:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
+                    name="Beds Broken", value=f"``{bwbedbreak4v4}``", inline=True
                 )
             try:
-                fours2.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
+                fours2.add_field(name="BBLR", value=f"``{bblr4v4:,}``", inline=True)
             except:
-                fours2.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
+                fours2.add_field(name="BBLR", value=f"``{bblr4v4}``", inline=True)
             try:
                 fours2.add_field(
-                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
+                    name="Finals/Game", value=f"``{finalspergame4v4:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
-                )
-            try:
-                fours2.add_field(
-                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
-                )
-            except:
-                fours2.add_field(
-                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                    name="Finals/Game", value=f"``{finalspergame4v4}``", inline=True
                 )
             try:
                 fours2.add_field(
-                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame4v4:,}``", inline=True
                 )
             except:
                 fours2.add_field(
-                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                    name="Beds/Game", value=f"``{bedspergame4v4}``", inline=True
+                )
+            try:
+                fours2.add_field(
+                    name="Games Played", value=f"``{gamesplayed4v4:,}``", inline=True
+                )
+            except:
+                fours2.add_field(
+                    name="Games Played", value=f"``{gamesplayed4v4}``", inline=True
                 )
 
             solo.set_thumbnail(
