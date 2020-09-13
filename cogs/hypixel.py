@@ -1008,6 +1008,117 @@ class Hypixel(commands.Cog):
                     name="Games Played", value=f"``{gamesplayed}``", inline=True
                 )
 
+            threes = discord.Embed(
+                title=f"{full}",
+                color=15105570,
+                url=f"https://hypixel.net/player/{msg}",
+            )
+            threes.set_author(
+                name="Overall Bedwars Stats",
+                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
+            )
+            threes.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
+            try:
+                threes.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            except:
+                threes.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                )
+            threes.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
+            try:
+                threes.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
+            except:
+                threes.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
+                )
+            try:
+                threes.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
+            except:
+                threes.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
+            try:
+                threes.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
+            except:
+                threes.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
+            threes.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
+                )
+            try:
+                threes.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
+            except:
+                threes.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
+                )
+            try:
+                threes.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
+            except:
+                threes.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
+            try:
+                threes.add_field(
+                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                )
+            try:
+                threes.add_field(
+                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                )
+            except:
+                threes.add_field(
+                    name="Games Played", value=f"``{gamesplayed}``", inline=True
+                )
+                
+            
+
             solo.set_thumbnail(
                 url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
             )  # alternatives: https://crafatar.com/avatars/uuid https://crafatar.com/renders/head/uuid https://crafatar.com/renders/body/uuid
