@@ -394,22 +394,48 @@ class Hypixel(commands.Cog):
 
             try:
                 bwwinstreak3 = bwdata["four_three_winstreak"]
-                bwwins3 = bwdata["four_three_wins_bedwars"]
             except:
                 bwwinstreak3 = 0
+            try:
+                bwwins3 = bwdata["four_three_wins_bedwars"]
+            except:
                 bwwins3 = 0
-            bwlosses3 = bwdata["four_three_losses_bedwars"]
+            try:
+                bwlosses3 = bwdata["four_three_losses_bedwars"]
+            except:
+                bwlosses3 = 0
             bwwinlossratio3 = round(bwwins3 / bwlosses3, 2)
-            bwkills3 = bwdata["four_three_kills_bedwars"]
-            bwdeaths3 = bwdata["four_three_deaths_bedwars"]
+            try:
+                bwkills3 = bwdata["four_three_kills_bedwars"]
+            except:
+                bwkills3 = 0
+            try:
+                bwdeaths3 = bwdata["four_three_deaths_bedwars"]
+            except:
+                bwdeaths3 = 0
             bwkdr3 = round(bwkills3 / bwdeaths3, 2)
-            bwfinalkills3 = bwdata["four_three_final_kills_bedwars"]
-            bwfinaldeaths3 = bwdata["four_three_final_deaths_bedwars"]
+            try:
+                bwfinalkills3 = bwdata["four_three_final_kills_bedwars"]
+            except:
+                bwfinalkills3 = 0
+            try:
+                bwfinaldeaths3 = bwdata["four_three_final_deaths_bedwars"]
+            except:
+                bwfinaldeaths3 = 0
             bwfkdr3 = round(bwfinalkills3 / bwfinaldeaths3, 2)
-            bwbedlost3 = bwdata["four_three_beds_lost_bedwars"]
-            bwbedbreak3 = bwdata["four_three_beds_broken_bedwars"]
+            try:
+                bwbedlost3 = bwdata["four_three_beds_lost_bedwars"]
+            except:
+                bwbedlost3 = 0
+            try:
+                bwbedbreak3 = bwdata["four_three_beds_broken_bedwars"]
+            except:
+                bwbedbreak3 = 0
             bblr3 = bwbedbreak3 / bwbedlost3
-            gamesplayed3 = bwdata["four_three_games_played_bedwars"]
+            try:
+                gamesplayed3 = bwdata["four_three_games_played_bedwars"]
+            except:
+                gamesplayed3 = 0
             finalspergame3 = bwfinalkills3 / gamesplayed3
             bedspergame3 = bwbedbreak3 / gamesplayed3
 
