@@ -6,6 +6,7 @@ import asyncio
 import time
 import requests
 import math
+import locale
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -14,6 +15,7 @@ from datetime import timedelta
 footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 apikey = "***REMOVED***"
+locale.setlocale(locale.LC_ALL, "en_US")
 
 
 class Hypixel(commands.Cog):
@@ -682,261 +684,110 @@ class Hypixel(commands.Cog):
                 icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
             )
             embedVar.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            embedVar.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            embedVar.add_field(
-                name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
-            )
+            try:
+                embedVar.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
+            except:
+                embedVar.add_field(name="Coins", value=f"``{bwcoins}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Winstreak", value=f"``{bwwinstreak:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Winstreak", value=f"``{bwwinstreak}``", inline=True
+                )
             embedVar.add_field(name="Wins", value=f"``{bwwins}``", inline=True)
-            embedVar.add_field(name="Losses", value=f"``{bwlosses:,}``", inline=True)
-            embedVar.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
-            )
-            embedVar.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
-            embedVar.add_field(name="Deaths", value=f"``{bwdeaths:,}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Losses", value=f"``{bwlosses:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(name="Losses", value=f"``{bwlosses}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Win Loss Ratio", value=f"``{bwwinlossratio}``", inline=True
+                )
+            try:
+                embedVar.add_field(name="Kills", value=f"``{bwkills:,}``", inline=True)
+            except:
+                embedVar.add_field(name="Kills", value=f"``{bwkills}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Deaths", value=f"``{bwdeaths:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(name="Deaths", value=f"``{bwdeaths}``", inline=True)
             embedVar.add_field(name="KDR", value=f"``{bwkdr}``", inline=True)
-            embedVar.add_field(
-                name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
-            )
-            embedVar.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
-            )
-            embedVar.add_field(name="Final KDR", value=f"``{bwfkdr:,}``", inline=True)
-            embedVar.add_field(
-                name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
-            )
-            embedVar.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
-            )
-            embedVar.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
-            embedVar.add_field(
-                name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
-            )
-            embedVar.add_field(
-                name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
-            )
-            embedVar.add_field(
-                name="Games Played", value=f"``{gamesplayed:,}``", inline=True
-            )
-
-            solo = discord.Embed(
-                title=f"{full}",
-                color=15105570,
-                url=f"https://hypixel.net/player/{msg}",
-            )
-            solo.set_author(
-                name="Solo Bedwars Stats",
-                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
-            )
-            solo.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            solo.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            solo.add_field(name="Winstreak", value=f"``{bwwinstreak1:,}``", inline=True)
-            solo.add_field(name="Wins", value=f"``{bwwins1}``", inline=True)
-            solo.add_field(name="Losses", value=f"``{bwlosses1:,}``", inline=True)
-            solo.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio1:,}``", inline=True
-            )
-            solo.add_field(name="Kills", value=f"``{bwkills1:,}``", inline=True)
-            solo.add_field(name="Deaths", value=f"``{bwdeaths1:,}``", inline=True)
-            solo.add_field(name="KDR", value=f"``{bwkdr1}``", inline=True)
-            solo.add_field(
-                name="Final Kills", value=f"``{bwfinalkills1:,}``", inline=True
-            )
-            solo.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths1:,}``", inline=True
-            )
-            solo.add_field(name="Final KDR", value=f"``{bwfkdr1:,}``", inline=True)
-            solo.add_field(name="Beds Lost", value=f"``{bwbedlost1:,}``", inline=True)
-            solo.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak1:,}``", inline=True
-            )
-            solo.add_field(name="BBLR", value=f"``{bblr1:,}``", inline=True)
-            solo.add_field(
-                name="Finals/Game", value=f"``{finalspergame1:,}``", inline=True
-            )
-            solo.add_field(name="Beds/Game", value=f"``{bedspergame1:,}``", inline=True)
-            solo.add_field(
-                name="Games Played", value=f"``{gamesplayed1:,}``", inline=True
-            )
-
-            doubles = discord.Embed(
-                title=f"{full}",
-                color=15105570,
-                url=f"https://hypixel.net/player/{msg}",
-            )
-            doubles.set_author(
-                name="Doubles Bedwars Stats",
-                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
-            )
-            doubles.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            doubles.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            doubles.add_field(
-                name="Winstreak", value=f"``{bwwinstreak2:,}``", inline=True
-            )
-            doubles.add_field(name="Wins", value=f"``{bwwins2}``", inline=True)
-            doubles.add_field(name="Losses", value=f"``{bwlosses2:,}``", inline=True)
-            doubles.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio2:,}``", inline=True
-            )
-            doubles.add_field(name="Kills", value=f"``{bwkills2:,}``", inline=True)
-            doubles.add_field(name="Deaths", value=f"``{bwdeaths2:,}``", inline=True)
-            doubles.add_field(name="KDR", value=f"``{bwkdr2}``", inline=True)
-            doubles.add_field(
-                name="Final Kills", value=f"``{bwfinalkills2:,}``", inline=True
-            )
-            doubles.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths2:,}``", inline=True
-            )
-            doubles.add_field(name="Final KDR", value=f"``{bwfkdr2:,}``", inline=True)
-            doubles.add_field(
-                name="Beds Lost", value=f"``{bwbedlost2:,}``", inline=True
-            )
-            doubles.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak2:,}``", inline=True
-            )
-            doubles.add_field(name="BBLR", value=f"``{bblr2:,}``", inline=True)
-            doubles.add_field(
-                name="Finals/Game", value=f"``{finalspergame2:,}``", inline=True
-            )
-            doubles.add_field(
-                name="Beds/Game", value=f"``{bedspergame2:,}``", inline=True
-            )
-            doubles.add_field(
-                name="Games Played", value=f"``{gamesplayed2:,}``", inline=True
-            )
-
-            threes = discord.Embed(
-                title=f"{full}",
-                color=15105570,
-                url=f"https://hypixel.net/player/{msg}",
-            )
-            threes.set_author(
-                name="Threes Bedwars Stats",
-                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
-            )
-            threes.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            threes.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            threes.add_field(
-                name="Winstreak", value=f"``{bwwinstreak3:,}``", inline=True
-            )
-            threes.add_field(name="Wins", value=f"``{bwwins3}``", inline=True)
-            threes.add_field(name="Losses", value=f"``{bwlosses3:,}``", inline=True)
-            threes.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio3:,}``", inline=True
-            )
-            threes.add_field(name="Kills", value=f"``{bwkills3:,}``", inline=True)
-            threes.add_field(name="Deaths", value=f"``{bwdeaths3:,}``", inline=True)
-            threes.add_field(name="KDR", value=f"``{bwkdr3}``", inline=True)
-            threes.add_field(
-                name="Final Kills", value=f"``{bwfinalkills3:,}``", inline=True
-            )
-            threes.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths3:,}``", inline=True
-            )
-            threes.add_field(name="Final KDR", value=f"``{bwfkdr3:,}``", inline=True)
-            threes.add_field(name="Beds Lost", value=f"``{bwbedlost3:,}``", inline=True)
-            threes.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak3:,}``", inline=True
-            )
-            threes.add_field(name="BBLR", value=f"``{bblr3:,}``", inline=True)
-            threes.add_field(
-                name="Finals/Game", value=f"``{finalspergame3:,}``", inline=True
-            )
-            threes.add_field(
-                name="Beds/Game", value=f"``{bedspergame3:,}``", inline=True
-            )
-            threes.add_field(
-                name="Games Played", value=f"``{gamesplayed3:,}``", inline=True
-            )
-
-            fours = discord.Embed(
-                title=f"{full}",
-                color=15105570,
-                url=f"https://hypixel.net/player/{msg}",
-            )
-            fours.set_author(
-                name="Fours Bedwars Stats",
-                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
-            )
-            fours.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            fours.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            fours.add_field(
-                name="Winstreak", value=f"``{bwwinstreak4:,}``", inline=True
-            )
-            fours.add_field(name="Wins", value=f"``{bwwins4}``", inline=True)
-            fours.add_field(name="Losses", value=f"``{bwlosses4:,}``", inline=True)
-            fours.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio4:,}``", inline=True
-            )
-            fours.add_field(name="Kills", value=f"``{bwkills4:,}``", inline=True)
-            fours.add_field(name="Deaths", value=f"``{bwdeaths4:,}``", inline=True)
-            fours.add_field(name="KDR", value=f"``{bwkdr4}``", inline=True)
-            fours.add_field(
-                name="Final Kills", value=f"``{bwfinalkills4:,}``", inline=True
-            )
-            fours.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths4:,}``", inline=True
-            )
-            fours.add_field(name="Final KDR", value=f"``{bwfkdr4:,}``", inline=True)
-            fours.add_field(name="Beds Lost", value=f"``{bwbedlost4:,}``", inline=True)
-            fours.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak4:,}``", inline=True
-            )
-            fours.add_field(name="BBLR", value=f"``{bblr4:,}``", inline=True)
-            fours.add_field(
-                name="Finals/Game", value=f"``{finalspergame4:,}``", inline=True
-            )
-            fours.add_field(
-                name="Beds/Game", value=f"``{bedspergame4:,}``", inline=True
-            )
-            fours.add_field(
-                name="Games Played", value=f"``{gamesplayed4:,}``", inline=True
-            )
-
-            fours2 = discord.Embed(
-                title=f"{full}",
-                color=15105570,
-                url=f"https://hypixel.net/player/{msg}",
-            )
-            fours2.set_author(
-                name="4v4 Bedwars Stats",
-                icon_url="https://statsify.net/img/assets/hypixel/bedwars.png",
-            )
-            fours2.add_field(name="Stars", value=f"``{bwlevel}☆``", inline=True)
-            fours2.add_field(name="Coins", value=f"``{bwcoins:,}``", inline=True)
-            fours2.add_field(
-                name="Winstreak", value=f"``{bwwinstreak4v4:,}``", inline=True
-            )
-            fours2.add_field(name="Wins", value=f"``{bwwins4v4}``", inline=True)
-            fours2.add_field(name="Losses", value=f"``{bwlosses4v4:,}``", inline=True)
-            fours2.add_field(
-                name="Win Loss Ratio", value=f"``{bwwinlossratio4v4:,}``", inline=True
-            )
-            fours2.add_field(name="Kills", value=f"``{bwkills4v4:,}``", inline=True)
-            fours2.add_field(name="Deaths", value=f"``{bwdeaths4v4:,}``", inline=True)
-            fours2.add_field(name="KDR", value=f"``{bwkdr4v4}``", inline=True)
-            fours2.add_field(
-                name="Final Kills", value=f"``{bwfinalkills4v4:,}``", inline=True
-            )
-            fours2.add_field(
-                name="Final Deaths", value=f"``{bwfinaldeaths4v4:,}``", inline=True
-            )
-            fours2.add_field(name="Final KDR", value=f"``{bwfkdr4v4:,}``", inline=True)
-            fours2.add_field(
-                name="Beds Lost", value=f"``{bwbedlost4v4:,}``", inline=True
-            )
-            fours2.add_field(
-                name="Beds Broken", value=f"``{bwbedbreak4v4:,}``", inline=True
-            )
-            fours2.add_field(name="BBLR", value=f"``{bblr4v4:,}``", inline=True)
-            fours2.add_field(
-                name="Finals/Game", value=f"``{finalspergame4v4:,}``", inline=True
-            )
-            fours2.add_field(
-                name="Beds/Game", value=f"``{bedspergame4v4:,}``", inline=True
-            )
-            fours2.add_field(
-                name="Games Played", value=f"``{gamesplayed4v4:,}``", inline=True
-            )
+            try:
+                embedVar.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Final Kills", value=f"``{bwfinalkills}``", inline=True
+                )
+            try:
+                embedVar.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Final Deaths", value=f"``{bwfinaldeaths}``", inline=True
+                )
+            try:
+                embedVar.add_field(
+                    name="Final KDR", value=f"``{bwfkdr:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(name="Final KDR", value=f"``{bwfkdr}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Beds Lost", value=f"``{bwbedlost}``", inline=True
+                )
+            try:
+                embedVar.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Beds Broken", value=f"``{bwbedbreak}``", inline=True
+                )
+            try:
+                embedVar.add_field(name="BBLR", value=f"``{bblr:,}``", inline=True)
+            except:
+                embedVar.add_field(name="BBLR", value=f"``{bblr}``", inline=True)
+            try:
+                embedVar.add_field(
+                    name="Finals/Game", value=f"``{finalspergame:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Finals/Game", value=f"``{finalspergame}``", inline=True
+                )
+            try:
+                embedVar.add_field(
+                    name="Beds/Game", value=f"``{bedspergame:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Beds/Game", value=f"``{bedspergame}``", inline=True
+                )
+            try:
+                embedVar.add_field(
+                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                )
+            except:
+                embedVar.add_field(
+                    name="Games Played", value=f"``{gamesplayed:,}``", inline=True
+                )
 
             solo.set_thumbnail(
                 url=f"https://crafatar.com/avatars/{uuid}?default=MHF_Steve&overlay"
