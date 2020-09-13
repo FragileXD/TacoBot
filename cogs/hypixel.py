@@ -283,7 +283,10 @@ class Hypixel(commands.Cog):
                 bwbedbreak = bwdata["beds_broken_bedwars"]
             except:
                 bwbedbreak = 0
-            bblr = bwbedbreak / bwbedlost
+            try:
+                bblr = bwbedbreak / bwbedlost
+            except:
+                bblr = 0
             try:
                 gamesplayed = bwdata["games_played_bedwars"]
             except:
@@ -296,7 +299,10 @@ class Hypixel(commands.Cog):
                 bedspergame = bwbedbreak / gamesplayed
             except:
                 bedspergame = 0
-            bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
+            try:
+                bwfkdr = round(bwfinalkills / bwfinaldeaths, 2)
+            except:
+                bwfkdr = 0
 
             try:
                 bwwinstreak1 = bwdata["eight_one_winstreak"]
@@ -318,7 +324,10 @@ class Hypixel(commands.Cog):
                 bwdeaths1 = bwdata["eight_one_deaths_bedwars"]
             except:
                 bwdeaths1 = 0
-            bwkdr1 = round(bwkills1 / bwdeaths1, 2)
+            try:
+                bwkdr1 = round(bwkills1 / bwdeaths1, 2)
+            except:
+                bwkdr1 = 0
             try:
                 bwfinalkills1 = bwdata["eight_one_final_kills_bedwars"]
             except:
@@ -327,7 +336,10 @@ class Hypixel(commands.Cog):
                 bwfinaldeaths1 = bwdata["eight_one_final_deaths_bedwars"]
             except:
                 bwfinaldeaths1 = 0
-            bwfkdr1 = round(bwfinalkills1 / bwfinaldeaths1, 2)
+            try:
+                bwfkdr1 = round(bwfinalkills1 / bwfinaldeaths1, 2)
+            except:
+                bwfkdr1 = 0
             try:
                 bwbedlost1 = bwdata["eight_one_beds_lost_bedwars"]
             except:
@@ -340,10 +352,22 @@ class Hypixel(commands.Cog):
                 gamesplayed1 = bwdata["eight_one_games_played_bedwars"]
             except:
                 gamesplayed1 = 0
-            bblr1 = bwbedbreak1 / bwbedlost1
-            finalspergame1 = bwfinalkills1 / gamesplayed1
-            bedspergame1 = bwbedbreak1 / gamesplayed1
-            bwwinlossratio1 = round(bwwins1 / bwlosses1, 2)
+            try:
+                bblr1 = bwbedbreak1 / bwbedlost1
+            except:
+                bblr1 = 0
+            try:
+                finalspergame1 = bwfinalkills1 / gamesplayed1
+            except:
+                finalspergame1 = 0
+            try:
+                bedspergame1 = bwbedbreak1 / gamesplayed1
+            except:
+                bedspergame1 = 0
+            try:
+                bwwinlossratio1 = round(bwwins1 / bwlosses1, 2)
+            except:
+                bwwinlossratio1 = 0
 
             try:
                 bwwinstreak2 = bwdata["eight_two_winstreak"]
@@ -357,7 +381,10 @@ class Hypixel(commands.Cog):
                 bwlosses2 = bwdata["eight_two_losses_bedwars"]
             except:
                 bwlosses2 = 0
-            bwwinlossratio2 = round(bwwins2 / bwlosses2, 2)
+            try:
+                bwwinlossratio2 = round(bwwins2 / bwlosses2, 2)
+            except:
+                bwwinlossratio2 = 0
             try:
                 bwkills2 = bwdata["eight_two_kills_bedwars"]
             except:
@@ -366,7 +393,10 @@ class Hypixel(commands.Cog):
                 bwdeaths2 = bwdata["eight_two_deaths_bedwars"]
             except:
                 bwdeaths2 = 0
-            bwkdr2 = round(bwkills2 / bwdeaths2, 2)
+            try:
+                bwkdr2 = round(bwkills2 / bwdeaths2, 2)
+            except:
+                bwkdr2 = 0
             try:
                 bwfinalkills2 = bwdata["eight_two_final_kills_bedwars"]
             except:
@@ -375,7 +405,10 @@ class Hypixel(commands.Cog):
                 bwfinaldeaths2 = bwdata["eight_two_final_deaths_bedwars"]
             except:
                 bwfinaldeaths2 = 0
-            bwfkdr2 = round(bwfinalkills2 / bwfinaldeaths2, 2)
+            try:
+                bwfkdr2 = round(bwfinalkills2 / bwfinaldeaths2, 2)
+            except:
+                bwfkdr2 = 0
             try:
                 bwbedlost2 = bwdata["eight_two_beds_lost_bedwars"]
             except:
@@ -384,13 +417,22 @@ class Hypixel(commands.Cog):
                 bwbedbreak2 = bwdata["eight_two_beds_broken_bedwars"]
             except:
                 bwbedbreak2 = 0
-            bblr2 = bwbedbreak2 / bwbedlost2
+            try:
+                bblr2 = bwbedbreak2 / bwbedlost2
+            except:
+                bblr2 = 0
             try:
                 gamesplayed2 = bwdata["eight_two_games_played_bedwars"]
             except:
                 gamesplayed2 = 0
-            finalspergame2 = bwfinalkills2 / gamesplayed2
-            bedspergame2 = bwbedbreak2 / gamesplayed2
+            try:
+                finalspergame2 = bwfinalkills2 / gamesplayed2
+            except:
+                finalspergame2 = 0
+            try:
+                bedspergame2 = bwbedbreak2 / gamesplayed2
+            except:
+                bedspergame2 = 0
 
             try:
                 bwwinstreak3 = bwdata["four_three_winstreak"]
@@ -404,7 +446,10 @@ class Hypixel(commands.Cog):
                 bwlosses3 = bwdata["four_three_losses_bedwars"]
             except:
                 bwlosses3 = 0
-            bwwinlossratio3 = round(bwwins3 / bwlosses3, 2)
+            try:
+                bwwinlossratio3 = round(bwwins3 / bwlosses3, 2)
+            except:
+                bwwinlossratio3 = 0
             try:
                 bwkills3 = bwdata["four_three_kills_bedwars"]
             except:
@@ -413,7 +458,10 @@ class Hypixel(commands.Cog):
                 bwdeaths3 = bwdata["four_three_deaths_bedwars"]
             except:
                 bwdeaths3 = 0
-            bwkdr3 = round(bwkills3 / bwdeaths3, 2)
+            try:
+                bwkdr3 = round(bwkills3 / bwdeaths3, 2)
+            except:
+                bwkdr3 = 0
             try:
                 bwfinalkills3 = bwdata["four_three_final_kills_bedwars"]
             except:
@@ -422,7 +470,10 @@ class Hypixel(commands.Cog):
                 bwfinaldeaths3 = bwdata["four_three_final_deaths_bedwars"]
             except:
                 bwfinaldeaths3 = 0
-            bwfkdr3 = round(bwfinalkills3 / bwfinaldeaths3, 2)
+            try:
+                bwfkdr3 = round(bwfinalkills3 / bwfinaldeaths3, 2)
+            except:
+                bwfkdr3 = 0
             try:
                 bwbedlost3 = bwdata["four_three_beds_lost_bedwars"]
             except:
@@ -431,13 +482,22 @@ class Hypixel(commands.Cog):
                 bwbedbreak3 = bwdata["four_three_beds_broken_bedwars"]
             except:
                 bwbedbreak3 = 0
-            bblr3 = bwbedbreak3 / bwbedlost3
+            try:
+                bblr3 = bwbedbreak3 / bwbedlost3
+            except:
+                bblr3 = 0
             try:
                 gamesplayed3 = bwdata["four_three_games_played_bedwars"]
             except:
                 gamesplayed3 = 0
-            finalspergame3 = bwfinalkills3 / gamesplayed3
-            bedspergame3 = bwbedbreak3 / gamesplayed3
+            try:
+                finalspergame3 = bwfinalkills3 / gamesplayed3
+            except:
+                finalspergame3 = 0
+            try:
+                bedspergame3 = bwbedbreak3 / gamesplayed3
+            except:
+                bedspergame3 = 0
 
             try:
                 bwwinstreak4 = bwdata["four_four_winstreak"]
@@ -451,7 +511,10 @@ class Hypixel(commands.Cog):
                 bwlosses4 = bwdata["four_four_losses_bedwars"]
             except:
                 bwlosses4 = 0
-            bwwinlossratio4 = round(bwwins4 / bwlosses4, 2)
+            try:
+                bwwinlossratio4 = round(bwwins4 / bwlosses4, 2)
+            except:
+                bwwinlossratio4 = 0
             try:
                 bwkills4 = bwdata["four_four_kills_bedwars"]
             except:
@@ -460,7 +523,10 @@ class Hypixel(commands.Cog):
                 bwdeaths4 = bwdata["four_four_deaths_bedwars"]
             except:
                 bwdeaths4 = 0
-            bwkdr4 = round(bwkills4 / bwdeaths4, 2)
+            try:
+                bwkdr4 = round(bwkills4 / bwdeaths4, 2)
+            except:
+                bwkdr4 = 0
             try:
                 bwfinalkills4 = bwdata["four_four_final_kills_bedwars"]
             except:
@@ -469,7 +535,10 @@ class Hypixel(commands.Cog):
                 bwfinaldeaths4 = bwdata["four_four_final_deaths_bedwars"]
             except:
                 bwfinaldeaths4 = 0
-            bwfkdr4 = round(bwfinalkills4 / bwfinaldeaths4, 2)
+            try:
+                bwfkdr4 = round(bwfinalkills4 / bwfinaldeaths4, 2)
+            except:
+                bwfkdr4 = 0
             try:
                 bwbedlost4 = bwdata["four_four_beds_lost_bedwars"]
             except:
@@ -478,13 +547,22 @@ class Hypixel(commands.Cog):
                 bwbedbreak4 = bwdata["four_four_beds_broken_bedwars"]
             except:
                 bwbedbreak4 = 0
-            bblr4 = bwbedbreak4 / bwbedlost4
+            try:
+                bblr4 = bwbedbreak4 / bwbedlost4
+            except:
+                bblr4 = 0
             try:
                 gamesplayed4 = bwdata["four_four_games_played_bedwars"]
             except:
                 gamesplayed4 = 0
-            finalspergame4 = bwfinalkills4 / gamesplayed4
-            bedspergame4 = bwbedbreak4 / gamesplayed4
+            try:
+                finalspergame4 = bwfinalkills4 / gamesplayed4
+            except:
+                finalspergame4 = 0
+            try:
+                bedspergame4 = bwbedbreak4 / gamesplayed4
+            except:
+                bedspergame4 = 0
 
             try:
                 bwwinstreak4v4 = bwdata["two_four_winstreak"]
@@ -498,7 +576,10 @@ class Hypixel(commands.Cog):
                 bwlosses4v4 = bwdata["two_four_losses_bedwars"]
             except:
                 bwlosses4v4 = 0
-            bwwinlossratio4v4 = round(bwwins4v4 / bwlosses4v4, 2)
+            try:
+                bwwinlossratio4v4 = round(bwwins4v4 / bwlosses4v4, 2)
+            except:
+                bwwinlossratio4v4 = 0
             try:
                 bwkills4v4 = bwdata["two_four_kills_bedwars"]
             except:
@@ -507,7 +588,10 @@ class Hypixel(commands.Cog):
                 bwdeaths4v4 = bwdata["two_four_deaths_bedwars"]
             except:
                 bwdeaths4v4 = 0
-            bwkdr4v4 = round(bwkills4v4 / bwdeaths4v4, 2)
+            try:
+                bwkdr4v4 = round(bwkills4v4 / bwdeaths4v4, 2)
+            except:
+                bwkdr4v4 = 0
             try:
                 bwfinalkills4v4 = bwdata["two_four_final_kills_bedwars"]
             except:
@@ -516,7 +600,10 @@ class Hypixel(commands.Cog):
                 bwfinaldeaths4v4 = bwdata["two_four_final_deaths_bedwars"]
             except:
                 bwfinaldeaths4v4 = 0
-            bwfkdr4v4 = round(bwfinalkills4v4 / bwfinaldeaths4v4, 2)
+            try:
+                bwfkdr4v4 = round(bwfinalkills4v4 / bwfinaldeaths4v4, 2)
+            except:
+                bwfkdr4v4 = 0
             try:
                 bwbedlost4v4 = bwdata["two_four_beds_lost_bedwars"]
             except:
@@ -525,13 +612,22 @@ class Hypixel(commands.Cog):
                 bwbedbreak4v4 = bwdata["two_four_beds_broken_bedwars"]
             except:
                 bwbedbreak4v4 = 0
-            bblr4v4 = bwbedbreak4v4 / bwbedlost4v4
+            try:
+                bblr4v4 = bwbedbreak4v4 / bwbedlost4v4
+            except:
+                bblr4v4 = 0
             try:
                 gamesplayed4v4 = bwdata["two_four_games_played_bedwars"]
             except:
                 gamesplayed4v4 = 0
-            finalspergame4v4 = bwfinalkills4v4 / gamesplayed4v4
-            bedspergame4v4 = bwbedbreak4v4 / gamesplayed4v4
+            try:
+                finalspergame4v4 = bwfinalkills4v4 / gamesplayed4v4
+            except:
+                finalspergame4v4 = 0
+            try:
+                bedspergame4v4 = bwbedbreak4v4 / gamesplayed4v4
+            except:
+                bedspergame4v4 = 0
 
             bblr = round(bblr, 2)
             bblr1 = round(bblr1, 2)
