@@ -11,10 +11,13 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
+
+config = getJSON("config.json")
 
 footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
-apikey = "***REMOVED***"
+apikey = config.apikey
 locale.setlocale(locale.LC_ALL, "en_US")
 
 
