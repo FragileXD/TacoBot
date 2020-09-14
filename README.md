@@ -10,10 +10,18 @@
   <a href="https://github.com/Rapptz/discord.py/">
       <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py">
   </a>
+  <a href="https://forthebadge.com/">
+      <img src="https://forthebadge.com/images/badges/powered-by-black-magic.svg" alt="powered by black magic" width=90px>
+  </a>
+  <a href="https://forthebadge.com/">
+      <img src="https://forthebadge.com/images/badges/uses-brain.svg" alt="uses brains" width=90px>
+  </a>
   <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
   </a>
   <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot.svg?type=shield"/></a>
+  
 </p>
+
 
 ## What is TacoBOT
 
