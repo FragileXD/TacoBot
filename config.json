@@ -1,4 +1,10 @@
 {
   "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.OhHtOt0T6bXrbqocVvozNzMrqsc",
-  "ownerid": 389388825274613771
+  "ownerid": 389388825274613771,
+  "client_id": "***REMOVED***",
+  "client_secret": "***REMOVED***",
+  "user_agent": "User Agent",
+  "username": "TacozRedditBot",
+  "password": "***REMOVED***",
+  "apikey": "***REMOVED***"
 }
