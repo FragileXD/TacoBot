@@ -8,10 +8,10 @@
     <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
   </a>
   <a href="https://github.com/Rapptz/discord.py/">
-      <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py">
+      <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py" height=20px>
   </a>
   <a href="https://forthebadge.com/">
-      <img src="https://forthebadge.com/images/badges/powered-by-black-magic.svg" alt="powered by black magic" width=90px>
+      <img src="https://forthebadge.com/images/badges/powered-by-black-magic.svg" alt="powered by black magic" height=20px>
   </a>
   <a href="https://forthebadge.com/">
       <img src="https://forthebadge.com/images/badges/uses-brain.svg" alt="uses brains" width=90px>
