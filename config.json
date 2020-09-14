@@ -1,10 +1,10 @@
 {
-  "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.OhHtOt0T6bXrbqocVvozNzMrqsc",
+  "token": "DISCORD TOKEN",
   "ownerid": ***REMOVED***,
-  "client_id": "***REMOVED***",
-  "client_secret": "***REMOVED***",
+  "client_id": "CLIENT ID",
+  "client_secret": "CLIENT SECRET",
   "user_agent": "User Agent",
-  "username": "TacozRedditBot",
-  "password": "***REMOVED***",
-  "apikey": "a54ce218-4fd5-4798-9b4b-6c74efac3456"
+  "username": "INPUT REDDIT USERNAME",
+  "password": "INPUT REDDIT PASS",
+  "apikey": "Hypickle Api Key"
 }
