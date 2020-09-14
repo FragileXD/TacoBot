@@ -2,27 +2,26 @@
 
 <p align="center">
   <a href="https://discord.gg/rUwx8gk">
-    <img src="https://discordapp.com/api/guilds/663002132793917480/widget.png?style=shield" alt="Discord Server">
+    <img src="https://img.shields.io/discord/663002132793917480?style=for-the-badge">
+  </a>
+  <a href="https://australia.com">
+    <img src="https://img.shields.io/badge/Made_In-Australia-e62929?style=for-the-badge">
   </a>
   <a href="https://www.python.org/downloads/">
-    <img src="https://img.shields.io/badge/Made%20With-Python%203.8-blue.svg?style=for-the-badge" alt="Made with Python 3.8">
+    <img src="https://img.shields.io/badge/Made_With-Python_3.8-3bd8ff?style=for-the-badge">
   </a>
-  <a href="https://github.com/Rapptz/discord.py/">
-      <img src="https://img.shields.io/badge/discord-py-blue.svg" alt="discord.py" height=20px>
+  <a href="https://github.com/psf/black">
+    <img src="https://img.shields.io/badge/Code_Styling-Black-000000?style=for-the-badge">
   </a>
-  <a href="https://forthebadge.com/">
-      <img src="https://forthebadge.com/images/badges/powered-by-black-magic.svg" alt="powered by black magic" height=20px>
+  <a href="https://github.com/NotTacoz/TacoBot/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-GPL_3.0-00b347?style=for-the-badge">
   </a>
-  <a href="https://forthebadge.com/">
-      <img src="https://forthebadge.com/images/badges/uses-brain.svg" alt="uses brains" width=90px>
+  <a href="https://github.com/NotTacoz/TacoBot/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-941e2d?style=for-the-badge">
   </a>
-  <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
-  </a>
-  <a href="https://app.fossa.com/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FNotTacoz%2FTacoBot.svg?type=shield"/></a>
-  
 </p>
-
-
+  
+ 
 ## What is TacoBOT
 
 **TacoBot** is a multi-purpose discord bot created by Tacoz. This bot is mainly a test and isn't supposed to be a fully fledged bot. Expect consistent updates to the bot!
