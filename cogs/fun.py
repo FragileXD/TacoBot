@@ -1125,6 +1125,26 @@ class Fun(commands.Cog):
                 "https://media.discordapp.net/attachments/729675616420495381/753171581194469465/Monch.gif"
             )
 
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def kill(self, ctx, user: str):
+        possibledeaths = [
+            "{user} died of ligma. what's ligma?",
+            "{user} drank too much tea and died. what a brit.",
+            "{ctx.user} was so cool {user} died just looking at him.",
+            "{user} slipped on a banana and died. how??",
+            "{user} burnt from {ctx.user}'s epic roast and died, not even going to ask how.",
+            "{user} caught a cold and when taking the medicine, he died of an allergic reaction.",
+        ]
+        await ctx.send(random.choice(possibledeaths))
+
+    @kill.error
+    async def kill_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
