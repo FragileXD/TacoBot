@@ -19,6 +19,15 @@
   <a href="https://i.pinimg.com/originals/c4/07/40/c4074087283441de471b78e0fb56cf25.gif">
     <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-b70016?style=for-the-badge">
   </a>
+  <a href="https://github.com/NotTacoz">
+    <img src="https://img.shields.io/github/followers/NotTacoz?label=Follow&style=for-the-badge">
+  </a>
+  <a href="https://github.com/NotTacoz/TacoBot">
+    <img src="https://img.shields.io/github/forks/NotTacoz/TacoBot?label=Fork&style=for-the-badge">
+  </a>
+  <a href="http://twitter.com/NotTacoz">
+    <img src="https://img.shields.io/twitter/follow/NotTacoz?color=00acee&style=for-the-badge">
+  </a>
 </p>
   
  
