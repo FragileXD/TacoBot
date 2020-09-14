@@ -1,10 +1,10 @@
 {
-  "token": "DISCORD TOKEN",
+  "token": "***REMOVED***",
   "ownerid": ***REMOVED***,
-  "client_id": "CLIENT ID",
-  "client_secret": "CLIENT SECRET",
+  "client_id": "***REMOVED***",
+  "client_secret": "***REMOVED***",
   "user_agent": "User Agent",
-  "username": "INPUT REDDIT USERNAME",
-  "password": "INPUT REDDIT PASS",
-  "apikey": "Hypickle Api Key"
+  "username": "TacozRedditBot",
+  "password": "***REMOVED***",
+  "apikey": "a54ce218-4fd5-4798-9b4b-6c74efac3456"
 }
