@@ -712,9 +712,7 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
-    @commands.command(
-        aliases=["roasty", "roastytoasty", "destroy", "destruction100", "kill"]
-    )
+    @commands.command(aliases=["roasty", "roastytoasty", "destroy", "destruction100"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def roast(self, ctx):
         message_author = ctx.author
@@ -1129,17 +1127,41 @@ class Fun(commands.Cog):
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def kill(self, ctx, user: str):
         possibledeaths = [
-            "{user} died of ligma. what's ligma?",
-            "{user} drank too much tea and died. what a brit.",
-            "{ctx.user} was so cool {user} died just looking at him.",
-            "{user} slipped on a banana and died. how??",
-            "{user} burnt from {ctx.user}'s epic roast and died, not even going to ask how.",
-            "{user} caught a cold and when taking the medicine, he died of an allergic reaction.",
+            f"{user} died of ligma. what's ligma?",
+            f"{user} drank too much tea and died. what a brit.",
+            f"{ctx.author} was so cool {user} died just looking at him.",
+            f"{user} slipped on a banana and died. how??",
+            f"{user} burnt from {ctx.user}'s epic roast and died, not even going to ask how.",
+            f"{user} caught a cold and when taking the medicine, he died of an allergic reaction.",
         ]
         await ctx.send(random.choice(possibledeaths))
 
     @kill.error
     async def kill_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def ship(self, ctx, user: str, user2: str):
+        lovepercent = random.randint(1, 101)
+        rounded = int((round(lovepercent, -1)) / 10)
+        shaded = "■" * rounded
+        unshaded = (10 - rounded) * "□"
+        embedVar = discord.Embed(
+            title=f"{shaded}{unshaded}",
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            color=16679378,
+        )
+        await ctx.send(
+            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: ``{user}``\n:small_red_triangle_down: ``{user2}``",
+            embed=embedVar,
+        )
+
+    @ship.error
+    async def ship_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
