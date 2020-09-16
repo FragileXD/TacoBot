@@ -1,12 +1,23 @@
-# TacoBot
+<h1 align="center">
+  <img src="images/banner.png" alt="RoxBot" />
+</h1>
 
 <p align="center">
   <a href="https://discord.gg/rUwx8gk">
     <img src="https://img.shields.io/discord/663002132793917480?style=for-the-badge">
   </a>
+  <a href="http://twitter.com/NotTacoz">
+    <img src="https://img.shields.io/twitter/follow/NotTacoz?color=00acee&style=for-the-badge">
+  </a>
   <a href="https://australia.com">
     <img src="https://img.shields.io/badge/Made_In-Australia-e62929?style=for-the-badge">
   </a>
+  <a href="https://i.ibb.co/0Zgh8Yf/c4074087283441de471b78e0fb56cf25.gif">
+    <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-b70016?style=for-the-badge">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://www.python.org/downloads/">
     <img src="https://img.shields.io/badge/Made_With-Python_3.8-3bd8ff?style=for-the-badge">
   </a>
@@ -16,17 +27,17 @@
   <a href="https://github.com/NotTacoz/TacoBot/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-GPL_3.0-00b347?style=for-the-badge">
   </a>
-  <a href="https://i.ibb.co/0Zgh8Yf/c4074087283441de471b78e0fb56cf25.gif">
-    <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-b70016?style=for-the-badge">
-  </a>
   <a href="https://github.com/NotTacoz">
     <img src="https://img.shields.io/github/followers/NotTacoz?label=Follow&style=for-the-badge">
   </a>
   <a href="https://github.com/NotTacoz/TacoBot">
     <img src="https://img.shields.io/github/forks/NotTacoz/TacoBot?label=Fork&style=for-the-badge">
   </a>
-  <a href="http://twitter.com/NotTacoz">
-    <img src="https://img.shields.io/twitter/follow/NotTacoz?color=00acee&style=for-the-badge">
+  <a href="https://github.com/NotTacoz/TacoBot/commits/master">
+    <img src="https://img.shields.io/github/last-commit/NotTacoz/TacoBot?style=for-the-badge">
+  </a>
+  <a href="https://github.com/NotTacoz/TacoBot/issues">
+    <img src="https://img.shields.io/github/issues/NotTacoz/TacoBot?style=for-the-badge">
   </a>
 </p>
   
