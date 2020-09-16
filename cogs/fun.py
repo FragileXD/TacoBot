@@ -1146,17 +1146,19 @@ class Fun(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def ship(self, ctx, user: str, user2: str):
+        a = "``"
         if len(user) == 22:
             try:
-                user = user[3:-1]
-                member = self.bot.get_user(user)
-                user = member.name
+                user = user.replace("!", "")
+                a = ""
             except:
                 user = user
         if len(user2) == 22:
-            user2 = user2[3:-1]
-            member = self.bot.get_user(user2)
-            user2 = member.name
+            try:
+                user2 = user2.replace("!", "")
+                a = ""
+            except:
+                user2 = user2
         lovepercent = random.randint(1, 101)
         rounded = int((round(lovepercent, -1)) / 10)
         shaded = "■" * rounded
@@ -1167,7 +1169,7 @@ class Fun(commands.Cog):
             color=16679378,
         )
         await ctx.send(
-            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: ``{user}``\n:small_red_triangle_down: ``{user2}``",
+            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
             embed=embedVar,
         )
 
