@@ -28,6 +28,9 @@
   <a href="http://twitter.com/NotTacoz">
     <img src="https://img.shields.io/twitter/follow/NotTacoz?color=00acee&style=for-the-badge">
   </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/NotTacoz/TacoBot?style=for-the-badge">
+  </a>
 </p>
   
  
