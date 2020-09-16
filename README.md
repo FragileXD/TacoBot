@@ -1,4 +1,6 @@
-# TacoBot
+<h1 align="center">
+  <img src="images/banner.png" alt="RoxBot" />
+</h1>
 
 <p align="center">
   <a href="https://discord.gg/rUwx8gk">
