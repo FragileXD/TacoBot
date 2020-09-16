@@ -1127,12 +1127,12 @@ class Fun(commands.Cog):
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def kill(self, ctx, user: str):
         possibledeaths = [
-            f"{user} died of ligma. what's ligma?",
-            f"{user} drank too much tea and died. what a brit.",
-            f"{ctx.author} was so cool {user} died just looking at him.",
-            f"{user} slipped on a banana and died. how??",
-            f"{user} burnt from {ctx.user}'s epic roast and died, not even going to ask how.",
-            f"{user} caught a cold and when taking the medicine, he died of an allergic reaction.",
+            f"``{user}`` died of ligma. what's ligma?",
+            f"``{user}`` drank too much tea and died. what a brit.",
+            f"``{ctx.author}`` was so cool ``{user}`` died just looking at him.",
+            f"``{user}`` slipped on a banana and died. how??",
+            f"``{user}`` burnt from ``{ctx.author}``'s epic roast and died, not even going to ask how.",
+            f"``{user}`` caught a cold and when taking the medicine, he died of an allergic reaction.",
         ]
         await ctx.send(random.choice(possibledeaths))
 
@@ -1146,6 +1146,17 @@ class Fun(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def ship(self, ctx, user: str, user2: str):
+        if len(user) == 22:
+            try:
+                user = user[3:-1]
+                member = self.bot.get_user(user)
+                user = member.name
+            except:
+                user = user
+        if len(user2) == 22:
+            user2 = user2[3:-1]
+            member = self.bot.get_user(user2)
+            user2 = member.name
         lovepercent = random.randint(1, 101)
         rounded = int((round(lovepercent, -1)) / 10)
         shaded = "■" * rounded
