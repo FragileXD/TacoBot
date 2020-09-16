@@ -5,9 +5,7 @@ import json
 apikey = "***REMOVED***"
 data = requests.get(f"https://api.hypixel.net/player?key={apikey}&name=NotTacoz").json()
 
-param = int(input("input param lol "))
-selected = 5 + param
-print(selected)
+print("<@!201909896357f216256>"[3:-1])
 
 """
 a = input("link: ")
