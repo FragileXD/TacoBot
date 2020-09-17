@@ -57,7 +57,7 @@ class Utility(commands.Cog):
         info_msg.add_field(name="Bot Library", value="Discord.py", inline=True)
         info_msg.add_field(name="Command Prefix", value=ctx.prefix, inline=True)
         info_msg.add_field(
-            name="Creators", value="Tacoz#1916 - MC IGN: ||NotTacoz||", inline=True
+            name="Creators", value="Tacoz#1916 - IGN: ||NotTacoz||", inline=True
         )
 
         info_msg.add_field(
