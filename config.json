@@ -1,10 +1,11 @@
 {
-  "token": "***REMOVED***",
-  "ownerid": ***REMOVED***,
-  "client_id": "***REMOVED***",
-  "client_secret": "***REMOVED***",
-  "user_agent": "User Agent",
-  "username": "***REMOVED***",
-  "password": "***REMOVED***",
-  "apikey": "***REMOVED***"
+    "token": "***REMOVED***",
+    "ownerid": ***REMOVED***,
+    "client_id": "***REMOVED***",
+    "client_secret": "***REMOVED***",
+    "user_agent": "User Agent",
+    "username": "***REMOVED***",
+    "password": "***REMOVED***",
+    "apikey": "***REMOVED***",
+    "mongoclient": "mongodb+srv://***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz>?retryWrites=true&w=majority"
 }
