@@ -1,10 +1,11 @@
 {
-  "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.TWjfHchfESEAcs5BbvVNJH0Irh8",
-  "ownerid": 389388825274613771,
-  "client_id": "***REMOVED***",
-  "client_secret": "***REMOVED***",
-  "user_agent": "User Agent",
-  "username": "***REMOVED***",
-  "password": "***REMOVED***",
-  "apikey": "***REMOVED***"
+    "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.TWjfHchfESEAcs5BbvVNJH0Irh8",
+    "ownerid": 389388825274613771,
+    "client_id": "***REMOVED***",
+    "client_secret": "***REMOVED***",
+    "user_agent": "User Agent",
+    "username": "***REMOVED***",
+    "password": "***REMOVED***",
+    "apikey": "***REMOVED***",
+    "mongoclient": "mongodb+srv://Tacoz:***REMOVED***@***REMOVED***/Tacoz>?retryWrites=true&w=majority"
 }
