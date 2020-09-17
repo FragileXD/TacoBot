@@ -48,7 +48,7 @@
 
 ## Features
 
-- Kawaii Animals
+- Kawaii Animals!
   - Ducc
 - Fun Commands!
 - Hypixel API
@@ -60,9 +60,9 @@
 ## How do I add it to my server?
 
 - [Full Permissions](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)
-- To use Code: `cd Desktop` `python -m pip install -r requirements.txt`
-
-- Alternative Solution (Windows) open `config.json` with a text file editor and just edit the token and/or the other variables. Close text editor and run `run.bat`
+- To use Code: 
+  - `cd Desktop` `python -m pip install -r requirements.txt`
+  - open `config.json` with a text file editor and just edit the token and/or the other variables. Close text editor and run `run.bat`
 
 ## I found a bug/error! What do I do?
 
