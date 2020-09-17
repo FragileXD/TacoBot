@@ -166,7 +166,7 @@ class Moderation(commands.Cog):
             await ctx.send(e)
 
     @commands.command()
-    @commands._only()
+    @commands_guild_only()
     @commands.max_concurrency(1, per=commands.BucketType.user)
     @permissions.has_permissions(ban_members=True)
     async def massban(self, ctx, reason: ActionReason, *members: MemberID):
