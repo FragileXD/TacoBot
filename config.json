@@ -1,10 +1,11 @@
 {
-  "token": "***REMOVED***",
-  "ownerid": 389388825274613771,
-  "client_id": "***REMOVED***",
-  "client_secret": "***REMOVED***",
-  "user_agent": "User Agent",
-  "username": "TacozRedditBot",
-  "password": "***REMOVED***",
-  "apikey": "***REMOVED***"
+    "token": "***REMOVED***",
+    "ownerid": 389388825274613771,
+    "client_id": "***REMOVED***",
+    "client_secret": "***REMOVED***",
+    "user_agent": "User Agent",
+    "username": "TacozRedditBot",
+    "password": "***REMOVED***",
+    "apikey": "***REMOVED***",
+    "mongoclient": "mongodb+srv://Tacoz:***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz>?retryWrites=true&w=majority"
 }
