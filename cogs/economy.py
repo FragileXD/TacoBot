@@ -8,12 +8,15 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
+
+config = getJSON("config.json")
 
 footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
 
 
-class Economy(commands.Cog):
+class Name(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -25,4 +28,4 @@ class Economy(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Economy(bot))
+    bot.add_cog(Name(bot))
