@@ -37,7 +37,7 @@ uritemplate==3.0.1
 urllib3==1.25.10
 websocket-client==0.57.0
 websockets==8.1
-youtube-dl==
+youtube-dl
 asyncio
 pytz
 timeago==1.0.14
