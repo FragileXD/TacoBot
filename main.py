@@ -24,7 +24,6 @@ PREFIX = (".", ">")
 TOKEN = config.token
 OWNERID = config.ownerid
 footer = "『 TacoBot ✦ Tacoz 』"
-
 client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=True)
 
 
