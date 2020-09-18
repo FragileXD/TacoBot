@@ -35,6 +35,10 @@ class Info(commands.Cog):
             )
             help_embed.add_field(name=":smile: Fun", value=f"`{ctx.prefix}help fun`")
             help_embed.add_field(
+                name=":money_mouth: Economy",
+                value=f"`{ctx.prefix}help economy`",
+            )
+            help_embed.add_field(
                 name=":question: Info", value=f"`{ctx.prefix}help info`"
             )
             help_embed.add_field(
@@ -68,14 +72,7 @@ class Info(commands.Cog):
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
-            }
-            categoryAlias = {
-                "mod": "moderator",
-                "moderation": "moderator",
-                "moderator": "mod",
-                "util": "utility",
-                "utils": "utility",
-                "utilities": "utility",
+                "Economy": ":money_mouth:",
             }
 
             cogs = [c for c in self.bot.cogs.keys()]
