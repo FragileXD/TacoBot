@@ -30,6 +30,7 @@ class Economy(commands.Cog):
         name="start", description="Start your economical adventure!", aliases=["create"]
     )
     async def start(self, ctx):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)))
         try:
             db = cluster["coins"]
             collection = db["coins"]
@@ -43,12 +44,14 @@ class Economy(commands.Cog):
             embed1 = discord.Embed(
                 title=":white_check_mark: Success!",
                 description=f"{ctx.author.mention} your have been registered!",
+                color=color,
             )
             await ctx.send(embed=embed1)
         except pymongo.errors.DuplicateKeyError:
             embed1 = discord.Embed(
                 title="Error!",
                 description=f"Sorry {ctx.author.mention} your already registered!",
+                color=color,
             )
             await ctx.send(embed=embed1)
             return
@@ -59,7 +62,24 @@ class Economy(commands.Cog):
         aliases=["balance", "bank", "purse"],
     )
     async def bal(self, ctx):
-        pass
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)))
+        db = cluster["Coins"]
+        collection = db["Coins"]
+        query = {"_id": ctx.author.id}
+        user = collection.find(query)
+        for result in user:
+            userbal = result["bank"]
+            maxbank = result["maxbank"]
+            purse = result["purse"]
+            embed1 = discord.Embed(
+                title=f"{ctx.author}'s balance",
+                color=color,
+            )
+            embed1.add_field(title="Purse:", description=purse, inline=True)
+            embed1.add_field(
+                title="Bank:", description=f"{bank}/{maxbank}", inline=True
+            )
+            await ctx.send(embed=embed1)
 
 
 def setup(bot):
