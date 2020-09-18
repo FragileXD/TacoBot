@@ -7,5 +7,5 @@
     "username": "TacozRedditBot",
     "password": "***REMOVED***",
     "apikey": "***REMOVED***",
-    "mongoclient": "mongodb+srv://Tacoz:***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz>?retryWrites=true&w=majority"
+    "mongoclient": "***REMOVED***"
 }
