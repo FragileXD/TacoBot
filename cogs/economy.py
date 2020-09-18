@@ -63,8 +63,8 @@ class Economy(commands.Cog):
     )
     async def bal(self, ctx):
         color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
-        db = cluster["Coins"]
-        collection = db["Coins"]
+        db = cluster["coins"]
+        collection = db["coins"]
         query = {"_id": ctx.author.id}
         user = collection.find(query)
         for result in user:
@@ -75,9 +75,9 @@ class Economy(commands.Cog):
                 title=f"{ctx.author}'s balance",
                 color=color,
             )
-            embed1.add_field(title="Purse:", description=purse, inline=True)
+            embed1.add_field(name="Purse:", value=purse, inline=True)
             embed1.add_field(
-                title="Bank:", description=f"{userbal}/{maxbank}", inline=True
+                name="Bank:", value=f"{userbal}/{maxbank}", inline=True
             )
             await ctx.send(embed=embed1)
 
