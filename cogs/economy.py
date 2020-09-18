@@ -71,14 +71,16 @@ class Economy(commands.Cog):
             userbal = result["bank"]
             maxbank = result["maxbank"]
             purse = result["purse"]
+            if userbal > maxbank:
+                collection.update_one(
+                    {"_id": ctx.author.id}, {"$set": {"bank": userbal}}
+                )
             embed1 = discord.Embed(
                 title=f"{ctx.author}'s balance",
                 color=color,
             )
             embed1.add_field(name="Purse:", value=purse, inline=True)
-            embed1.add_field(
-                name="Bank:", value=f"{userbal}/{maxbank}", inline=True
-            )
+            embed1.add_field(name="Bank:", value=f"{userbal}/{maxbank}", inline=True)
             await ctx.send(embed=embed1)
 
 
