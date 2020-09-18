@@ -40,7 +40,10 @@ class Economy(commands.Cog):
                 "purse": 0,
             }
             collection.insert_one(post)
-            embed1 = discord.Embed(title=":white_check_mark: Success!", description=f"{ctx.author.mention} your have been registered!",)
+            embed1 = discord.Embed(
+                title=":white_check_mark: Success!",
+                description=f"{ctx.author.mention} your have been registered!",
+            )
             await ctx.send(embed=embed1)
         except pymongo.errors.DuplicateKeyError:
             embed1 = discord.Embed(
@@ -49,6 +52,14 @@ class Economy(commands.Cog):
             )
             await ctx.send(embed=embed1)
             return
+
+    @commands.command(
+        name="bal",
+        description="View your balance",
+        aliases=["balance", "bank", "purse"],
+    )
+    async def bal(self, ctx):
+        pass
 
 
 def setup(bot):
