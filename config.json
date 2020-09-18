@@ -7,5 +7,5 @@
     "username": "***REMOVED***",
     "password": "***REMOVED***",
     "apikey": "***REMOVED***",
-    "mongoclient": "mongodb+srv://***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz>?retryWrites=true&w=majority"
+    "mongoclient": "mongodb+srv://***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz?retryWrites=true&w=majority"
 }
