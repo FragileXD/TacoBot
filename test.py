@@ -10,12 +10,9 @@ collection = db["coins"]
 print(db)
 post = {
     "_id": "testid",
-    "coins": 0,
-    "cookie": 0,
-    "apple": 0,
-    "choc": 0,
-    "poop": 0,
-    "afk": "No Status Set",
+    "bank": 0,
+    "maxbank": 100,
+    "purse": 0,
 }
 collection.insert_one(post)
 print("completed")
