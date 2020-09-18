@@ -29,6 +29,7 @@ class Economy(commands.Cog):
     @commands.command(
         name="start", description="Start your economical adventure!", aliases=["create"]
     )
+    @commands.cooldown(1, 60, commands.BucketType.user)
     async def start(self, ctx):
         color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         try:
@@ -61,6 +62,7 @@ class Economy(commands.Cog):
         description="View your balance",
         aliases=["balance", "bank", "purse"],
     )
+    @commands.cooldown(1, 2, commands.BucketType.user)
     async def bal(self, ctx):
         color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         db = cluster["coins"]
@@ -82,6 +84,34 @@ class Economy(commands.Cog):
             embed1.add_field(name="Purse:", value=purse, inline=True)
             embed1.add_field(name="Bank:", value=f"{userbal}/{maxbank}", inline=True)
             await ctx.send(embed=embed1)
+
+    @commands.command(
+        name="deposit",
+        description="Deposit money into your bank",
+        aliases=["dep"],
+    )
+    @commands.cooldown(1, 20, commands.BucketType.user)
+    async def deposit(self, ctx):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+        db = cluster["coins"]
+        collection = db["coins"]
+        query = {"_id": ctx.author.id}
+        user = collection.find(query)
+
+        for result in user:
+            userbal = result["bank"]
+            maxbank = result["maxbank"]
+            purse = result["purse"]
+            if userbal > maxbank:
+                collection.update_one(
+                    {"_id": ctx.author.id}, {"$set": {"bank": userbal}}
+                )
+
+            if userbal < 0:
+                await ctx.send("you are in debt, how is this even possible???")
+            else:
+                if maxbank >= bank:
+                    deposit = maxbank - bank
 
 
 def setup(bot):
