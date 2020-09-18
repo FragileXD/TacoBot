@@ -52,7 +52,7 @@ class Info(commands.Cog):
                 name=":dog: Animals", value=f"`{ctx.prefix}help animals`"
             )
             help_embed.add_field(
-                name="<:minecrafticon0:749613029473255494> Minecraft",
+                name="<:4441_MCdiamondpickaxe:664097057463599115> Minecraft",
                 value=f"`{ctx.prefix}help minecraft`",
             )
             help_embed.add_field(
