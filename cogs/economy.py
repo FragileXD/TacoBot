@@ -15,6 +15,8 @@ from utils.data import getJSON
 config = getJSON("config.json")
 
 cluster = MongoClient(config.mongoclient)
+db = cluster["coins"]
+collection = db["coins"]
 
 footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
