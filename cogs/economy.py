@@ -30,7 +30,7 @@ class Economy(commands.Cog):
         name="start", description="Start your economical adventure!", aliases=["create"]
     )
     async def start(self, ctx):
-        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)))
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         try:
             db = cluster["coins"]
             collection = db["coins"]
@@ -62,7 +62,7 @@ class Economy(commands.Cog):
         aliases=["balance", "bank", "purse"],
     )
     async def bal(self, ctx):
-        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)))
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         db = cluster["Coins"]
         collection = db["Coins"]
         query = {"_id": ctx.author.id}
@@ -77,7 +77,7 @@ class Economy(commands.Cog):
             )
             embed1.add_field(title="Purse:", description=purse, inline=True)
             embed1.add_field(
-                title="Bank:", description=f"{bank}/{maxbank}", inline=True
+                title="Bank:", description=f"{userbal}/{maxbank}", inline=True
             )
             await ctx.send(embed=embed1)
 
