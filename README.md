@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="images/banner.png" alt="RoxBot" />
+  <img src="images/banner.png" alt="TacoBot" />
 </h1>
 
 <p align="center">
@@ -60,7 +60,7 @@
 ## How do I add it to my server?
 
 - [Full Permissions](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)
-- To use Code: 
+- To use Code:
   - `cd Desktop` `python -m pip install -r requirements.txt`
   - open `config.json` with a text file editor and just edit the token and/or the other variables. Close text editor and run `run.bat`
 
