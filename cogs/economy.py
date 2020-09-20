@@ -26,6 +26,34 @@ class Economy(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    def balancecheck(self, userid):
+        db = cluster["coins"]
+        collection = db["coins"]
+        query = {"_id": ctx.author.id}
+        user = collection.find(query)
+        try:
+            post = {
+                "_id": userid,
+                "bank": 0,
+                "maxbank": 100,
+                "purse": 0,
+            }
+            collection.insert_one(post)
+        except pymongo.errors.DuplicateKeyError:
+            for result in user:
+                bank = result["bank"]
+                maxbank = result["maxbank"]
+                purse = result["purse"]
+                withdraw = maxbank - bank
+                if bank > maxbank:
+                    collection.update_one(
+                        {"_id": ctx.author.id}, {"$set": {"bank": userbal}}
+                    )
+                    collection.update_one(
+                        {"_id": ctx.author.id}, {"$set": {"purse": purse + withdraw}}
+                    )
+                return await ctx.send(f"Withdrawn ${withdraw}")
+
     @commands.command(
         name="start", description="Start your economical adventure!", aliases=["create"]
     )
@@ -70,13 +98,12 @@ class Economy(commands.Cog):
         query = {"_id": ctx.author.id}
         user = collection.find(query)
         for result in user:
-            userbal = result["bank"]
+            bank = result["bank"]
             maxbank = result["maxbank"]
             purse = result["purse"]
-            if userbal > maxbank:
-                collection.update_one(
-                    {"_id": ctx.author.id}, {"$set": {"bank": userbal}}
-                )
+
+            balancecheck(self, ctx.author.id)
+
             embed1 = discord.Embed(
                 title=f"{ctx.author}'s balance",
                 color=color,
@@ -99,15 +126,15 @@ class Economy(commands.Cog):
         user = collection.find(query)
 
         for result in user:
-            userbal = result["bank"]
+            bank = result["bank"]
             maxbank = result["maxbank"]
             purse = result["purse"]
-            if userbal > maxbank:
+            if bank > maxbank:
                 collection.update_one(
                     {"_id": ctx.author.id}, {"$set": {"bank": userbal}}
                 )
 
-            if userbal < 0:
+            if bank < 0:
                 await ctx.send("you are in debt, how is this even possible???")
             else:
                 if maxbank >= bank:
