@@ -177,7 +177,18 @@ class Economy(commands.Cog):
                                 {"$set": {"purse": purse - deposit}},
                             )
                     else:
-                        await ctx.send("wtf are you doing??? that is an invalid input")
+                        deposit = maxbank - bank
+                        if purse < deposit:
+                            await ctx.send("you don't have enough money lmao")
+                        else:
+                            collection.update_one(
+                                {"_id": ctx.author.id},
+                                {"$set": {"bank": bank + deposit}},
+                            )
+                            collection.update_one(
+                                {"_id": ctx.author.id},
+                                {"$set": {"purse": purse - deposit}},
+                            )
                 except ValueError:
                     await ctx.send("input a number or just say ``all`` dummy")
 
