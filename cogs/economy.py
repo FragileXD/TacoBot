@@ -155,6 +155,7 @@ class Economy(commands.Cog):
                         collection.update_one(
                             {"_id": ctx.author.id}, {"$set": {"purse": purse - deposit}}
                         )
+                        await ctx.send(f"You deposited {deposit}")
                     elif amount.lower() == "all":
                         if maxbank - bank > purse:
                             deposit = purse
@@ -166,6 +167,7 @@ class Economy(commands.Cog):
                                 {"_id": ctx.author.id},
                                 {"$set": {"purse": purse - deposit}},
                             )
+                            await ctx.send(f"You deposited {deposit}")
                         elif purse >= maxbank - bank:
                             deposit = maxbank - bank
                             collection.update_one(
@@ -176,6 +178,7 @@ class Economy(commands.Cog):
                                 {"_id": ctx.author.id},
                                 {"$set": {"purse": purse - deposit}},
                             )
+                            await ctx.send(f"You deposited {deposit}")
                     else:
                         deposit = maxbank - bank
                         if purse < deposit:
@@ -189,6 +192,7 @@ class Economy(commands.Cog):
                                 {"_id": ctx.author.id},
                                 {"$set": {"purse": purse - deposit}},
                             )
+                            await ctx.send(f"You deposited {deposit}")
                 except ValueError:
                     await ctx.send("input a number or just say ``all`` dummy")
 
