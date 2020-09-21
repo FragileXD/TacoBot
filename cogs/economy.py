@@ -206,7 +206,7 @@ class Economy(commands.Cog):
 
         for result in user:
             bank = result["bank"]
-            maxbank = result["maxbank"]
+            #maxbank = result["maxbank"]
             purse = result["purse"]
 
             balancecheck(ctx.author.id)
