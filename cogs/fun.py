@@ -43,6 +43,7 @@ class Fun(commands.Cog):
     @commands.command(aliases=["ratedank"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def dankrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -62,7 +63,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:monkaS:664097071950856206> Dank r8 Machine",
                 description=f"{message2} is so insane and is {aaaaa*1000}% dank (epic) <:monkaS:664097071950856206>",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -75,13 +76,14 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"{message2} is {aaaaa}% dank",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
     @dankrate.error
     async def dankrate_error(self, ctx, error):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
@@ -97,7 +99,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"you are {aaaaa}% dank",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -107,6 +109,7 @@ class Fun(commands.Cog):
     @commands.command(aliases=["epicgamer", "rateepicgamer"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def epicgamerrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -123,7 +126,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                 description=f"{message} is so insane and is {aaaaa*1000}% epic gamer <:stevedab:745555779666444319>",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -136,7 +139,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"{message} is {aaaaa}% epic gamer 😎",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
@@ -144,6 +147,7 @@ class Fun(commands.Cog):
     @epicgamerrate.error
     async def epicgamerrate_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
             print("{} issued .epicgamerrate 😎".format(message_author))
@@ -158,7 +162,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"you are {aaaaa}% epic gamer 😎",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -168,6 +172,8 @@ class Fun(commands.Cog):
     @commands.command(aliases=["thot"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def thotrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -184,13 +190,14 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:stevedab:745555779666444319> thot r8 Machine",
                 description=f"{message} is {aaaaa}% thot",
-                color=3066993,
+                color=color,
             )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
     @thotrate.error
     async def thotrate_error(self, ctx, error):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
@@ -206,7 +213,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319>thot r8 Machine",
                     description=f"you are {aaaaa}% thot",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -218,6 +225,8 @@ class Fun(commands.Cog):
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
         aaaaa = random.randint(1, 101)
         print("{} issued .bigbrainrate 🧠".format(message_author))
@@ -232,7 +241,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
                 description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :brain:",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -245,7 +254,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
                     description=f"{message} is {aaaaa}% big brain",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
@@ -255,6 +264,9 @@ class Fun(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
+
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
             print("{} issued .bigbrainrate 🧠".format(message_author))
 
             if aaaaa == 101:
@@ -267,7 +279,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
                     description=f"you are {aaaaa}% big brain",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -279,6 +291,8 @@ class Fun(commands.Cog):
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
         print("{} issued .8ball 🎱".format(message_author))
 
@@ -325,7 +339,7 @@ class Fun(commands.Cog):
         embedVar = discord.Embed(
             title="the magic 8ball",
             description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
-            color=3066993,
+            color=color,
         )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
