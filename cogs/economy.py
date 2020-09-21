@@ -134,7 +134,10 @@ class Economy(commands.Cog):
 
             try:
                 if amount.lower() == "all":
-                    deposit = purse
+                    if maxbank - bank >= purse:
+                        deposit = purse
+                    elif maxbank - bank > purse:
+                        deposit = maxbank
                     collection.update_one(
                         {"_id": ctx.author.id},
                         {"$set": {"bank": deposit}},
