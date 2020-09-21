@@ -203,6 +203,73 @@ class Economy(commands.Cog):
         else:
             raise (error)
 
+    @commands.command(
+        name="withdraw",
+        description="Withdraw money into your bank",
+        aliases=["with"],
+    )
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def withdraw(self, ctx, amount: str):
+        # color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+        db = cluster["coins"]
+        collection = db["coins"]
+        query = {"_id": ctx.author.id}
+        user = collection.find(query)
+
+        balancecheck(ctx.author.id)
+
+        for result in user:
+            bank = result["bank"]
+            maxbank = result["maxbank"]
+            purse = result["purse"]
+            if bank > maxbank:
+                collection.update_one({"_id": ctx.author.id}, {"$set": {"bank": bank}})
+
+            if bank < 0 or purse < 0:
+                await ctx.send("you are in debt, how is this even possible???")
+                if purse < 0 and bank > 0 and 0 - bank > purse:
+                    await ctx.send(
+                        "since your purse is negative, i will put it back to 0 by taking away funds from your bank. this is what you get for cheating the system lmao"
+                    )
+                    withdraw = -purse
+                    collection.update_one(
+                        {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
+                    )
+                    collection.update_one(
+                        {"_id": ctx.author.id}, {"$set": {"purse": purse + withdraw}}
+                    )
+            else:
+                try:
+                    if amount.lower() == "all":
+                        withdraw = bank
+                        collection.update_one(
+                            {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
+                        )
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"purse": purse + withdraw}},
+                        )
+                    elif int(amount) <= bank:
+                        withdraw = amount
+                        collection.update_one(
+                            {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
+                        )
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"purse": purse + withdraw}},
+                        )
+                    else:
+                        await ctx.send("you dont have the money lmao")
+                except ValueError:
+                    await ctx.send("input a number or just say ``all`` dummy")
+
+    @deposit.error
+    async def deposit_error(self, ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Please Input something after the command")
+        else:
+            raise (error)
+
 
 def setup(bot):
     bot.add_cog(Economy(bot))
