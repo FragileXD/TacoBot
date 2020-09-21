@@ -28,6 +28,9 @@ class Hypixel(commands.Cog):
     @commands.command(aliases=["generalhelp"])
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def general(self, ctx, *, message):
+
+        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={message.lower()}"
         ).json()
@@ -117,7 +120,7 @@ class Hypixel(commands.Cog):
 
         if data["success"] == False:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=13381166
+                title=":no_entry_sign: Something went wrong", color=colour
             )
             error = data["cause"]
             embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
@@ -125,7 +128,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif data["player"] == None:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=13381166
+                title=":no_entry_sign: Something went wrong", color=colour
             )
             error = data["cause"]
             embedVar.add_field(
@@ -137,7 +140,7 @@ class Hypixel(commands.Cog):
             embedVar = discord.Embed(
                 title=f"{full}",
                 url=f"http://hypixel.net/player/{message}",
-                color=15105570,
+                color=colour,
             )
             embedVar.set_author(name="Hypixel Stats - General [BETA]")
             embedVar.add_field(name="UUID", value=f"``{uuid}``", inline=True)
@@ -182,6 +185,9 @@ class Hypixel(commands.Cog):
     @commands.command(aliases=["watchdog", "banstats", "hypixelban"])
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def watchdogstats(self, ctx):
+
+        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
         watchdog = requests.get(
             f"https://api.hypixel.net/watchdogstats?key={apikey}"
         ).json()
@@ -190,7 +196,7 @@ class Hypixel(commands.Cog):
         watchdogdaily = watchdog["watchdog_rollingDaily"]
         staffdaily = watchdog["staff_rollingDaily"]
         stafftotal = watchdog["staff_total"]
-        embedVar = discord.Embed(title=f"Hypixel Ban Stats", color=15105570)
+        embedVar = discord.Embed(title=f"Hypixel Ban Stats", color=colour)
         embedVar.add_field(
             name="Watchdog Bans",
             value=f"Last Minute - `{lastminute}`\nToday - `{watchdogdaily}`\nTotal - `{watchdogtotal}`",
@@ -213,6 +219,9 @@ class Hypixel(commands.Cog):
     )
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def bedwars(self, ctx, msg: str):
+
+        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
         msg = msg.lower()
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={msg}"
@@ -657,7 +666,7 @@ class Hypixel(commands.Cog):
 
         if data["success"] == False:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=13381166
+                title=":no_entry_sign: Something went wrong", color=colour
             )
             error = data["cause"]
             embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
@@ -665,7 +674,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif data["player"] == None:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=13381166
+                title=":no_entry_sign: Something went wrong", color=colour
             )
             error = data["cause"]
             embedVar.add_field(
@@ -680,7 +689,7 @@ class Hypixel(commands.Cog):
 
             embedVar = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             embedVar.set_author(
@@ -795,7 +804,7 @@ class Hypixel(commands.Cog):
 
             solo = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             solo.set_author(
@@ -902,7 +911,7 @@ class Hypixel(commands.Cog):
 
             doubles = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             doubles.set_author(
@@ -1017,7 +1026,7 @@ class Hypixel(commands.Cog):
 
             threes = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             threes.set_author(
@@ -1128,7 +1137,7 @@ class Hypixel(commands.Cog):
 
             fours = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours.set_author(
@@ -1237,7 +1246,7 @@ class Hypixel(commands.Cog):
 
             fours2 = discord.Embed(
                 title=f"{full}",
-                color=15105570,
+                color=colour,
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours2.set_author(
@@ -1464,6 +1473,7 @@ class Hypixel(commands.Cog):
     )
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def skywars(self, ctx, msg: str):
+        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         msg = msg.lower()
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={msg}"
@@ -1528,7 +1538,7 @@ class Hypixel(commands.Cog):
 
             if data["success"] == False:
                 embedVar = discord.Embed(
-                    title=":no_entry_sign: Something went wrong", color=13381166
+                    title=":no_entry_sign: Something went wrong", color=colour
                 )
                 error = data["cause"]
                 embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
@@ -1536,7 +1546,7 @@ class Hypixel(commands.Cog):
                 await ctx.send(embed=embedVar)
             elif data["player"] == None:
                 embedVar = discord.Embed(
-                    title=":no_entry_sign: Something went wrong", color=13381166
+                    title=":no_entry_sign: Something went wrong", color=colour
                 )
                 error = data["cause"]
                 embedVar.add_field(
@@ -1552,7 +1562,7 @@ class Hypixel(commands.Cog):
                 uuid = data["player"]["uuid"]
                 embedVar = discord.Embed(
                     title=f"{full}",
-                    color=15105570,
+                    color=colour,
                     url=f"https://hypixel.net/player/{msg}",
                 )
                 embedVar.set_author(
