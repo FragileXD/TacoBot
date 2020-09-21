@@ -249,8 +249,9 @@ class Economy(commands.Cog):
                             {"_id": ctx.author.id},
                             {"$set": {"purse": purse + withdraw}},
                         )
+                        await ctx.send("Withdrawn {withdraw}.")
                     elif int(amount) <= bank:
-                        withdraw = amount
+                        withdraw = int(amount)
                         collection.update_one(
                             {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
                         )
@@ -258,6 +259,7 @@ class Economy(commands.Cog):
                             {"_id": ctx.author.id},
                             {"$set": {"purse": purse + withdraw}},
                         )
+                        await ctx.send("Withdrawn {withdraw}.")
                     else:
                         await ctx.send("you dont have the money lmao")
                 except ValueError:
