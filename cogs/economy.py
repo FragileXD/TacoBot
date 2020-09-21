@@ -166,7 +166,7 @@ class Economy(commands.Cog):
                         {"_id": ctx.author.id},
                         {"$set": {"purse": purse - deposit}},
                     )
-                    await ctx.send(f"You deposited {deposit}")
+                    await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
                 else:
                     deposit = maxbank - bank
                     if purse < deposit:
@@ -180,7 +180,7 @@ class Economy(commands.Cog):
                             {"_id": ctx.author.id},
                             {"$set": {"purse": purse - deposit}},
                         )
-                        await ctx.send(f"You deposited {deposit}")
+                        await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
 
