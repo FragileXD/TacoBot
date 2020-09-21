@@ -147,7 +147,18 @@ class Economy(commands.Cog):
                     )
             else:
                 try:
-                    if maxbank >= bank + int(amount):
+                    if amount.lower() == "all":
+                        deposit = purse
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"bank": deposit}},
+                        )
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"purse": purse - deposit}},
+                        )
+                        await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
+                    elif maxbank >= bank + int(amount):
                         deposit = int(amount)
                         collection.update_one(
                             {"_id": ctx.author.id}, {"$set": {"bank": bank + deposit}}
@@ -156,29 +167,17 @@ class Economy(commands.Cog):
                             {"_id": ctx.author.id}, {"$set": {"purse": purse - deposit}}
                         )
                         await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
-                    elif amount.lower() == "all":
-                        if maxbank - bank < purse:
-                            deposit = purse
-                            collection.update_one(
-                                {"_id": ctx.author.id},
-                                {"$set": {"bank": bank + deposit}},
-                            )
-                            collection.update_one(
-                                {"_id": ctx.author.id},
-                                {"$set": {"purse": purse - deposit}},
-                            )
-                            await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
-                        elif purse >= maxbank - bank:
-                            deposit = maxbank - bank
-                            collection.update_one(
-                                {"_id": ctx.author.id},
-                                {"$set": {"bank": bank + deposit}},
-                            )
-                            collection.update_one(
-                                {"_id": ctx.author.id},
-                                {"$set": {"purse": purse - deposit}},
-                            )
-                            await ctx.send(f"You deposited {deposit}")
+                    elif purse >= maxbank - bank:
+                        deposit = maxbank - bank
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"bank": bank + deposit}},
+                        )
+                        collection.update_one(
+                            {"_id": ctx.author.id},
+                            {"$set": {"purse": purse - deposit}},
+                        )
+                        await ctx.send(f"You deposited {deposit}")
                     else:
                         deposit = maxbank - bank
                         if purse < deposit:
@@ -216,54 +215,38 @@ class Economy(commands.Cog):
         query = {"_id": ctx.author.id}
         user = collection.find(query)
 
-        balancecheck(ctx.author.id)
-
         for result in user:
             bank = result["bank"]
             maxbank = result["maxbank"]
             purse = result["purse"]
-            if bank > maxbank:
-                collection.update_one({"_id": ctx.author.id}, {"$set": {"bank": bank}})
 
-            if bank < 0 or purse < 0:
-                await ctx.send("you are in debt, how is this even possible???")
-                if purse < 0 and bank > 0 and 0 - bank > purse:
-                    await ctx.send(
-                        "since your purse is negative, i will put it back to 0 by taking away funds from your bank. this is what you get for cheating the system lmao"
-                    )
-                    withdraw = -purse
+            balancecheck(ctx.author.id)
+
+            try:
+                if amount.lower() == "all":
+                    withdraw = bank
                     collection.update_one(
                         {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
                     )
                     collection.update_one(
-                        {"_id": ctx.author.id}, {"$set": {"purse": purse + withdraw}}
+                        {"_id": ctx.author.id},
+                        {"$set": {"purse": purse + withdraw}},
                     )
-            else:
-                try:
-                    if amount.lower() == "all":
-                        withdraw = bank
-                        collection.update_one(
-                            {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
-                        )
-                        collection.update_one(
-                            {"_id": ctx.author.id},
-                            {"$set": {"purse": purse + withdraw}},
-                        )
-                        await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
-                    elif int(amount) <= bank:
-                        withdraw = int(amount)
-                        collection.update_one(
-                            {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
-                        )
-                        collection.update_one(
-                            {"_id": ctx.author.id},
-                            {"$set": {f"purse": purse + withdraw}},
-                        )
-                        await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
-                    else:
-                        await ctx.send("you dont have the money lmao")
-                except ValueError:
-                    await ctx.send("input a number or just say ``all`` dummy")
+                    await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
+                elif int(amount) <= bank:
+                    withdraw = int(amount)
+                    collection.update_one(
+                        {"_id": ctx.author.id}, {"$set": {"bank": bank - withdraw}}
+                    )
+                    collection.update_one(
+                        {"_id": ctx.author.id},
+                        {"$set": {f"purse": purse + withdraw}},
+                    )
+                    await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
+                else:
+                    await ctx.send("you dont have the money lmao")
+            except ValueError:
+                await ctx.send("input a number or just say ``all`` dummy")
 
     @withdraw.error
     async def withdraw_error(self, ctx, error):
