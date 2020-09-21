@@ -249,7 +249,7 @@ class Economy(commands.Cog):
                             {"_id": ctx.author.id},
                             {"$set": {"purse": purse + withdraw}},
                         )
-                        await ctx.send("Withdrawn {withdraw}.")
+                        await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
                     elif int(amount) <= bank:
                         withdraw = int(amount)
                         collection.update_one(
@@ -257,16 +257,16 @@ class Economy(commands.Cog):
                         )
                         collection.update_one(
                             {"_id": ctx.author.id},
-                            {"$set": {"purse": purse + withdraw}},
+                            {"$set": {f"purse": purse + withdraw}},
                         )
-                        await ctx.send("Withdrawn {withdraw}.")
+                        await ctx.send("{ctx.author.mention} Withdrawn ${withdraw}.")
                     else:
                         await ctx.send("you dont have the money lmao")
                 except ValueError:
                     await ctx.send("input a number or just say ``all`` dummy")
 
-    @deposit.error
-    async def deposit_error(self, ctx, error):
+    @withdraw.error
+    async def withdraw_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             await ctx.send("Please Input something after the command")
         else:
