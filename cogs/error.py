@@ -1,6 +1,5 @@
 import discord
 import traceback
-from aiopypixel.exceptions.exceptions import *
 from concurrent.futures._base import TimeoutError
 from discord.ext import commands
 from random import choice
@@ -109,42 +108,6 @@ class Errors(commands.Cog):
                 )
         except Exception:
             pass
-
-        if isinstance(e.original, HypixelAPIError):
-            self.bot.get_cog("Cache").failed += 1
-            await self.send(
-                ctx,
-                "For some reason, the Hypixel API is not working properly. Please try again later.",
-            )
-
-        if isinstance(e.original, RateLimitError):
-            await self.send(
-                ctx,
-                f"Uh oh, something took way too long, try again! If this message persists, "
-                f"please contact us on the [support server](https://discord.gg/{self.bot.guild_invite_code}), thank you!",
-            )
-            return
-
-        if isinstance(e, InvalidPlayerError):
-            await self.send(ctx, f'Player "`{e.player}`" is invalid or doesn\'t exist!')
-            return
-
-        if isinstance(e.original, InvalidPlayerError):
-            await self.send(
-                ctx, f'Player "`{e.original.player}`" is invalid or doesn\'t exist!'
-            )
-            return
-
-        if isinstance(e.original, InvalidGuildError):
-            await self.send(ctx, "That guild is invalid or doesn't exist!")
-            return
-
-        if isinstance(e.original, NullPlayerError):
-            await self.send(
-                ctx,
-                "That player hasn't joined Hypixel before! (They don't have any stats!)",
-            )
-            return
 
 
 def setup(bot):
