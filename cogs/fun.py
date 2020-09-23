@@ -332,6 +332,7 @@ class Fun(commands.Cog):
             "You'll be the judge",
             "no... (╯°□°）╯︵ ┻━┻",
             "no... baka",
+            "red is the impostor! wait... this is the 8ball command?!??!?!",
         ]
 
         aaaaa = random.choice(choices)
