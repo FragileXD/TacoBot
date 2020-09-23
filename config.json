@@ -1,11 +1,11 @@
 {
-    "token": "***REMOVED***",
+    "token": "token",
     "ownerid": ***REMOVED***,
-    "client_id": "***REMOVED***",
-    "client_secret": "***REMOVED***",
+    "client_id": "reddit client id",
+    "client_secret": "reddit client secret",
     "user_agent": "User Agent",
     "username": "***REMOVED***",
-    "password": "***REMOVED***",
-    "apikey": "***REMOVED***",
-    "mongoclient": "mongodb+srv://***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz?retryWrites=true&w=majority"
+    "password": "password",
+    "apikey": "apikey",
+    "mongoclient": "mongoclient"
 }
