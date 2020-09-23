@@ -18,6 +18,7 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
     @commands.command(
         name="randomroulette",
         description="Pings a random user in the server!",
