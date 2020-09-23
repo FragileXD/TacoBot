@@ -206,7 +206,7 @@ class Economy(commands.Cog):
 
         for result in user:
             bank = result["bank"]
-            #maxbank = result["maxbank"]
+            # maxbank = result["maxbank"]
             purse = result["purse"]
 
             balancecheck(ctx.author.id)
@@ -243,6 +243,31 @@ class Economy(commands.Cog):
             await ctx.send("Please Input something after the command")
         else:
             raise (error)
+
+    @commands.command(name="beg", description="Beg for money", aliases=["begger"])
+    @commands.cooldown(1, 60, commands.BucketType.user)
+    async def beg(self, ctx):
+        # color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+        db = cluster["coins"]
+        collection = db["coins"]
+        query = {"_id": ctx.author.id}
+        user = collection.find(query)
+        people = ["Donald Trump", "Obama", "TacoBot", "Tacoz"]
+
+        for result in user:
+            purse = result["purse"]
+
+            balancecheck(ctx.author.id)
+
+            income = random.randint(10, 250)
+
+            collection.update_one(
+                {"_id": ctx.author.id},
+                {"$set": {"purse": purse + income}},
+            )
+            await ctx.send(
+                f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+            )
 
 
 def setup(bot):
