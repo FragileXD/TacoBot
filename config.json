@@ -1,11 +1,11 @@
 {
-    "token": "token",
+    "token": "***REMOVED***",
     "ownerid": 389388825274613771,
-    "client_id": "reddit client id",
-    "client_secret": "reddit client secret",
+    "client_id": "***REMOVED***",
+    "client_secret": "***REMOVED***",
     "user_agent": "User Agent",
     "username": "***REMOVED***",
-    "password": "password",
-    "apikey": "apikey",
-    "mongoclient": "mongoclient"
+    "password": "***REMOVED***",
+    "apikey": "***REMOVED***",
+    "mongoclient": "***REMOVED***"
 }
