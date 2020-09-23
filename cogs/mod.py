@@ -23,7 +23,7 @@ def get_config():
 def is_staff(ctx):
     if isinstance(ctx.author, discord.Member):
         return get_config()["staff_role"] in [role.id for role in ctx.author.roles]
-    return ctx.author.id == ***REMOVED***
+    return ctx.author.id == 389388825274613771
 
 
 class MemberID(commands.Converter):

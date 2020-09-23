@@ -59,7 +59,7 @@ class Fun(commands.Cog):
             or message == "tacoz"
             or message == "tacobot"
             or message == "<@!566193825874182164>"
-            or message == "<@!***REMOVED***>"
+            or message == "<@!389388825274613771>"
         ):
             embedVar = discord.Embed(
                 title="<:monkaS:664097071950856206> Dank r8 Machine",
@@ -122,7 +122,7 @@ class Fun(commands.Cog):
             or message == "tacoz"
             or message == "tacobot"
             or message == "<@!566193825874182164>"
-            or message == "<@!***REMOVED***>"
+            or message == "<@!389388825274613771>"
         ):
             embedVar = discord.Embed(
                 title="<:stevedab:745555779666444319> epic gamer r8 Machine",
@@ -237,7 +237,7 @@ class Fun(commands.Cog):
             or message == "tacoz"
             or message == "tacobot"
             or message == "<@!566193825874182164>"
-            or message == "<@!***REMOVED***>"
+            or message == "<@!389388825274613771>"
         ):
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
