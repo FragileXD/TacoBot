@@ -43,9 +43,6 @@ class Errors(commands.Cog):
             return
 
         if isinstance(e, commands.CommandOnCooldown):
-            if await self.bot.get_cog("Database").is_premium(ctx.author.id):
-                e.retry_after -= (2 / 5) * e.cooldown.per
-
             if round(e.retry_after, 2) <= 0:
                 await ctx.reinvoke()
 
