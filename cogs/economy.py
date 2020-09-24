@@ -252,7 +252,16 @@ class Economy(commands.Cog):
         collection = db["coins"]
         query = {"_id": ctx.author.id}
         user = collection.find(query)
-        people = ["Donald Trump", "Obama", "TacoBot", "Tacoz"]
+        people = [
+            "Donald Trump",
+            "Obama",
+            "TacoBot",
+            "Tacoz",
+            "Shrek",
+            "your mom",
+            "Rick Astley",
+            "Doge",
+        ]
 
         for result in user:
             purse = result["purse"]
