@@ -41,7 +41,7 @@ youtube-dl
 asyncio
 pytz
 timeago==1.0.14
-yarl==1.5.1
+yarl==1.6.0
 owotext==1.0.3
 pydantic==1.6.1
 beautifulsoup4==4.9.1
