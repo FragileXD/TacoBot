@@ -1,5 +1,6 @@
 import discord
 import traceback
+import random
 from concurrent.futures._base import TimeoutError
 from discord.ext import commands
 from random import choice
@@ -8,6 +9,7 @@ from random import choice
 class Errors(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.bot.cc = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
     async def send(self, ctx, msg):
         try:
