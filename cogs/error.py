@@ -9,22 +9,17 @@ from random import choice
 class Errors(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.bot.cc = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
     async def send(self, ctx, msg):
         try:
-            await ctx.send(
-                embed=discord.Embed(
-                    color=await self.bot.cc(ctx.author.id), description=msg
-                )
-            )
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            await ctx.send(embed=discord.Embed(color=color, description=msg))
         except discord.errors.Forbidden:
             pass
         except Exception:
             try:
-                await ctx.send(
-                    embed=discord.Embed(color=await self.bot.cc(), description=msg)
-                )
+                color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+                await ctx.send(embed=discord.Embed(color=color, description=msg))
             except discord.errors.Forbidden:
                 pass
 
