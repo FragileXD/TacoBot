@@ -268,7 +268,11 @@ class Economy(commands.Cog):
 
             balancecheck(ctx.author.id)
 
-            income = random.randint(10, 250)
+            income = random.randint(1, 1000000001)
+            if income != 1000000000:
+                income = random.randint(1, 250)
+            else:
+                income = random.randint(100000, 100000000)
 
             collection.update_one(
                 {"_id": ctx.author.id},
