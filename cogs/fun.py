@@ -18,7 +18,6 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-
     @commands.command(
         name="randomroulette",
         description="Pings a random user in the server!",
@@ -478,13 +477,6 @@ class Fun(commands.Cog):
         print("{} issued .mock 🎱".format(message_author))
         a = "".join(choice((str.upper, str.lower))(c) for c in message)
         await ctx.send(a)
-
-    @mock.error
-    async def mock_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["emoji"])
     @commands.cooldown(1, 2, commands.BucketType.user)
