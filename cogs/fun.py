@@ -7,7 +7,7 @@ import time
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
-from datetime import timedeltas
+from datetime import timedelta
 from owotext import OwO
 
 footer = "『 TacoBot ✦ Tacoz 』"
