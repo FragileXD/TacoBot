@@ -345,13 +345,6 @@ class Fun(commands.Cog):
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
-    @eightball.error
-    async def eightball_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["partyblob", "partyman", "partyfrog"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def party(self, ctx, *, message):
@@ -365,13 +358,6 @@ class Fun(commands.Cog):
             await ctx.send(
                 f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
             )
-
-    @party.error
-    async def party_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["fancy"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -433,13 +419,6 @@ class Fun(commands.Cog):
         a = a.replace("Z", "ℨ")
         await ctx.send(a)
 
-    @fancytext.error
-    async def fancytext_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["hackertext"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def leetify(self, ctx, *, message):
@@ -462,13 +441,6 @@ class Fun(commands.Cog):
         a = a.replace("T", "7")
         a = a.replace("t", "7")
         await ctx.send(a)
-
-    @leetify.error
-    async def leetify_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["mockery"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -532,26 +504,12 @@ class Fun(commands.Cog):
         except:
             await ctx.send("Something went wrong! Try again.")
 
-    @emojify.error
-    async def emojify_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def reverse(self, ctx, *, text: str):
         print("{} issued .reverse 🔁".format(ctx.author))
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"🔁 {t_rev}")
-
-    @reverse.error
-    async def reverse_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["haxer", "hacker"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -698,13 +656,6 @@ class Fun(commands.Cog):
         a = uwu.whatsthis(message)
         await ctx.send(a)
 
-    @owo.error
-    async def owo_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["clapp"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def clap(self, ctx, *, message):
@@ -712,13 +663,6 @@ class Fun(commands.Cog):
         print("{} issued .clap 👏".format(message_author))
         a = message.replace(" ", "👏")
         await ctx.send("👏" + a + "👏")
-
-    @clap.error
-    async def clap_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["roasty", "roastytoasty", "destroy", "destruction100"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -802,13 +746,6 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(a)
-
-    @spoiler.error
-    async def spoiler_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["renaicirculation"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -1092,13 +1029,6 @@ class Fun(commands.Cog):
         else:
             await ctx.send(a)
 
-    @doot.error
-    async def doot_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def say(self, ctx, *, message):
@@ -1110,13 +1040,6 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(message)
-
-    @doot.error
-    async def doot_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -1143,13 +1066,6 @@ class Fun(commands.Cog):
             f"``{user}`` caught a cold and when taking the medicine, he died of an allergic reaction.",
         ]
         await ctx.send(random.choice(possibledeaths))
-
-    @kill.error
-    async def kill_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -1180,13 +1096,6 @@ class Fun(commands.Cog):
             f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
             embed=embedVar,
         )
-
-    @ship.error
-    async def ship_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
 
 def setup(bot):

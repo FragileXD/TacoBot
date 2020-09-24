@@ -184,13 +184,6 @@ class Economy(commands.Cog):
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
 
-    @deposit.error
-    async def deposit_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(
         name="withdraw",
         description="Withdraw money into your bank",
@@ -236,13 +229,6 @@ class Economy(commands.Cog):
                     await ctx.send("you dont have the money lmao")
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
-
-    @withdraw.error
-    async def withdraw_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(name="beg", description="Beg for money", aliases=["begger"])
     @commands.cooldown(1, 60, commands.BucketType.user)

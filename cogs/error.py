@@ -50,6 +50,7 @@ class Errors(commands.Cog):
                 "Didn't your parents tell you that [patience is a virtue](http://www.patience-is-a-virtue.org/)? Calm down and wait another {0} seconds.",
                 "Hey, you need to wait another {0} seconds before doing that again.",
                 "Hrmmm, looks like you need to wait another {0} seconds before doing that again.",
+                ":yawning_face: YAWNNNN! You need to wait another {0} seconds before trying again"
                 "Don't you know [patience is a virtue](http://www.patience-is-a-virtue.org/)? Wait another {0} seconds.",
             ]
 
