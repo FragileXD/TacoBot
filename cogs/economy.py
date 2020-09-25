@@ -248,6 +248,15 @@ class Economy(commands.Cog):
             "Rick Astley",
             "Doge",
         ]
+        prompts = [
+            "you're too smelly go away",
+            "bruh no",
+            "...",
+            ":yuck: :vomit: :disgusztfaze: :bruhwhy:",
+            "go work or something",
+            "no",
+            "in your dreams",
+        ]
 
         for result in user:
             purse = result["purse"]
@@ -256,17 +265,27 @@ class Economy(commands.Cog):
 
             income = random.randint(1, 1000000001)
             if income != 1000000000:
-                income = random.randint(1, 250)
+                income = random.randint(1, 101)
+                collection.update_one(
+                    {"_id": ctx.author.id},
+                    {"$set": {"purse": purse + income}},
+                )
+                await ctx.send(
+                    f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                )
+                if income > 60:
+                    income = random.randint(1, 250)
+                else:
+                    await ctx.send(f"{random.choice(people)}: {random.choice(prompts)}")
             else:
                 income = random.randint(100000, 100000000)
-
-            collection.update_one(
-                {"_id": ctx.author.id},
-                {"$set": {"purse": purse + income}},
-            )
-            await ctx.send(
-                f"{random.choice(people)} gave {ctx.author.mention} ${income}."
-            )
+                collection.update_one(
+                    {"_id": ctx.author.id},
+                    {"$set": {"purse": purse + income}},
+                )
+                await ctx.send(
+                    f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                )
 
 
 def setup(bot):
