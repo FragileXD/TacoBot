@@ -87,10 +87,25 @@ class Memey(commands.Cog):
         description="Grab CONTENT from ANY (Non NSFW) Subreddits",
         aliases=["subreddit", "r/"],
     )
-    async def reddit(
-        self, ctx, subreddit: str = None, amount: int = None, time: str = None
-    ):
-        await ctx.send("not done yet lmao")
+    async def reddit(self, ctx, subreddit: str, amount: int = None, time: str = None):
+        meme = redditgrabber(subreddit, amount, time)
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
+        updoots = meme["upvotes"]
+        comments = meme["comments"]
+
+        embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
+        if meme["description"] == None:
+            embedVar.set_image(url=meme["imgurl"])
+            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+        elif meme["imgurl"] == None and meme["description"] != None:
+            embedVar.add_field(
+                name="Description", value=meme["description"], inline=True
+            )
+            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+
+        await ctx.send(embed=embedVar)
 
     @commands.command(
         name="memes",
@@ -98,10 +113,10 @@ class Memey(commands.Cog):
         aliases=["meme", "dankmemes", "funny", "memesdank", "dankmeme"],
     )
     async def memes(self, ctx):
-        print("run memes")
         meme1 = redditgrabber("memes")
         meme2 = redditgrabber("dankmemes")
-        print("redditgrabber good")
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
         list = [1, 2]
 
@@ -112,11 +127,8 @@ class Memey(commands.Cog):
 
         updoots = meme["upvotes"]
         comments = meme["comments"]
-        print(updoots)
-        print(meme["title"])
-        print(meme)
 
-        embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=3066993)
+        embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
         embedVar.set_image(url=meme["imgurl"])
         embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
