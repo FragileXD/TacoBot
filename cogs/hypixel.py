@@ -1459,13 +1459,6 @@ class Hypixel(commands.Cog):
 
             await message.clear_reactions()
 
-    @bedwars.error
-    async def bedwars_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
 
 """
     @commands.command(
@@ -1594,12 +1587,6 @@ class Hypixel(commands.Cog):
 
                 message = await ctx.send(embed=embedVar)
 
-    @skywars.error
-    async def skywars_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
             """
 
 
