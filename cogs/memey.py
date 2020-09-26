@@ -63,7 +63,7 @@ def redditgrabber(subreddit, amount=None, time=None):
     elif submission.is_self:
         description = submission.selftext
 
-    author = str(submission.author)
+    author = "u/" + str(submission.author)
 
     return {
         "title": submission.title,
@@ -111,15 +111,16 @@ class Memey(commands.Cog):
                     amount = 50
 
             meme = redditgrabber(subreddit, amount, time)
+            print(meme)
 
             updoots = meme["upvotes"]
             comments = meme["comments"]
-            print(meme)
 
             embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
             if meme["imgurl"] != None:
                 embedVar.set_image(url=meme["imgurl"])
             elif meme["desc"] != None:
+                print("test")
                 embedVar.add_field(name=["author"], value=meme["desc"])
 
             embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
