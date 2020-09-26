@@ -56,7 +56,7 @@ def redditgrabber(subreddit, amount=None, time=None):
         ):  # if submission is NOT pinned or NSFW
             submissions.append(submission)
 
-    submission = submissions[random.randint(1, amount) - 1]
+    submission = submissions[random.randint(1, len(submissions)) - 1]
 
     if not submission.is_self:
         urlvar = is_url_image(submission.url, submissions)

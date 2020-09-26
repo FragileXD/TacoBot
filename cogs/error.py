@@ -103,6 +103,7 @@ class Errors(commands.Cog):
                 )
         except Exception:
             return e
+            print(e)
 
 
 def setup(bot):
