@@ -28,6 +28,12 @@ client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=
 
 
 @client.event
+async def cog_command_error(self, ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f"Retry again in {int(error.retry_after/60)}s")
+
+
+@client.event
 async def on_ready():
     activity = discord.Activity(
         type=discord.ActivityType.playing,
