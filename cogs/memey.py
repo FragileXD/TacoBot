@@ -2,6 +2,8 @@ import discord
 import os
 import sys
 import random
+import praw
+import requests
 import asyncio
 import time
 from random import choice
@@ -30,12 +32,13 @@ def is_url_image(image_url, psubmissions):
     r = requests.head(image_url)
     if r.headers["content-type"] in image_formats:
         urlvar = image_url
+        return urlvar
     else:
         submission = psubmissions[random.randint(1, 50) - 1]
         is_url_image(submission, psubmissions)
 
 
-def redditgrabber(self, subreddit, amount: int = None, time: str = None):
+def redditgrabber(subreddit, amount=None, time=None):
     description = None
     urlvar = None
     subreddit = subreddit.replace("r/", "")
@@ -56,7 +59,7 @@ def redditgrabber(self, subreddit, amount: int = None, time: str = None):
     submission = submissions[random.randint(1, 50) - 1]
 
     if not submission.is_self:
-        is_url_image(submission.url, submissions)
+        urlvar = is_url_image(submission.url, submissions)
     elif submission.is_self:
         description = submission.selftext
 
@@ -96,9 +99,9 @@ class Memey(commands.Cog):
     )
     async def memes(self, ctx):
         print("run memes")
-        meme1 = self.redditgrabber("memes")
-        meme2 = self.redditgrabber("dankmemes")
-        "redditgrabber good"
+        meme1 = redditgrabber("memes")
+        meme2 = redditgrabber("dankmemes")
+        print("redditgrabber good")
 
         list = [1, 2]
 
@@ -108,11 +111,16 @@ class Memey(commands.Cog):
             meme = meme2
 
         updoots = meme["upvotes"]
+        comments = meme["comments"]
         print(updoots)
+        print(meme["title"])
+        print(meme)
 
         embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=3066993)
         embedVar.set_image(url=meme["imgurl"])
-        embedVar.set_footer(text=(f"👍{updoots}⬆ | {footer}"))
+        embedVar.set_footer(
+            text=(f"👍{updoots} | :speech_balloon:{comments} | {footer}")
+        )
 
         await ctx.send(embed=embedVar)
 
