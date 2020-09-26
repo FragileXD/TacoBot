@@ -128,13 +128,6 @@ class Utility(commands.Cog):
         a = message.replace(" ", "+")
         await ctx.send(f"<:Google:745916595351846962> https://lmgtfy.com/?q={a}")
 
-    @google.error
-    async def google_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["media", "socialmedia"])
     async def socials(self, ctx):
         message_author = ctx.author
