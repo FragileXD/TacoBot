@@ -1,19 +1,12 @@
 {
-<<<<<<< HEAD
-    "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.TWjfHchfESEAcs5BbvVNJH0Irh8",
-    "ownerid": 389388825274613771,
-    "client_id": "***REMOVED***",
-    "client_secret": "***REMOVED***",
-    "user_agent": "User Agent",
-=======
     "token": "***REMOVED***",
     "ownerid": 389388825274613771,
     "client_id": "***REMOVED***",
     "client_secret": "***REMOVED***",
     "user_agent": "Reddit Bot API",
->>>>>>> ddc2e7fb88d3e10ceb38ce83bfbdba5f8c11fce9
     "username": "TacozRedditBot",
     "password": "***REMOVED***",
     "apikey": "***REMOVED***",
-    "mongoclient": "***REMOVED***"
+    "mongoclient": "***REMOVED***",
+    "footerembed": "『 TacoBot ✦ Tacoz 』"
 }
