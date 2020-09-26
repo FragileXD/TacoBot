@@ -803,7 +803,7 @@ class Fun(commands.Cog):
             raise (error)
 
     @commands.command(aliases=["renaicirculation"])
-    @commands.cooldown(1, 2, commands.BucketType.user)
+    @commands.cooldown(1, 1800, commands.BucketType.user)
     async def renai(self, ctx):
         message_author = ctx.author
         print("{} issued .renai".format(message_author))
