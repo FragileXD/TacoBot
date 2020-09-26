@@ -8,13 +8,8 @@ chardet==3.0.4
 colorama==0.4.3
 discord.py==1.4.1
 google-api-core==1.22.2
-<<<<<<< HEAD
-google-api-python-client==1.12.1
-google-auth==1.21.2
-=======
 google-api-python-client==1.12.2
 google-auth==1.21.3
->>>>>>> ddc2e7fb88d3e10ceb38ce83bfbdba5f8c11fce9
 google-auth-httplib2==0.0.4
 googleapis-common-protos==1.52.0
 httplib2==0.18.1
