@@ -34,7 +34,7 @@ def is_url_image(image_url, psubmissions):
         urlvar = image_url
         return urlvar
     else:
-        submission = psubmissions[random.randint(1, 50) - 1]
+        submission = psubmissions[random.randint(1, len(psubmissions)) - 1]
         is_url_image(submission, psubmissions)
 
 
@@ -56,7 +56,7 @@ def redditgrabber(subreddit, amount=None, time=None):
         ):  # if submission is NOT pinned or NSFW
             submissions.append(submission)
 
-    submission = submissions[random.randint(1, 50) - 1]
+    submission = submissions[random.randint(1, amount) - 1]
 
     if not submission.is_self:
         urlvar = is_url_image(submission.url, submissions)
@@ -64,6 +64,9 @@ def redditgrabber(subreddit, amount=None, time=None):
         description = submission.selftext
 
     author = "u/" + str(submission.author)
+
+    if len(description) > 1024:
+        description = description[:1020] + " ..."
 
     return {
         "title": submission.title,
