@@ -63,6 +63,8 @@ def redditgrabber(subreddit, amount=None, time=None):
     elif submission.is_self:
         description = submission.selftext
 
+    author = str(submission.author)
+
     return {
         "title": submission.title,
         "url": f"https://reddit.com{submission.permalink}",
@@ -70,6 +72,7 @@ def redditgrabber(subreddit, amount=None, time=None):
         "imgurl": urlvar,
         "desc": description,
         "comments": submission.num_comments,
+        "author": author,
     }
 
 
@@ -116,12 +119,10 @@ class Memey(commands.Cog):
             embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
             if meme["imgurl"] != None:
                 embedVar.set_image(url=meme["imgurl"])
-                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
-            elif meme["description"] != None:
-                embedVar.add_field(
-                    name="Description", value=meme["description"], inline=True
-                )
-                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+            elif meme["desc"] != None:
+                embedVar.add_field(name=["author"], value=meme["desc"])
+
+            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
             await ctx.send(embed=embedVar)
 
@@ -131,26 +132,27 @@ class Memey(commands.Cog):
         aliases=["meme", "dankmemes", "funny", "memesdank", "dankmeme"],
     )
     async def memes(self, ctx):
-        meme1 = redditgrabber("memes")
-        meme2 = redditgrabber("dankmemes")
+        async with ctx.typing():
+            meme1 = redditgrabber("memes")
+            meme2 = redditgrabber("dankmemes")
 
-        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
-        list = [1, 2]
+            list = [1, 2]
 
-        if random.choice(list) == 1:
-            meme = meme1
-        else:
-            meme = meme2
+            if random.choice(list) == 1:
+                meme = meme1
+            else:
+                meme = meme2
 
-        updoots = meme["upvotes"]
-        comments = meme["comments"]
+            updoots = meme["upvotes"]
+            comments = meme["comments"]
 
-        embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
-        embedVar.set_image(url=meme["imgurl"])
-        embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+            embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
+            embedVar.set_image(url=meme["imgurl"])
+            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
-        await ctx.send(embed=embedVar)
+            await ctx.send(embed=embedVar)
 
 
 def setup(bot):
