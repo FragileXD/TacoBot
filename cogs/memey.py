@@ -87,25 +87,43 @@ class Memey(commands.Cog):
         description="Grab CONTENT from ANY (Non NSFW) Subreddits",
         aliases=["subreddit", "r/"],
     )
-    async def reddit(self, ctx, subreddit: str, amount: int = None, time: str = None):
-        meme = redditgrabber(subreddit, amount, time)
+    async def reddit(self, ctx, subreddit: str, amount: str = None, time: str = None):
+        async with ctx.typing():
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
-        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            if not time:
+                time = "month"
+            possibletime = ["day", "week", "month", "year"]
+            time = time.replace("ly", "")
+            if not time in possibletime:
+                return
+            if not amount:
+                amount = 50
+            else:
+                try:
+                    int(amount)
+                    if amount > 1000:
+                        amount = 1000
+                except:
+                    amount = 50
 
-        updoots = meme["upvotes"]
-        comments = meme["comments"]
+            meme = redditgrabber(subreddit, amount, time)
 
-        embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
-        if meme["description"] == None:
-            embedVar.set_image(url=meme["imgurl"])
-            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
-        elif meme["imgurl"] == None and meme["description"] != None:
-            embedVar.add_field(
-                name="Description", value=meme["description"], inline=True
-            )
-            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+            updoots = meme["upvotes"]
+            comments = meme["comments"]
+            print(meme)
 
-        await ctx.send(embed=embedVar)
+            embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
+            if meme["imgurl"] != None:
+                embedVar.set_image(url=meme["imgurl"])
+                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+            elif meme["description"] != None:
+                embedVar.add_field(
+                    name="Description", value=meme["description"], inline=True
+                )
+                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+
+            await ctx.send(embed=embedVar)
 
     @commands.command(
         name="memes",
