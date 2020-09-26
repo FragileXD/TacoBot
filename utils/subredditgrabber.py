@@ -37,7 +37,7 @@ def is_url_image(image_url, psubmissions):
         is_url_image(submission, psubmissions)
 
 
-def imagegrabber(subreddit, amount=int):
+def redditgrabber(subreddit, amount=int, time=str):
     description = None
     urlvar = None
     subreddit = subreddit.replace("r/", "")
@@ -46,8 +46,10 @@ def imagegrabber(subreddit, amount=int):
 
     if not amount:
         amount = 50
+    if not time:
+        time = "month"
 
-    for submission in reddit.subreddit(subreddit).top("week", limit=amount):
+    for submission in reddit.subreddit(subreddit).top(time, limit=amount):
         if (
             submission and not submission.stickied and not submission.over_18
         ):  # if submission is NOT pinned or NSFW
