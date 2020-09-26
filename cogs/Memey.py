@@ -34,11 +34,11 @@ class Memey(commands.Cog):
         description="Sends a random meme",
         aliases=["subreddit", "reddit", "memes", "dankmemes"],
     )
-    async def meme(self, ctx, *, message):
+    async def meme(self, ctx, subreddit: str):
         message_author = ctx.author
         print("{} issued .meme 😎".format(message_author))
 
-        subreddit = message.replace("r/", "")
+        subreddit = subreddit.replace("r/", "")
 
         submissions = []
 
@@ -58,7 +58,6 @@ class Memey(commands.Cog):
             else:
                 urlvar = submission.url
                 print(urlvar)
-
         except:
             try:
                 body = submission.body
