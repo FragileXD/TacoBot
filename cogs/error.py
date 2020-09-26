@@ -102,7 +102,7 @@ class Errors(commands.Cog):
                     "For some reason, the Hypixel API took too long to respond. Please try again later.",
                 )
         except Exception:
-            return error
+            return e
 
 
 def setup(bot):
