@@ -118,9 +118,7 @@ class Memey(commands.Cog):
 
         embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=3066993)
         embedVar.set_image(url=meme["imgurl"])
-        embedVar.set_footer(
-            text=(f"👍{updoots} | :speech_balloon:{comments} | {footer}")
-        )
+        embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
         await ctx.send(embed=embedVar)
 
