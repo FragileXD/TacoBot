@@ -43,6 +43,7 @@ class Fun(commands.Cog):
     @commands.command(aliases=["ratedank"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def dankrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -62,7 +63,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:monkaS:664097071950856206> Dank r8 Machine",
                 description=f"{message2} is so insane and is {aaaaa*1000}% dank (epic) <:monkaS:664097071950856206>",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -75,13 +76,14 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"{message2} is {aaaaa}% dank",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
     @dankrate.error
     async def dankrate_error(self, ctx, error):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
@@ -97,7 +99,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:monkaS:664097071950856206> Dank r8 Machine",
                     description=f"you are {aaaaa}% dank",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -107,6 +109,7 @@ class Fun(commands.Cog):
     @commands.command(aliases=["epicgamer", "rateepicgamer"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def epicgamerrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -123,7 +126,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                 description=f"{message} is so insane and is {aaaaa*1000}% epic gamer <:stevedab:745555779666444319>",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -136,7 +139,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"{message} is {aaaaa}% epic gamer 😎",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
@@ -144,6 +147,7 @@ class Fun(commands.Cog):
     @epicgamerrate.error
     async def epicgamerrate_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
             print("{} issued .epicgamerrate 😎".format(message_author))
@@ -158,7 +162,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319> epic gamer r8 Machine",
                     description=f"you are {aaaaa}% epic gamer 😎",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -168,6 +172,8 @@ class Fun(commands.Cog):
     @commands.command(aliases=["thot"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def thotrate(self, ctx, *, message):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
         message_author = ctx.author
         message_channel = ctx.channel
 
@@ -184,13 +190,14 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="<:stevedab:745555779666444319> thot r8 Machine",
                 description=f"{message} is {aaaaa}% thot",
-                color=3066993,
+                color=color,
             )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
 
     @thotrate.error
     async def thotrate_error(self, ctx, error):
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
@@ -206,7 +213,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="<:stevedab:745555779666444319>thot r8 Machine",
                     description=f"you are {aaaaa}% thot",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -218,6 +225,8 @@ class Fun(commands.Cog):
     async def bigbrainrate(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
         aaaaa = random.randint(1, 101)
         print("{} issued .bigbrainrate 🧠".format(message_author))
@@ -232,7 +241,7 @@ class Fun(commands.Cog):
             embedVar = discord.Embed(
                 title="big brain r8 Machine",
                 description=f"{message} is so insane and has {aaaaa*1000}iq (big brain ultra) :brain:",
-                color=3066993,
+                color=color,
             )
         else:
             if aaaaa == 101:
@@ -245,7 +254,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
                     description=f"{message} is {aaaaa}% big brain",
-                    color=3066993,
+                    color=color,
                 )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
@@ -255,6 +264,9 @@ class Fun(commands.Cog):
         if isinstance(error, commands.MissingRequiredArgument):
             message_author = ctx.author
             aaaaa = random.randint(1, 101)
+
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
             print("{} issued .bigbrainrate 🧠".format(message_author))
 
             if aaaaa == 101:
@@ -267,7 +279,7 @@ class Fun(commands.Cog):
                 embedVar = discord.Embed(
                     title="big brain r8 Machine",
                     description=f"you are {aaaaa}% big brain",
-                    color=3066993,
+                    color=color,
                 )
             embedVar.set_footer(text=footer)
             return await ctx.send(embed=embedVar)
@@ -279,6 +291,8 @@ class Fun(commands.Cog):
     async def eightball(self, ctx, *, message):
         message_author = ctx.author
         message_channel = ctx.channel
+
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
         print("{} issued .8ball 🎱".format(message_author))
 
@@ -318,6 +332,7 @@ class Fun(commands.Cog):
             "You'll be the judge",
             "no... (╯°□°）╯︵ ┻━┻",
             "no... baka",
+            "red is the impostor! wait... this is the 8ball command?!??!?!",
         ]
 
         aaaaa = random.choice(choices)
@@ -325,17 +340,10 @@ class Fun(commands.Cog):
         embedVar = discord.Embed(
             title="the magic 8ball",
             description=f"{message_author}: {message}\n🎱8ball: {aaaaa}",
-            color=3066993,
+            color=color,
         )
         embedVar.set_footer(text=footer)
         await message_channel.send(embed=embedVar)
-
-    @eightball.error
-    async def eightball_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["partyblob", "partyman", "partyfrog"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -350,13 +358,6 @@ class Fun(commands.Cog):
             await ctx.send(
                 f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
             )
-
-    @party.error
-    async def party_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["fancy"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -418,13 +419,6 @@ class Fun(commands.Cog):
         a = a.replace("Z", "ℨ")
         await ctx.send(a)
 
-    @fancytext.error
-    async def fancytext_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["hackertext"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def leetify(self, ctx, *, message):
@@ -448,13 +442,6 @@ class Fun(commands.Cog):
         a = a.replace("t", "7")
         await ctx.send(a)
 
-    @leetify.error
-    async def leetify_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["mockery"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def mock(self, ctx, *, message):
@@ -462,13 +449,6 @@ class Fun(commands.Cog):
         print("{} issued .mock 🎱".format(message_author))
         a = "".join(choice((str.upper, str.lower))(c) for c in message)
         await ctx.send(a)
-
-    @mock.error
-    async def mock_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["emoji"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -524,26 +504,12 @@ class Fun(commands.Cog):
         except:
             await ctx.send("Something went wrong! Try again.")
 
-    @emojify.error
-    async def emojify_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def reverse(self, ctx, *, text: str):
         print("{} issued .reverse 🔁".format(ctx.author))
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"🔁 {t_rev}")
-
-    @reverse.error
-    async def reverse_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["haxer", "hacker"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -690,13 +656,6 @@ class Fun(commands.Cog):
         a = uwu.whatsthis(message)
         await ctx.send(a)
 
-    @owo.error
-    async def owo_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command(aliases=["clapp"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def clap(self, ctx, *, message):
@@ -705,6 +664,7 @@ class Fun(commands.Cog):
         a = message.replace(" ", "👏")
         await ctx.send("👏" + a + "👏")
 
+<<<<<<< HEAD
     @clap.error
     async def clap_error(self, ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
@@ -712,6 +672,8 @@ class Fun(commands.Cog):
         else:
             raise (error)
 
+=======
+>>>>>>> ddc2e7fb88d3e10ceb38ce83bfbdba5f8c11fce9
     @commands.command(aliases=["roasty", "roastytoasty", "destroy", "destruction100"])
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def roast(self, ctx):
@@ -794,13 +756,6 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(a)
-
-    @spoiler.error
-    async def spoiler_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["renaicirculation"])
     @commands.cooldown(1, 1800, commands.BucketType.user)
@@ -1084,13 +1039,6 @@ class Fun(commands.Cog):
         else:
             await ctx.send(a)
 
-    @doot.error
-    async def doot_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
-
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
     async def say(self, ctx, *, message):
@@ -1102,13 +1050,6 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(message)
-
-    @doot.error
-    async def doot_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -1136,12 +1077,35 @@ class Fun(commands.Cog):
         ]
         await ctx.send(random.choice(possibledeaths))
 
-    @kill.error
-    async def kill_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def ship(self, ctx, user: str, user2: str):
+        a = "``"
+        if len(user) == 22:
+            try:
+                user = user.replace("!", "")
+                a = ""
+            except:
+                user = user
+        if len(user2) == 22:
+            try:
+                user2 = user2.replace("!", "")
+                a = ""
+            except:
+                user2 = user2
+        lovepercent = random.randint(1, 101)
+        rounded = int((round(lovepercent, -1)) / 10)
+        shaded = "■" * rounded
+        unshaded = (10 - rounded) * "□"
+        embedVar = discord.Embed(
+            title=f"{shaded}{unshaded}",
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            color=16679378,
+        )
+        await ctx.send(
+            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
+            embed=embedVar,
+        )
 
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)
