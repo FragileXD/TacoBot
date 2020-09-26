@@ -114,7 +114,6 @@ class Memey(commands.Cog):
                     amount = 50
 
             meme = redditgrabber(subreddit, amount, time)
-            print(meme)
 
             updoots = meme["upvotes"]
             comments = meme["comments"]
@@ -123,8 +122,7 @@ class Memey(commands.Cog):
             if meme["imgurl"] != None:
                 embedVar.set_image(url=meme["imgurl"])
             elif meme["desc"] != None:
-                print("test")
-                embedVar.add_field(name=["author"], value=meme["desc"])
+                embedVar.add_field(name=meme["author"], value=meme["desc"])
 
             embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
