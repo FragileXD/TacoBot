@@ -93,6 +93,9 @@ class Errors(commands.Cog):
         if "NoStatError" in str(e):
             await self.send(ctx, "No stats available!")
             return
+        else:
+            print(e)
+            return e
 
         try:
             if isinstance(e, TimeoutError) or isinstance(e.original, TimeoutError):
@@ -102,8 +105,7 @@ class Errors(commands.Cog):
                     "For some reason, the Hypixel API took too long to respond. Please try again later.",
                 )
         except Exception:
-            print(e)
-            return e
+            pass
 
 
 def setup(bot):
