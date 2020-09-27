@@ -4,6 +4,8 @@ import sys
 import random
 import time
 import json
+import praw
+import asyncio
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -16,28 +18,36 @@ statuses = [
     ".help / >help | http://youtube.com/tacozlmao",
     "with the ban hammer | .help",
     "owo! twype .hewwlp for hwelp maaswter! :3",
+    f"with {Bot.users}",
 ]
-status = random.choice(statuses)
 
 # CONFIG!
 PREFIX = (".", ">")
 TOKEN = config.token
 OWNERID = config.ownerid
 footer = "『 TacoBot ✦ Tacoz 』"
-
 client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=True)
 
 
 @client.event
+async def cog_command_error(self, ctx, error):
+    if isinstance(error, commands.CommandOnCooldown):
+        await ctx.send(f"Retry again in {int(error.retry_after/60)}s")
+
+
+@client.event
 async def on_ready():
-    activity = discord.Activity(
-        type=discord.ActivityType.playing,
-        name=status,
-    )
-    await client.change_presence(status=discord.Status.idle, activity=activity)
     print(f"{client.user.name} is Launched")
     print(client.user.id)
     print("--------------")
+    while True:
+        status = random.choice(statuses)
+        activity = discord.Activity(
+            type=discord.ActivityType.playing,
+            name=status,
+        )
+        await client.change_presence(status=discord.Status.idle, activity=activity)
+        await asyncio.sleep(600000)
 
 
 client.remove_command("help")
