@@ -8,8 +8,11 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 
 
@@ -35,6 +38,10 @@ class Info(commands.Cog):
             )
             help_embed.add_field(name=":smile: Fun", value=f"`{ctx.prefix}help fun`")
             help_embed.add_field(
+                name=":money_mouth: Economy",
+                value=f"`{ctx.prefix}help economy`",
+            )
+            help_embed.add_field(
                 name=":question: Info", value=f"`{ctx.prefix}help info`"
             )
             help_embed.add_field(
@@ -48,7 +55,7 @@ class Info(commands.Cog):
                 name=":dog: Animals", value=f"`{ctx.prefix}help animals`"
             )
             help_embed.add_field(
-                name="<:minecrafticon0:749613029473255494> Minecraft",
+                name="<:4441_MCdiamondpickaxe:664097057463599115> Minecraft",
                 value=f"`{ctx.prefix}help minecraft`",
             )
             help_embed.add_field(
@@ -68,14 +75,7 @@ class Info(commands.Cog):
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
-            }
-            categoryAlias = {
-                "mod": "moderator",
-                "moderation": "moderator",
-                "moderator": "mod",
-                "util": "utility",
-                "utils": "utility",
-                "utilities": "utility",
+                "Economy": ":money_mouth:",
             }
 
             cogs = [c for c in self.bot.cogs.keys()]

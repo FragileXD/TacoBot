@@ -57,7 +57,7 @@ class Utility(commands.Cog):
         info_msg.add_field(name="Bot Library", value="Discord.py", inline=True)
         info_msg.add_field(name="Command Prefix", value=ctx.prefix, inline=True)
         info_msg.add_field(
-            name="Creators", value="Tacoz#1916 - MC IGN: ||NotTacoz||", inline=True
+            name="Creators", value="Tacoz#1916 - IGN: ||NotTacoz||", inline=True
         )
 
         info_msg.add_field(
@@ -127,13 +127,6 @@ class Utility(commands.Cog):
         print("{} issued .google".format(message_author))
         a = message.replace(" ", "+")
         await ctx.send(f"<:Google:745916595351846962> https://lmgtfy.com/?q={a}")
-
-    @google.error
-    async def google_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
-        else:
-            raise (error)
 
     @commands.command(aliases=["media", "socialmedia"])
     async def socials(self, ctx):
