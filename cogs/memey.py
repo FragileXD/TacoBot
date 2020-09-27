@@ -11,11 +11,11 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from utils.data import getJSON
-
+from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = config.footerembed
+footer = config.footembed
 start_time = time.monotonic()
 
 reddit = praw.Reddit(
