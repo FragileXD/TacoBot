@@ -55,6 +55,8 @@ def redditgrabber(subreddit, amount=None, time=None):
             submission and not submission.stickied and not submission.over_18
         ):  # if submission is NOT pinned or NSFW
             submissions.append(submission)
+        elif submission.over_18:
+            return "badread-nsfw"
 
     submission = submissions[random.randint(1, len(submissions)) - 1]
 
@@ -62,11 +64,10 @@ def redditgrabber(subreddit, amount=None, time=None):
         urlvar = is_url_image(submission.url, submissions)
     elif submission.is_self:
         description = submission.selftext
+        if len(description) > 1024:
+            description = description[:1020] + " ..."
 
     author = "u/" + str(submission.author)
-
-    if len(description) > 1024:
-        description = description[:1020] + " ..."
 
     return {
         "title": submission.title,
@@ -113,20 +114,31 @@ class Memey(commands.Cog):
                 except:
                     amount = 50
 
-            meme = redditgrabber(subreddit, amount, time)
+            if redditgrabber != "badread-nsfw":
+                meme = redditgrabber(subreddit, amount, time)
 
-            updoots = meme["upvotes"]
-            comments = meme["comments"]
+                updoots = meme["upvotes"]
+                comments = meme["comments"]
 
-            embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
-            if meme["imgurl"] != None:
-                embedVar.set_image(url=meme["imgurl"])
-            elif meme["desc"] != None:
-                embedVar.add_field(name=meme["author"], value=meme["desc"])
+                embedVar = discord.Embed(
+                    title=meme["title"], url=meme["url"], color=color
+                )
+                if meme["imgurl"] != None:
+                    embedVar.set_image(url=meme["imgurl"])
+                elif meme["desc"] != None:
+                    embedVar.add_field(name=meme["author"], value=meme["desc"])
 
-            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
 
-            await ctx.send(embed=embedVar)
+                await ctx.send(embed=embedVar)
+            else:
+                embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong", color=colour
+                )
+                error = "NSFW Post"
+                embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
+                embedVar.set_footer(text=footer)
+                await ctx.send(embed=embedVar)
 
     @commands.command(
         name="memes",

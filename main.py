@@ -5,6 +5,7 @@ import random
 import time
 import json
 import praw
+import asyncio
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -17,8 +18,8 @@ statuses = [
     ".help / >help | http://youtube.com/tacozlmao",
     "with the ban hammer | .help",
     "owo! twype .hewwlp for hwelp maaswter! :3",
+    f"with {Bot.users}",
 ]
-status = random.choice(statuses)
 
 # CONFIG!
 PREFIX = (".", ">")
@@ -36,14 +37,17 @@ async def cog_command_error(self, ctx, error):
 
 @client.event
 async def on_ready():
-    activity = discord.Activity(
-        type=discord.ActivityType.playing,
-        name=status,
-    )
-    await client.change_presence(status=discord.Status.idle, activity=activity)
     print(f"{client.user.name} is Launched")
     print(client.user.id)
     print("--------------")
+    while True:
+        status = random.choice(statuses)
+        activity = discord.Activity(
+            type=discord.ActivityType.playing,
+            name=status,
+        )
+        await client.change_presence(status=discord.Status.idle, activity=activity)
+        await asyncio.sleep(10000)
 
 
 client.remove_command("help")
