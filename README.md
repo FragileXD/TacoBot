@@ -51,15 +51,14 @@
 
 ## Features
 
-- Kawaii Animals!
-  - Ducc
+- Animals
 - Fun Commands!
-- Hypixel API
+- Hypixel Stats
+- Reddit Interegation
 - Subreddits & Memes!
 - Minecraft Commands
 - Moderation Commands!
 - Utility Commands
-- Stats & Stuff
 
 ## How do I add it to my server?
 
