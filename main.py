@@ -47,7 +47,7 @@ async def on_ready():
             name=status,
         )
         await client.change_presence(status=discord.Status.idle, activity=activity)
-        await asyncio.sleep(10000)
+        await asyncio.sleep(600000)
 
 
 client.remove_command("help")

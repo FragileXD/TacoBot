@@ -9,8 +9,11 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from owotext import OwO
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 
 
@@ -339,6 +342,7 @@ class Fun(commands.Cog):
         a = a.replace("T", "7")
         a = a.replace("t", "7")
         await ctx.send(a)
+
 
     @commands.command(aliases=["mockery"])
     @commands.cooldown(1, 2, commands.BucketType.user)
@@ -954,6 +958,19 @@ class Fun(commands.Cog):
             f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
             embed=embedVar,
         )
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def monch(self, ctx):
+        message_author = ctx.author
+        print("{} issued .monch".format(message_author))
+
+        try:
+            await ctx.send(file=discord.File("images\\Monch.gif"))
+        except:
+            await ctx.send(
+                "https://media.discordapp.net/attachments/729675616420495381/753171581194469465/Monch.gif"
+            )
 
 
 def setup(bot):

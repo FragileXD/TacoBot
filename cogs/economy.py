@@ -14,6 +14,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
+footer = config.footembed
 cluster = MongoClient(config.mongoclient)
 # db = cluster["coins"]
 # collection = db["coins"]
