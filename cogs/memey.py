@@ -72,7 +72,7 @@ def redditgrabber(subreddit, amount=None, time=None):
     return {
         "title": submission.title,
         "url": f"https://reddit.com{submission.permalink}",
-        "upvotes": submission.score,
+        "upvotes": int(submission.score),
         "imgurl": urlvar,
         "desc": description,
         "comments": submission.num_comments,
@@ -96,7 +96,7 @@ class Memey(commands.Cog):
     )
     async def reddit(self, ctx, subreddit: str, amount: str = None, time: str = None):
         async with ctx.typing():
-            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
             if not time:
                 time = "month"
@@ -114,14 +114,16 @@ class Memey(commands.Cog):
                 except:
                     amount = 50
 
-            if redditgrabber != "badread-nsfw":
-                meme = redditgrabber(subreddit, amount, time)
+            meme = redditgrabber(subreddit, amount, time)
+
+            if meme != "badread-nsfw":
+                print(meme)
 
                 updoots = meme["upvotes"]
                 comments = meme["comments"]
 
                 embedVar = discord.Embed(
-                    title=meme["title"], url=meme["url"], color=color
+                    title=meme["title"], url=meme["url"], color=colour
                 )
                 if meme["imgurl"] != None:
                     embedVar.set_image(url=meme["imgurl"])
@@ -133,9 +135,9 @@ class Memey(commands.Cog):
                 await ctx.send(embed=embedVar)
             else:
                 embedVar = discord.Embed(
-                    title=":no_entry_sign: Something went wrong", color=colour
+                    title=":no_entry_sign: Something went wrong", color=15105570
                 )
-                error = "NSFW Post"
+                error = "🔞NSFW Post"
                 embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
                 embedVar.set_footer(text=footer)
                 await ctx.send(embed=embedVar)
