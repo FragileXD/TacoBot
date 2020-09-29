@@ -12,7 +12,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = config.footerembed
+footer = config.footembed
 start_time = time.monotonic()
 
 

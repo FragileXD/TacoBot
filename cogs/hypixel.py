@@ -15,7 +15,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = "『 TacoBot ✦ Tacoz 』"
+footer = config.footembed
 start_time = time.monotonic()
 apikey = config.apikey
 locale.setlocale(locale.LC_ALL, "en_US")
@@ -120,11 +120,7 @@ class Hypixel(commands.Cog):
 
         if data["success"] == False:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=colour
             )
-            error = data["cause"]
-            embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
-            embedVar.set_footer(text=footer)
             await ctx.send(embed=embedVar)
         elif data["player"] == None:
             embedVar = discord.Embed(
@@ -220,11 +216,8 @@ class Hypixel(commands.Cog):
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def bedwars(self, ctx, msg: str):
 
-        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
-
         msg = msg.lower()
         data = requests.get(
-            f"https://api.hypixel.net/player?key={apikey}&name={msg}"
         ).json()
 
         if data["success"] == True and data["player"] != None:

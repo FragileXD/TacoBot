@@ -11,8 +11,11 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 apikey = "***REMOVED***"
 
