@@ -46,7 +46,7 @@ owotext==1.0.3
 pydantic==1.6.1
 beautifulsoup4==4.9.1
 strawpy==1.1
-GitPython==3.1.8
+GitPython==3.1.9
 pyfiglet==0.8.post1
 tokage==1.4
 PyGithub==1.53
