@@ -14,7 +14,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = "『 TacoBot ✦ Tacoz 』"
+footer = config.footembed
 start_time = time.monotonic()
 
 

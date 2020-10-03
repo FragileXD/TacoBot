@@ -9,8 +9,11 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from owotext import OwO
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 
 
@@ -868,6 +871,92 @@ class Fun(commands.Cog):
             )
         else:
             await ctx.send(message)
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def monch(self, ctx):
+        message_author = ctx.author
+        print("{} issued .monch".format(message_author))
+
+        try:
+            await ctx.send(file=discord.File("images\\Monch.gif"))
+        except:
+            await ctx.send(
+                "https://media.discordapp.net/attachments/729675616420495381/753171581194469465/Monch.gif"
+            )
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def kill(self, ctx, user: str):
+        possibledeaths = [
+            f"``{user}`` died of ligma. what's ligma?",
+            f"``{user}`` drank too much tea and died. what a brit.",
+            f"``{ctx.author}`` was so cool ``{user}`` died just looking at him.",
+            f"``{user}`` slipped on a banana and died. how??",
+            f"``{user}`` burnt from ``{ctx.author}``'s epic roast and died, not even going to ask how.",
+            f"``{user}`` caught a cold and when taking the medicine, he died of an allergic reaction.",
+        ]
+        await ctx.send(random.choice(possibledeaths))
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def ship(self, ctx, user: str, user2: str):
+        a = "``"
+        if len(user) == 22:
+            try:
+                user = user.replace("!", "")
+                a = ""
+            except:
+                user = user
+        if len(user2) == 22:
+            try:
+                user2 = user2.replace("!", "")
+                a = ""
+            except:
+                user2 = user2
+        lovepercent = random.randint(1, 101)
+        rounded = int((round(lovepercent, -1)) / 10)
+        shaded = "■" * rounded
+        unshaded = (10 - rounded) * "□"
+        embedVar = discord.Embed(
+            title=f"{shaded}{unshaded}",
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            color=16679378,
+        )
+        await ctx.send(
+            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
+            embed=embedVar,
+        )
+
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def ship(self, ctx, user: str, user2: str):
+        a = "``"
+        if len(user) == 22:
+            try:
+                user = user.replace("!", "")
+                a = ""
+            except:
+                user = user
+        if len(user2) == 22:
+            try:
+                user2 = user2.replace("!", "")
+                a = ""
+            except:
+                user2 = user2
+        lovepercent = random.randint(1, 101)
+        rounded = int((round(lovepercent, -1)) / 10)
+        shaded = "■" * rounded
+        unshaded = (10 - rounded) * "□"
+        embedVar = discord.Embed(
+            title=f"{shaded}{unshaded}",
+            url="https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            color=16679378,
+        )
+        await ctx.send(
+            f"**:heartpulse: MATCHMAKING {lovepercent}% :heartpulse:**\n:small_red_triangle: {a+user+a}\n:small_red_triangle_down: {a+user2+a}",
+            embed=embedVar,
+        )
 
     @commands.command()
     @commands.cooldown(1, 2, commands.BucketType.user)

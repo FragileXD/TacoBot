@@ -12,10 +12,9 @@ from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
 from utils.data import getJSON
 
-
 config = getJSON("config.json")
 
-footer = config.footerembed
+footer = config.footembed
 start_time = time.monotonic()
 
 reddit = praw.Reddit(
@@ -55,6 +54,8 @@ def redditgrabber(subreddit, amount=None, time=None):
             submission and not submission.stickied and not submission.over_18
         ):  # if submission is NOT pinned or NSFW
             submissions.append(submission)
+        elif submission.over_18:
+            return "badread-nsfw"
 
     submission = submissions[random.randint(1, len(submissions)) - 1]
 
@@ -62,16 +63,15 @@ def redditgrabber(subreddit, amount=None, time=None):
         urlvar = is_url_image(submission.url, submissions)
     elif submission.is_self:
         description = submission.selftext
+        if len(description) > 1024:
+            description = description[:1020] + " ..."
 
     author = "u/" + str(submission.author)
-
-    if len(description) > 1024:
-        description = description[:1020] + " ..."
 
     return {
         "title": submission.title,
         "url": f"https://reddit.com{submission.permalink}",
-        "upvotes": submission.score,
+        "upvotes": int(submission.score),
         "imgurl": urlvar,
         "desc": description,
         "comments": submission.num_comments,
@@ -95,7 +95,7 @@ class Memey(commands.Cog):
     )
     async def reddit(self, ctx, subreddit: str, amount: str = None, time: str = None):
         async with ctx.typing():
-            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
 
             if not time:
                 time = "month"
@@ -115,18 +115,31 @@ class Memey(commands.Cog):
 
             meme = redditgrabber(subreddit, amount, time)
 
-            updoots = meme["upvotes"]
-            comments = meme["comments"]
+            if meme != "badread-nsfw":
+                print(meme)
 
-            embedVar = discord.Embed(title=meme["title"], url=meme["url"], color=color)
-            if meme["imgurl"] != None:
-                embedVar.set_image(url=meme["imgurl"])
-            elif meme["desc"] != None:
-                embedVar.add_field(name=meme["author"], value=meme["desc"])
+                updoots = meme["upvotes"]
+                comments = meme["comments"]
 
-            embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+                embedVar = discord.Embed(
+                    title=meme["title"], url=meme["url"], color=colour
+                )
+                if meme["imgurl"] != None:
+                    embedVar.set_image(url=meme["imgurl"])
+                elif meme["desc"] != None:
+                    embedVar.add_field(name=meme["author"], value=meme["desc"])
 
-            await ctx.send(embed=embedVar)
+                embedVar.set_footer(text=(f"👍{updoots} | 💬{comments} | {footer}"))
+
+                await ctx.send(embed=embedVar)
+            else:
+                embedVar = discord.Embed(
+                    title=":no_entry_sign: Something went wrong", color=15105570
+                )
+                error = "🔞NSFW Post"
+                embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
+                embedVar.set_footer(text=footer)
+                await ctx.send(embed=embedVar)
 
     @commands.command(
         name="memes",

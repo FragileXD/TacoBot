@@ -15,7 +15,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = "『 TacoBot ✦ Tacoz 』"
+footer = config.footembed
 start_time = time.monotonic()
 apikey = config.apikey
 locale.setlocale(locale.LC_ALL, "en_US")
@@ -119,12 +119,7 @@ class Hypixel(commands.Cog):
                 friends = 0
 
         if data["success"] == False:
-            embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=colour
-            )
-            error = data["cause"]
-            embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
-            embedVar.set_footer(text=footer)
+            embedVar = discord.Embed()
             await ctx.send(embed=embedVar)
         elif data["player"] == None:
             embedVar = discord.Embed(
@@ -219,14 +214,11 @@ class Hypixel(commands.Cog):
     )
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def bedwars(self, ctx, msg: str):
-
-        colour = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
-
         msg = msg.lower()
         data = requests.get(
             f"https://api.hypixel.net/player?key={apikey}&name={msg}"
         ).json()
-
+        
         if data["success"] == True and data["player"] != None:
             try:
                 rank = data["player"]["prefix"]
@@ -643,6 +635,8 @@ class Hypixel(commands.Cog):
             except:
                 bedspergame4v4 = 0
 
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
             bblr = round(bblr, 2)
             bblr1 = round(bblr1, 2)
             bblr2 = round(bblr2, 2)
@@ -666,7 +660,7 @@ class Hypixel(commands.Cog):
 
         if data["success"] == False:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=colour
+                title=":no_entry_sign: Something went wrong", color=color
             )
             error = data["cause"]
             embedVar.add_field(name="Error", value=f"``{error}``", inline=True)
@@ -674,7 +668,7 @@ class Hypixel(commands.Cog):
             await ctx.send(embed=embedVar)
         elif data["player"] == None:
             embedVar = discord.Embed(
-                title=":no_entry_sign: Something went wrong", color=colour
+                title=":no_entry_sign: Something went wrong", color=color
             )
             error = data["cause"]
             embedVar.add_field(
@@ -689,7 +683,7 @@ class Hypixel(commands.Cog):
 
             embedVar = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             embedVar.set_author(
@@ -804,7 +798,7 @@ class Hypixel(commands.Cog):
 
             solo = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             solo.set_author(
@@ -911,7 +905,7 @@ class Hypixel(commands.Cog):
 
             doubles = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             doubles.set_author(
@@ -1026,7 +1020,7 @@ class Hypixel(commands.Cog):
 
             threes = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             threes.set_author(
@@ -1137,7 +1131,7 @@ class Hypixel(commands.Cog):
 
             fours = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours.set_author(
@@ -1246,7 +1240,7 @@ class Hypixel(commands.Cog):
 
             fours2 = discord.Embed(
                 title=f"{full}",
-                color=colour,
+                color=color,
                 url=f"https://hypixel.net/player/{msg}",
             )
             fours2.set_author(
