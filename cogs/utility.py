@@ -4,6 +4,7 @@ import sys
 import random
 import asyncio
 import time
+from time import gmtime, strftime
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
@@ -130,6 +131,7 @@ class Utility(commands.Cog):
 
     @commands.command(aliases=["media", "socialmedia"])
     async def socials(self, ctx):
+
         message_author = ctx.author
         print("{} issued .socials 🐦".format(message_author))
 
@@ -154,6 +156,12 @@ class Utility(commands.Cog):
         )
         embedVar.set_footer(text=footer)
         await ctx.send(embed=embedVar)
+
+    @commands.command(aliases=["date", "whattime"])
+    async def time(self, ctx):
+        await ctx.send(
+            ("\nGMT: " + time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime()))
+        )
 
 
 def setup(bot):
