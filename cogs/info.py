@@ -45,7 +45,6 @@ class Info(commands.Cog):
                 if file.endswith(".py"):
                     name = file[:-3].title()
                     cogls.append(str(name))
-                print(cogls)
 
             help_embed = discord.Embed(title="TacoBot Command Categories", color=color)
             for scog in cogls:
@@ -60,6 +59,10 @@ class Info(commands.Cog):
 
             help_embed.set_footer(text="use '.' or '>' before each command | " + footer)
             await ctx.send(embed=help_embed)
+        elif cog == "error":
+            await ctx.send(
+                "Error is the error checking cog, there is no valid commands in here!"
+            )
         else:
             cogA = cog.lower()
 
