@@ -98,7 +98,7 @@ class Info(commands.Cog):
                 help_text = ""
 
                 for command in commands_list:
-                    help_text += f"`{command.name}` "
+                    help_text += f"```{command.name}, [{', '.join(command.aliases)}]``` "
                 help_embed.description = help_text
 
             elif cogA in all_commandsName:
