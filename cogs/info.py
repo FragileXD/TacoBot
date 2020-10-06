@@ -75,6 +75,7 @@ class Info(commands.Cog):
                 "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
                 "Economy": ":money_mouth:",
+                "Error": ":no_entry_sign:",
             }
 
             cogs = [c for c in self.bot.cogs.keys()]
