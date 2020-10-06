@@ -21,6 +21,18 @@ class Info(commands.Cog):
         self.bot = bot
 
     @commands.command(
+        name="help2",
+        description="The help command",
+        aliases=["commands", "command", "hewwlp"],
+        usage="cog",
+    )
+    async def help2(self, ctx, cog="all"):
+        for file in os.listdir("cogs"):
+            if file.endswith(".py"):
+                name = file[:-3]
+                print(name)
+
+    @commands.command(
         name="help",
         description="The help command",
         aliases=["commands", "command", "hewwlp"],
