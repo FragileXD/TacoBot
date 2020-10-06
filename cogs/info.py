@@ -52,10 +52,12 @@ class Info(commands.Cog):
                     emoji = emojiCategory[scog]
                     help_embed.add_field(
                         name=f"{emoji} {scog}",
-                        value=f"`{ctx.prefix}help info`",
+                        value=f"```css\n{ctx.prefix}help info```",
                     )
                 except:
-                    help_embed.add_field(name=scog, value=f"`{ctx.prefix}help info`")
+                    help_embed.add_field(
+                        name=scog, value=f"```css\n{ctx.prefix}help info```"
+                    )
 
             help_embed.set_footer(text="use '.' or '>' before each command | " + footer)
             await ctx.send(embed=help_embed)
