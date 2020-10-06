@@ -39,13 +39,14 @@ class Info(commands.Cog):
             "Animals": ":dog:",
             "Economy": ":money_mouth:",
         }
-        for file in os.listdir("cogs"):
-            if file.endswith(".py"):
-                cogls = []
-                name = file[:-3].title()
-                cogls.append(str(name))
-                print(cogls)
         if cog == "all":
+            cogls = []
+            for file in os.listdir("cogs"):
+                if file.endswith(".py"):
+                    name = file[:-3].title()
+                    cogls.append(str(name))
+                print(cogls)
+
             help_embed = discord.Embed(title="TacoBot Command Categories", color=color)
             for scog in cogls:
                 try:
