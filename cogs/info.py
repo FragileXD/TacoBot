@@ -41,18 +41,26 @@ class Info(commands.Cog):
         }
         for file in os.listdir("cogs"):
             if file.endswith(".py"):
-                cogs = []
-                name = file[:-3]
-                cogs.append(name)
+                cogls = []
+                name = file[:-3].title()
+                cogls.append(name)
                 print(name)
             if cog == "all":
                 help_embed = discord.Embed(
                     title="TacoBot Command Categories", color=color
                 )
-                for cog in cogs:
-                    help_embed.add_field(
-                        name=":question: Info", value=f"`{ctx.prefix}help info`"
-                    )
+                for scog in cogls:
+                    try:
+                        emoji = emojiCategory[scog]
+                        help_embed.add_field(
+                            name=(emoji, scog),
+                            value=f"`{ctx.prefix}help info`",
+                        )
+                    except:
+                        help_embed.add_field(
+                            name=scog, value=f"`{ctx.prefix}help info`"
+                        )
+
                 help_embed.set_footer(
                     text="use '.' or '>' before each command | " + footer
                 )
