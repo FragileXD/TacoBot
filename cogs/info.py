@@ -52,7 +52,7 @@ class Info(commands.Cog):
                 try:
                     emoji = emojiCategory[scog]
                     help_embed.add_field(
-                        name=(emoji, scog),
+                        name=f"{emoji} {scog}",
                         value=f"`{ctx.prefix}help info`",
                     )
                 except:
@@ -116,8 +116,6 @@ class Info(commands.Cog):
             else:
                 await ctx.send("Invalid command/category specified.")
                 return
-
-        await ctx.send(embed=help_embed)
 
     @commands.command(
         name="help",
@@ -256,7 +254,7 @@ class Info(commands.Cog):
         print("{} issued .invite 😉".format(ctx.author))
         invite_embed.add_field(
             name=f"Invite!",
-            value=f"[Click to Invite Me!])https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)",
+            value=f"[Click to Invite Me!](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)",
         )
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
