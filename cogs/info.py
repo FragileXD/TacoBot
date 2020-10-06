@@ -23,7 +23,7 @@ class Info(commands.Cog):
     @commands.command(
         name="help2",
         description="The help command",
-        aliases=["commands", "command", "hewwlp"],
+        aliases=[],
         usage="cog",
     )
     async def help2(self, ctx, cog="all"):
@@ -31,6 +31,12 @@ class Info(commands.Cog):
             if file.endswith(".py"):
                 name = file[:-3]
                 print(name)
+                help_embed = discord.Embed(
+                    title="TacoBot Command Categories", color=3066993
+                )
+                help_embed.set_footer(
+                    text="use '.' or '>' before each command | " + footer
+                )
 
     @commands.command(
         name="help",
