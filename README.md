@@ -51,17 +51,10 @@
 
 ## Features
 
-<<<<<<< HEAD
-
-- Kawaii Animals!
-  - Ducc
-- Fun Commands!
-- # Hypixel API
 - Animals
 - Fun Commands!
 - Hypixel Stats
 - Reddit Interegation
-  > > > > > > > 433e5554b96c8602158d41c4d09940759daebced
 - Subreddits & Memes!
 - Minecraft Commands
 - Moderation Commands!
