@@ -4,11 +4,13 @@ import sys
 import random
 import asyncio
 import time
+import datetime
 from time import gmtime, strftime
 from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from datetime import datetime
 
 footer = "『 TacoBot ✦ Tacoz 』"
 start_time = time.monotonic()
@@ -159,9 +161,10 @@ class Utility(commands.Cog):
 
     @commands.command(aliases=["date", "whattime"])
     async def time(self, ctx):
-        await ctx.send(
-            ("\nGMT: " + time.strftime("%a, %d %b %Y %I:%M:%S %p %Z", time.gmtime()))
-        )
+        now = datetime.now()
+
+        current_time = now.strftime("%d/%m/%Y %H:%M:%S")
+        await ctx.send((current_time))
 
 
 def setup(bot):
