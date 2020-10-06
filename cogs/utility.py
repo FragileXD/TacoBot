@@ -164,7 +164,7 @@ class Utility(commands.Cog):
         now = datetime.now()
 
         current_time = now.strftime("%d/%m/%Y %H:%M:%S")
-        await ctx.send("GMT:", current_time)
+        await ctx.send(f"GMT: {current_time")
 
 
 def setup(bot):
