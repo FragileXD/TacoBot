@@ -33,7 +33,7 @@ class Info(commands.Cog):
             "Info": ":question:",
             "Fun": ":smile:",
             "Moderation": ":shield:",
-            "Minecraft": "<:minecrafticon0:749613029473255494>",
+            "Minecraft": "<:minecrafticon0:762895015579222066>",
             "Hypixel": "<:Hypixel:745240325064228884>",
             "Memey": "<:Reddit:745241144207867997>",
             "Animals": ":dog:",
@@ -43,87 +43,80 @@ class Info(commands.Cog):
             if file.endswith(".py"):
                 cogls = []
                 name = file[:-3].title()
-                cogls.append(name)
-                print(name)
-            if cog == "all":
-                help_embed = discord.Embed(
-                    title="TacoBot Command Categories", color=color
-                )
-                for scog in cogls:
-                    try:
-                        emoji = emojiCategory[scog]
-                        help_embed.add_field(
-                            name=(emoji, scog),
-                            value=f"`{ctx.prefix}help info`",
-                        )
-                    except:
-                        help_embed.add_field(
-                            name=scog, value=f"`{ctx.prefix}help info`"
-                        )
-
-                help_embed.set_footer(
-                    text="use '.' or '>' before each command | " + footer
-                )
-            else:
-                cogA = cog.lower()
-
-                cogs = [c for c in self.bot.cogs.keys()]
-
-                lower_cogs = [c.lower() for c in cogs]
-
-                all_commands = {}
-                for cog in cogs:
-                    all_commands[cog] = self.bot.get_cog(
-                        cogs[lower_cogs.index(cog.lower())]
-                    ).get_commands()
-
-                for cog in all_commands:
-                    for c in all_commands[cog]:
-                        pass  # print(c)
-
-                all_commandsData = [
-                    c for cog in all_commands for c in all_commands[cog]
-                ]
-                all_commandsName = [
-                    c.name for cog in all_commands for c in all_commands[cog]
-                ]
-
-                if cogA in lower_cogs:
-                    help_embed = discord.Embed(
-                        title=f"{emojiCategory[cogA.title()]} {cogA.title()} Commands",
-                        color=color,
-                    )
-                    commands_list = self.bot.get_cog(
-                        cogs[lower_cogs.index(cogA)]
-                    ).get_commands()
-                    help_text = ""
-
-                    for command in commands_list:
-                        help_text += f"`{command.name}` "
-                    help_embed.description = help_text
-
-                elif cogA in all_commandsName:
-                    command = all_commandsData[all_commandsName.index(cogA)]
-                    help_embed = discord.Embed(
-                        title=f"Information about {ctx.prefix}{command.name}",
-                        color=3066993,
-                    )
+                cogls.append(str(name))
+                print(cogls)
+        if cog == "all":
+            help_embed = discord.Embed(title="TacoBot Command Categories", color=color)
+            for scog in cogls:
+                try:
+                    emoji = emojiCategory[scog]
                     help_embed.add_field(
-                        name="**Description**\n",
-                        value=f"{command.description}\n",
-                        inline=False,
+                        name=(emoji, scog),
+                        value=f"`{ctx.prefix}help info`",
                     )
-                    help_embed.add_field(
-                        name="**Aliases**\n",
-                        value=f"`{' '.join(command.aliases)}`",
-                        inline=False,
-                    )
+                except:
+                    help_embed.add_field(name=scog, value=f"`{ctx.prefix}help info`")
 
-                else:
-                    await ctx.send("Invalid command/category specified.")
-                    return
-
+            help_embed.set_footer(text="use '.' or '>' before each command | " + footer)
             await ctx.send(embed=help_embed)
+        else:
+            cogA = cog.lower()
+
+            cogs = [c for c in self.bot.cogs.keys()]
+
+            lower_cogs = [c.lower() for c in cogs]
+
+            all_commands = {}
+            for cog in cogs:
+                all_commands[cog] = self.bot.get_cog(
+                    cogs[lower_cogs.index(cog.lower())]
+                ).get_commands()
+
+            for cog in all_commands:
+                for c in all_commands[cog]:
+                    pass  # print(c)
+
+            all_commandsData = [c for cog in all_commands for c in all_commands[cog]]
+            all_commandsName = [
+                c.name for cog in all_commands for c in all_commands[cog]
+            ]
+
+            if cogA in lower_cogs:
+                help_embed = discord.Embed(
+                    title=f"{emojiCategory[cogA.title()]} {cogA.title()} Commands",
+                    color=color,
+                )
+                commands_list = self.bot.get_cog(
+                    cogs[lower_cogs.index(cogA)]
+                ).get_commands()
+                help_text = ""
+
+                for command in commands_list:
+                    help_text += f"`{command.name}` "
+                help_embed.description = help_text
+
+            elif cogA in all_commandsName:
+                command = all_commandsData[all_commandsName.index(cogA)]
+                help_embed = discord.Embed(
+                    title=f"Information about {ctx.prefix}{command.name}",
+                    color=color,
+                )
+                help_embed.add_field(
+                    name="**Description**\n",
+                    value=f"{command.description}\n",
+                    inline=False,
+                )
+                help_embed.add_field(
+                    name="**Aliases**\n",
+                    value=f"`{' '.join(command.aliases)}`",
+                    inline=False,
+                )
+
+            else:
+                await ctx.send("Invalid command/category specified.")
+                return
+
+        await ctx.send(embed=help_embed)
 
     @commands.command(
         name="help",
