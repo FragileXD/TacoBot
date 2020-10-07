@@ -40,6 +40,9 @@ async def on_ready():
     print(f"{client.user.name} is Launched")
     print(client.user.id)
     print("--------------")
+    print("Servers connected to:")
+    for guild in client.guilds:
+        print(guild.name)
     while True:
         status = random.choice(statuses)
         activity = discord.Activity(
