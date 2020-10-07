@@ -17,7 +17,7 @@ config = getJSON("config.json")
 
 footer = config.footembed
 start_time = time.monotonic()
-apikey = "***REMOVED***"
+apikey = "a54ce218-4fd5-4798-9b4b-6c74efac3456"
 
 
 class Minecraft(commands.Cog):

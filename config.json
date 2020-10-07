@@ -1,12 +1,12 @@
 {
-  "token": "***REMOVED***",
-  "ownerid": 389388825274613771,
-  "client_id": "***REMOVED***",
-  "client_secret": "***REMOVED***",
-  "user_agent": "Reddit Bot API",
-  "username": "TacozRedditBot",
-  "password": "***REMOVED***",
-  "apikey": "***REMOVED***",
-  "mongoclient": "***REMOVED***",
-  "footembed": "『 TacoBot ✦ Tacoz 』"
+    "token": "NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.3yzivanrumX898XXwn7V1z_YCwA",
+    "ownerid": 389388825274613771,
+    "client_id": "MLWvmWc9y6ZXjA",
+    "client_secret": "38qruvkba7xeynAu9sI1reS4cR8",
+    "user_agent": "Reddit Bot API",
+    "username": "TacozRedditBot",
+    "password": "j2R6ErjdJUf5Bod71",
+    "apikey": "a54ce218-4fd5-4798-9b4b-6c74efac3456",
+    "mongoclient": "mongodb+srv://Tacoz:zKeNaF0qt2HEhOr4@tacoboteconomy.tknza.mongodb.net/Tacoz?retryWrites=true&w=majority",
+    "footembed": "『 TacoBot ✦ Tacoz 』"
 }
