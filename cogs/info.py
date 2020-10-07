@@ -133,6 +133,7 @@ class Info(commands.Cog):
                 await ctx.send("Invalid command/category specified.")
                 return
 
+        print(help_embed)
         await ctx.send(embed=help_embed)
 
     @commands.command(
@@ -163,6 +164,7 @@ class Info(commands.Cog):
         )
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)
+
 
     @commands.command(
         name="support",
