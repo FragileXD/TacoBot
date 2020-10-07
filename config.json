@@ -7,6 +7,6 @@
     "username": "***REMOVED***",
     "password": "***REMOVED***",
     "apikey": "***REMOVED***",
-    "mongoclient": "***REMOVED***",
+    "mongoclient": "mongodb+srv://Tacoz:***REMOVED***@tacoboteconomy.tknza.mongodb.net/Tacoz?retryWrites=true&w=majority",
     "footembed": "『 TacoBot ✦ Tacoz 』"
 }
