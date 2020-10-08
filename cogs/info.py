@@ -23,7 +23,7 @@ class Info(commands.Cog):
     @commands.command(
         name="help",
         description="The help command",
-        aliases=["commands", "command", "hewwlp"],
+        aliases=["commands", "command", "hewwlp", "h"],
         usage="cog",
     )
     async def help_command(self, ctx, cog="all"):
