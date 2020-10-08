@@ -74,6 +74,7 @@ class Economy(commands.Cog):
                 description=f"{ctx.author.mention} your have been registered!",
                 color=color,
             )
+            embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
         except pymongo.errors.DuplicateKeyError:
             embed1 = discord.Embed(
@@ -81,6 +82,7 @@ class Economy(commands.Cog):
                 description=f"Sorry {ctx.author.mention} your already registered!",
                 color=color,
             )
+            embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
             return
 
@@ -107,8 +109,19 @@ class Economy(commands.Cog):
                 title=f"{ctx.author}'s balance",
                 color=color,
             )
-            embed1.add_field(name="Purse:", value=purse, inline=True)
-            embed1.add_field(name="Bank:", value=f"{bank}/{maxbank}", inline=True)
+            embed1.add_field(name="Purse:", value=purse, inline=False)
+            embed1.add_field(name="Bank:", value=f"{bank}/{maxbank}", inline=False)
+            embed1.add_field(
+                name="Total:", value=f"{(int(bank)+int(purse))}", inline=False
+            )
+            if bank + purse == 420 or purse == 420 or bank == 420:
+                embed1.set_footer(text=f"thats the weed number!11! {footer}")
+            elif bank + purse == 69 or purse == 69 or bank == 69:
+                embed1.set_footer(text=f"thats the hecking funny number!11! {footer}")
+            elif bank + purse == 666 or purse == 666 or bank == 666:
+                embed1.set_footer(text=f"spooky | {footer}")
+            else:
+                embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
 
     @commands.command(
