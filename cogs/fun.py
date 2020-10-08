@@ -251,7 +251,7 @@ class Fun(commands.Cog):
     async def party(self, ctx, *, message):
         message_author = ctx.author
         print("{} issued .party 🥳".format(message_author))
-        a = message.replace(" ", "<a:party_blob:743099804279898143>")
+        a = message.replace(" ", "<a:party_blob:763630778352402452>")
 
         if len(a) < 2000:
             await ctx.send(a)
