@@ -26,7 +26,7 @@ class Utility(commands.Cog):
         message_channel = ctx.channel
         print("{} issued .hello 👋".format(message_author))
         await message_channel.send(
-            "<a:party_blob:743099804279898143> Hello, {}! 👋".format(message_author.name)
+            "<a:party_blob:763630778352402452> Hello, {}! 👋".format(message_author.name)
         )
 
     @commands.command(
