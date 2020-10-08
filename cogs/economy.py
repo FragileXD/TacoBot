@@ -257,6 +257,9 @@ class Economy(commands.Cog):
             "go work or something",
             "no",
             "in your dreams",
+            "i only give money to hookers",
+            "i already gave away everything to the last guy who asked",
+            "\*stabs you* jk, unless :flushed:",
         ]
 
         for result in user:
