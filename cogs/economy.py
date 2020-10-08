@@ -134,7 +134,9 @@ class Economy(commands.Cog):
             balancecheck(ctx.author.id)
 
             try:
-                if amount.lower() == "all":
+                if maxbank == bank:
+                    await ctx.send(f"{ctx.author.mention} your bank is full!")
+                elif amount.lower() == "all":
                     if maxbank - bank >= purse:
                         deposit = purse
                     elif maxbank - bank < purse:
