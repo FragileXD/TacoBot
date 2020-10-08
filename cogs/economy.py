@@ -184,7 +184,9 @@ class Economy(commands.Cog):
                 else:
                     deposit = maxbank - bank
                     if purse < deposit:
-                        await ctx.send("you don't have enough money lmao")
+                        await ctx.send(
+                            "<a:aquacry:763693175171973140> you don't have enough money lmao"
+                        )
                     else:
                         collection.update_one(
                             {"_id": ctx.author.id},
