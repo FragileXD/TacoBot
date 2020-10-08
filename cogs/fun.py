@@ -1044,6 +1044,34 @@ class Fun(commands.Cog):
             embed=embedVar,
         )
 
+    @commands.command()
+    @commands.cooldown(1, 2, commands.BucketType.user)
+    async def inputtest(self, ctx):
+        await ctx.send("say something")
+        try:
+            await self.bot.wait_for(
+                "message", check=lambda msg: msg.author == ctx.author, timeout=30
+            )
+        except asyncio.TimeoutError:
+            await ctx.send("Timeout")
+        else:
+            await ctx.send("well done. you said something")
+
+        await ctx.send("now say ``tacoz is cool``")
+        try:
+            await self.bot.wait_for(
+                "message",
+                check=lambda msg: msg.author == ctx.author
+                and msg.content == "tacoz is cool",
+                timeout=30,
+            )
+        except asyncio.TimeoutError:
+            await ctx.send("Timeout")
+        else:
+            await ctx.send("well done. you said ``tacoz is cool``")
+
+        await ctx.send("input test complete!")
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
