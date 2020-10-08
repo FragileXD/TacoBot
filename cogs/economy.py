@@ -242,7 +242,9 @@ class Economy(commands.Cog):
                     )
                     await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
                 else:
-                    await ctx.send("you dont have the money lmao")
+                    await ctx.send(
+                        "<a:aquacry:763693175171973140> you dont have the money lmao"
+                    )
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
 
@@ -265,16 +267,16 @@ class Economy(commands.Cog):
             "Doge",
         ]
         prompts = [
-            "you're too smelly go away",
+            "<:02smug:763689785364709376> you're too smelly go away",
             "bruh no",
             "...",
             ":yuck: :vomit: :disgusztfaze: :bruhwhy:",
             "go work or something",
-            "no",
+            "no <:1975_RukaBleh:763694721163460618>",
             "in your dreams",
-            "i only give money to hookers",
-            "i already gave away everything to the last guy who asked",
-            "\*stabs you* jk, unless :flushed:",
+            "<:SataniaThumbsUp:763694357806317578> i only give money to hookers",
+            "<:akkoShrug:763694065945673729> i already gave away everything to the last guy who asked",
+            ":knife: \*stabs you* jk, unless? :flushed:",
         ]
 
         for result in user:
