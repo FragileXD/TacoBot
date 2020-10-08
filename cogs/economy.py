@@ -150,10 +150,8 @@ class Economy(commands.Cog):
                 if maxbank == bank:
                     await ctx.send(f"{ctx.author.mention} your bank is full!")
                 elif amount.lower() == "all":
-                    if maxbank - bank >= purse:
-                        deposit = purse
-                    elif maxbank - bank < purse:
-                        deposit = maxbank
+                    if maxbank - bank > 0:
+                        deposit = maxbank - bank
                     collection.update_one(
                         {"_id": ctx.author.id},
                         {"$set": {"bank": deposit}},
