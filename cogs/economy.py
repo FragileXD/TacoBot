@@ -109,10 +109,10 @@ class Economy(commands.Cog):
                 title=f"{ctx.author}'s balance",
                 color=color,
             )
-            embed1.add_field(name="Purse:", value=purse, inline=False)
-            embed1.add_field(name="Bank:", value=f"{bank}/{maxbank}", inline=False)
+            embed1.add_field(name="Purse:", value=purse, inline=True)
+            embed1.add_field(name="Bank:", value=f"{bank}/{maxbank}", inline=True)
             embed1.add_field(
-                name="Total:", value=f"{(int(bank)+int(purse))}", inline=False
+                name="Total:", value=f"{(int(bank)+int(purse))}", inline=True
             )
             if bank + purse == 420 or purse == 420 or bank == 420:
                 embed1.set_footer(text=f"thats the weed number!11! {footer}")
