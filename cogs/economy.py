@@ -261,7 +261,7 @@ class Economy(commands.Cog):
             "Obama",
             "TacoBot",
             "Tacoz",
-            "Shrek",
+            "<:shrek:763697366468395028> Shrek",
             "your mom",
             "Rick Astley",
             "Doge",
@@ -287,14 +287,14 @@ class Economy(commands.Cog):
             income = random.randint(1, 1000000001)
             if income != 1000000000:
                 income = random.randint(1, 101)
-                collection.update_one(
-                    {"_id": ctx.author.id},
-                    {"$set": {"purse": purse + income}},
-                )
                 if income > 60:
                     income = random.randint(1, 250)
                     await ctx.send(
                         f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                    )
+                    collection.update_one(
+                        {"_id": ctx.author.id},
+                        {"$set": {"purse": purse + income}},
                     )
                 else:
                     await ctx.send(f"{random.choice(people)}: {random.choice(prompts)}")
