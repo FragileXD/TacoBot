@@ -271,21 +271,21 @@ class Economy(commands.Cog):
                     {"_id": ctx.author.id},
                     {"$set": {"purse": purse + income}},
                 )
-                await ctx.send(
-                    f"{random.choice(people)} gave {ctx.author.mention} ${income}."
-                )
                 if income > 60:
                     income = random.randint(1, 250)
+                    await ctx.send(
+                        f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                    )
                 else:
                     await ctx.send(f"{random.choice(people)}: {random.choice(prompts)}")
             else:
-                income = random.randint(100000, 100000000)
+                income = random.randint(1000, 100000000)
                 collection.update_one(
                     {"_id": ctx.author.id},
                     {"$set": {"purse": purse + income}},
                 )
                 await ctx.send(
-                    f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                    f"a rich {random.choice(people)} came and gave {ctx.author.mention} a jackpot worth ${income}."
                 )
 
 
