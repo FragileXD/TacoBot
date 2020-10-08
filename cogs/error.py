@@ -38,7 +38,7 @@ class Errors(commands.Cog):
 
         if isinstance(e, commands.MaxConcurrencyReached):
             await self.send(
-                ctx, "Hold on! You can't use multiple of that command at once!"
+                ctx, "<a:Aqua_panic:763690124805537842> Hold on! You can't use multiple of that command at once!"
             )
             return
 
@@ -71,7 +71,7 @@ class Errors(commands.Cog):
 
         if isinstance(e, commands.MissingPermissions):
             await self.send(
-                ctx, "Nice try, but you don't have the permissions to do that."
+                ctx, "<:02smug:763689785364709376> Nice try, but you don't have the permissions to do that."
             )
             return
 
@@ -80,7 +80,7 @@ class Errors(commands.Cog):
                 e.errors
             ):  # yes I know this is jank but it works so shhhh
                 await self.send(
-                    ctx, "Nice try, but you don't have the permissions to do that."
+                    ctx, "<:AwOo:763689785218695209> Nice try, but you don't have the permissions to do that."
                 )
                 return
 
@@ -91,7 +91,9 @@ class Errors(commands.Cog):
             return
 
         if "NoStatError" in str(e):
-            await self.send(ctx, "No stats available!")
+            await self.send(
+                ctx, "<a:Aqua_panic:763690124805537842> No stats available!"
+            )
             return
         else:
             print(e)
@@ -102,7 +104,7 @@ class Errors(commands.Cog):
                 self.bot.get_cog("Cache").failed += 1
                 await self.send(
                     ctx,
-                    "For some reason, the Hypixel API took too long to respond. Please try again later.",
+                     a:Aqua_panic:763690124805537842>For some reason, the Hypixel API took too long to respond. Please try again later.",
                 )
         except Exception:
             pass
