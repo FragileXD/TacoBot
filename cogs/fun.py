@@ -218,15 +218,15 @@ class Fun(commands.Cog):
             "Signs point to a YES!",
             "Very doubtful",
             "without a doubt",
-            "yep",
-            "yes",
-            "yes - definitely",
-            "you may rely on it",
-            "Yes",
+            "yep (笑)",
+            "yes, or no?",
+            "yes - definitely, yep, i think so, maybe, no",
+            "you may rely on it i guess",
+            "Yes.................",
             "No",
             "Take a wild guess...",
             "Very doubtful",
-            "Sure",
+            "Sure why not (笑)",
             "Without a doubt",
             "Most likely",
             "Might be possible",
@@ -257,7 +257,7 @@ class Fun(commands.Cog):
             await ctx.send(a)
         else:
             await ctx.send(
-                f"Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
+                f":angry: Break the bot again and I will break your knees. Characters over Limit, {len(a)}/2000 "
             )
 
     @commands.command(aliases=["fancy"])
