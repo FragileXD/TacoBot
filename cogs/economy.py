@@ -124,9 +124,9 @@ class Economy(commands.Cog):
                 embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
         else:
-            await ctx.send("No Account Detected... Creating Account")
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
+                await ctx.send("No Account Detected... Creating Account")
                 db = cluster["coins"]
                 collection = db["coins"]
                 post = {
@@ -144,13 +144,6 @@ class Economy(commands.Cog):
                 embed1.set_footer(text=footer)
                 await ctx.send(embed=embed1)
             except pymongo.errors.DuplicateKeyError:
-                embed1 = discord.Embed(
-                    title="Error!",
-                    description=f"Sorry {ctx.author.mention} your already registered!",
-                    color=color,
-                )
-                embed1.set_footer(text=footer)
-                await ctx.send(embed=embed1)
                 return
 
     @commands.command(
@@ -229,9 +222,9 @@ class Economy(commands.Cog):
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
         else:
-            await ctx.send("No Account Detected... Creating Account")
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
+                await ctx.send("No Account Detected... Creating Account")
                 db = cluster["coins"]
                 collection = db["coins"]
                 post = {
@@ -249,13 +242,6 @@ class Economy(commands.Cog):
                 embed1.set_footer(text=footer)
                 await ctx.send(embed=embed1)
             except pymongo.errors.DuplicateKeyError:
-                embed1 = discord.Embed(
-                    title="Error!",
-                    description=f"Sorry {ctx.author.mention} your already registered!",
-                    color=color,
-                )
-                embed1.set_footer(text=footer)
-                await ctx.send(embed=embed1)
                 return
 
     @commands.command(
@@ -306,9 +292,9 @@ class Economy(commands.Cog):
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
         else:
-            await ctx.send("No Account Detected... Creating Account")
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
+                await ctx.send("No Account Detected... Creating Account")
                 db = cluster["coins"]
                 collection = db["coins"]
                 post = {
@@ -326,13 +312,6 @@ class Economy(commands.Cog):
                 embed1.set_footer(text=footer)
                 await ctx.send(embed=embed1)
             except pymongo.errors.DuplicateKeyError:
-                embed1 = discord.Embed(
-                    title="Error!",
-                    description=f"Sorry {ctx.author.mention} your already registered!",
-                    color=color,
-                )
-                embed1.set_footer(text=footer)
-                await ctx.send(embed=embed1)
                 return
 
     @commands.command(name="beg", description="Beg for money", aliases=["begger"])
@@ -415,13 +394,6 @@ class Economy(commands.Cog):
                 embed1.set_footer(text=footer)
                 await ctx.send(embed=embed1)
             except pymongo.errors.DuplicateKeyError:
-                embed1 = discord.Embed(
-                    title="Error!",
-                    description=f"Sorry {ctx.author.mention} your already registered!",
-                    color=color,
-                )
-                embed1.set_footer(text=footer)
-                await ctx.send(embed=embed1)
                 return
 
 
