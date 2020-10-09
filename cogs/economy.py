@@ -349,6 +349,15 @@ class Economy(commands.Cog):
             "Shakespeare",
             "Thomas the Tank Engine",
             "HuggyDaBuggy",
+            "Bong Cat",
+            "Happy Tree Friends",
+            "Pusheen",
+            "Salad Fingers",
+            "Eren Yeager",
+            "Shaggy",
+            "<:AwOo:763689785218695209> Shaggy [ULTRA-INSTINCT]",
+            "Polandball",
+            "floss kid",
         ]
         prompts = [
             "<:02smug:763689785364709376> you're too smelly go away",
@@ -361,6 +370,10 @@ class Economy(commands.Cog):
             "<:SataniaThumbsUp:763689835986026506> i only give money to hookers",
             "<:akkoShrug:763689780063240204> i already gave away everything to the last guy who asked",
             ":knife: \\*stabs you* jk, unless? :flushed:",
+            "<:SataniaThumbsUp:763689835986026506> here's ZERO DOLLARS :DD",
+            "<a:aquacry:763693175171973140> i have no money lmao",
+            "POGGERS, YOU HIT THE JACKPOT, I PRESENT YOU.... ZERO DOLLARS",
+            "<:SataniaThumbsUp:763689835986026506> [click me to get your money](https://www.google.com/search?q=trololl+face+lmAo+69&tbm=isch)",
         ]
 
         for result in user:
