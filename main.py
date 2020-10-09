@@ -40,7 +40,7 @@ async def cog_command_error(self, ctx, error):
 async def on_ready():
     print(f"{client.user.name} is Launched")
     print(client.user.id)
-    print("--------------")
+    print("-------------- testing126969699696")
     print("Servers connected to:")
     for guild in client.guilds:
         print(guild.name)
