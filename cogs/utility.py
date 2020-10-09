@@ -143,17 +143,17 @@ class Utility(commands.Cog):
         )
         embedVar.add_field(
             name="<:twitter:764019501724860438> Twitter:",
-            value="https://twitter.com/NotTacoz",
+            value="[Click Me](https://twitter.com/NotTacoz)",
             inline=True,
         )
         embedVar.add_field(
             name="<:youtube:764019521111326750> Youtube:",
-            value="https://youtube.com/TacozLmao",
+            value="[Click Me](https://youtube.com/TacozLmao)",
             inline=True,
         )
         embedVar.add_field(
             name="<:discord:764019481735200798> Discord Server:",
-            value="https://discord.io/Tacoz",
+            value="[Click Me](https://discord.io/Tacoz)",
             inline=True,
         )
         embedVar.set_footer(text=footer)
