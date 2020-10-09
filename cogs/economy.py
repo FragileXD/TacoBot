@@ -373,7 +373,7 @@ class Economy(commands.Cog):
             "<:SataniaThumbsUp:763689835986026506> here's ZERO DOLLARS :DD",
             "<a:aquacry:763693175171973140> i have no money lmao",
             "POGGERS, YOU HIT THE JACKPOT, I PRESENT YOU.... ZERO DOLLARS",
-            "<:SataniaThumbsUp:763689835986026506> [click me to get your money](https://www.google.com/search?q=trololl+face+lmAo+69&tbm=isch)",
+            "<:SataniaThumbsUp:763689835986026506> [click me to get your money](https://www.google.com/search?q=trololl+face+lmAo+69+sub2tacoztyty&tbm=isch)",
         ]
 
         for result in user:
