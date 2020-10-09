@@ -123,6 +123,7 @@ class Economy(commands.Cog):
             else:
                 embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
+            break
         else:
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
@@ -221,6 +222,7 @@ class Economy(commands.Cog):
                         await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
+            break
         else:
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
@@ -291,6 +293,7 @@ class Economy(commands.Cog):
                     )
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
+            break
         else:
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
@@ -373,6 +376,7 @@ class Economy(commands.Cog):
                 await ctx.send(
                     f"a rich {random.choice(people)} came and gave {ctx.author.mention} a jackpot worth ${income}."
                 )
+            break
         else:
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
