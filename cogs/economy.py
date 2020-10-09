@@ -374,9 +374,9 @@ class Economy(commands.Cog):
                     f"a rich {random.choice(people)} came and gave {ctx.author.mention} a jackpot worth ${income}."
                 )
         else:
-            await ctx.send("No Account Detected... Creating Account")
             color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
             try:
+                await ctx.send("No Account Detected... Creating Account")
                 db = cluster["coins"]
                 collection = db["coins"]
                 post = {
