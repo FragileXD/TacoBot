@@ -276,7 +276,7 @@ class Economy(commands.Cog):
             "in your dreams",
             "<:SataniaThumbsUp:763689835986026506> i only give money to hookers",
             "<:akkoShrug:763689780063240204> i already gave away everything to the last guy who asked",
-            ":knife: \*stabs you* jk, unless? :flushed:",
+            ":knife: \\*stabs you* jk, unless? :flushed:",
         ]
 
         for result in user:
