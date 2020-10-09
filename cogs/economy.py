@@ -154,7 +154,7 @@ class Economy(commands.Cog):
                         deposit = maxbank - bank
                     collection.update_one(
                         {"_id": ctx.author.id},
-                        {"$set": {"bank": deposit}},
+                        {"$set": {"bank": bank + deposit}},
                     )
                     collection.update_one(
                         {"_id": ctx.author.id},
