@@ -14,12 +14,24 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-statuses = [
+statusesplay = [
     ".help / >help | http://youtube.com/tacozlmao",
     "with the ban hammer | .help",
     "owo! twype .hewwlp for hwelp maaswter! :3",
     f"with {Bot.users}",
     "with my dog",
+    "video games instead of working",
+    "breaking the mental stability of tacoz",
+]
+
+statuseswatch = [
+    "https://youtube.com/tacozlmao",
+    "@everyone",
+    f"{random.randint(1,10000)} errors",
+    f"{str(len(Bot.users))} users",
+    f"{str((len(Bot.guilds)))} servers",
+    "the world burn",
+    "everything 👀",
 ]
 
 # CONFIG!
@@ -46,11 +58,19 @@ async def on_ready():
         print(guild.name)
     print("--------------")
     while True:
-        status = random.choice(statuses)
-        activity = discord.Activity(
-            type=discord.ActivityType.playing,
-            name=status,
-        )
+        a = random.randint(1, 2)
+        if a == 1:
+            status = random.choice(statuseswatch)
+            activity = discord.Activity(
+                type=discord.ActivityType.watching,
+                name=status,
+            )
+        elif a == 2:
+            status = random.choice(statusesplay)
+            activity = discord.Activity(
+                type=discord.ActivityType.playing,
+                name=status,
+            )
         await client.change_presence(status=discord.Status.idle, activity=activity)
         await asyncio.sleep(random.randint(60, 180))
 
