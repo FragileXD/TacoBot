@@ -14,11 +14,18 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
+# CONFIG!
+PREFIX = (".", ">")
+TOKEN = config.token
+OWNERID = config.ownerid
+footer = "『 TacoBot ✦ Tacoz 』"
+client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=True)
+
 statusesplay = [
     ".help / >help | http://youtube.com/tacozlmao",
     "with the ban hammer | .help",
     "owo! twype .hewwlp for hwelp maaswter! :3",
-    f"with {Bot.users}",
+    f"with <property object at 0x03cdj128>",
     "with my dog",
     "video games instead of working",
     "breaking the mental stability of tacoz",
@@ -28,18 +35,11 @@ statuseswatch = [
     "https://youtube.com/tacozlmao",
     "@everyone",
     f"{random.randint(1,10000)} errors",
-    f"{Bot.users} users",
-    f"{Bot.guilds} servers",
+    f"{len(client.users)} users",
+    f"{len(client.guilds)} servers",
     "the world burn",
     "everything 👀",
 ]
-
-# CONFIG!
-PREFIX = (".", ">")
-TOKEN = config.token
-OWNERID = config.ownerid
-footer = "『 TacoBot ✦ Tacoz 』"
-client = commands.Bot(command_prefix=PREFIX, owner_id=OWNERID, case_insensitive=True)
 
 
 @client.event
