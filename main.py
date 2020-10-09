@@ -19,6 +19,7 @@ statuses = [
     "with the ban hammer | .help",
     "owo! twype .hewwlp for hwelp maaswter! :3",
     f"with {Bot.users}",
+    "with my dog",
 ]
 
 # CONFIG!
@@ -43,6 +44,7 @@ async def on_ready():
     print("Servers connected to:")
     for guild in client.guilds:
         print(guild.name)
+    print("--------------")
     while True:
         status = random.choice(statuses)
         activity = discord.Activity(
@@ -50,7 +52,7 @@ async def on_ready():
             name=status,
         )
         await client.change_presence(status=discord.Status.idle, activity=activity)
-        await asyncio.sleep(600000)
+        await asyncio.sleep(random.randint(60, 180))
 
 
 client.remove_command("help")
