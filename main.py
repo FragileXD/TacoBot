@@ -24,14 +24,12 @@ statusesplay = [
     "breaking the mental stability of tacoz",
 ]
 
-userslen = len(Bot.users)
-servers = len(Bot.guilds)
 statuseswatch = [
     "https://youtube.com/tacozlmao",
     "@everyone",
     f"{random.randint(1,10000)} errors",
-    f"{userslen} users",
-    f"{servers} servers",
+    f"{Bot.users} users",
+    f"{Bot.guilds} servers",
     "the world burn",
     "everything 👀",
 ]
