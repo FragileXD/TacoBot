@@ -138,21 +138,21 @@ class Utility(commands.Cog):
         print("{} issued .socials 🐦".format(message_author))
 
         embedVar = discord.Embed(
-            title="<a:party_blob:743099804279898143> Social Media <a:party_blob:743099804279898143>",
+            title="<a:party_blob:763630778352402452> Social Media <a:party_blob:763630778352402452>",
             color=3066993,
         )
         embedVar.add_field(
-            name="<:twitter:745938625316913234> Twitter:",
+            name="<:twitter:764019501724860438> Twitter:",
             value="https://twitter.com/NotTacoz",
             inline=True,
         )
         embedVar.add_field(
-            name="<:youtube:745938625157398548> Youtube:",
+            name="<:youtube:764019521111326750> Youtube:",
             value="https://youtube.com/TacozLmao",
             inline=True,
         )
         embedVar.add_field(
-            name="<:discord:745938625522434108> Discord Server:",
+            name="<:discord:764019481735200798> Discord Server:",
             value="https://discord.io/Tacoz",
             inline=True,
         )
