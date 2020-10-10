@@ -15,6 +15,9 @@
   <a href="https://i.ibb.co/0Zgh8Yf/c4074087283441de471b78e0fb56cf25.gif">
     <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-b70016?style=for-the-badge">
   </a>
+  <a href="https://i.ibb.co/0Zgh8Yf/c4074087283441de471b78e0fb56cf25.gif">
+    <img src="https://img.shields.io/badge/Powered_By-EXPLOSION!-b70016?style=for-the-badge">
+  </a>
 </p>
 
 <p align="center">
@@ -48,10 +51,10 @@
 
 ## Features
 
-- Kawaii Animals!
-  - Ducc
+- Animals
 - Fun Commands!
-- Hypixel API
+- Hypixel Stats
+- Reddit Interegation
 - Subreddits & Memes!
 - Minecraft Commands
 - Moderation Commands!

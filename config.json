@@ -4,7 +4,7 @@
     "client_id": "reddit client id",
     "client_secret": "reddit client secret",
     "user_agent": "User Agent",
-    "username": "***REMOVED***",
+    "username": "TacozRedditBot",
     "password": "password",
     "apikey": "apikey",
     "mongoclient": "mongoclient"

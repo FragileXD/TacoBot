@@ -14,6 +14,7 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
+footer = config.footembed
 cluster = MongoClient(config.mongoclient)
 # db = cluster["coins"]
 # collection = db["coins"]
@@ -73,6 +74,7 @@ class Economy(commands.Cog):
                 description=f"{ctx.author.mention} your have been registered!",
                 color=color,
             )
+            embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
         except pymongo.errors.DuplicateKeyError:
             embed1 = discord.Embed(
@@ -80,6 +82,7 @@ class Economy(commands.Cog):
                 description=f"Sorry {ctx.author.mention} your already registered!",
                 color=color,
             )
+            embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
             return
 
@@ -108,7 +111,41 @@ class Economy(commands.Cog):
             )
             embed1.add_field(name="Purse:", value=purse, inline=True)
             embed1.add_field(name="Bank:", value=f"{bank}/{maxbank}", inline=True)
+            embed1.add_field(
+                name="Total:", value=f"{(int(bank)+int(purse))}", inline=True
+            )
+            if bank + purse == 420 or purse == 420 or bank == 420:
+                embed1.set_footer(text=f"thats the weed number!11! {footer}")
+            elif bank + purse == 69 or purse == 69 or bank == 69:
+                embed1.set_footer(text=f"thats the hecking funny number!11! {footer}")
+            elif bank + purse == 666 or purse == 666 or bank == 666:
+                embed1.set_footer(text=f"spooky | {footer}")
+            else:
+                embed1.set_footer(text=footer)
             await ctx.send(embed=embed1)
+            break
+        else:
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            try:
+                await ctx.send("No Account Detected... Creating Account")
+                db = cluster["coins"]
+                collection = db["coins"]
+                post = {
+                    "_id": ctx.author.id,
+                    "bank": 0,
+                    "maxbank": 100,
+                    "purse": 0,
+                }
+                collection.insert_one(post)
+                embed1 = discord.Embed(
+                    title=":white_check_mark: Success!",
+                    description=f"{ctx.author.mention} your have been registered!",
+                    color=color,
+                )
+                embed1.set_footer(text=footer)
+                await ctx.send(embed=embed1)
+            except pymongo.errors.DuplicateKeyError:
+                return
 
     @commands.command(
         name="deposit",
@@ -133,14 +170,14 @@ class Economy(commands.Cog):
             balancecheck(ctx.author.id)
 
             try:
-                if amount.lower() == "all":
-                    if maxbank - bank >= purse:
-                        deposit = purse
-                    elif maxbank - bank < purse:
-                        deposit = maxbank
+                if maxbank == bank:
+                    await ctx.send(f"{ctx.author.mention} your bank is full!")
+                elif amount.lower() == "all":
+                    if maxbank - bank > 0:
+                        deposit = maxbank - bank
                     collection.update_one(
                         {"_id": ctx.author.id},
-                        {"$set": {"bank": deposit}},
+                        {"$set": {"bank": bank + deposit}},
                     )
                     collection.update_one(
                         {"_id": ctx.author.id},
@@ -170,7 +207,9 @@ class Economy(commands.Cog):
                 else:
                     deposit = maxbank - bank
                     if purse < deposit:
-                        await ctx.send("you don't have enough money lmao")
+                        await ctx.send(
+                            "<a:aquacry:763693175171973140> you don't have enough money lmao"
+                        )
                     else:
                         collection.update_one(
                             {"_id": ctx.author.id},
@@ -183,13 +222,29 @@ class Economy(commands.Cog):
                         await ctx.send(f"{ctx.author.mention} deposited ${deposit}")
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
-
-    @deposit.error
-    async def deposit_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
+            break
         else:
-            raise (error)
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            try:
+                await ctx.send("No Account Detected... Creating Account")
+                db = cluster["coins"]
+                collection = db["coins"]
+                post = {
+                    "_id": ctx.author.id,
+                    "bank": 0,
+                    "maxbank": 100,
+                    "purse": 0,
+                }
+                collection.insert_one(post)
+                embed1 = discord.Embed(
+                    title=":white_check_mark: Success!",
+                    description=f"{ctx.author.mention} your have been registered!",
+                    color=color,
+                )
+                embed1.set_footer(text=footer)
+                await ctx.send(embed=embed1)
+            except pymongo.errors.DuplicateKeyError:
+                return
 
     @commands.command(
         name="withdraw",
@@ -233,16 +288,34 @@ class Economy(commands.Cog):
                     )
                     await ctx.send(f"{ctx.author.mention} Withdrawn ${withdraw}.")
                 else:
-                    await ctx.send("you dont have the money lmao")
+                    await ctx.send(
+                        "<a:aquacry:763693175171973140> you dont have the money lmao"
+                    )
             except ValueError:
                 await ctx.send("input a number or just say ``all`` dummy")
-
-    @withdraw.error
-    async def withdraw_error(self, ctx, error):
-        if isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send("Please Input something after the command")
+            break
         else:
-            raise (error)
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            try:
+                await ctx.send("No Account Detected... Creating Account")
+                db = cluster["coins"]
+                collection = db["coins"]
+                post = {
+                    "_id": ctx.author.id,
+                    "bank": 0,
+                    "maxbank": 100,
+                    "purse": 0,
+                }
+                collection.insert_one(post)
+                embed1 = discord.Embed(
+                    title=":white_check_mark: Success!",
+                    description=f"{ctx.author.mention} your have been registered!",
+                    color=color,
+                )
+                embed1.set_footer(text=footer)
+                await ctx.send(embed=embed1)
+            except pymongo.errors.DuplicateKeyError:
+                return
 
     @commands.command(name="beg", description="Beg for money", aliases=["begger"])
     @commands.cooldown(1, 60, commands.BucketType.user)
@@ -252,22 +325,108 @@ class Economy(commands.Cog):
         collection = db["coins"]
         query = {"_id": ctx.author.id}
         user = collection.find(query)
-        people = ["Donald Trump", "Obama", "TacoBot", "Tacoz"]
+        people = [
+            "Donald Trump",
+            "Obama",
+            "TacoBot",
+            "Tacoz",
+            "<:shrek:763697330352029696> Shrek",
+            "your mom",
+            "Rick Astley",
+            "Doge",
+            "Sans",
+            "Steve",
+            "Creeper",
+            "T-series",
+            "Bob",
+            "Zero Two",
+            "Spooky Skeleton",
+            "Distracted Boyfriend",
+            "Keanu Reeves",
+            "Cardi B",
+            "Bottom Text",
+            "Sherlock Holmes",
+            "Shakespeare",
+            "Thomas the Tank Engine",
+            "HuggyDaBuggy",
+            "Bong Cat",
+            "Happy Tree Friends",
+            "Pusheen",
+            "Salad Fingers",
+            "Eren Yeager",
+            "Shaggy",
+            "<:AwOo:763689785218695209> Shaggy [ULTRA-INSTINCT]",
+            "Polandball",
+            "floss kid",
+        ]
+        prompts = [
+            "<:02smug:763689785364709376> you're too smelly go away",
+            "bruh no",
+            "...",
+            ":yucky: :vomitblegh: :disgusztfaze69420: :bruhwhy: ew no",
+            "go work or something",
+            "no <:1975_RukaBleh:763694703182348289>",
+            "in your dreams",
+            "<:SataniaThumbsUp:763689835986026506> i only give money to hookers",
+            "<:akkoShrug:763689780063240204> i already gave away everything to the last guy who asked",
+            ":knife: \\*stabs you* jk, unless? :flushed:",
+            "<:SataniaThumbsUp:763689835986026506> here's ZERO DOLLARS :DD",
+            "<a:aquacry:763693175171973140> i have no money lmao",
+            "POGGERS, YOU HIT THE JACKPOT, I PRESENT YOU.... ZERO DOLLARS",
+            "<:SataniaThumbsUp:763689835986026506> [click me to get your money](https://www.google.com/search?q=trololl+face+lmAo+69+sub2tacoztyty&tbm=isch)",
+        ]
 
         for result in user:
             purse = result["purse"]
 
             balancecheck(ctx.author.id)
 
-            income = random.randint(10, 250)
-
-            collection.update_one(
-                {"_id": ctx.author.id},
-                {"$set": {"purse": purse + income}},
-            )
-            await ctx.send(
-                f"{random.choice(people)} gave {ctx.author.mention} ${income}."
-            )
+            income = random.randint(1, 1000000001)
+            if income != 1000000000:
+                income = random.randint(1, 101)
+                if income > 60:
+                    income = random.randint(1, 250)
+                    await ctx.send(
+                        f"{random.choice(people)} gave {ctx.author.mention} ${income}."
+                    )
+                    collection.update_one(
+                        {"_id": ctx.author.id},
+                        {"$set": {"purse": purse + income}},
+                    )
+                else:
+                    await ctx.send(f"{random.choice(people)}: {random.choice(prompts)}")
+            else:
+                income = random.randint(1000, 100000000)
+                collection.update_one(
+                    {"_id": ctx.author.id},
+                    {"$set": {"purse": purse + income}},
+                )
+                await ctx.send(
+                    f"a rich {random.choice(people)} came and gave {ctx.author.mention} a jackpot worth ${income}."
+                )
+            break
+        else:
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            try:
+                await ctx.send("No Account Detected... Creating Account")
+                db = cluster["coins"]
+                collection = db["coins"]
+                post = {
+                    "_id": ctx.author.id,
+                    "bank": 0,
+                    "maxbank": 100,
+                    "purse": 0,
+                }
+                collection.insert_one(post)
+                embed1 = discord.Embed(
+                    title=":white_check_mark: Success!",
+                    description=f"{ctx.author.mention} your have been registered!",
+                    color=color,
+                )
+                embed1.set_footer(text=footer)
+                await ctx.send(embed=embed1)
+            except pymongo.errors.DuplicateKeyError:
+                return
 
 
 def setup(bot):

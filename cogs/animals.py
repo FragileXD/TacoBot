@@ -10,16 +10,20 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 
+
 reddit = praw.Reddit(
-    client_id="CFOX66IL6PXgRQ",
-    client_secret="sBlyjAFOUcrHKe1KyflDhg0CnsU",
-    user_agent="User Agent",
-    username="***REMOVED***",
-    password="6x*JdQ@5h3t9",
+    client_id=config.client_id,
+    client_secret=config.client_secret,
+    user_agent=config.user_agent,
+    username=config.username,
+    password=config.password,
 )
 
 

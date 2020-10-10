@@ -8,8 +8,11 @@ from random import choice
 from discord.ext import commands
 from discord.ext.commands import has_permissions, CheckFailure, Bot
 from datetime import timedelta
+from utils.data import getJSON
 
-footer = "『 TacoBot ✦ Tacoz 』"
+config = getJSON("config.json")
+
+footer = config.footembed
 start_time = time.monotonic()
 
 
@@ -20,45 +23,44 @@ class Info(commands.Cog):
     @commands.command(
         name="help",
         description="The help command",
-        aliases=["commands", "command", "hewwlp"],
+        aliases=["commands", "command", "hewwlp", "h"],
         usage="cog",
     )
     async def help_command(self, ctx, cog="all"):
         """ Replaces Default Command"""
+        color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+
+        emojiCategory = {
+            "Utility": ":tools:",
+            "Info": ":question:",
+            "Fun": ":smile:",
+            "Moderation": ":shield:",
+            "Minecraft": "<:minecrafticon0:762895015579222066>",
+            "Hypixel": "<:Hypixel:745240325064228884>",
+            "Memey": "<:Reddit:745241144207867997>",
+            "Animals": ":dog:",
+            "Economy": ":money_mouth:",
+        }
 
         if cog == "all":
-            help_embed = discord.Embed(
-                title="TacoBot Command Categories", color=3066993
-            )
-            help_embed.add_field(
-                name=":shield: Mod", value=f"`{ctx.prefix}help moderation`"
-            )
-            help_embed.add_field(name=":smile: Fun", value=f"`{ctx.prefix}help fun`")
-            help_embed.add_field(
-                name=":money_mouth: Economy",
-                value=f"`{ctx.prefix}help economy`",
-            )
-            help_embed.add_field(
-                name=":question: Info", value=f"`{ctx.prefix}help info`"
-            )
-            help_embed.add_field(
-                name=":tools: Utility", value=f"`{ctx.prefix}help utility`"
-            )
-            help_embed.add_field(
-                name="<:Reddit:745241144207867997> Memey",
-                value=f"`{ctx.prefix}help memey`",
-            )
-            help_embed.add_field(
-                name=":dog: Animals", value=f"`{ctx.prefix}help animals`"
-            )
-            help_embed.add_field(
-                name="<:4441_MCdiamondpickaxe:664097057463599115> Minecraft",
-                value=f"`{ctx.prefix}help minecraft`",
-            )
-            help_embed.add_field(
-                name="<:Hypixel:745240325064228884> Hypixel",
-                value=f"`{ctx.prefix}help hypixel`",
-            )
+            cogls = []
+            for file in os.listdir("cogs"):
+                if file.endswith(".py"):
+                    name = file[:-3].title()
+                    cogls.append(str(name))
+
+            help_embed = discord.Embed(title="TacoBot Command Categories", color=color)
+            for scog in cogls:
+                try:
+                    emoji = emojiCategory[scog]
+                    help_embed.add_field(
+                        name=f"{emoji} {scog}",
+                        value=f"```css\n{ctx.prefix}help {scog}```",
+                    )
+                except:
+                    help_embed.add_field(
+                        name=scog, value=f"```css\n{ctx.prefix}help {scog}```"
+                    )
 
             help_embed.set_footer(text="use '.' or '>' before each command | " + footer)
         else:
@@ -68,11 +70,12 @@ class Info(commands.Cog):
                 "Info": ":question:",
                 "Fun": ":smile:",
                 "Moderation": ":shield:",
-                "Minecraft": "<:minecrafticon0:749613029473255494>",
+                "Minecraft": "<:minecrafticon0:762895015579222066>",
                 "Hypixel": "<:Hypixel:745240325064228884>",
                 "Memey": "<:Reddit:745241144207867997>",
                 "Animals": ":dog:",
                 "Economy": ":money_mouth:",
+                "Error": ":no_entry_sign:",
             }
 
             cogs = [c for c in self.bot.cogs.keys()]
@@ -105,7 +108,9 @@ class Info(commands.Cog):
                 help_text = ""
 
                 for command in commands_list:
-                    help_text += f"`{command.name}` "
+                    help_text += (
+                        f"```css\n{command.name} [{' '.join(command.aliases)}]\n```"
+                    )
                 help_embed.description = help_text
 
             elif cogA in all_commandsName:
@@ -154,7 +159,7 @@ class Info(commands.Cog):
         print("{} issued .invite 😉".format(ctx.author))
         invite_embed.add_field(
             name=f"Invite!",
-            value=f"[Click to Invite Me!])https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)",
+            value=f"[Click to Invite Me!](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot)",
         )
         invite_embed.set_footer(text=footer)
         await ctx.send(embed=invite_embed)

@@ -12,11 +12,6 @@ from utils.data import getJSON
 
 config = getJSON("config.json")
 
-footer = "『 TacoBot ✦ Tacoz 』"
-start_time = time.monotonic()
-
-
-class Name(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 

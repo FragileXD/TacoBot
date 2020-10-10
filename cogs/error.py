@@ -1,5 +1,6 @@
 import discord
 import traceback
+import random
 from concurrent.futures._base import TimeoutError
 from discord.ext import commands
 from random import choice
@@ -11,18 +12,14 @@ class Errors(commands.Cog):
 
     async def send(self, ctx, msg):
         try:
-            await ctx.send(
-                embed=discord.Embed(
-                    color=await self.bot.cc(ctx.author.id), description=msg
-                )
-            )
+            color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+            await ctx.send(embed=discord.Embed(color=color, description=msg))
         except discord.errors.Forbidden:
             pass
         except Exception:
             try:
-                await ctx.send(
-                    embed=discord.Embed(color=await self.bot.cc(), description=msg)
-                )
+                color = int("{:06x}".format(random.randint(0, 0xFFFFFF)), 16)
+                await ctx.send(embed=discord.Embed(color=color, description=msg))
             except discord.errors.Forbidden:
                 pass
 
@@ -41,14 +38,12 @@ class Errors(commands.Cog):
 
         if isinstance(e, commands.MaxConcurrencyReached):
             await self.send(
-                ctx, "Hold on! You can't use multiple of that command at once!"
+                ctx,
+                "<a:Aqua_panic:763690124805537842> Hold on! You can't use multiple of that command at once!",
             )
             return
 
         if isinstance(e, commands.CommandOnCooldown):
-            if await self.bot.get_cog("Database").is_premium(ctx.author.id):
-                e.retry_after -= (2 / 5) * e.cooldown.per
-
             if round(e.retry_after, 2) <= 0:
                 await ctx.reinvoke()
 
@@ -56,6 +51,7 @@ class Errors(commands.Cog):
                 "Didn't your parents tell you that [patience is a virtue](http://www.patience-is-a-virtue.org/)? Calm down and wait another {0} seconds.",
                 "Hey, you need to wait another {0} seconds before doing that again.",
                 "Hrmmm, looks like you need to wait another {0} seconds before doing that again.",
+                ":yawning_face: YAWNNNN! You need to wait another {0} seconds before trying again"
                 "Don't you know [patience is a virtue](http://www.patience-is-a-virtue.org/)? Wait another {0} seconds.",
             ]
 
@@ -76,7 +72,8 @@ class Errors(commands.Cog):
 
         if isinstance(e, commands.MissingPermissions):
             await self.send(
-                ctx, "Nice try, but you don't have the permissions to do that."
+                ctx,
+                "<:02smug:763689785364709376> Nice try, but you don't have the permissions to do that.",
             )
             return
 
@@ -85,7 +82,8 @@ class Errors(commands.Cog):
                 e.errors
             ):  # yes I know this is jank but it works so shhhh
                 await self.send(
-                    ctx, "Nice try, but you don't have the permissions to do that."
+                    ctx,
+                    "<:AwOo:763689785218695209> Nice try, but you don't have the permissions to do that.",
                 )
                 return
 
@@ -96,15 +94,20 @@ class Errors(commands.Cog):
             return
 
         if "NoStatError" in str(e):
-            await self.send(ctx, "No stats available!")
+            await self.send(
+                ctx, "<a:Aqua_panic:763690124805537842> No stats available!"
+            )
             return
+        else:
+            print(e)
+            return e
 
         try:
             if isinstance(e, TimeoutError) or isinstance(e.original, TimeoutError):
                 self.bot.get_cog("Cache").failed += 1
                 await self.send(
                     ctx,
-                    "For some reason, the Hypixel API took too long to respond. Please try again later.",
+                    "a:Aqua_panic:763690124805537842>For some reason, the Hypixel API took too long to respond. Please try again later.",
                 )
         except Exception:
             pass
