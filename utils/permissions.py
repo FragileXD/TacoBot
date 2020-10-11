@@ -3,7 +3,7 @@ import discord
 from utils import default
 from discord.ext import commands
 
-owners = ["NTY2MTkzODI1ODc0MTgyMTY0.XLBbFw.o0yHAbU7R2yq5GnpdO7P7pzJyRY"]
+owners = ["389388825274613771"]
 
 
 def is_owner(ctx):
