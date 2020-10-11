@@ -30,6 +30,7 @@ statusesplay = [
     "video games instead of working",
     "breaking the mental stability of tacoz",
     "with {len(client.users)} users",
+    f"with {len(client.users)} users",
 ]
 
 statuseswatch = [
