@@ -48,6 +48,8 @@
 ## What is TacoBOT
 
 **TacoBot** is a multi-purpose discord bot created by Tacoz. This bot is mainly a test and isn't supposed to be a fully fledged bot. Expect consistent updates to the bot!
+
+
 AS OF 10/10/2020, THE OPEN-SOURCED VERSION OF TACOBOT WILL LOSE SUPPORT, IF YOU STILL WISH TO RECIEVE THE **FULL** FEATURES OF TACOBOT, [INVITE](https://discord.com/api/oauth2/authorize?client_id=566193825874182164&permissions=8&scope=bot) TACOBOT DO YOUR DISCORD SERVER
  
 
