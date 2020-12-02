@@ -84,6 +84,10 @@ AS OF 10/10/2020, THE OPEN-SOURCED VERSION OF TACOBOT WILL LOSE SUPPORT, IF YOU 
 - [AlexFlipnote](https://github.com/AlexFlipnote/discord_bot.py) - Learnt alot from this repo
 - [Dank Memer](https://dankmemer.lol/commands) - Inspiration for some of the commands
 
+
+## Stargazers
+[![Stargazers over time](https://starchart.cc/NotTacoz/TacoBot.svg)](https://starchart.cc/NotTacoz/TacoBot)
+
 ## Licence
 
 This repository is under the [General Public Licence 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). For a quick review of what's allowed or not, check [this](https://github.com/NotTacoz/TacoBotPrivate/blob/master/LICENSE), full licence can be found below.
